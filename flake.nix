@@ -20,7 +20,7 @@
       specialArgs = attrs;
      
       modules = [ 
-        (import ./hardware-configuration.nix {
+        (import /etc/nixos/hardware-configuration.nix {
           inherit (nixpkgs) lib;
           config = self.nixosConfigurations.erix.config;
           nixpkgs = nixpkgs.outPath;

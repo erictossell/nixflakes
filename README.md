@@ -1,5 +1,9 @@
 ## Eriim's Nixflakes
 
+### This repo has not been fully flaked yet and these are *machine specific flakes*. You WILL run into errors if you attempt to flake from this repo and you are not using my machines.
+
+### Fully flaked modules are a WIP.
+
 Nixflakes are an "experimental" feature in NixOS that allow defining very specific package or patching requirements. They can also be used to manage a set of configurations and allow shared Nix modules between them. This makes it very easy to setup a desktop, laptop, and server using common core packages but still maintaining their own hardware and utility specific configurations.
 
 #### Considerations with Flakes
