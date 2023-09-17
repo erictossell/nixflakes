@@ -2,10 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, nixpkgs, home-manager,  ... }:
+{ config, lib, pkgs, home-manager,  ... }:
 
 let
-  pkgs = nixpkgs.legacyPackages.x86_64-linux;
   corePackages = import ./packages/core.nix;
   devPackages = import ./packages/dev.nix;
   # hyprlandPackages = import ./packages/hyprland.nix;
@@ -16,7 +15,7 @@ in
       ./custom-hardware.nix
       ./font.nix
       ./hardware-configuration.nix
-      ./home.nix
+      #./home.nix
 
       # Optional Modules
       ./modules/fish.nix
