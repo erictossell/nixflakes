@@ -77,7 +77,7 @@ in
       ".config/swaylock".source = ./dotfiles/swaylock;
       ".config/waybar".source = ./dotfiles/waybar;
       ".config/wofi".source = ./dotfiles/wofi;
-      ".gitconfig".source = ./.ssh/.gitconfig;
+      ".gitconfig".source = ./ssh/.gitconfig;
      #".wezterm.lua".source = ./dotfiles/.wezterm.lua;
     };
 
