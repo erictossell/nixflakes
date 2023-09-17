@@ -21,11 +21,15 @@
           config = self.nixosConfigurations.erix.config;
           nixpkgs = nixpkgs.outPath;
         })
+        (import ./custom-hardware.nix { 
+          inherit pkgs;
+          config = self.nixosConfigurations.erix.config;
+        })
         (import ./configuration.nix { inherit pkgs; }) 
         (import ./home.nix { inherit pkgs home-manager; })
         (import ./font.nix { inherit pkgs;})
-        (import ./modules/fish.nix { inherit pkgs;})
-       # (import ./modules/gnome-home.nix { inherit pkgs home-manager;})
+                (import ./modules/fish.nix { inherit pkgs;})
+        (import ./modules/gnome.nix { inherit pkgs;})
         (import ./modules/starship.nix { inherit pkgs;})
         (import ./modules/virt.nix { inherit pkgs;})
       ];

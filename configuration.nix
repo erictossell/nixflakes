@@ -8,7 +8,7 @@ let
   corePackages = import ./packages/core.nix { inherit  pkgs; };
   devPackages = import ./packages/dev.nix { inherit pkgs; };
   # hyprlandPackages = import ./packages/hyprland.nix;
-  #hardware-configuration = import ./hardware-configuration.nix { inherit pkgs;};
+ 
   #customHardware = import ./custom-hardware.nix { inherit pkgs; };
   #font = import ./font.nix { inherit pkgs; };
   #fish = import ./modules/fish.nix { inherit pkgs; };
