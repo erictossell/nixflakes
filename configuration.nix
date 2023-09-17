@@ -6,48 +6,27 @@
 
 let
   corePackages = import ./packages/core.nix { inherit  pkgs; };
+  desktopPackages = import ./packages/desktop.nix { inherit pkgs; };
   devPackages = import ./packages/dev.nix { inherit pkgs; };
-  # hyprlandPackages = import ./packages/hyprland.nix;
- 
-  #customHardware = import ./custom-hardware.nix { inherit pkgs; };
-  #font = import ./font.nix { inherit pkgs; };
-  #fish = import ./modules/fish.nix { inherit pkgs; };
-  #starship = import ./modules/starship.nix { inherit pkgs; };
-  #gnome = import ./modules/gnome.nix { inherit pkgs; };
-  #virt = import ./modules/virt.nix { inherit pkgs; };
 in
 {
-  #imports =
-  #  [
-  #    ./custom-hardware.nix
-  #    ./font.nix
-   #   ./hardware-configuration.nix
-      #./home.nix
 
-      # Optional Modules
-    #  ./modules/fish.nix
-    #  ./modules/gnome.nix
-   #  ./modules/hyprland.nix
-   #  ./modules/plasma.nix
-    #  ./modules/starship.nix
-    #  ./modules/virt.nix
-  #];
+  # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+          
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
-  # Enable networking 
+  # Enable networking - available with nmcli and nmtui
   networking = {
     hostName = "erix";
     networkmanager.enable = true;
-
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
   # Enable the OpenSSH daemon.
@@ -81,76 +60,12 @@ in
     isNormalUser = true;
     description = "Eriim";
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
-    # For installing Windows Applications
-    packages = with pkgs; [ 
-	(wineWowPackages.full.override {
-	   wineRelease = "staging";
-	   mingwSupport = true;
-	})
-	winetricks
-    ];
-  };
+    packages = with pkgs; [ ];
+  }; 
   
-  security = {
-
-    #Application prompts
-    polkit.enable = true;
-    
-    pam = {
-      # Auth with FIDO Keys
-      u2f.enable = true;
-      
-      services = {
-
-        # Sign in with YubiKey
-  	login.u2fAuth = true;
-	# Sudo with Yubikey
-        sudo.u2fAuth = true;
-
-        # Try to unlock keyring on login
-	# Used for GPG keys and Account tokens
-	login.enableGnomeKeyring = true;
-     
-      };
-    };
-  };  
-      
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
- 
   programs = {
-    _1password.enable = true;
-    _1password-gui = {
-	enable = true;
-	polkitPolicyOwners = [ "eriim" ];
-    };
-
-    chromium = {
-	enable = true;
-	extraOpts = {
-	  "BrowserSignin" = 1;
-	  "SyncDisabled" = false;
-	  "PasswordManagerEnabled" = false;
-	  "SpellcheckEnabled" = true;
-	  "SpellcheckLanguage" = [ "en-US" ];
-	  };
-	extensions = [
-	  "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-	  "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
-	];
-      };    
-
-    dconf.enable = true;
-    fish.enable = true;
     htop.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-
-    mtr.enable = true;
-
-    steam.enable = true;
+    mtr.enable = true;  
 
     tmux = {
       enable = true;
@@ -162,13 +77,7 @@ in
     };
   };   
 
-  environment.systemPackages = with pkgs; [
-    cpufetch
-    easyeffects
-    nordic
-    obs-studio
-    virt-manager   
-  ] ++ corePackages ++ devPackages;
+  environment.systemPackages = with pkgs; [] desktopPackages ++ corePackages ++ devPackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?
