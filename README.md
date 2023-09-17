@@ -13,21 +13,21 @@ Two experimental features must be enabled to use nix flakes on your system: nix-
 
 The can be enabled by adding the following line to your configuration.nix:
 
-'''nix
+```nix
 
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-'''
+```
 
 ### Using my Nixflakes Repo
 
 To install a system configuration from my Nixflakes you can run the following command:
 
-'''bash
+```bash
 
 sudo nixos-rebuild switch --flake 'github:erictossell/nixflake#erix'
 
-'''
+```
 
 ### My Nixdots contain set ups for:
 
@@ -44,7 +44,7 @@ I use gnome-shell on my desktop NixOS machine. To read my Gnome specific configu
 I use a highly customized Gnome desktop environment with Popshell for window management. This involves modifying a number of default mutter settings and it managed on a per user basis. This means we have to involve home-manager to accomplish this.
 
 #### Gnome Screenshot
-![](./gnome-desktop.png)
+![example_screenshot](./gnome-desktop.png)
 
 To see my nixdots without requiring flakes you can check out my configuration here for my gnome desktop:
 
