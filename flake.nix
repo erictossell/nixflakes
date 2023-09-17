@@ -36,7 +36,7 @@
         (import ./home.nix { inherit pkgs home-manager; })
 
         # Requires packages
-        (import ./configuration.nix { inherit pkgs; })
+        (import ./core.nix { inherit pkgs; })
         (import ./font.nix { inherit pkgs;})
 
         (import ./modules/desktop.nix { inherit pkgs;})
