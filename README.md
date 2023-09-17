@@ -49,13 +49,10 @@ sudo nixos-rebuild switch --flake 'github:erictossell/nixflake#erix'
     - DE: Customized Gnome w PopShell for a WM experience
     - Editor: Neovim
     - IDE: VSCode
+    - Terminal: Foot
     - Browser(s): Firefox, Chromium, Nyxt
-
-
-
-
-
-
+    - 1Password for SSH Authentication
+    - Yubico Key 2FA
 
 I use gnome-shell on my desktop NixOS machine. To read my Gnome specific configurations you can navigate to:
 
