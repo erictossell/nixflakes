@@ -1,6 +1,15 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  users.users.eriim = {
+  packages = with pkgs; [ 
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+	mingwSupport = true;
+       })
+    winetricks
+    ]; 
 
+  };
   # Desktop specific programs
   programs = {
 

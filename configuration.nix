@@ -60,13 +60,6 @@ in
     isNormalUser = true;
     description = "Eriim";
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
-    packages = with pkgs; [ 
-      (wineWowPackages.full.override {
-        wineRelease = "staging";
-	mingwSupport = true;
-       })
-    winetricks
-    ]; 
     }; 
   
   programs = {
