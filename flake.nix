@@ -12,10 +12,12 @@
     nixosConfigurations.erix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [
-      ({ pkgs, ... }: import ./configuration.nix)
-      ({ pkgs, ... }: import ./home.nix)
-      ];    
+     
+      modules = [ 
+      (import ./configuration.nix { inherit pkgs; }) 
+      (import ./home.nix { inherit pkgs; }) 
+      ];
+
     };
   };
 }
