@@ -1,4 +1,4 @@
-## Nixflakes
+## Eriim's Nixflakes
 
 Nixflakes are an "experimental" feature in NixOS that allow defining very specific package or patching requirements. They can also be used to manage a set of configurations and allow shared Nix modules between them. This makes it very easy to setup a desktop, laptop, and server using common core packages but still maintaining their own hardware and utility specific configurations.
 
@@ -69,8 +69,8 @@ To see my nixdots without requiring flakes you can check out my configuration he
 
 [Customize Gnome with Home-Manager](https://github.com/erictossell/nixdots/blob/main/desktop/modules/gnome-home.nix)
 
-#### Disabling Hyprland
-Enabling Gnome does require disabling Hyprland.
+###### Disabling Hyprland
+Enabling Gnome does require disabling Hyprland due to conflicts with differing XDG portals. Hopefully this will be fixed in the near future.
 
 Thanks to the nature of NixOS this is trivial and the two modes can be interchanged reliably. 
 

@@ -27,17 +27,22 @@
         })
 
         # Requires Config
-        (import ./custom-hardware.nix { 
+        # Enable Nvidia support
+        (import ./modules/nvidia.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix.config;
         })
-
+        # Sound and bluetooth
+        (import ./modules/hardware.nix { 
+          inherit pkgs;
+          config = self.nixosConfigurations.erix.config;
+        })
         # Home manager files
-        (import ./home.nix { inherit pkgs home-manager; })
+        (import ./modules/home.nix { inherit pkgs home-manager; })
 
         # Requires packages
-        (import ./core.nix { inherit pkgs; })
-        (import ./font.nix { inherit pkgs;})
+        (import ./modules/core.nix { inherit pkgs; })
+        (import ./modules/font.nix { inherit pkgs;})
 
         (import ./modules/desktop.nix { inherit pkgs;})
         (import ./modules/fish.nix { inherit pkgs;})
