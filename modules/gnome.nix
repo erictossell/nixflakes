@@ -4,7 +4,7 @@
 
   services.xserver.desktopManager.gnome.enable=true;
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  programs.enable.dconf = true;
+  programs.dconf.enable = true;
   services.gnome = {
     evolution-data-server.enable = true;
     gnome-online-accounts.enable = false;

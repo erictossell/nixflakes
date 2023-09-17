@@ -60,8 +60,14 @@ in
     isNormalUser = true;
     description = "Eriim";
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
-    packages = with pkgs; [ ];
-  }; 
+    packages = with pkgs; [ 
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+	mingwSupport = true;
+       })
+    winetricks
+    ]; 
+    }; 
   
   programs = {
     htop.enable = true;
@@ -77,7 +83,7 @@ in
     };
   };   
 
-  environment.systemPackages = with pkgs; [] desktopPackages ++ corePackages ++ devPackages;
+  environment.systemPackages = with pkgs; desktopPackages ++ corePackages ++ devPackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?

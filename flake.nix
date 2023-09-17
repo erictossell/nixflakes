@@ -11,19 +11,6 @@
   outputs = { self, nixpkgs, home-manager, ... }@attrs: 
   let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-    importWithPkgs = path: (import path { inherit pkgs; });
-
-    importWithConfig = path: (import path {
-      inherit pkgs;
-      config = self.nixosConfigurations.erix.config;
-    });
-
-    importWithHardwareConfig = (import ./hardware-configuration.nix {
-      inherit (nixpkgs) lib;
-      config = self.nixosConfigurations.erix.config;
-      nixpkgs = nixpkgs.outPath;
-    });
   in 
   { 
    
@@ -31,23 +18,33 @@
     nixosConfigurations.erix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [
-        # Hardware configurations
-        importWithHardwareConfig
-        importWithConfig ./custom-hardware.nix
+     
+      modules = [ 
+        (import ./hardware-configuration.nix {
+          inherit (nixpkgs) lib;
+          config = self.nixosConfigurations.erix.config;
+          nixpkgs = nixpkgs.outPath;
+        })
 
-        # Basic configurations
-        importWithPkgs ./configuration.nix
-        importWithPkgs ./home.nix
-        importWithPkgs ./font.nix
+        # Requires Config
+        (import ./custom-hardware.nix { 
+          inherit pkgs;
+          config = self.nixosConfigurations.erix.config;
+        })
 
-        # Module configurations
-        importWithPkgs ./modules/desktop.nix
-        importWithPkgs ./modules/fish.nix
-        importWithPkgs ./modules/gnome.nix
-        importWithPkgs ./modules/security.nix
-        importWithPkgs ./modules/starship.nix
-        importWithPkgs ./modules/virt.nix
+        # Home manager files
+        (import ./home.nix { inherit pkgs home-manager; })
+
+        # Requires packages
+        (import ./configuration.nix { inherit pkgs; })
+        (import ./font.nix { inherit pkgs;})
+
+        (import ./modules/desktop.nix { inherit pkgs;})
+        (import ./modules/fish.nix { inherit pkgs;})
+        (import ./modules/gnome.nix { inherit pkgs;})
+        (import ./modules/security.nix { inherit pkgs;})
+        (import ./modules/starship.nix { inherit pkgs;})
+        (import ./modules/virt.nix { inherit pkgs;})
       ];
     };
   };
