@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz";
   gnomeHome = import ./modules/gnome-home.nix { inherit pkgs; };
 in
 {
   imports = [
-    (import "${home-manager}/nixos")
+    home-manager.nixosModules.default
   ];
 
   home-manager.users.eriim = { pkgs, ... }: {
