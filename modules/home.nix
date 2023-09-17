@@ -1,6 +1,6 @@
 { pkgs, home-manager, ... }:
 let
-  gnomeHome = import ./modules/gnome-home.nix { inherit pkgs home-manager; };
+  gnomeHome = import ./gnome-home.nix { inherit pkgs home-manager; };
 in
 {
   imports = [

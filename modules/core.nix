@@ -5,9 +5,9 @@
 { pkgs, ... }:
 
 let
-  corePackages = import ./packages/core.nix { inherit  pkgs; };
-  desktopPackages = import ./packages/desktop.nix { inherit pkgs; };
-  devPackages = import ./packages/dev.nix { inherit pkgs; };
+  corePackages = import ../packages/core.nix { inherit  pkgs; };
+  desktopPackages = import ../packages/desktop.nix { inherit pkgs; };
+  devPackages = import ../packages/dev.nix { inherit pkgs; };
 in
 {
 
