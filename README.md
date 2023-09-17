@@ -1,4 +1,4 @@
-# Nixflakes
+## Nixflakes
 
 Nixflakes are an "experimental" feature in NixOS that allow defining very specific package or patching requirements. They can also be used to manage a set of configurations and allow shared Nix modules between them. This makes it very easy to setup a desktop, laptop, and server using common core packages but still maintaining their own hardware and utility specific configurations.
 
@@ -7,7 +7,21 @@ Nixflakes are an "experimental" feature in NixOS that allow defining very specif
 
 - Flakes are generally a "different" way of doing things. You must pass the package and system configuration down into the flakes unless they are being overriden which is a separate mechanic.
 
-## Using Flakes
+
+### Flakes for Git integration Nix and Configuration Testing
+By using flakes you can effectively build and test your configurations in a normal repository in your file structure as opposed to editing /etc/nixos. This is highly preferable and reduces the volume of sudo commands required to test your configuration. 
+
+Testing a flake is a simple as: 
+```nix
+nix flake check
+```
+
+Updating a flake:
+```nix
+nix flake update
+```
+
+#### Using Flakes
 
 Two experimental features must be enabled to use nix flakes on your system: nix-commands & flakes
 
@@ -36,7 +50,13 @@ sudo nixos-rebuild switch --flake 'github:erictossell/nixflake#erix'
     - Editor: Neovim
     - IDE: VSCode
     - Browser(s): Firefox, Chromium, Nyxt
-    - 
+
+
+
+
+
+
+
 I use gnome-shell on my desktop NixOS machine. To read my Gnome specific configurations you can navigate to:
 
 ## Gnome
