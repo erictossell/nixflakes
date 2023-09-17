@@ -2,29 +2,36 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  corePackages = import ./packages/core.nix;
-  devPackages = import ./packages/dev.nix;
+  corePackages = import ./packages/core.nix { inherit  pkgs; };
+  devPackages = import ./packages/dev.nix { inherit pkgs; };
   # hyprlandPackages = import ./packages/hyprland.nix;
+  #hardware-configuration = import ./hardware-configuration.nix { inherit pkgs;};
+  #customHardware = import ./custom-hardware.nix { inherit pkgs; };
+  #font = import ./font.nix { inherit pkgs; };
+  #fish = import ./modules/fish.nix { inherit pkgs; };
+  #starship = import ./modules/starship.nix { inherit pkgs; };
+  #gnome = import ./modules/gnome.nix { inherit pkgs; };
+  #virt = import ./modules/virt.nix { inherit pkgs; };
 in
 {
-  imports =
-    [
-      ./custom-hardware.nix
-      ./font.nix
-      ./hardware-configuration.nix
+  #imports =
+  #  [
+  #    ./custom-hardware.nix
+  #    ./font.nix
+   #   ./hardware-configuration.nix
       #./home.nix
 
       # Optional Modules
-      ./modules/fish.nix
-      ./modules/gnome.nix
+    #  ./modules/fish.nix
+    #  ./modules/gnome.nix
    #  ./modules/hyprland.nix
    #  ./modules/plasma.nix
-      ./modules/starship.nix
-      ./modules/virt.nix
-   ];
+    #  ./modules/starship.nix
+    #  ./modules/virt.nix
+  #];
   
   # Bootloader.
   boot.loader = {
@@ -134,6 +141,7 @@ in
       };    
 
     dconf.enable = true;
+    fish.enable = true;
     htop.enable = true;
     gnupg.agent = {
       enable = true;

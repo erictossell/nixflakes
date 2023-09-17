@@ -1,5 +1,5 @@
-with import <nixpkgs> {};
-[
+{pkgs, ...}:
+with pkgs; [
   btop 
   cava
   curl

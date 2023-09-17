@@ -1,7 +1,5 @@
-# dev.nix
-with import <nixpkgs> {};
-
-[
+{ pkgs, ... }:
+with pkgs; [
   cargo
   gcc
   cmake
