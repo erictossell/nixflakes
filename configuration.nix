@@ -5,6 +5,7 @@
 { config, lib, nixpkgs, home-manager,  ... }:
 
 let
+  pkgs = nixpkgs.legacyPackages.x86_64-linux;
   corePackages = import ./packages/core.nix;
   devPackages = import ./packages/dev.nix;
   # hyprlandPackages = import ./packages/hyprland.nix;
