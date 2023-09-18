@@ -1,4 +1,4 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ... }:
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
 	user-themes

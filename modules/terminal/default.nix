@@ -1,5 +1,26 @@
 { pkgs, ... }:
-{
+let
+  packages = with pkgs; [
+    alacritty
+    btop
+    cava
+    foot
+    nitch
+    vim
+  ];
+
+in
+{  
+   programs.vim.enable = true;
+   programs.wezterm.enable = true;
+   programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+	set fish_greeting # Disable greeting
+	clear
+	nitch
+	'';
+   };
    programs.starship = {
 	enable = true;
 	settings = {
@@ -49,4 +70,22 @@
 		};		
 	};
   };
+
+   fonts = {
+  	packages = [ 
+	(pkgs.callPackage (import ./fonts/MplusCodeNerdFont) {})
+	pkgs.noto-fonts
+	pkgs.noto-fonts-cjk
+	pkgs.noto-fonts-emoji
+	pkgs.roboto
+	];
+#	enableDefaultPackages = false;
+	fontconfig.defaultFonts = {
+		serif = ["Roboto Serif" "Noto Color Emoji"];
+		sansSerif = [ "Roboto" "Noto Color Emoji" ];
+		emoji = [ "Noto Color Emoji" ];
+	};
+   };
+
+
 }
