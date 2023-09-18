@@ -1,6 +1,8 @@
 { pkgs, home-manager, ... }:
 let
-  gnomeHome = import ./gnome-home.nix { inherit pkgs home-manager; };
+  #gnomeHome = import ./gnome-home.nix { inherit pkgs home-manager; };
+  gnome = import ./gnome.nix { inherit pkgs home-manager; };
+
 in
 {
   imports = [
@@ -21,9 +23,10 @@ in
       discord
       nyxt
       obsidian
-      vscode
-     ] ++ gnomeHome.home.packages;
+      
+     ] ++ gnome.home.packages;
     
+
     programs.bash.enable = true;
 
     programs.firefox = {
@@ -67,16 +70,18 @@ in
 	obs-pipewire-audio-capture
       ];
     };
-    
+
+    programs.vscode.enable = true;
+
     home.file = {
       ".config/btop".source = ./dotfiles/btop;
       ".config/cava".source = ./dotfiles/cava;
       ".config/foot".source = ./dotfiles/foot;
-      ".config/hypr".source = ./dotfiles/hypr;
+      #".config/hypr".source = ./dotfiles/hypr;
       ".config/nvim".source = ./dotfiles/nvim;
-      ".config/swaylock".source = ./dotfiles/swaylock;
-      ".config/waybar".source = ./dotfiles/waybar;
-      ".config/wofi".source = ./dotfiles/wofi;
+      #".config/swaylock".source = ./dotfiles/swaylock;
+      #".config/waybar".source = ./dotfiles/waybar;
+      #".config/wofi".source = ./dotfiles/wofi;
       #".gitconfig".source = ./ssh/.gitconfig;
      #".wezterm.lua".source = ./dotfiles/.wezterm.lua;
     };
@@ -86,7 +91,7 @@ in
 	autoconnect = [ "qemu:///system" ];
 	uris = [ "qemu:///system" ];
       };
-    } // gnomeHome.dconf.settings;
+    } // gnome.dconf.settings;
   
   };
 }
