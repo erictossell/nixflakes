@@ -150,8 +150,14 @@ in
   };
 
   # ---- System Configuration ----
-  services.xserver.desktopManager.gnome.enable=true;
+  services.xserver = {
+    desktopManager.gnome.enable=true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
 
+  };
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.dconf.enable = true;

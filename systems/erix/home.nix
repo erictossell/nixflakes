@@ -59,11 +59,7 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-  };
+   };
 
   # Desktop specific programs
   programs = {
