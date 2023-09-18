@@ -1,7 +1,4 @@
 { pkgs, home-manager, ... }:
-let
-  gnome = import ../../modules/gnome.nix { inherit pkgs home-manager; };
-in
 {
   imports = [
     home-manager.nixosModules.default

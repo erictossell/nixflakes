@@ -44,7 +44,6 @@ in
     services.gpg-agent.enableFishIntegration = true;
   };
 
-
   # ---- System Configurations ----
 
   boot.kernelParams = [ "i8042.direct" "i8042.dumbkbd" "i915.force_probe=9a49"];
