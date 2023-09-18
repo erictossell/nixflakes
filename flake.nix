@@ -63,17 +63,17 @@
         #Desktop Hardware Configuration
         (import ./systems/eriix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.eriix.config;
           nixpkgs = nixpkgs.outPath;
         })
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.eriix.config;
         })
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.eriix.config;
         })
         # Laptop Specific files
         (import ./systems/eriix/home.nix { inherit pkgs home-manager; })
