@@ -1,7 +1,6 @@
 {pkgs, ...}:
 with pkgs; [
-  cpufetch
-  easyeffects
+  cpufetch 
   nordic
   obs-studio
   virt-manager 

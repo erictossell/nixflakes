@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, home-manager,  ... }:
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
 	user-themes
@@ -17,41 +17,11 @@ let
   ];
 in
 {
-  #Gnome Requires Home-manager config as well
+  # ---- Home Configuration ----
+  home-manager.users.eriim = { pkgs, ...}: {
+    home.packages = gnomeExtensionsList;
 
-  services.xserver.desktopManager.gnome.enable=true;
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-  programs.dconf.enable = true;
-
-  services.gnome = {
-    evolution-data-server.enable = true;
-    gnome-online-accounts.enable = false;
-    gnome-keyring.enable = true;
-  };
-
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    ]) ++ (with pkgs.gnome; [
-    gnome-music
-    gedit
-    epiphany
-    geary
-    evince
-    gnome-characters
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-  ]);
-
-  home.packages = gnomeExtensionsList;
-
-  dconf.settings = {
-
+    dconf.settings = {
       "org/gnome/shell".enabled-extensions = (map (extension: extension.extensionUuid) gnomeExtensionsList)
       ++
       [
@@ -180,4 +150,37 @@ in
 
    };
 
+  };
+
+  # ---- System Configuration ----
+  services.xserver.desktopManager.gnome.enable=true;
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
+  programs.dconf.enable = true;
+
+  services.gnome = {
+    evolution-data-server.enable = true;
+    gnome-online-accounts.enable = false;
+    gnome-keyring.enable = true;
+  };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    ]) ++ (with pkgs.gnome; [
+    gnome-music
+    gedit
+    epiphany
+    geary
+    evince
+    gnome-characters
+    totem
+    tali
+    iagno
+    hitori
+    atomix
+  ]);
+
+  
 }

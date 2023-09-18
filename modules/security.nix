@@ -1,6 +1,5 @@
 { pkgs, ... }:
 { 
-
   security = {
     #Application prompts
     polkit.enable = true;
@@ -32,7 +31,6 @@
   gnupg.agent = {
       enable = true;
     };
-    
   };
 }
 

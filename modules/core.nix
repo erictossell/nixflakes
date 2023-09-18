@@ -2,15 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, home-manager, ... }:
 
 let
   corePackages = import ../packages/core.nix { inherit  pkgs; };
   desktopPackages = import ../packages/desktop.nix { inherit pkgs; };
   devPackages = import ../packages/dev.nix { inherit pkgs; };
 in
-{
+{ 
+  home-manager.users.eriim = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      discord
+      nyxt
+      obsidian
+     ];
 
+     programs = {
+      firefox.enable = true;
+      vscode.enable = true;
+
+     };
+    
+  };
+
+  
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
           
@@ -22,18 +37,14 @@ in
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-
-  # Enable networking - available with nmcli and nmtui
-  networking = {
-    hostName = "erix";
-    networkmanager.enable = true;
-  };
-
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
   # Meshnet
   services.tailscale.enable = true;
-
+  # Enable networking - available with nmcli and nmtui
+  networking = {
+    networkmanager.enable = true;
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -45,11 +56,6 @@ in
   i18n.defaultLocale = "en_CA.UTF-8";
     
   services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
     layout = "us";
     xkbVariant = "";
   };
@@ -62,20 +68,6 @@ in
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
     }; 
   
-  programs = {
-    htop.enable = true;
-    mtr.enable = true;  
-
-    tmux = {
-      enable = true;
-      clock24 = true;
-      newSession = true;
-      plugins = with pkgs.tmuxPlugins; [ 
-        nord
-      ];
-    };
-  };   
-
   environment.systemPackages = with pkgs; desktopPackages ++ corePackages ++ devPackages;
   
   # Dont change.

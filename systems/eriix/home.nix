@@ -1,6 +1,6 @@
 { pkgs, home-manager, ... }:
 let
-  gnome = import ../../modules/gnome.nix { inherit pkgs home-manager; };
+  #gnome = import ../../modules/gnome.nix { inherit pkgs home-manager; };
 in
 {
   imports = [
@@ -38,27 +38,10 @@ in
 
 
   # ---- System Configurations ----
-  users.users.eriim = {
-  packages = with pkgs; [ 
-      (wineWowPackages.full.override {
-        wineRelease = "staging";
-	mingwSupport = true;
-       })
-    winetricks
-    ];
-  };
-
+  
   # Enable networking - available with nmcli and nmtui
   networking = {
-    hostName = "erix";
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
+    hostName = "eriix";
   };
 
   # Desktop specific programs
@@ -77,7 +60,5 @@ in
 	  "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
 	];
     };
-
-    steam.enable = true;  
   };
 }

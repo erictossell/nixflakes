@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, home-manager, ... }:
 let
   packages = with pkgs; [
     alacritty
@@ -8,9 +8,9 @@ let
     nitch
     vim
   ];
-
 in
-{
+{  
+   # ---- Home Configuration ----
    home-manager.users.eriim = { pkgs, ... }: {
      home.file = {
        ".config/btop".source = ./dotfiles/btop;
@@ -19,7 +19,7 @@ in
        ".config/nvim".source = ./dotfiles/nvim;
      };
      programs.bash.enable = true;
-     programs.git.enable = true
+     programs.git.enable = true;
      programs.neovim = {
 	enable = true;
 	defaultEditor = true;
@@ -41,11 +41,10 @@ in
     };
     programs.vim.enable = true;
     programs.wezterm.enable = true;
+  };
 
-
-
-   };
-   programs.fish = {
+  # ---- System Configuration ----
+  programs.fish = {
     enable = true;
     interactiveShellInit = ''
 	set fish_greeting # Disable greeting
@@ -102,9 +101,22 @@ in
 		};		
 	};
   };
+  programs = {
+    htop.enable = true;
+    mtr.enable = true;  
 
-   fonts = {
-  	packages = [ 
+    tmux = {
+      enable = true;
+      clock24 = true;
+      newSession = true;
+      plugins = with pkgs.tmuxPlugins; [ 
+        nord
+      ];
+    };
+  };
+
+  fonts = {
+    packages = [ 
 	(pkgs.callPackage (import ./fonts/MplusCodeNerdFont) {})
 	pkgs.noto-fonts
 	pkgs.noto-fonts-cjk
