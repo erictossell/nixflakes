@@ -4,9 +4,7 @@
   # ---- Home config ----
   home-manager.users.eriim = { pkgs, ... }: {
 
-    home.file = {
-      ".config/hypr".source = ./dotfiles/hypr;
-    };
+    
 
   };
 
