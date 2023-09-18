@@ -131,5 +131,6 @@ in
 	};
    };
 
+   environment.systemPackages = packages;
 
 }
