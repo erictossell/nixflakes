@@ -16,6 +16,12 @@ in
       MOZ_ENABLE_WAYLAND = 1;
     };
 
+    home.file = {
+      ".config/swaylock".source = ../../modules/dotfiles/swaylock;
+      ".config/waybar".source = ../../modules/dotfiles/waybar;
+      ".config/wofi".source = ../../modules/dotfiles/wofi;    
+    };
+
     programs = {
       chromium = {
     	enable = true;
