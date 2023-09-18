@@ -37,15 +37,6 @@ The can be enabled by adding the following line to your configuration.nix:
 
 ```
 
-### Using my Nixflakes Repo
-
-To install a system configuration from my Nixflakes you can run the following command:
-
-```bash
-
-sudo nixos-rebuild switch --flake 'github:erictossell/nixflake#erix'
-
-```
 
 ### My Nixdots contain set ups for:
 
