@@ -1,6 +1,5 @@
-# hyprland-packages.nix
-with import <nixpkgs> {};
-[ 
+{pkgs, ...}:
+with pkgs; [
   dolphin
   grim
   hyprpaper

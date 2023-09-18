@@ -1,6 +1,7 @@
 { pkgs, home-manager, ... }:
 let
   #gnome = import ../../modules/gnome.nix { inherit pkgs home-manager; };
+  hyprlandPackages = import ../../packages/hyprland.nix { inherit pkgs; };
 in
 {
   imports = [
@@ -44,7 +45,11 @@ in
 
 
   # ---- System Configurations ----
-  
+
+  boot.kernelParams = [ "i8042.direct" "i8042.dumbkbd" "i915.force_probe=9a49"];
+  # use wayland where possile
+  environment.variables.NIXOS_OZONE_WL = "1";
+  environment.systemPackages = hyprlandPackages;
   # Enable networking - available with nmcli and nmtui
   networking = {
     hostName = "eriix";
