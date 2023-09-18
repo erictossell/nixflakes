@@ -84,6 +84,7 @@
           inherit pkgs;
           config = self.nixosConfigurations.erix-hyprland.config;
         })
+        (import ./modules/hyprland-nvidia.nix { inherit pkgs hyprland; })
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
         # Core Packages

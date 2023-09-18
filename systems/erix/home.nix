@@ -8,11 +8,18 @@
     /* The home.stateVersion option does not have a default and must be set */
     home.stateVersion = "23.05";
     nixpkgs.config.allowUnfree = true;
+    
+    home.file = {
+      ".config/hypr".source = ./dotfiles/hypr;
+      ".config/swaylock".source = ../eriix/dotfiles/swaylock;
+      ".config/waybar".source = ../eriix/dotfiles/waybar;
+      ".config/wofi".source = ../eriix/dotfiles/wofi;    
+    };
 
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
     };
-
+    
     programs = {
       chromium = {
     	enable = true;

@@ -8,6 +8,7 @@ let
   corePackages = import ../packages/core.nix { inherit  pkgs; };
   desktopPackages = import ../packages/desktop.nix { inherit pkgs; };
   devPackages = import ../packages/dev.nix { inherit pkgs; };
+  hyprPackages = import ../packages/hyprland.nix { inherit pkgs; };
 in
 { 
   home-manager.users.eriim = { pkgs, ... }: {
@@ -25,7 +26,6 @@ in
     
   };
 
-  
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
           
@@ -68,7 +68,7 @@ in
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
     }; 
   
-  environment.systemPackages = with pkgs; desktopPackages ++ corePackages ++ devPackages;
+  environment.systemPackages = with pkgs; hyprPackages ++desktopPackages ++ corePackages ++ devPackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?

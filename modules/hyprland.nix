@@ -1,12 +1,5 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ... }:
 {
-
-  # ---- Home config ----
-  home-manager.users.eriim = { pkgs, ... }: {
-
-    
-
-  };
 
   # ---- System Configuration ----
   programs = { 

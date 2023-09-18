@@ -18,7 +18,7 @@ in
     };
 
     home.file = {
-     ".config/hypr".source = ./dotfiles/hypr;
+      ".config/hypr".source = ./dotfiles/hypr;
       ".config/swaylock".source = ./dotfiles/swaylock;
       ".config/waybar".source = ./dotfiles/waybar;
       ".config/wofi".source = ./dotfiles/wofi;    
