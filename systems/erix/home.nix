@@ -27,7 +27,7 @@ in
      ] ++ gnome.home.packages;
     
 
-    programs.bash.enable = true;
+   
 
     programs.firefox = {
 	enable = true;
@@ -36,31 +36,6 @@ in
     programs.chromium = {
     	enable = true;
     };
-
-    programs.git = {
-	enable = true;
-    };
-
-    programs.neovim = {
-	enable = true;
-	defaultEditor = true;
-	withPython3 = true;
-	plugins = with pkgs.vimPlugins; [
-		nvim-tree-lua
-		nvim-treesitter-parsers.bash
-		nvim-treesitter-parsers.dockerfile
-		nvim-treesitter-parsers.go 
-		nvim-treesitter-parsers.gomod 
-		nvim-treesitter-parsers.gosum
-		nvim-treesitter-parsers.html
-		nvim-treesitter-parsers.javascript
-		nvim-treesitter-parsers.json
-		nvim-treesitter-parsers.python
-		nvim-treesitter-parsers.regex
-		nvim-treesitter-parsers.sql		
-	];
-    };
-
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
@@ -74,11 +49,7 @@ in
     programs.vscode.enable = true;
 
     home.file = {
-      ".config/btop".source = ./dotfiles/btop;
-      ".config/cava".source = ./dotfiles/cava;
-      ".config/foot".source = ./dotfiles/foot;
       #".config/hypr".source = ./dotfiles/hypr;
-      ".config/nvim".source = ./dotfiles/nvim;
       #".config/swaylock".source = ./dotfiles/swaylock;
       #".config/waybar".source = ./dotfiles/waybar;
       #".config/wofi".source = ./dotfiles/wofi;
@@ -92,6 +63,5 @@ in
 	uris = [ "qemu:///system" ];
       };
     } // gnome.dconf.settings;
-  
   };
 }

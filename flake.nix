@@ -33,23 +33,23 @@
           config = self.nixosConfigurations.erix.config;
         })
         # Sound and bluetooth
-        (import ./systems/bluetooth.nix { 
+        (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix.config;
         })
-        (import ./systems/sound.nix { 
+        (import ./systems/generic/sound.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix.config;
         })
 
         # Home manager files
-        (import ./modules/home.nix { inherit pkgs home-manager; })
-
+        (import ./systems/erix/home.nix { inherit pkgs home-manager; })
+        (import ./systems/erix/desktop.nix { inherit pkgs;})
         # Requires packages
         (import ./modules/core.nix { inherit pkgs; })     
-        (import ./modules/desktop.nix { inherit pkgs;})
+       
         (import ./modules/security.nix { inherit pkgs;})
-        (import ./modules/terminal { inherit pkgs;})
+        (import ./modules/terminal { inherit pkgs home-manager;})
         (import ./modules/virt.nix { inherit pkgs;})
       ];
     };
