@@ -24,22 +24,22 @@
         #Desktop Hardware Configuration
         (import ./systems/erix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-gnome.config;
           nixpkgs = nixpkgs.outPath;
         })
         # Enable Nvidia support
         (import ./modules/nvidia.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-gnome.config;
         })
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-gnome.config;
         })
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-gnome.config;
         })
 
         # Desktop Specific files
@@ -67,22 +67,22 @@
         #Desktop Hardware Configuration
         (import ./systems/erix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-hyprland.config;
           nixpkgs = nixpkgs.outPath;
         })
         # Enable Nvidia support
         (import ./modules/nvidia.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-hyprland.config;
         })
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-hyprland.config;
         })
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.erix.config;
+          config = self.nixosConfigurations.erix-hyprland.config;
         })
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
