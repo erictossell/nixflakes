@@ -53,8 +53,7 @@ in
         monospace-font-name = "RobotoMono Nerd Font 10";
         font-antialiasing = "rgba";
       };
-  
-
+ 
       # Keybindings
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -147,9 +146,7 @@ in
       "org/gnome/shell/extensions/user-theme" = {
         name = "nordic";
       };     
-
    };
-
   };
 
   # ---- System Configuration ----
@@ -161,7 +158,6 @@ in
 
   services.gnome = {
     evolution-data-server.enable = true;
-    gnome-online-accounts.enable = false;
     gnome-keyring.enable = true;
   };
 
