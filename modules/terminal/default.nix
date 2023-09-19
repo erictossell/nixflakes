@@ -42,7 +42,6 @@ in
     programs.vim.enable = true;
     programs.wezterm.enable = true;
   };
-
   # ---- System Configuration ----
   programs.fish = {
     enable = true;
