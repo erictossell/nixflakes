@@ -21,9 +21,7 @@ in
      programs = {
       firefox.enable = true;
       vscode.enable = true;
-
      };
-    
   };
 
   # Enable Flakes and nix-commands

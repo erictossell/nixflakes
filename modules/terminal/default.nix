@@ -18,8 +18,10 @@ in
        ".config/foot".source = ./dotfiles/foot;     
        ".config/nvim".source = ./dotfiles/nvim;
      };
+
      programs.bash.enable = true;
      programs.git.enable = true;
+
      programs.neovim = {
 	enable = true;
 	defaultEditor = true;
@@ -34,14 +36,17 @@ in
 		nvim-treesitter-parsers.html
 		nvim-treesitter-parsers.javascript
 		nvim-treesitter-parsers.json
+		nvim-treesitter-parsers.nix
 		nvim-treesitter-parsers.python
 		nvim-treesitter-parsers.regex
 		nvim-treesitter-parsers.sql		
 	];
     };
+
     programs.vim.enable = true;
     programs.wezterm.enable = true;
   };
+
   # ---- System Configuration ----
   programs.fish = {
     enable = true;
@@ -51,6 +56,7 @@ in
 	nitch
 	'';
    };
+
    programs.starship = {
 	enable = true;
 	settings = {
@@ -100,29 +106,30 @@ in
 		};		
 	};
   };
+
   programs = {
     htop.enable = true;
     mtr.enable = true;  
-
     tmux = {
       enable = true;
       clock24 = true;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [ 
-        nord
+	nord
+	yank
       ];
     };
   };
 
   fonts = {
-    packages = [ 
-	(pkgs.callPackage (import ./fonts/MplusCodeNerdFont) {})
-	pkgs.noto-fonts
-	pkgs.noto-fonts-cjk
-	pkgs.noto-fonts-emoji
-	pkgs.roboto
+    packages = with pkgs; [ 
+	(callPackage (import ./fonts/MplusCodeNerdFont) {})
+	nerdfonts
+	noto-fonts
+	noto-fonts-cjk
+	noto-fonts-emoji
+	roboto
 	];
-#	enableDefaultPackages = false;
 	fontconfig.defaultFonts = {
 		serif = ["Roboto Serif" "Noto Color Emoji"];
 		sansSerif = [ "Roboto" "Noto Color Emoji" ];
@@ -131,5 +138,4 @@ in
    };
 
    environment.systemPackages = packages;
-
 }

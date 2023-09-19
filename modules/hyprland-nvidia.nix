@@ -5,7 +5,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    hyprland.packages.${system}.hyprland
+    hyprland.packages.${system}.hyprland-nvidia
   ];
   
   programs.dconf.enable = true;
