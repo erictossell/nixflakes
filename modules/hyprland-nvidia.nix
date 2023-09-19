@@ -17,12 +17,14 @@ in
   };
   # Unlock with Swaylock
   security = {
-    pam = {      
-      swaylock = {
-        fprintAuth = false;
-        text = ''
-          auth include login
-        '';
+    pam = {
+      services = {
+        swaylock = {
+          fprintAuth = false;
+          text = ''
+            auth include login
+          '';
+        };
       };
     };
   };
