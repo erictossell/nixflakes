@@ -14,7 +14,6 @@
       ".config/swaylock".source = ./dotfiles/swaylock;
       ".config/waybar".source = ./dotfiles/waybar;
       ".config/wofi".source = ./dotfiles/wofi;
-      "Pictures/backgrounds".source = ../generic/backgrounds;
     };
 
     home.sessionVariables = {
