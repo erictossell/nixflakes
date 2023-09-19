@@ -14,7 +14,8 @@ jobs:
       uses: cachix/install-nix-action@v14
 
     - name: Install nix-linter
-      run: nix-env -iA nix-linter
+      run: NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/REFERENCE.tar.gz nix-env -iA nix-linter
+
 
     - name: Run nix-linter
       run: nix-linter ./*.nix  # Adjust the path as per your repository structure
