@@ -13,6 +13,4 @@
     evolution-data-server.enable = true;
     gnome-keyring.enable = true;
   };
-  services.xserver.displayManager.sddm.enable = true;
-
 }
