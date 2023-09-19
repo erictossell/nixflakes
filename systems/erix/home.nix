@@ -11,9 +11,10 @@
     
     home.file = {
       ".config/hypr".source = ./dotfiles/hypr;
-      ".config/swaylock".source = ../eriix/dotfiles/swaylock;
-      ".config/waybar".source = ../eriix/dotfiles/waybar;
-      ".config/wofi".source = ../eriix/dotfiles/wofi;    
+      ".config/swaylock".source = .dotfiles/swaylock;
+      ".config/waybar".source = ./dotfiles/waybar;
+      ".config/wofi".source = ./dotfiles/wofi;
+      "Pictures/backgrounds".source = ../generic/backgrounds;
     };
 
     home.sessionVariables = {

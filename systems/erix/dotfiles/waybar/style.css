@@ -1,0 +1,76 @@
+* {
+  font-family: 'M+1Code Nerd Font';
+  font-size: 16px;
+  min-height: 30px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces {
+  border: 1px solid #00ba69;
+  border-radius: 10px;
+  background-color: black;
+  color: #00ba69;
+  margin-top: 15px;
+	margin-right: 15px;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#custom-nix {
+  border: 1px solid #00ba69;
+  border-radius: 10px;
+  background-color: black;
+  color: #0a60ab;
+  margin-top: 15px;
+	margin-right: 15px;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#custom-nix {
+  font-size: 20px;
+	margin-left: 15px;
+  color: #0a60ab;
+}
+
+#workspaces button {
+  background: black;
+  color: #00ba69;
+}
+
+#cpu, #memory, #temperature, #disk, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power{
+  border: 1px solid #00ba69;
+  border-radius: 10px;
+  background-color: black;
+  color: #00ba69;
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 15px;
+}
+
+#backlight, #bluetooth {
+  color: #00ba69;
+  border: 1px solid #00ba69;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-right: 5px;
+  margin-right: 0
+}
+
+#pulseaudio, #network {
+  border: 1px solid #00ba69;
+  color: #00ba69;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 5px;
+}
+
+#clock {
+  border: 1px solid #00ba69;
+  margin-right: 0;
+  color: #00ba69;
+}

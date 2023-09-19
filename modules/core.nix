@@ -66,7 +66,7 @@ in
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
     }; 
   
-  environment.systemPackages = with pkgs; hyprPackages ++desktopPackages ++ corePackages ++ devPackages;
+  environment.systemPackages = desktopPackages ++ corePackages ++ devPackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?
