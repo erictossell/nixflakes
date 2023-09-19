@@ -10,13 +10,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Install Nix
-      uses: cachix/install-nix-action@v14
-
-    - name: Install nix-linter
-      run: NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/REFERENCE.tar.gz nix-env -iA nix-linter
-
-
-    - name: Run nix-linter
-      run: nix-linter ./*.nix  # Adjust the path as per your repository structure
-
+    - name: Setup Cachix
+      uses: cachix/cachix-action@v10
+      with:
+        name: nix-linter
+       
+    - name: Clone nix-linter and run checks
+      run: |
+        git clone https://github.com/Synthetica9/nix-linter
+        cd nix-linter
+        linter_path=$(nix-build -A nix-linter)
+        $linter_path/bin/nix-linter ./*.nix  # Adjust path as per your requirement
