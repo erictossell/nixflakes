@@ -10,12 +10,11 @@
       "on-click": "/run/current-system/sw/bin/wofi --show drun"
   },
     "hyprland/workspaces": {
-      "format": "{name}",
-      "format": "{icon}",
+      "format": "{name} {icon}",
       "tooltip": false,
       "all-outputs": true,
       "format-icons": {
-        "active": "",
+        "active": "",
         "default": ""
       },
       "on-scroll-up": "hyprctl dispatch workspace e-1",
