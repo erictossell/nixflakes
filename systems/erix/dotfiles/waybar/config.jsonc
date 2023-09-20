@@ -1,15 +1,15 @@
 {
   "layer": "top",
   "height": 45,
-    "modules-left": ["custom/nix", "wlr/workspaces", "cpu", "memory", "temperature", "disk"],
-    "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery"],
+    "modules-left": ["custom/nix", "cpu", "memory", "disk"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [ "pulseaudio", "bluetooth", "network", "clock"],
     "custom/nix": {
       "format": " ",
       "tooltip": false,
       "on-click": "/run/current-system/sw/bin/wofi --show drun"
   },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
       "format": "{name}",
       "format": "{icon}",
       "tooltip": false,
@@ -18,20 +18,20 @@
         "active": "",
         "default": ""
       },
-      "on-scroll-up": "hyprctl dispatch workspace e-1",
-      "on-scroll-down": "hyprctl dispatch workspace e+1",
+     // "on-scroll-up": "hyprctl dispatch workspace e-1",
+     // "on-scroll-down": "hyprctl dispatch workspace e+1",
       "on-click": "activate"
     },
     "cpu": {
         "format": "󰻠 {usage}%",
         "tooltip": true,
-        "on-click": "wezterm sh -c 'btop'",
+        "on-click": "foot sh -c 'btop'",
         "interval": 2
     },
     "memory": {
         "format": " {}%",
         "tooltip": true,
-        "on-click": "wezterm sh -c 'btop'",
+        "on-click": "foot sh -c 'btop'",
         "interval": 2
     },
     "temperature": {
@@ -76,13 +76,13 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%", // {format_source}
         "format-bluetooth": "{icon} {volume}%", // {format_source}
-        "format-bluetooth-muted": "", // {format_source}
+        "format-bluetooth-muted": "󰗿", // {format_source}
         "format-muted": "", // {format_source}
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": "󰋋",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": " ",
@@ -103,10 +103,10 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "↕{bandwidthTotalBytes}",
+        "format": "󰱓 {bandwidthTotalBytes}",
         "format-disconnected": "{icon} No Internet",
-        "format-linked": " {ifname} (No IP)",
-        "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+        "format-linked": "󰅛 {ifname} (No IP)",
+        "format-alt": "󰛶 {bandwidthUpBytes} | 󰛴 {bandwidthDownBytes}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
