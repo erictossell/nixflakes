@@ -52,12 +52,7 @@ Non Flake alternative:
 
 I use a highly customized Gnome desktop environment with Popshell for window management. This involves modifying a number of default mutter settings and it managed on a per user basis. This means we have to involve home-manager to accomplish this.
 
-
-To see my nixdots without requiring flakes you can check out my configuration here for my gnome desktop:
-
-[Enable Gnome](https://github.com/erictossell/nixdots/blob/main/desktop/modules/gnome.nix)
-
-[Customize Gnome with Home-Manager](https://github.com/erictossell/nixdots/blob/main/desktop/modules/gnome-home.nix)
+My gnome modules do not require flaking but I do not actively test them regularily.
 
 ###### Disabling Hyprland
 Enabling Gnome does require disabling Hyprland due to conflicts with differing XDG portals. Hopefully this will be fixed in the near future.
