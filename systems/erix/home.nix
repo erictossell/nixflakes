@@ -15,10 +15,10 @@
       ".config/waybar".source = ./dotfiles/waybar;
       ".config/wofi".source = ./dotfiles/wofi;
     };
-
+  };
   # ---- System Configurations ----
   networking = {
     hostName = "erix";
   };
-  };
+
 }

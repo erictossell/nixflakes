@@ -44,11 +44,12 @@ in
     };
 
     programs.vim.enable = true;
-    programs.wezterm.enable = true;
+    #programs.wezterm.enable = true;
+    services.gpg-agent.enableFishIntegration = true;
   };
 
   # ---- System Configuration ----
-  services.gpg-agent.enableFishIntegration = true;
+ 
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

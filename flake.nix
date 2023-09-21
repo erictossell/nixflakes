@@ -46,7 +46,7 @@
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
         (import ./modules/gnome.nix { inherit pkgs home-manager; })
         # Chromium Firefox Nyxt
-        (import ./modules/browsers.nix { inherit pkgs;})
+        (import ./modules/browsers.nix { inherit pkgs home-manager;})
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
         # Security Features
@@ -92,7 +92,7 @@
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
         
         # Chromium Firefox Nyxt
-        (import ./modules/browsers.nix { inherit pkgs;})
+        (import ./modules/browsers.nix { inherit pkgs home-manager;})
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
         # Security Features
