@@ -49,13 +49,11 @@ window#waybar {
 }
 
 #cpu {
-  color: #0071C5;
- 
+  color: #FFD700;
 }
 
 #memory {
   color: #008000;
-
 }
 
 #disk {
@@ -64,17 +62,21 @@ window#waybar {
 }
 
 #backlight, #bluetooth {
-  color: #2f0370;
+  color: #0056A3;
   padding-right: 5px;
   margin-right: 0
 }
 
-#pulseaudio, #network {
+#network {
   color: #10a140;
   padding-left: 5px;
 }
 
+#pulseaudio {
+  color: #ba23d9;
+  padding-left: 5px;
+}
+
 #clock {
-  margin-right: 0;
   color: #00ba69;
 }

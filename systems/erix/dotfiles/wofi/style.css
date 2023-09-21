@@ -10,7 +10,7 @@ window {
 window {
     margin: 0px;
     border: 3px solid #006400; /* Dark green */
-    background-color: transparent;
+    background-color: rgba(21, 48,138,0.7);
     border-radius: 16px;
 }
 

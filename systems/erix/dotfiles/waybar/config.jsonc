@@ -94,9 +94,9 @@
         "on-click": "pavucontrol"
     }, 
     "bluetooth": {
-      "format": "<span color='#2da14c'></span> {status}",
+      "format": "<span color='#0056A3'></span> {status}",
       "format-disabled": "", // an empty format will hide the module
-      "format-connected": "<span color='#2da14c'></span> {num_connections}",
+      "format-connected": "<span color='#0056A3'></span> {num_connections}",
       "tooltip-format": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"      
     },
@@ -106,7 +106,7 @@
         "format-disconnected": "{icon} No Internet",
         "format-linked": "󰅛 {ifname} (No IP)",
         "format-alt": "󰛶 {bandwidthUpBytes} | 󰛴 {bandwidthDownBytes}",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr} Gateway: {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "{icon} Disconnected",
