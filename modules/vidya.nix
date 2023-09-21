@@ -11,6 +11,9 @@
     winetricks
     ];
   };
+
+  # This can optionally be installed via flatpack. 
+  # YMMV - not many supported games
   programs = {
     steam.enable = true;  
   };

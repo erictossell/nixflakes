@@ -19,7 +19,7 @@ Non Flake alternative:
 
 ## Screenshots 
 ![Hyprland](screen-hyprland.png)
-
+![Hyprland1](screen-hyprland1.png)
 ### My Nixdots contain configurations for:
 
 - Desktop (erix-gnome)
