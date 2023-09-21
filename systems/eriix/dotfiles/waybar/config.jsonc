@@ -1,21 +1,20 @@
 {
   "layer": "top",
   "height": 45,
-    "modules-left": ["custom/nix", "wlr/workspaces", "cpu", "memory", "temperature", "disk"],
-    "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery"],
+    "modules-left": ["custom/nix", "cpu", "memory", "disk"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [ "pulseaudio", "bluetooth", "network", "clock"],
     "custom/nix": {
       "format": " ",
       "tooltip": false,
       "on-click": "/run/current-system/sw/bin/wofi --show drun"
   },
-    "wlr/workspaces": {
-      "format": "{name}",
-      "format": "{icon}",
+    "hyprland/workspaces": {
+      "format": "{name} {icon}",
       "tooltip": false,
       "all-outputs": true,
       "format-icons": {
-        "active": "",
+        "active": "",
         "default": ""
       },
       "on-scroll-up": "hyprctl dispatch workspace e-1",
@@ -25,13 +24,13 @@
     "cpu": {
         "format": "󰻠 {usage}%",
         "tooltip": true,
-        "on-click": "wezterm sh -c 'btop'",
+        "on-click": "foot sh -c 'btop'",
         "interval": 2
     },
     "memory": {
         "format": " {}%",
         "tooltip": true,
-        "on-click": "wezterm sh -c 'btop'",
+        "on-click": "foot sh -c 'btop'",
         "interval": 2
     },
     "temperature": {
@@ -76,13 +75,13 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%", // {format_source}
         "format-bluetooth": "{icon} {volume}%", // {format_source}
-        "format-bluetooth-muted": "", // {format_source}
+        "format-bluetooth-muted": "󰗿", // {format_source}
         "format-muted": "", // {format_source}
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": "󰋋",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": " ",
@@ -95,19 +94,19 @@
         "on-click": "pavucontrol"
     }, 
     "bluetooth": {
-      "format": "<span color='#2da14c'></span> {status}",
+      "format": "<span color='#0056A3'></span> {status}",
       "format-disabled": "", // an empty format will hide the module
-      "format-connected": "<span color='#2da14c'></span> {num_connections}",
+      "format-connected": "<span color='#0056A3'></span> {num_connections}",
       "tooltip-format": "{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"      
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "↕{bandwidthTotalBytes}",
+        "format": "󰱓 {bandwidthTotalBytes}",
         "format-disconnected": "{icon} No Internet",
-        "format-linked": " {ifname} (No IP)",
-        "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+        "format-linked": "󰅛 {ifname} (No IP)",
+        "format-alt": "󰛶 {bandwidthUpBytes} | 󰛴 {bandwidthDownBytes}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr} Gateway: {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "{icon} Disconnected",

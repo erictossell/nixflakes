@@ -9,21 +9,24 @@ window {
 
 window {
     margin: 0px;
-    border: 2px solid #006400; /* Dark green */
-    background-color: #006400;
+    border: 3px solid #006400; /* Dark green */
+    background-color: rgba(21, 48,138,0.7);
     border-radius: 16px;
 }
 
+
 #input {
+    position: relative;
     padding: 4px;
     margin: 20px;
     padding-left: 20px;
-    border: none;
+    border: 3px solid #006400;
     color: #fff;
     font-weight: bold;
-    background: linear-gradient(90deg, #006400 0%, #90EE90 100%); /* Dark green to light green */
-   	outline: none;
+    background-color: transparent; /* Remove the background gradient */
+    outline: none;
     border-radius: 16px;
+    z-index: 1;
 }
 
 #input image {
@@ -89,10 +92,12 @@ window {
 }
 
 #entry:selected {
+    position: relative;
     outline: none;
     margin: 0px;
-    border: none;
+    border: 3px solid green;
     border-radius: 16px;
-    background: linear-gradient(90deg, #006400 0%, #90EE90 100%); /* Dark green to light green */
+    background-color: transparent; /* Remove the background gradient */
+    z-index: 1;
 }
 

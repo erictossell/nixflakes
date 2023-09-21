@@ -21,22 +21,28 @@
       specialArgs = attrs;
      
       modules = [
+        # Desktop Environment
+        (import ./modules/gnome.nix { inherit pkgs home-manager; })
+
         #Desktop Hardware Configuration
         (import ./systems/erix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
           config = self.nixosConfigurations.erix-gnome.config;
           nixpkgs = nixpkgs.outPath;
         })
+
         # Enable Nvidia support
         (import ./modules/nvidia.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-gnome.config;
         })
+
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-gnome.config;
         })
+
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-gnome.config;
@@ -44,7 +50,6 @@
 
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
-        (import ./modules/gnome.nix { inherit pkgs home-manager; })
         # Chromium Firefox Nyxt
         (import ./modules/browsers.nix { inherit pkgs home-manager;})
         # Core Packages
@@ -66,31 +71,37 @@
       specialArgs = attrs;
      
       modules = [
+
+        # Hyprland WM
         hyprland.nixosModules.default
+        (import ./modules/hyprland-nvidia.nix { inherit pkgs hyprland; })
+
         #Desktop Hardware Configuration
         (import ./systems/erix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
           config = self.nixosConfigurations.erix-hyprland.config;
           nixpkgs = nixpkgs.outPath;
         })
+
         # Enable Nvidia support
         (import ./modules/nvidia.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-hyprland.config;
         })
+
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-hyprland.config;
         })
+
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.erix-hyprland.config;
         })
-        (import ./modules/hyprland-nvidia.nix { inherit pkgs hyprland; })
+        
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
-        
         # Chromium Firefox Nyxt
         (import ./modules/browsers.nix { inherit pkgs home-manager;})
         # Core Packages
@@ -114,26 +125,34 @@
       specialArgs = attrs;
      
       modules = [ 
+        # Hyprland WM
+        hyprland.nixosModules.default
+        (import ./modules/hyprland.nix { inherit pkgs hyprland; })
+        
         #Desktop Hardware Configuration
         (import ./systems/eriix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
           config = self.nixosConfigurations.eriix.config;
           nixpkgs = nixpkgs.outPath;
         })
+
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.eriix.config;
         })
+
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
           config = self.nixosConfigurations.eriix.config;
         })
+
         # Laptop Specific files
         (import ./systems/eriix/home.nix { inherit pkgs home-manager; })
+        #Browsers - Chromem Nyxt, Firefox
+        (import ./modules/browsers.nix { inherit pkgs home-manager; })
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
-        (import ./modules/hyprland.nix { inherit pkgs home-manager; }) 
         # Security Features
         (import ./modules/security.nix { inherit pkgs;})
         # Terminal Customizations
