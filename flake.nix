@@ -54,6 +54,8 @@
         (import ./modules/browsers.nix { inherit pkgs home-manager;})
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
+        # OBS-Studio
+        (import ./modules/obs.nix { inherit pkgs home-manager;})
         # Security Features
         (import ./modules/security.nix { inherit pkgs;})
         # Terminal Customizations
@@ -129,7 +131,7 @@
         hyprland.nixosModules.default
         (import ./modules/hyprland.nix { inherit pkgs hyprland; })
         
-        #Desktop Hardware Configuration
+        #Laptop Hardware Configuration
         (import ./systems/eriix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
           config = self.nixosConfigurations.eriix.config;
@@ -157,8 +159,6 @@
         (import ./modules/security.nix { inherit pkgs;})
         # Terminal Customizations
         (import ./modules/terminal { inherit pkgs home-manager;})
-        # Virtualisation
-        (import ./modules/virt.nix { inherit pkgs home-manager;})
       ];
     };
   };
