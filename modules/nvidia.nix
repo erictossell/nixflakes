@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   # Environment variables
-  
+  # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----
   # Force wayland when possible
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

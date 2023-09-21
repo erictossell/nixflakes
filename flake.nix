@@ -45,13 +45,16 @@
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
         (import ./modules/gnome.nix { inherit pkgs home-manager; })
-
+        # Chromium Firefox Nyxt
+        (import ./modules/browsers.nix { inherit pkgs;})
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
         # Security Features
         (import ./modules/security.nix { inherit pkgs;})
         # Terminal Customizations
         (import ./modules/terminal { inherit pkgs home-manager;})
+        # Video game things
+        (import ./modules/vidya.nix { inherit pkgs;})
         # Virtualisation
         (import ./modules/virt.nix { inherit pkgs home-manager;})
       ];
@@ -87,12 +90,19 @@
         (import ./modules/hyprland-nvidia.nix { inherit pkgs hyprland; })
         # Desktop Specific files
         (import ./systems/erix/home.nix { inherit pkgs home-manager; })
+        
+        # Chromium Firefox Nyxt
+        (import ./modules/browsers.nix { inherit pkgs;})
         # Core Packages
         (import ./modules/core.nix { inherit pkgs home-manager; })     
         # Security Features
         (import ./modules/security.nix { inherit pkgs;})
+        # OBS-Studio
+        (import ./modules/obs.nix { inherit pkgs home-manager;})
         # Terminal Customizations
         (import ./modules/terminal { inherit pkgs home-manager;})
+        # Video game things
+        (import ./modules/vidya.nix { inherit pkgs;})
         # Virtualisation
         (import ./modules/virt.nix { inherit pkgs home-manager;})
       ];

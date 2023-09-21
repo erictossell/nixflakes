@@ -1,0 +1,17 @@
+{ pkgs, ... }:
+{
+  
+  # Required to run Windows applications ie World of Warcraft
+  users.users.eriim = {
+  packages = with pkgs; [ 
+      (wineWowPackages.full.override {
+        wineRelease = "staging";
+	mingwSupport = true;
+       })
+    winetricks
+    ];
+  };
+  programs = {
+    steam.enable = true;  
+  };
+}

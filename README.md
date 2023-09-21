@@ -52,7 +52,6 @@ Non Flake alternative:
 
 I use a highly customized Gnome desktop environment with Popshell for window management. This involves modifying a number of default mutter settings and it managed on a per user basis. This means we have to involve home-manager to accomplish this.
 
-#### Gnome Screenshot
 
 To see my nixdots without requiring flakes you can check out my configuration here for my gnome desktop:
 
@@ -66,5 +65,3 @@ Enabling Gnome does require disabling Hyprland due to conflicts with differing X
 Thanks to the nature of NixOS this is trivial and the two modes can be interchanged reliably. 
 
 Doing this often will have an impact on your SSD lifetime.
-
-

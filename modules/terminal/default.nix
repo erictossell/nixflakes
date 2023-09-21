@@ -1,7 +1,7 @@
 { pkgs, home-manager, ... }:
 let
   packages = with pkgs; [
-    alacritty
+    alacritty # backup terminal
     btop
     cava
     foot
@@ -48,6 +48,7 @@ in
   };
 
   # ---- System Configuration ----
+  services.gpg-agent.enableFishIntegration = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

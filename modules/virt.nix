@@ -1,5 +1,21 @@
 { pkgs, home-manager, ... }:
 {
+  # Docker can also be run rootless
+  virtualisation.docker = {
+    enable = true;
+  };
+  
+  # Enable virtual machines with qemu
+  virtualisation.libvirtd.enable = true;
+  
+  # For advanced features
+  services.qemuGuest.enable = true;
+  
+  # User permissions 
+  users.users.eriim.extraGroups = [ "libvirtd" "docker" ];
+
+  # Also recomended to install virt-manager in your packages if you want a GUI
+  environment.systemPackages = with pkgs; [ virt-manager ];
   home-manager.users.eriim = { pkgs, ... }: {
    dconf.settings = {
      "org/virt-manager/virt-manager/connections" = {
@@ -8,17 +24,4 @@
       };
     };
   };
-
-  virtualisation.docker = {
-    enable = true;
-  };
-  
-  # Requires dconf.settings in Home-manager
-  # Also recomended to install virt-manager in home-manager
-  virtualisation.libvirtd.enable = true;
-
-  services.qemuGuest.enable = true;
-  
-  users.users.eriim.extraGroups = [ "libvirtd" "docker" ];
-
 }
