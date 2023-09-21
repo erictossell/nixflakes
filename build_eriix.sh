@@ -1,13 +1,11 @@
 declare -A commands
-commands=( ["1"]="sudo nixos-rebuild switch --flake '.#erix-hyprland' -p \"hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#erix-gnome' -p \"gnome\"")
+commands=( ["1"]="sudo nixos-rebuild switch --flake '.#eriix-hyprland' -p \"hyprland\""  )
 
 while true; do 
 	echo "Select a build option:"
-	echo "1) erix-hyprland (Command:${commands[1]})"
-	echo "2) erix-gnome (Command: ${commands[2]})"
-	echo "3) Exit"
-
-	read -p "Enter choice [ 1 -3 ] " choice
+	echo "1) eriix-hyprland (Command:${commands[1]})"
+	echo "4) Exit"
+	read -p "Enter choice [ 1 ] " choice
 
   case $choice in
     1|2|3)

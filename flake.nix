@@ -122,7 +122,7 @@
     };
 
     # Defining my laptop set up - requires x86_64 Architecture
-    nixosConfigurations.eriix = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.eriix-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
      
@@ -133,19 +133,19 @@
         #Laptop Hardware Configuration
         (import ./systems/eriix/hardware-configuration.nix {
           inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.eriix.config;
+          config = self.nixosConfigurations.eriix-hyprland.config;
           nixpkgs = nixpkgs.outPath;
         })
 
         # Sound and bluetooth
         (import ./systems/generic/bluetooth.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.eriix.config;
+          config = self.nixosConfigurations.eriix-hyprland.config;
         })
 
         (import ./systems/generic/sound.nix { 
           inherit pkgs;
-          config = self.nixosConfigurations.eriix.config;
+          config = self.nixosConfigurations.eriix-hyprland.config;
         })
 
         # Laptop Specific files
