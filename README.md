@@ -23,8 +23,8 @@ Non Flake alternative:
 ## Screenshots 
 ![Hyprland](screen-hyprland.png)
 ![Hyprland1](screen-hyprland1.png)
-![Hyprland1](screen-hyprland2.png)
-![Hyprland1](screen-hyprland3.png
+![Hyprland2](screen-hyprland2.png)
+![Hyprland3](screen-hyprland3.png
 )
 ### My Nixdots contain configurations for:
 
@@ -35,8 +35,8 @@ Non Flake alternative:
 
 ##### Security : 
 
-  # Security modules require additional set up beyond what is included in this repo.
-  # Refer to the NixOS wiki for further documentation
+  Security modules require additional set up beyond what is included in this repo.
+  Refer to the NixOS wiki for further documentation
   - 1Password for SSH Authentication
   - Yubico Key 2FA
 
