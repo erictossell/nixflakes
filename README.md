@@ -18,7 +18,7 @@ Non Flake alternative:
 
 ### To be done 
 
-    - Remove hardcoded values and pass via flake ie: username, hostname, etc
+- Remove hardcoded values and pass via flake ie: username, hostname, etc
 
 ## Screenshots 
 ![Hyprland](screen-hyprland.png)
@@ -30,43 +30,42 @@ Non Flake alternative:
 
 ##### Core Modules
 
-    - Browser(s): Firefox, Chromium, Nyxt 
-    - IDE: VSCode
+  - Browser(s): Firefox, Chromium, Nyxt 
+  - IDE: VSCode
 
 ##### Security : 
 
-    # Security modules require additional set up beyond what is included in this repo.
-    # Refer to the NixOS wiki for further documentation
-
-    - 1Password for SSH Authentication
-    - Yubico Key 2FA
+  # Security modules require additional set up beyond what is included in this repo.
+  # Refer to the NixOS wiki for further documentation
+  - 1Password for SSH Authentication
+  - Yubico Key 2FA
 
 ##### Terminal Module 
 
-    - Editor: Neovim
-    - Terminals: Foot, alacritty, wezterm   
+  - Editor: Neovim
+  - Fonts
+  - Terminals: Foot, alacritty, wezterm   
 
 ##### Profiles
 
 1. Desktop (erix-hyprland)
 
-    - WM: hyprland
-    - All core modules + nvidia
+   - WM: hyprland
+   - All core modules + nvidia
 
 2. Desktop (erix-gnome)
 
-    - DE: Customized Gnome w PopShell for a WM experience
-    - All core modules + nvidia
-
+   - DE: Customized Gnome w PopShell for a WM experience
+   - All core modules + nvidia
 
 3. Laptop (eriix) [ Slightly stripped down version of my desktop ]
 
-    - WM: hyprland
-    - Most core modules (no virt)   
+   - WM: hyprland
+   - Most core modules (no virt)   
 
 4. TBD (server farm) 
 
-    - My Nix home server is WIP.
+   - My Nix home server is WIP.
 
 
 ## Gnome
