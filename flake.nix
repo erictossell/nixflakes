@@ -128,8 +128,7 @@
      
       modules = [ 
         # Hyprland WM
-        hyprland.nixosModules.default
-        (import ./modules/hyprland.nix { inherit pkgs hyprland; })
+        (import ./modules/hyprland.nix { inherit pkgs; })
         
         #Laptop Hardware Configuration
         (import ./systems/eriix/hardware-configuration.nix {
