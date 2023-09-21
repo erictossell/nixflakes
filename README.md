@@ -24,8 +24,8 @@ Non Flake alternative:
 ![Hyprland](screen-hyprland.png)
 ![Hyprland1](screen-hyprland1.png)
 ![Hyprland2](screen-hyprland2.png)
-![Hyprland3](screen-hyprland3.png
-)
+![Hyprland3](screen-hyprland3.png)
+
 ### My Nixdots contain configurations for:
 
 ##### Core Modules
