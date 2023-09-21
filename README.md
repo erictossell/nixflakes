@@ -9,10 +9,10 @@ Modules are grouped by *functionality* and as such you will often find both the 
 Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
 
 Requires Flake:
-- hyprland-nvidia.nix
+- [hyprland-nvidia.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland-nvidia.nix)
 
 Non Flake alternative:
-- hyprland.nix
+- [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
 
 ### To be done 
 - Remove hardcoded values and pass via flake ie: username, hostname, etc
