@@ -9,44 +9,65 @@ Modules are grouped by *functionality* and as such you will often find both the 
 Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
 
 Requires Flake:
+
 - [hyprland-nvidia.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland-nvidia.nix)
 
 Non Flake alternative:
+
 - [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
 
 ### To be done 
-- Remove hardcoded values and pass via flake ie: username, hostname, etc
+
+    - Remove hardcoded values and pass via flake ie: username, hostname, etc
 
 ## Screenshots 
 ![Hyprland](screen-hyprland.png)
 ![Hyprland1](screen-hyprland1.png)
+![Hyprland1](screen-hyprland2.png)
+![Hyprland1](screen-hyprland3.png
+)
 ### My Nixdots contain configurations for:
 
-- Desktop (erix-gnome)
+##### Core Modules
+
+    - Browser(s): Firefox, Chromium, Nyxt 
+    - IDE: VSCode
+
+##### Security : 
+
+    # Security modules require additional set up beyond what is included in this repo.
+    # Refer to the NixOS wiki for further documentation
+
+    - 1Password for SSH Authentication
+    - Yubico Key 2FA
+
+##### Terminal Module 
+
+    - Editor: Neovim
+    - Terminals: Foot, alacritty, wezterm   
+
+##### Profiles
+
+1. Desktop (erix-hyprland)
+
+    - WM: hyprland
+    - All core modules + nvidia
+
+2. Desktop (erix-gnome)
+
     - DE: Customized Gnome w PopShell for a WM experience
-    - Editor: Neovim
-    - IDE: VSCode
-    - Terminal: Foot
-    - Browser(s): Firefox, Chromium, Nyxt
-    - 1Password for SSH Authentication
-    - Yubico Key 2FA
+    - All core modules + nvidia
 
-- Desktop (erix-hyprland)
-    - WM: hyprland
-    - Editor: Neovim
-    - IDE: VSCode
-    - Terminal: Foot
-    - Browser(s): Firefox, Chromium, Nyxt
-    - 1Password for SSH Authentication
-    - Yubico Key 2FA
 
-- Laptop (eriix-hyprland) [ Slightly stripped down version of my desktop ]
+3. Laptop (eriix) [ Slightly stripped down version of my desktop ]
+
     - WM: hyprland
-    - Editor: Neovim
-    - IDE: VSCode
-    - Terminal: Foot
-    - Browser(s): Firefox, Chromium, Nyxt
-    - 1Password for SSH Authentication
+    - Most core modules (no virt)   
+
+4. TBD (server farm) 
+
+    - My Nix home server is WIP.
+
 
 ## Gnome
 
