@@ -1,6 +1,21 @@
+> :warning: **Disclaimer:** These are *machine specific flakes*. You *WILL* run into errors if you attempt to flake from this repo and you are not using my machines.
+
 ## Eriim's Nixflakes
 
-# This repo has not been fully flaked yet and these are *machine specific flakes*. You WILL run into errors if you attempt to flake from this repo and you are not using my machines.
+This repo contains pure nix modules that can be imported to other Nix systems using a similar configuration. 
+
+Modules are grouped by *functionality* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.
+
+Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
+
+Requires Flake:
+- hyprland-nvidia.nix
+
+Non Flake alternative:
+- hyprland.nix
+
+### To be done 
+- Remove hardcoded values and pass via flake ie: username, hostname, etc
 
 ## Screenshots 
 ![Hyprland](screen-hyprland.png)
