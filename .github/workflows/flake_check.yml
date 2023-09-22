@@ -1,0 +1,22 @@
+name: Nix Flake Check
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v23
+
+    - name: Run Nix Flake Check
+      run: |
+        output=$(nix flake check 2>&1)
+        echo "$output"
+        if echo "$output" | grep -q -i error; then
+          exit 1
+        fi
