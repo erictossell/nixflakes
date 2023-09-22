@@ -20,3 +20,11 @@ jobs:
         if echo "$output" | grep -q -i error; then
           exit 1
         fi
+
+    - name: Nix Flake Checker
+    # You may pin to the exact commit or the version.
+    # uses: DeterminateSystems/flake-checker-action@4b90f9fc724969ff153fe1803460917c84fe00a3
+      uses: DeterminateSystems/flake-checker-action@v5
+      with:
+           send-statistics: true # optional, default is true
+      
