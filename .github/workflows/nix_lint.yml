@@ -26,7 +26,6 @@ jobs:
       with:
         name: nix-linter
 
-
     - name: Clone nix-linter and run checks
       run: |
         git clone https://github.com/Synthetica9/nix-linter
