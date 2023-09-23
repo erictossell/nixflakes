@@ -1,4 +1,5 @@
 #!/run/current-system/sw/bin/bash
+#!/bin/bash
 
 declare -A hosts
 hosts=( ["1"]="erix" ["2"]="eriix" ) 
@@ -29,15 +30,15 @@ fi
 
 declare -A commands
 if [ "$selected_host" == "erix" ]; then
-  commands=("${erix_commands[@]}")
+  for key in "${!erix_commands[@]}"; do commands["$key"]="${erix_commands[$key]}"; done
 elif [ "$selected_host" == "eriix" ]; then
-  commands=("${eriix_commands[@]}")
+  for key in "${!eriix_commands[@]}"; do commands["$key"]="${eriix_commands[$key]}"; done
 fi
 
 while true; do 
   echo "Select a build option:"
   for i in "${!commands[@]}"; do
-    echo "$i) $selected_host-$(echo $i | awk -F'-' '{print $2}') (Command: ${commands[$i]})"
+    echo "$i) $selected_host (Command: ${commands[$i]})"
   done
   echo "4) Exit"
 
@@ -65,3 +66,4 @@ while true; do
   read -n 1 -s -r -p "Press any key to continue"
   clear
 done
+
