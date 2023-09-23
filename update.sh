@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-
+#!/run/current-system/sw/bin/bash
 echo "Commit message:"
 read commit_message
 

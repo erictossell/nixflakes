@@ -6,6 +6,9 @@ This repo contains pure nix modules that can be imported to other Nix systems us
 
 Modules are grouped by *functionality* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.
 
+Some modules have accompanying packages - they contain required or reccomended accompanying packages.
+- [/packages/hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/packages/hyprland.nix)
+
 Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
 
 Requires Flake:
@@ -19,12 +22,14 @@ Non Flake alternative:
 ### To be done 
 
 - Remove hardcoded values and pass via flake ie: username, hostname, etc
+- SOPS for nixsecrets
+- Final restruct
 
 ## Screenshots 
-![Hyprland](screen-hyprland.png)
-![Hyprland1](screen-hyprland1.png)
-![Hyprland2](screen-hyprland2.png)
-![Hyprland3](screen-hyprland3.png)
+![Hyprland](screens/screen-hyprland.png)
+![Hyprland1](screens/screen-hyprland1.png)
+![Hyprland2](screens/screen-hyprland2.png)
+![Hyprland3](screens/screen-hyprland3.png)
 
 ### My Nixdots contain configurations for:
 
@@ -65,8 +70,49 @@ Non Flake alternative:
 
 4. TBD (server farm) 
 
-   - My Nix home server is WIP.
+   My Nix home server is WIP.
 
+## Getting started with NixOS Minimal
+
+You've done an initial install from a minimal image because the GUI is no fun, what now?
+
+#### 1. Connnect to the internet
+   a. Discover your wireless interface if you're not using ethernet.
+   
+   ```bash
+      ip link show
+   ```
+   
+   b. Initialize your `wpa_supplicant` with one of the following, run these commands with sudo privileges:
+
+   ```bash
+      wpa_supplicant -B -i (your-interface-name) -c <(wpa_passphrase "SSID" "password")
+   ```
+
+   OR - in the default NixOS installation home directory
+
+   ```bash
+      wpa_passphrase "SSID" "password" > temp_wpa.conf
+
+      wpa_supplicant -B -i (your-interface-name) -c ~/temp_wpa.conf
+   ```
+   
+   `pkill wpa_supplicant` between any failed attempts to connect to the internet. Remember to `rm temp_wpa.conf` after successfully connecting.
+
+#### 2. Generate your hardware specific .nix
+   a. Generate a basic configuration.nix and hardware-configuration.nix
+   ```bash
+      nixos-generate-config
+   ```
+
+   b Edit your configuration.nix with nano or wget a configuration.nix from the internet *at your own risk*. 
+
+   - Make sure to include a user and an internet connection method.
+   - Add your prefered text editor to the pkgs list. 
+   - (Optionally) Add any programs and services you know you will need from the get go. There is not need to incrementally build your system but it's easier to figure out what's going wrong if you go slow.
+   - Save your changes.
+  
+#### 3. `nixos-rebuild boot` to launch NixOS for the first time. 
 
 ## Gnome
 
@@ -74,8 +120,8 @@ I use a highly customized Gnome desktop environment with Popshell for window man
 
 My gnome modules do not require flaking but I do not actively test them regularily.
 
-###### Disabling Hyprland
-Enabling Gnome does require disabling Hyprland due to conflicts with differing XDG portals. Hopefully this will be fixed in the near future.
+###### Disabling Hyprland/Gnome
+Gnome and Hyprland do not play nicely due to conflicts with differing XDG portals. If you have GTK active and installed on your device you may get warnings from Hyprland when launching. I wasn't able to find any fixes for this but if you have one please feel free to reach out!
 
 Thanks to the nature of NixOS this is trivial and the two modes can be interchanged reliably. 
 
