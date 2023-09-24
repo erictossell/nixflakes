@@ -1,25 +1,18 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, home-manager, ... }:
-
 let
-  corePackages = import ../packages/core.nix { inherit  pkgs; };
-  desktopPackages = import ../packages/desktop.nix { inherit pkgs; };
-  devPackages = import ../packages/dev.nix { inherit pkgs; };
-  hyprPackages = import ../packages/hyprland.nix { inherit pkgs; };
+  corePackages = import ../pkgs/core.nix { inherit  pkgs; };
+  devPackages = import ../pkgs/dev.nix { inherit pkgs; };
 in
 { 
+  imports = [
+    ../users/eriim.nix
+  ];
+
   home-manager.users.eriim = { pkgs, ... }: {
     home.packages = with pkgs; [
-      discord
-      nyxt
       obsidian
      ];
-
      programs = {
-      firefox.enable = true;
       vscode.enable = true;
      };
   };
@@ -35,8 +28,10 @@ in
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
   # Meshnet
   services.tailscale.enable = true;
   # Enable networking - available with nmcli and nmtui
@@ -57,16 +52,7 @@ in
     layout = "us";
     xkbVariant = "";
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.eriim = {
-    shell = pkgs.fish;
-    isNormalUser = true;
-    description = "Eriim";
-    extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
-    }; 
-  
-  environment.systemPackages = desktopPackages ++ corePackages ++ devPackages;
+  environment.systemPackages = corePackages ++ devPackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?

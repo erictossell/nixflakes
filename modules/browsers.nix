@@ -1,7 +1,11 @@
 { pkgs, home-manager, ... }:
 {
+  #----- Home Manager Config -----
   home-manager.users.eriim = { pkgs, ... }: {
-    
+    home.packages = with pkgs; [
+      nyxt
+     ];
+
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
     };
@@ -10,9 +14,10 @@
       chromium = {
     	enable = true;
       };
+      firefox.enable = true;
     };
   };
-
+  #----- System Configuration -----
   programs = {
     chromium = {
 	enable = true;

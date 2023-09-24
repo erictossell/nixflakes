@@ -19,6 +19,9 @@ Non Flake alternative:
 
 - [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
 
+
+![Flake Structure](screens/diagram.png)
+
 ### To be done 
 
 - Remove hardcoded values and pass via flake ie: username, hostname, etc

@@ -1,14 +1,13 @@
 { pkgs, ... }:
 let
-  hyprPackages = import ../packages/hyprland.nix { inherit pkgs; };
+  hyprPackages = import ../pkgs/hyprland.nix { inherit pkgs; };
 in 
 {
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = hyprPackages;
   
-  # ---- System Configuration ----
-  
+  # ---- System Configuration ---- 
   programs.dconf.enable = true;
   programs = { 
       hyprland = {
@@ -16,6 +15,7 @@ in
 	   xwayland = {
 	      enable = true;
 	  };
+          # enableNvidiaPatches = true;
         };
   };
   services.gnome = {
