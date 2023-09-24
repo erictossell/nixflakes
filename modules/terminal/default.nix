@@ -13,7 +13,6 @@ in
    # ---- Home Configuration ----
    home-manager.users.eriim = { pkgs, ... }: {
      home.file = {
-       ".config/btop".source = ./dotfiles/btop;
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
        ".config/nvim".source = ./dotfiles/nvim;

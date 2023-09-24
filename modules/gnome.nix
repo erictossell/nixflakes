@@ -166,7 +166,7 @@ in
     evolution-data-server.enable = true;
     gnome-keyring.enable = true;
   };
-
+  environment.systemPackages = with pkgs; [ nordic ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour

@@ -1,6 +1,6 @@
 { pkgs, hyprland, ... }:
 let
-  hyprPackages = import ../packages/hyprland.nix { inherit pkgs; };
+  hyprPackages = import ../pkgs/hyprland.nix { inherit pkgs; };
 in
 {  
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";

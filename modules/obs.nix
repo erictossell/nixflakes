@@ -14,5 +14,6 @@
       };
       services.easyeffects.enable = true;
   };
+  environment.systemPackages = with pkgs; [ obs-studio];
 }
 
