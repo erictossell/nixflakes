@@ -108,7 +108,7 @@ You've done an initial install from a minimal image because the GUI is no fun, w
       nixos-generate-config
    ```
 
-   b Edit your configuration.nix with nano or wget a configuration.nix from the internet *at your own risk*. 
+   b. Edit your configuration.nix with nano or wget a configuration.nix from the internet *at your own risk*. 
 
    - Make sure to include a user and an internet connection method.
    - Add your prefered text editor to the pkgs list. 
@@ -116,16 +116,3 @@ You've done an initial install from a minimal image because the GUI is no fun, w
    - Save your changes.
   
 #### 3. `nixos-rebuild boot` to launch NixOS for the first time. 
-
-## Gnome
-
-I use a highly customized Gnome desktop environment with Popshell for window management. This involves modifying a number of default mutter settings and it managed on a per user basis. This means we have to involve home-manager to accomplish this.
-
-My gnome modules do not require flaking but I do not actively test them regularily.
-
-###### Disabling Hyprland/Gnome
-Gnome and Hyprland do not play nicely due to conflicts with differing XDG portals. If you have GTK active and installed on your device you may get warnings from Hyprland when launching. I wasn't able to find any fixes for this but if you have one please feel free to reach out!
-
-Thanks to the nature of NixOS this is trivial and the two modes can be interchanged reliably. 
-
-Doing this often will have an impact on your SSD lifetime.
