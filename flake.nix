@@ -26,15 +26,15 @@
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/systems/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./systems/erix/home.nix
+            ./hosts/erix/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -76,15 +76,15 @@
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/systems/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./systems/erix/home.nix
+            ./hosts/erix/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -124,15 +124,15 @@
         commonConfig = self.nixosConfigurations.eriix-hyprland.config;
 
         configModules = {
-          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/systems/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./systems/eriix/home.nix
+            ./hosts/eriix/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
