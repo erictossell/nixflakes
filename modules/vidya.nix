@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   
   # Required to run Windows applications ie World of Warcraft
-  users.users.eriim = {
+  users.users.${user} = {
   packages = with pkgs; [ 
       (wineWowPackages.full.override {
         wineRelease = "staging";

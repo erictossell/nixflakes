@@ -1,7 +1,7 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, user, ... }:
 {
   #----- Home Manager Config -----
-  home-manager.users.eriim = { pkgs, ... }: {
+  home-manager.users.${user} = { pkgs, ... }: {
     home.packages = with pkgs; [
       nyxt
      ];

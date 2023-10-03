@@ -1,4 +1,4 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, user, ... }:
 let
   packages = with pkgs; [
     alacritty # backup terminal
@@ -11,7 +11,7 @@ let
 in
 {  
    # ---- Home Configuration ----
-   home-manager.users.eriim = { pkgs, ... }: {
+   home-manager.users.${user} = { pkgs, ... }: {
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
