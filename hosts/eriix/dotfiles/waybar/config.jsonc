@@ -3,7 +3,7 @@
   "height": 45,
     "modules-left": ["custom/nix", "cpu", "memory", "disk"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": [ "pulseaudio", "bluetooth", "network", "clock"],
+    "modules-right": [ "pulseaudio","backlight", "bluetooth", "network","battery", "clock"],
     "custom/nix": {
       "format": " ",
       "tooltip": false,
@@ -50,6 +50,7 @@
         "format": " {percentage_used}% ({free})",
         "tooltip": true,
         "interval": 2
+        "on-click": "foot sh -c 'ranger'"
     },
     "clock": {
         "format": "  {:%d <small>%a</small> %H:%M}",
