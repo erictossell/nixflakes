@@ -52,7 +52,7 @@ in
     layout = "us";
     xkbVariant = "";
   };
-  environment.systemPackages = corePackages ++ devPackages;
+  environment.systemPackages = corePackages;
   
   # Dont change.
   system.stateVersion = "23.05"; # Did you read the comment?

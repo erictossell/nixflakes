@@ -24,9 +24,7 @@ Non Flake alternative:
 
 ### To be done 
 
-- Remove hardcoded values and pass via flake ie: username, hostname, etc
 - SOPS for nixsecrets
-- Final restruct
 
 ## Screenshots 
 ![Hyprland](screens/screen-hyprland.png)

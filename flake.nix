@@ -129,7 +129,7 @@
           hardwareConfig = { modulePath = "${self}/systems/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, user, host, ... }: {
+        ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./systems/eriix/home.nix
