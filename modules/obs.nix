@@ -1,6 +1,6 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, user, ... }:
 {
-  home-manager.users.eriim = { pkgs, ... }: {
+  home-manager.users.${user} = { pkgs, ... }: {
      programs = {
        obs-studio = {
           enable = true;

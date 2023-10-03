@@ -1,14 +1,14 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, user, ... }:
 let
   corePackages = import ../pkgs/core.nix { inherit  pkgs; };
   devPackages = import ../pkgs/dev.nix { inherit pkgs; };
 in
 { 
   imports = [
-    ../users/eriim.nix
+    ../users/${user}.nix
   ];
 
-  home-manager.users.eriim = { pkgs, ... }: {
+  home-manager.users.${user} = { pkgs, ... }: {
     home.packages = with pkgs; [
       obsidian
      ];

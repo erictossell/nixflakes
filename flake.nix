@@ -14,152 +14,146 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-   
     # Defining my desktop set up - requires x86_64 Architecture
     nixosConfigurations.erix-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
-     
-      modules = [
-        # Desktop Environment
-        (import ./modules/gnome.nix { inherit pkgs home-manager; })
+      specialArgs = {
+        user = "eriim";
+        host = "erix";
+      } // attrs;     
+      modules = let
+        commonConfig = self.nixosConfigurations.erix-gnome.config;
 
-        #Desktop Hardware Configuration
-        (import ./systems/erix/hardware-configuration.nix {
-          inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.erix-gnome.config;
-          nixpkgs = nixpkgs.outPath;
-        })
-
-        # Enable Nvidia support
-        (import ./modules/nvidia.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-gnome.config;
-        })
-
-        # Sound and bluetooth
-        (import ./systems/generic/bluetooth.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-gnome.config;
-        })
-
-        (import ./systems/generic/sound.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-gnome.config;
-        })
-
-        # Desktop Specific files
-        (import ./systems/erix/home.nix { inherit pkgs home-manager; })
-        # Chromium Firefox Nyxt
-        (import ./modules/browsers.nix { inherit pkgs home-manager;})
-        # Core Packages
-        (import ./modules/core.nix { inherit pkgs home-manager; })     
-        # OBS-Studio
-        (import ./modules/obs.nix { inherit pkgs home-manager;})
-        # Security Features
-        (import ./modules/security.nix { inherit pkgs;})
-        # Terminal Customizations
-        (import ./modules/terminal { inherit pkgs home-manager;})
-        # Video game things
-        (import ./modules/vidya.nix { inherit pkgs;})
-        # Virtualisation
-        (import ./modules/virt.nix { inherit pkgs home-manager;})
-      ];
-    };
+        configModules = {
+          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/systems/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, user, host, ... }: {
+          imports = [
+            # Desktop Specific files
+            ./systems/erix/home.nix
     
+            # Chromium Firefox Nyxt
+            ./modules/browsers.nix
+    
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/gnome.nix
+
+            # OBS-Studio
+            ./modules/obs.nix
+    
+            # Security Features
+            ./modules/security.nix
+    
+            # Terminal Customizations
+            ./modules/terminal
+    
+            # Video game things
+            ./modules/vidya.nix
+    
+            # Virtualisation
+            ./modules/virt.nix
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
+   
     # Defining my desktop-hyprland set up - requires x86_64 Architecture
     nixosConfigurations.erix-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
-     
-      modules = [
+      specialArgs = {
+        user = "eriim";
+        host = "erix";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.erix-hyprland.config;
 
-        # Hyprland WM
-        hyprland.nixosModules.default
-        (import ./modules/hyprland-nvidia.nix { inherit pkgs hyprland; })
+        configModules = {
+          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/systems/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, hyprland, user, host, ... }: {
+          imports = [
+            # Desktop Specific files
+            ./systems/erix/home.nix
+    
+            # Chromium Firefox Nyxt
+            ./modules/browsers.nix
+    
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/hyprland-nvidia.nix
 
-        #Desktop Hardware Configuration
-        (import ./systems/erix/hardware-configuration.nix {
-          inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.erix-hyprland.config;
-          nixpkgs = nixpkgs.outPath;
+            # OBS-Studio
+            ./modules/obs.nix
+    
+            # Security Features
+            ./modules/security.nix
+    
+            # Terminal Customizations
+            ./modules/terminal
+    
+            # Video game things
+            ./modules/vidya.nix
+    
+            # Virtualisation
+            ./modules/virt.nix
+          ];
         })
-
-        # Enable Nvidia support
-        (import ./modules/nvidia.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-hyprland.config;
-        })
-
-        # Sound and bluetooth
-        (import ./systems/generic/bluetooth.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-hyprland.config;
-        })
-
-        (import ./systems/generic/sound.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.erix-hyprland.config;
-        })
-        
-        # Desktop Specific files
-        (import ./systems/erix/home.nix { inherit pkgs home-manager; })
-        # Chromium Firefox Nyxt
-        (import ./modules/browsers.nix { inherit pkgs home-manager;})
-        # Core Packages
-        (import ./modules/core.nix { inherit pkgs home-manager; })     
-        # Security Features
-        (import ./modules/security.nix { inherit pkgs;})
-        # OBS-Studio
-        (import ./modules/obs.nix { inherit pkgs home-manager;})
-        # Terminal Customizations
-        (import ./modules/terminal { inherit pkgs home-manager;})
-        # Video game things
-        (import ./modules/vidya.nix { inherit pkgs;})
-        # Virtualisation
-        (import ./modules/virt.nix { inherit pkgs home-manager;})
-      ];
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-    # Defining my laptop set up - requires x86_64 Architecture
     nixosConfigurations.eriix-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
-     
-      modules = [ 
-        # Hyprland WM
-        (import ./modules/hyprland.nix { inherit pkgs; })
-        
-        #Laptop Hardware Configuration
-        (import ./systems/eriix/hardware-configuration.nix {
-          inherit (nixpkgs) lib;
-          config = self.nixosConfigurations.eriix-hyprland.config;
-          nixpkgs = nixpkgs.outPath;
-        })
+      specialArgs = {
+        user = "eriim";
+        host = "eriix";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.eriix-hyprland.config;
 
-        # Sound and bluetooth
-        (import ./systems/generic/bluetooth.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.eriix-hyprland.config;
-        })
+        configModules = {
+          bluetooth = { modulePath = "${self}/systems/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/systems/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/systems/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, hyprland, user, host, ... }: {
+          imports = [
+            # Desktop Specific files
+            ./systems/eriix/home.nix
+    
+            # Chromium Firefox Nyxt
+            ./modules/browsers.nix
+    
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/hyprland.nix
 
-        (import ./systems/generic/sound.nix { 
-          inherit pkgs;
-          config = self.nixosConfigurations.eriix-hyprland.config;
+            # Security Features
+            ./modules/security.nix
+    
+            # Terminal Customizations
+            ./modules/terminal
+    
+          ];
         })
-
-        # Laptop Specific files
-        (import ./systems/eriix/home.nix { inherit pkgs home-manager; })
-        #Browsers - Chromem Nyxt, Firefox
-        (import ./modules/browsers.nix { inherit pkgs home-manager; })
-        # Core Packages
-        (import ./modules/core.nix { inherit pkgs home-manager; })     
-        # Security Features
-        (import ./modules/security.nix { inherit pkgs;})
-        # Terminal Customizations
-        (import ./modules/terminal { inherit pkgs home-manager;})
-      ];
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
+
   };
 }
 

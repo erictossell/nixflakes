@@ -1,4 +1,4 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, home-manager, user, ... }:
 {
   # Docker can also be run rootless
   virtualisation.docker = {
@@ -16,7 +16,7 @@
 
   # Also recomended to install virt-manager in your packages if you want a GUI
   environment.systemPackages = with pkgs; [ virt-manager ];
-  home-manager.users.eriim = { pkgs, ... }: {
+  home-manager.users.${user} = { pkgs, ... }: {
    dconf.settings = {
      "org/virt-manager/virt-manager/connections" = {
 	autoconnect = [ "qemu:///system" ];

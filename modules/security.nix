@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 { 
   security = {
     #Application prompts
@@ -27,7 +27,7 @@
     _1password.enable = true;
     _1password-gui = {
 	enable = true;
-	polkitPolicyOwners = [ "eriim" ];
+	polkitPolicyOwners = [ "${user}" ];
     };
 
   gnupg.agent = {
