@@ -113,6 +113,7 @@
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
+
     nixosConfigurations.eriix-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
