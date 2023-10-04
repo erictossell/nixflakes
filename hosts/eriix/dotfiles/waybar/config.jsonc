@@ -49,7 +49,7 @@
     "disk": {
         "format": " {percentage_used}% ({free})",
         "tooltip": true,
-        "interval": 2
+        "interval": 2,
         "on-click": "foot sh -c 'ranger'"
     },
     "clock": {
