@@ -12,7 +12,7 @@
   services.qemuGuest.enable = true;
   
   # User permissions 
-  users.users.eriim.extraGroups = [ "libvirtd" "docker" ];
+  users.users.${user}.extraGroups = [ "libvirtd" "docker" ];
 
   # Also recomended to install virt-manager in your packages if you want a GUI
   environment.systemPackages = with pkgs; [ virt-manager ];
