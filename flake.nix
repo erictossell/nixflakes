@@ -154,6 +154,30 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
+    nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        user = "nil";
+        host = "nilbox";
+      } // attrs;
+      modules = let 
+        config = self.nixosConfigurations.pentest-vm.config;
+
+        configModules = {
+          hardwareConfig = { modulePath = "${self}/hosts/pentest-vm/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
+        };
+        in [
+          ({pkgs, home-manager, user, host, ... }: {
+          imports = [
+            # Pentest Specific files
+            ./hosts/pentest-vm/home.nix
+            
+            ./modules/pentest
+
+           ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
   };
 }
 
