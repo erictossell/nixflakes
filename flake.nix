@@ -26,8 +26,8 @@
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
           hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
@@ -76,8 +76,8 @@
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
           hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
@@ -124,8 +124,8 @@
         commonConfig = self.nixosConfigurations.eriix-hyprland.config;
 
         configModules = {
-          bluetooth = { modulePath = "${self}/hosts/generic/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/hosts/generic/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
           hardwareConfig = { modulePath = "${self}/hosts/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
@@ -154,6 +154,30 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
+    nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        user = "nil";
+        host = "nilbox";
+      } // attrs;
+      modules = let 
+        config = self.nixosConfigurations.pentest-vm.config;
+
+        configModules = {
+          hardwareConfig = { modulePath = "${self}/hosts/pentest-vm/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
+        };
+        in [
+          ({pkgs, home-manager, user, host, ... }: {
+          imports = [
+            # Pentest Specific files
+            ./hosts/pentest-vm/home.nix
+            
+            ./modules/pentest
+
+           ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
   };
 }
 

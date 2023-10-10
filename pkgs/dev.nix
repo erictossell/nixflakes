@@ -7,7 +7,6 @@ with pkgs; [
   go
   nim
   nix-prefetch-git
-  nodejs_20
   powershell
   python312
   zig
