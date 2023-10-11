@@ -5,7 +5,6 @@ with pkgs; [
   playerctl
   ranger
   ripgrep
-  obsidian
   unzip
   wget
   yubikey-manager 

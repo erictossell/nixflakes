@@ -8,7 +8,7 @@
       # Auth with FIDO Keys
       # Do not enable this until you have added your security keys to your machine.
       # Documentation is available on the NixOS wiki.
-      #u2f.enable = true;
+      u2f.enable = true;
       
       services = {
         # Sign in with YubiKey
@@ -29,7 +29,7 @@
 	enable = true;
 	polkitPolicyOwners = [ "${user}" ];
     };
-
+  services.udev.packages = [ pkgs.yubikey-personalization ];
   gnupg.agent = {
       enable = true;
     };
