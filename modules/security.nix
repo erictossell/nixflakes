@@ -8,7 +8,7 @@
       # Auth with FIDO Keys
       # Do not enable this until you have added your security keys to your machine.
       # Documentation is available on the NixOS wiki.
-      u2f.enable = true;
+      #u2f.enable = true;
       
       services = {
         # Sign in with YubiKey
@@ -18,7 +18,7 @@
 
         # Try to unlock keyring on login
 	# Used for GPG keys and Account tokens
-	login.enableGnomeKeyring = true;
+        # login.enableGnomeKeyring = true;
       };
     };
   };  

@@ -15,14 +15,14 @@
   in 
   { 
     # Defining my desktop set up - requires x86_64 Architecture
-    nixosConfigurations.nixop-gnome = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop";
       } // attrs;     
       modules = let
-        commonConfig = self.nixosConfigurations.nixop-gnome.config;
+        commonConfig = self.nixosConfigurations.desktop-gnome.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
@@ -65,20 +65,20 @@
     };
 
     # Defining my desktop set up - requires x86_64 Architecture
-    nixosConfigurations.nixop-plasma = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop";
       } // attrs;     
       modules = let
-        commonConfig = self.nixosConfigurations.nixop-plasma.config;
+        commonConfig = self.nixosConfigurations.desktop-plasma.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/desktop//hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
@@ -96,10 +96,10 @@
             ./modules/plasma.nix
 
             # OBS-Studio
-            ./modules/obs.nix
+            #./modules/obs.nix
     
             # Security Features
-            ./modules/security.nix
+            #./modules/security.nix
     
             # Terminal Customizations
             ./modules/terminal
@@ -115,14 +115,14 @@
     };
 
     # Defining my desktop-hyprland set up - requires x86_64 Architecture
-    nixosConfigurations.nixop-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.nixop-hyprland.config;
+        commonConfig = self.nixosConfigurations.desktop-hyprland.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
@@ -164,14 +164,14 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-    nixosConfigurations.nixop1-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.laptop-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop1";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.nixop1-hyprland.config;
+        commonConfig = self.nixosConfigurations.laptop-hyprland.config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
