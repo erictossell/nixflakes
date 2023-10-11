@@ -12,9 +12,6 @@ in
     home.packages = with pkgs; [
       obsidian
      ];
-     programs = {
-      vscode.enable = true;
-     };
   };
 
   # Enable Flakes and nix-commands
@@ -33,7 +30,7 @@ in
   # services.openssh.enable = true;
 
   # Meshnet
-  services.tailscale.enable = true;
+  # services.tailscale.enable = true;
   # Enable networking - available with nmcli and nmtui
   networking = {
     networkmanager.enable = true;
