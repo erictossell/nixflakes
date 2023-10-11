@@ -2,7 +2,7 @@
 { 
   security = {
     #Application prompts
-    polkit.enable = true;
+    #polkit.enable = true;
     
     pam = {
       # Auth with FIDO Keys
@@ -21,15 +21,16 @@
         # login.enableGnomeKeyring = true;
       };
     };
-  };  
+  }; 
 
+  services.udev.packages = [ pkgs.yubikey-personalization ];
   programs = {
     _1password.enable = true;
     _1password-gui = {
 	enable = true;
 	polkitPolicyOwners = [ "${user}" ];
     };
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+ 
   gnupg.agent = {
       enable = true;
     };

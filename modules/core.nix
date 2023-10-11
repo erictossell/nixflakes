@@ -8,11 +8,11 @@ in
     ../users/${user}.nix
   ];
 
-  home-manager.users.${user} = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      obsidian
-     ];
-  };
+  #home-manager.users.${user} = { pkgs, ... }: {
+  #  home.packages = with pkgs; [
+  #    obsidian
+  #   ];
+  #};
 
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
