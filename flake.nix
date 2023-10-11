@@ -15,26 +15,26 @@
   in 
   { 
     # Defining my desktop set up - requires x86_64 Architecture
-    nixosConfigurations.erix-gnome = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "erix";
+        host = "nixop";
       } // attrs;     
       modules = let
-        commonConfig = self.nixosConfigurations.erix-gnome.config;
+        commonConfig = self.nixosConfigurations.nixop-gnome.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/erix/home.nix
+            ./hosts/desktop/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -63,6 +63,7 @@
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
+
     # Defining my desktop set up - requires x86_64 Architecture
     nixosConfigurations.nixop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -77,13 +78,13 @@
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/desktop//hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/erix/home.nix
+            ./hosts/desktop/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -114,26 +115,26 @@
     };
 
     # Defining my desktop-hyprland set up - requires x86_64 Architecture
-    nixosConfigurations.erix-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixop-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "erix";
+        host = "nixop";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.erix-hyprland.config;
+        commonConfig = self.nixosConfigurations.nixop-hyprland.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/erix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/erix/home.nix
+            ./hosts/desktop/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -163,25 +164,25 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-    nixosConfigurations.eriix-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixop1-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "eriix";
+        host = "nixop1";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.eriix-hyprland.config;
+        commonConfig = self.nixosConfigurations.nixop1-hyprland.config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/eriix/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/laptop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/eriix/home.nix
+            ./hosts/laptop/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
