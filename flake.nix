@@ -64,13 +64,13 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-    # Defining my desktop set up - requires x86_64 Architecture
+     # Defining my desktop-hyprland set up - requires x86_64 Architecture
     nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop";
-      } // attrs;     
+      } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-plasma.config;
 
@@ -96,10 +96,10 @@
             ./modules/plasma.nix
 
             # OBS-Studio
-            #./modules/obs.nix
+            ./modules/obs.nix
     
             # Security Features
-            #./modules/security.nix
+            ./modules/security.nix
     
             # Terminal Customizations
             ./modules/terminal
