@@ -14,13 +14,13 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-    # Defining my desktop set up - requires x86_64 Architecture
+  
     nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "nixop";
-      } // attrs;     
+      } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-gnome.config;
 
@@ -64,7 +64,6 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-     # Defining my desktop-hyprland set up - requires x86_64 Architecture
     nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
