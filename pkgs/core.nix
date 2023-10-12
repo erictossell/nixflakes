@@ -1,5 +1,6 @@
 {pkgs, ...}:
 with pkgs; [
+  discord
   pavucontrol
   playerctl
   ranger
