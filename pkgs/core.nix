@@ -1,12 +1,12 @@
 {pkgs, ...}:
 with pkgs; [
-  curl
+  discord
   pavucontrol
   playerctl
   ranger
   ripgrep
+  obsidian
   unzip
   wget
   yubikey-manager 
-  zellij
 ]

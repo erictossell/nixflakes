@@ -8,14 +8,11 @@ in
     ../users/${user}.nix
   ];
 
-  home-manager.users.${user} = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      obsidian
-     ];
-     programs = {
-      vscode.enable = true;
-     };
-  };
+  #home-manager.users.${user} = { pkgs, ... }: {
+  #  home.packages = with pkgs; [
+  #    obsidian
+  #   ];
+  #};
 
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -33,7 +30,7 @@ in
   # services.openssh.enable = true;
 
   # Meshnet
-  services.tailscale.enable = true;
+  # services.tailscale.enable = true;
   # Enable networking - available with nmcli and nmtui
   networking = {
     networkmanager.enable = true;
