@@ -18,11 +18,15 @@ in
           # enableNvidiaPatches = true;
         };
   };
+ 
   services.gnome = {
     gnome-keyring.enable = true;
   };
   # Unlock with Swaylock
   security = {
+    #Application prompts
+    polkit.enable = true;
+
     pam = {
       services = {
         swaylock = {
