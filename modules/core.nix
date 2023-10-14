@@ -5,14 +5,15 @@ let
 in
 { 
   imports = [
-    ../users/${user}.nix
+    ../users/${user}.nix 
   ];
 
-  #home-manager.users.${user} = { pkgs, ... }: {
-  #  home.packages = with pkgs; [
-  #    obsidian
-  #   ];
-  #};
+  home-manager.users.${user} = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      obsidian
+      webcord
+     ];
+  };
 
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

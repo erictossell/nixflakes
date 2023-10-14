@@ -19,7 +19,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-gnome.config;
@@ -31,7 +31,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -68,7 +68,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-plasma.config;
@@ -80,7 +80,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -118,7 +118,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-hyprland.config;
@@ -130,7 +130,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, user, host, ... }: {
+        ({pkgs, home-manager, hyprland, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -167,7 +167,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop1";
+        host = "cognito";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.laptop-hyprland.config;
@@ -206,8 +206,8 @@
     nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "nil";
-        host = "nilbox";
+        user = "eriim";
+        host = "datus";
       } // attrs;
       modules = let 
         config = self.nixosConfigurations.pentest-vm.config;

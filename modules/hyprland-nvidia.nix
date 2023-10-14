@@ -9,14 +9,20 @@ in
 
   environment.systemPackages = with pkgs; [
     hyprland.packages.${system}.hyprland-nvidia
+    libsForQt5.kwallet
   ] ++ hyprPackages;
-   
+  
+  #Application prompts
+ 
+  # Try to unlock keyring on login
+  # Used for GPG keys and Account tokens
+  
+
   programs.dconf.enable = true;
-  services.gnome = {
-    gnome-keyring.enable = true;
-  };
+  
   # Unlock with Swaylock
   security = {
+    polkit.enable = true;
     pam = {
       services = {
         swaylock = {
@@ -25,6 +31,9 @@ in
             auth include login
           '';
         };
+        # Try to unlock keyring on login
+        # Used for GPG keys and Account tokens
+        login.enableKwallet = true;
       };
     };
   };
