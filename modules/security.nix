@@ -10,10 +10,9 @@
       
       services = {
         # Sign in with YubiKey
-  	login.u2fAuth = true;
-	# Sudo with Yubikey
+        login.u2fAuth = true;
+        # Sudo with Yubikey
         sudo.u2fAuth = true;
-
       };
     };
   }; 

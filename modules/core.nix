@@ -9,10 +9,26 @@ in
   ];
 
   home-manager.users.${user} = { pkgs, ... }: {
+
     home.packages = with pkgs; [
       obsidian
-      webcord
+      discord
      ];
+
+    programs.vscode = {
+      enable = true;
+      enableUpdateCheck = true;
+      enableExtensionUpdateCheck = true;
+      extensions = with pkgs.vscode-extensions; [
+        golang.go
+        vscodevim.vim
+        github.copilot
+        github.github-vscode-theme
+        github.vscode-github-actions
+        ms-python.python
+        bbenoist.nix
+      ];
+    };
   };
 
   # Enable Flakes and nix-commands
@@ -32,10 +48,12 @@ in
 
   # Meshnet
   # services.tailscale.enable = true;
+
   # Enable networking - available with nmcli and nmtui
   networking = {
     networkmanager.enable = true;
   };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -50,6 +68,7 @@ in
     layout = "us";
     xkbVariant = "";
   };
+
   environment.systemPackages = corePackages ++ devPackages;
   
   # Dont change.

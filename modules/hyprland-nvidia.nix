@@ -10,12 +10,6 @@ in
   environment.systemPackages = with pkgs; [
     hyprland.packages.${system}.hyprland-nvidia
   ] ++ hyprPackages;
-  
-  #Application prompts
- 
-  # Try to unlock keyring on login
-  # Used for GPG keys and Account tokens
-  
 
   programs.dconf.enable = true;
   

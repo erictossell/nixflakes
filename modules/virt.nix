@@ -1,6 +1,5 @@
 { pkgs, home-manager, user, ... }:
 {
-
   # Docker can also be run rootless
   virtualisation.docker = {
     enable = true;
@@ -20,7 +19,7 @@
   users.users.${user}.extraGroups = [ "libvirtd" "docker" ];
 
   # Also recomended to install virt-manager in your packages if you want a GUI
-  environment.systemPackages = with pkgs; [ virt-manager virt-viewer virt-top ];
+  environment.systemPackages = with pkgs; [ virt-manager virt-viewer ];
   
   home-manager.users.${user} = { pkgs, ... }: {
    dconf.settings = {

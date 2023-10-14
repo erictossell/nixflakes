@@ -17,6 +17,7 @@
       firefox.enable = true;
     };
   };
+
   #----- System Configuration -----
   programs = {
     chromium = {
@@ -31,7 +32,7 @@
 	extensions = [
 	  "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
 	  "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
-	];
+      ];
     };
   };
 }

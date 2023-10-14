@@ -31,7 +31,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, virt-user, host, ... }: {
+        ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -80,7 +80,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, virt-user, host, ... }: {
+        ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -130,7 +130,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, user, virt-user, host, ... }: {
+        ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
