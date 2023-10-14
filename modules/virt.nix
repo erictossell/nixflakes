@@ -7,7 +7,11 @@
   };
   
   # Enable virtual machines with qemu
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+  	enable = true;
+	qemu.runAsRoot = false;
+	allowedBridges = [ "virbr0" ];
+  };
   
   # For advanced features
   services.qemuGuest.enable = true;

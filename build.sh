@@ -5,10 +5,10 @@ declare -A hosts
 hosts=( ["1"]="desktop" ["2"]="laptop" ) 
 
 declare -A desktop_commands
-erix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#desktop-hyprland' -p \"Hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#desktop-gnome' -p \"Gnome\" " ["3"]="sudo nixos-rebuild switch --flake '.#desktop-plasma' -p \"KDE-Plasma\" ")
+desktop_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#desktop-hyprland' -p \"Hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#desktop-gnome' -p \"Gnome\" " ["3"]="sudo nixos-rebuild switch --flake '.#desktop-plasma' -p \"KDE-Plasma\" ")
 
 declare -A laptop_commands
-eriix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#laptop-hyprland' -p \"Hyprland\" ")
+laptop_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#laptop-hyprland' -p \"Hyprland\" ")
 
 echo "Select a host:"
 for i in "${!hosts[@]}"; do
