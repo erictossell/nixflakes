@@ -9,6 +9,7 @@ in
 
   environment.systemPackages = with pkgs; [
     hyprland.packages.${system}.hyprland-nvidia
+    libsForQt5.kwallet
   ] ++ hyprPackages;
   
   #Application prompts
@@ -18,7 +19,7 @@ in
   
 
   programs.dconf.enable = true;
-
+  
   # Unlock with Swaylock
   security = {
     polkit.enable = true;

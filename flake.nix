@@ -19,7 +19,8 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        virt-user = "nil";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-gnome.config;
@@ -68,7 +69,8 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        virt-user = "nil";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-plasma.config;
@@ -118,7 +120,8 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop";
+        virt-user = "nil";
+        host = "retis";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.desktop-hyprland.config;
@@ -206,8 +209,8 @@
     nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "nil";
-        host = "nilbox";
+        user = "eriim";
+        host = "datus";
       } // attrs;
       modules = let 
         config = self.nixosConfigurations.pentest-vm.config;

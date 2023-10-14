@@ -2,13 +2,13 @@
 #!/bin/bash
 
 declare -A hosts
-hosts=( ["1"]="erix" ["2"]="eriix" ) 
+hosts=( ["1"]="desktop" ["2"]="laptop" ) 
 
-declare -A erix_commands
-erix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#erix-hyprland' -p \"hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#erix-gnome' -p \"gnome\" ")
+declare -A desktop_commands
+erix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#desktop-hyprland' -p \"Hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#desktop-gnome' -p \"Gnome\" " ["3"]="sudo nixos-rebuild switch --flake '.#desktop-plasma' -p \"KDE-Plasma\" ")
 
-declare -A eriix_commands
-eriix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#eriix-hyprland' -p \"hyprland\" ")
+declare -A laptop_commands
+eriix_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#laptop-hyprland' -p \"Hyprland\" ")
 
 echo "Select a host:"
 for i in "${!hosts[@]}"; do
@@ -29,10 +29,10 @@ if [ "$selected_host" != "$current_host" ]; then
 fi
 
 declare -A commands
-if [ "$selected_host" == "erix" ]; then
-  for key in "${!erix_commands[@]}"; do commands["$key"]="${erix_commands[$key]}"; done
-elif [ "$selected_host" == "eriix" ]; then
-  for key in "${!eriix_commands[@]}"; do commands["$key"]="${eriix_commands[$key]}"; done
+if [ "$selected_host" == "desktop" ]; then
+  for key in "${!desktop_commands[@]}"; do commands["$key"]="${desktop_commands[$key]}"; done
+elif [ "$selected_host" == "laptop" ]; then
+  for key in "${!laptop_commands[@]}"; do commands["$key"]="${laptop_commands[$key]}"; done
 fi
 
 while true; do 
@@ -62,8 +62,6 @@ while true; do
     *)
       echo "Invalid choice, please choose between 1-4."
   esac
-  
-  read -n 1 -s -r -p "Press any key to continue"
   clear
 done
 

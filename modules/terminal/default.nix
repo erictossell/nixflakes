@@ -15,7 +15,7 @@ in
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
-       ".config/nvim".source = ./dotfiles/nvim;
+       #".config/nvim".source = ./dotfiles/nvim;
      };
 
      programs.bash.enable = true;
@@ -49,14 +49,20 @@ in
 
   # ---- System Configuration ----
  
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-	set fish_greeting # Disable greeting
-	clear
-	nitch
-	'';
-   };
+#  programs.fish = {
+#    enable = true;
+#    interactiveShellInit = ''
+#	set fish_greeting # Disable greeting
+#	clear
+#	nitch
+#	'';
+#   };
+   programs.bash = {
+ #    enable = true;
+     interactiveShellInit = ''
+ 	nitch
+ 	'';
+    };
 
    programs.starship = {
 	enable = true;
