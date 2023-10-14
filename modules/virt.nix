@@ -1,9 +1,6 @@
-{ pkgs, home-manager, user, virt-user, ... }:
+{ pkgs, home-manager, user, ... }:
 {
-  imports = [
-    # Import Virtual Machine User
-    ../users/${virt-user}.nix
-  ];
+
   # Docker can also be run rootless
   virtualisation.docker = {
     enable = true;
@@ -16,7 +13,7 @@
   services.qemuGuest.enable = true;
   
   # User permissions 
-  users.users.${virt-user}.extraGroups = [ "libvirtd" "docker" ];
+  users.users.${user}.extraGroups = [ "libvirtd" "docker" ];
 
   # Also recomended to install virt-manager in your packages if you want a GUI
   environment.systemPackages = with pkgs; [ virt-manager virt-viewer virt-top ];

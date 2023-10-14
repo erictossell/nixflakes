@@ -19,7 +19,6 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        virt-user = "nil";
         host = "retis";
       } // attrs;        
       modules = let
@@ -32,7 +31,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -69,7 +68,6 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        virt-user = "nil";
         host = "retis";
       } // attrs;        
       modules = let
@@ -82,7 +80,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -120,7 +118,6 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        virt-user = "nil";
         host = "retis";
       } // attrs;        
       modules = let
@@ -133,7 +130,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, user, host, ... }: {
+        ({pkgs, home-manager, hyprland, user, virt-user, host, ... }: {
           imports = [
             # Desktop Specific files
             ./hosts/desktop/home.nix
@@ -170,7 +167,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "nixop1";
+        host = "cognito";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.laptop-hyprland.config;

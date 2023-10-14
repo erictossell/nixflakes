@@ -1,3 +1,4 @@
+
 > :warning: **Disclaimer:** These are *machine specific flakes*. You *WILL* run into errors if you attempt to flake from this repo and you are not using my machines.
 
 ## Eriim's Nixflakes
@@ -6,9 +7,11 @@ This repo contains pure nix modules that can be imported to other Nix systems us
 
 Modules are grouped by *functionality* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.
 
-Some modules have accompanying packages - they contain required or reccomended accompanying packages.
+Some modules have accompanying packages - they contain required or recommended accompanying packages and are imported by their dependants.
 
-- [/packages/hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/packages/hyprland.nix)
+- [/pkgs/core.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/core.nix)
+- [/pkgs/dev.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/dev.nix)
+- [/pkgs/hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/hyprland.nix)
 
 Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
 
@@ -16,7 +19,7 @@ Requires Flake:
 
 - [hyprland-nvidia.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland-nvidia.nix)
 
-Non Flake alternative:
+Non Flake alternative (Still contains Nvidia Optional Settings):
 
 - [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
 
@@ -37,45 +40,47 @@ Non Flake alternative:
 ### My Nixdots Contain Configurations for
 
 #### Core Modules
+  - Browsers (Firefox, Chrome, Nyxt)
+  - Nvidia
+  - [OBS Studio](https://obsproject.com/) (for screen recording and streaming/sharing screen)
+  - Security Config ([1Password](https://1password.com/), [Yubico](https://www.yubico.com/) Authentication)
 
-  - Browser(s): Firefox, Chromium, Nyxt
-  - IDE: VSCode
-
-#### Security
-
-  Security modules require additional set up beyond what is included in this repo.
-
-  Refer to the NixOS wiki for further documentation
-
-  - 1Password for SSH Authentication
-  - Yubico Key 2FA
+#### Extra Toys
+- Vidya (Steam, Wine)
+- Virt (Docker, kvm/qemu)
 
 #### Terminal Module
-
-  - Editor: Neovim
-  - Fonts
-  - Terminals: Foot, alacritty, wezterm
+  - Editor: [`nvim`](https://neovim.io/), `vim`
+  - Terminals: [`foot`](https://codeberg.org/dnkl/foot), [`alacritty`](https://github.com/alacritty/alacritty), [`wezterm`](https://wezfurlong.org/wezterm/index.html)
+  - Shell: `bash`
+  - [`btop` (Resource Monitoring)](https://github.com/aristocratos/btop)
+  - [`cava` (Music Visualizer)](https://github.com/karlstav/cava)
+  - [`nitch` (sysfetch)](https://github.com/ssleert/nitch)
 
 #### Profiles
+1. Desktop (destkop-hyprland)
 
-1. Desktop (erix-hyprland)
-
-   - WM: hyprland
+   - WM: [hyprland](https://hyprland.org/)
    - All core modules + nvidia
 
-2. Desktop (erix-gnome)
+2. Desktop (desktop-gnome)
 
-   - DE: Customized Gnome w PopShell for a WM experience
+   - DE: Customised [Gnome](https://www.gnome.org/) w [PopShell](https://github.com/pop-os/shell) for a WM experience
    - All core modules + nvidia
 
-3. Laptop (eriix) [ Slightly stripped down version of my desktop ]
+3. Desktop (desktop-plasma)
 
-   - WM: hyprland
-   - Most core modules (no virt)
+   - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
+   - All core modules + nvidia
 
-4. TBD (server farm)
+3. Laptop (laptop-hyprland) [ Slightly stripped down version of my desktop ]
 
-   My Nix home server is WIP.
+   - WM: [hyprland](https://hyprland.org/)
+   - Most core modules (no extra toys)
+
+4. PentestVM (pentest-vm)
+
+	- Specialised set of packages for playing [HTB](https://www.hackthebox.com/)
 
 ## Getting Started with NixOS Minimal
 
@@ -89,7 +94,7 @@ You've done an initial install from a minimal image because the GUI is no fun, w
       ip link show
    ```
 
-   b. Initialize your `wpa_supplicant` with one of the following, run these commands with sudo privileges:
+   b. Initialise your `wpa_supplicant` with one of the following, run these commands with sudo privileges:
 
    ```bash
       wpa_supplicant -B -i (your-interface-name) -c <(wpa_passphrase "SSID" "password")
@@ -116,9 +121,9 @@ You've done an initial install from a minimal image because the GUI is no fun, w
    b. Edit your configuration.nix with nano or wget a configuration.nix from the internet *at your own risk*.
 
    - Make sure to include a user and an internet connection method.
-   - Add your prefered text editor to the pkgs list.
+   - Add your preferred text editor to the pkgs list.
    - (Optionally) Add any programs and services you know you will need from the get go. There is not need to incrementally build your system but it's easier to figure out what's going wrong if you go slow.
    - Save your changes.
 
 ### 3. `nixos-rebuild boot` To Launch NixOS for the First time
-
+ 

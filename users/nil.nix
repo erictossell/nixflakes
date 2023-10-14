@@ -6,6 +6,6 @@
     shell = pkgs.bash;
     password = "temp123";
     isNormalUser = true;
-    extraGroups = [ "input" ];
+    extraGroups = [ "input" "networkmanager" "netdev" ];
   };
 }
