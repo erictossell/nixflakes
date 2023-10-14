@@ -6,9 +6,9 @@
   packages = with pkgs; [ 
       (wineWowPackages.full.override {
         wineRelease = "staging";
-	mingwSupport = true;
+        mingwSupport = true;
        })
-    winetricks
+      winetricks
     ];
   };
 

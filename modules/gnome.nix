@@ -26,13 +26,13 @@ in
       ++
       [
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-	"window-list@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
-	"window-navigator@gnome-shell-extensions.gcampax.github.com"
+        "window-navigator@gnome-shell-extensions.gcampax.github.com"
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
-        #"native-window-placement@gnome-shell-extensions.gcampax.github.com"
+       #"native-window-placement@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
       ];
 
@@ -55,7 +55,6 @@ in
       };
  
       # Keybindings
-
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
@@ -93,15 +92,15 @@ in
         move-to-monitor-up = "disabled";
         move-to-workspace-down = "disabled";
         move-to-workspace-up = "disabled";
-	move-to-corner-nw = "disabled";
-	move-to-corner-ne = "disabled";
-	move-to-corner-sw = "disabled";
-	move-to-corner-se = "disabled";
-	move-to-side-n = "disabled";
-	move-to-side-s = "disabled";
-	move-to-side-e = "disabled";
-	move-to-side-w = "disabled";
-	move-to-center = "disabled";
+        move-to-corner-nw = "disabled";
+        move-to-corner-ne = "disabled";
+        move-to-corner-sw = "disabled";
+        move-to-corner-se = "disabled";
+        move-to-side-n = "disabled";
+        move-to-side-s = "disabled";
+        move-to-side-e = "disabled";
+        move-to-side-w = "disabled";
+        move-to-center = "disabled";
         toggle-maximized = "disabled";
         unmaximize = "disabled";
       };
@@ -158,6 +157,7 @@ in
       wayland = true;
     };
   };
+
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   programs.dconf.enable = true;
@@ -166,7 +166,9 @@ in
     evolution-data-server.enable = true;
     gnome-keyring.enable = true;
   };
+
   environment.systemPackages = with pkgs; [ nordic ];
+
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
@@ -183,6 +185,4 @@ in
     hitori
     atomix
   ]);
-
-  
 }
