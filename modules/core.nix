@@ -30,11 +30,8 @@ in
         ms-python.python
         bbenoist.nix
       ];
- 
-      # VS Code on Wayland has issues, make sure to set the title bar to custom
-      # https://github.com/microsoft/vscode/issues/181533
       userSettings = {
-         "window.titleBarStyle": "custom"        
+         "window.titleBarStyle" = "custom";
       };
     };
   };

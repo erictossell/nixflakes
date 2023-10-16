@@ -35,33 +35,28 @@ elif [ "$selected_host" == "laptop" ]; then
   for key in "${!laptop_commands[@]}"; do commands["$key"]="${laptop_commands[$key]}"; done
 fi
 
-while true; do 
-  echo "Select a build option:"
-  for i in "${!commands[@]}"; do
-    echo "$i) $selected_host (Command: ${commands[$i]})"
-  done
-  echo "4) Exit"
-
-  read -p "Enter choice [ 1 -3 ] " choice
-
-  case $choice in
-    1|2|3)
-      echo "You selected option $choice (Command: ${commands[$choice]})"
-      read -p "Are you sure you want to proceed? (y/n) " confirm
-      if [ "$confirm" == "y" ] || [ "$confirm" == "Y" ]; then
-        echo "Running: ${commands[$choice]}"
-        eval "${commands[$choice]}"
-      else
-        echo "Cancelled."
-      fi
-      ;;
-    4)
-      echo "Exiting."
-      exit 0
-      ;;
-    *)
-      echo "Invalid choice, please choose between 1-4."
-  esac
-  clear
+echo "Select a build option:"
+for i in "${!commands[@]}"; do
+  echo "$i) $selected_host (Command: ${commands[$i]})"
 done
+read -p "Enter choice [ 1 -3 ] " choice
+echo "4) Exit"
+case $choice in
+  1|2|3)
+    echo "You selected option $choice (Command: ${commands[$choice]})"
+    read -p "Are you sure you want to proceed? (y/n) " confirm
+    if [ "$confirm" == "y" ] || [ "$confirm" == "Y" ]; then
+      echo "Running: ${commands[$choice]}"
+      eval "${commands[$choice]}"
+    else
+      echo "Cancelled."
+    fi
+    ;;
+  4)
+    echo "Exiting."
+    exit 0
+    ;;
+  *)
+    echo "Invalid choice, please choose between 1-4."
+esac
 
