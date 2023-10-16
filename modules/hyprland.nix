@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 let
   hyprPackages = import ../pkgs/hyprland.nix { inherit pkgs; };
 in 
@@ -19,6 +19,7 @@ in
         };
   };
  
+  services.getty.autologinUser = user; 
   services.gnome = {
     gnome-keyring.enable = true;
   };

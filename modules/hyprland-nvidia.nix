@@ -1,4 +1,4 @@
-{ pkgs, hyprland, ... }:
+{ pkgs, hyprland, user, ... }:
 let
   hyprPackages = import ../pkgs/hyprland.nix { inherit pkgs; };
 in
@@ -12,7 +12,17 @@ in
   ] ++ hyprPackages;
 
   programs.dconf.enable = true;
-  
+  #services.getty.autologinUser = user; 
+  services.greetd = {
+  enable = true;
+  settings = {
+    default_session = {
+        command = "Hyprland";
+        user = user;
+      };
+    };
+  };
+
   # Unlock with Swaylock
   security = {
     polkit.enable = true;

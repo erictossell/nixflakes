@@ -22,6 +22,4 @@
     hostName = "${host}";
   };
 
-  services.getty.autologinUser = user;
-
 }
