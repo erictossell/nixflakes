@@ -1,4 +1,3 @@
-
 > :warning: **Disclaimer:** These are *machine specific flakes*. You *WILL* run into errors if you attempt to flake from this repo and you are not using my machines.
 
 ## Eriim's Nixflakes
@@ -23,7 +22,7 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
 
 - [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
 
-![Flake Structure](screens/diagram.png)
+![Flake Structure](screens/diagram2.png)
 
 ### To Be Done
 
@@ -86,7 +85,7 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
 
 You've done an initial install from a minimal image because the GUI is no fun, what now?
 
-### 1. Connnect to the Internet
+### 1. Connect to the Internet
 
    a. Discover your wireless interface if you're not using ethernet.
 
@@ -126,4 +125,3 @@ You've done an initial install from a minimal image because the GUI is no fun, w
    - Save your changes.
 
 ### 3. `nixos-rebuild boot` To Launch NixOS for the First time
- 
