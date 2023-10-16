@@ -11,5 +11,7 @@ with pkgs; [
   waybar
   wl-clipboard
   wofi 
+  # Required if applications are having trouble opening links
+  xdg-utils
 ]
 
