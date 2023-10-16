@@ -15,7 +15,7 @@ in
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
-       #".config/nvim".source = ./dotfiles/nvim;
+       ".config/nvim".source = ./dotfiles/nvim;
      };
 
      programs.bash.enable = true;
