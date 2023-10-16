@@ -1,5 +1,5 @@
 {
-  description = "My desktop flake.";
+  description = "Machine specific configuration flake.";
 
   # Defining package channels
   inputs = {
@@ -14,7 +14,8 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-  
+    
+    # Gnome Desktop - PopShell
     nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -63,7 +64,7 @@
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
-
+    # KDE-Plasma Desktop 
     nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -113,7 +114,7 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
-    # Defining my desktop-hyprland set up - requires x86_64 Architecture
+    # Hyprland Desktop - 3 monitors 
     nixosConfigurations.desktop-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -163,6 +164,7 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
 
+    # Hyprland Laptop - no extra toys
     nixosConfigurations.laptop-hyprland = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -202,7 +204,8 @@
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
-
+    
+    # Pentest-VM - minimal install - quick deployment
     nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
