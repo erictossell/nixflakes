@@ -19,9 +19,8 @@
 
   # ---- System Configurations ----
   # Enable my Lenovo Keyboard
-  # boot.kernelParams = [ "i8042.direct" "i8042.dumbkbd" "i915.force_probe=9a49"];
-  boot.initrd.luks.devices."luks-7938900d-b219-4a48-8441-88a2ed4c6202".device = "/dev/disk/by-uuid/7938900d-b219-4a48-8441-88a2ed4c6202";
-
+  boot.kernelParams = [ "i8042.direct" "i8042.dumbkbd" "i915.force_probe=9a49"];
+   
   # Enable networking - available with nmcli and nmtui
   networking = {
     hostName = "${host}";

@@ -165,25 +165,25 @@
     };
 
     # Hyprland Laptop - no extra toys
-    nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.sisyphus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "icarus";
+        host = "sisyphus ";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.icarus.config;
+        commonConfig = self.nixosConfigurations.sisyphus .config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/icarus/home.nix
+            ./hosts/sisyphus/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -206,25 +206,25 @@
     };
     
     # Hyprland Laptop - no extra toys
-    nixosConfigurations.sisyphus= nixpkgs.lib.nixosSystem {
+    nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "sisyphus";
+        host = "icarus";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.sisyphus.config;
+        commonConfig = self.nixosConfigurations.icarus.config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/sisyphus/home.nix
+            ./hosts/icarus/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix

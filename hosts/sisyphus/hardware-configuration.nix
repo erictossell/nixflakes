@@ -8,33 +8,29 @@
     "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix" 
    ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1c6a6142-1952-48ed-aedb-1b0a79e244e1";
+    { device = "/dev/disk/by-uuid/05da8bcf-1e03-46e1-96d8-ad87a29667b2";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-f4965cbc-2527-4105-b51e-0b5d5e3ef17c".device = "/dev/disk/by-uuid/f4965cbc-2527-4105-b51e-0b5d5e3ef17c";
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1884-44FF";
+    { device = "/dev/disk/by-uuid/F633-2908";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/cc177c18-771e-4403-8743-59edf3b90b26"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp63s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
