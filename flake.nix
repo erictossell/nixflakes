@@ -115,26 +115,26 @@
     };
 
     # Hyprland Desktop - 3 monitors 
-    nixosConfigurations.desktop-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "retis";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.desktop-hyprland.config;
+        commonConfig = self.nixosConfigurations.retis.config;
 
         configModules = {
           nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/desktop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/desktop/home.nix
+            ./hosts/retis/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -165,25 +165,25 @@
     };
 
     # Hyprland Laptop - no extra toys
-    nixosConfigurations.laptop-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "cognito";
+        host = "icarus";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.laptop-hyprland.config;
+        commonConfig = self.nixosConfigurations.icarus.config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
           sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/laptop/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Desktop Specific files
-            ./hosts/laptop/home.nix
+            ./hosts/icarus/home.nix
     
             # Chromium Firefox Nyxt
             ./modules/browsers.nix
@@ -206,14 +206,14 @@
     };
     
     # Hyprland Laptop - no extra toys
-    nixosConfigurations.sisyphus-hyprland = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.sisyphus= nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
         host = "sisyphus";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.sisyphus-hyprland.config;
+        commonConfig = self.nixosConfigurations.sisyphus.config;
 
         configModules = {
           bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
