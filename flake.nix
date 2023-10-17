@@ -169,7 +169,7 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "sisyphus ";
+        host = "sisyphus";
       } // attrs;        
       modules = let
         commonConfig = self.nixosConfigurations.sisyphus .config;
