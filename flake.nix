@@ -205,6 +205,48 @@
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };
     
+    # Hyprland Laptop - no extra toys
+    nixosConfigurations.sisyphus-hyprland = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        user = "eriim";
+        host = "sisyphus";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.sisyphus-hyprland.config;
+
+        configModules = {
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, user, host, ... }: {
+          imports = [
+            # Desktop Specific files
+            ./hosts/sisyphus/home.nix
+    
+            # Chromium Firefox Nyxt
+            ./modules/browsers.nix
+    
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/hyprland.nix
+
+            # Security Features
+            ./modules/security.nix
+    
+            # Terminal Customizations
+            ./modules/terminal
+    
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
+
+
     # Pentest-VM - minimal install - quick deployment
     nixosConfigurations.pentest-vm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
