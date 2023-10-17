@@ -1,5 +1,6 @@
 {pkgs, ...}:
 with pkgs; [
+  brightnessctl
   pavucontrol
   playerctl
   ranger
