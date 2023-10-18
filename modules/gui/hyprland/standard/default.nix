@@ -20,6 +20,7 @@ in
   };
  
   services.getty.autologinUser = username; 
+
   services.gnome = {
     gnome-keyring.enable = true;
   };

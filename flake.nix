@@ -30,6 +30,7 @@
       in [
         ({pkgs, home-manager, hyprland, username, hostname, ... }: {
           imports = [
+
             ./modules/core
             ./modules/gui/hyprland/nvidia
             ./modules/obs

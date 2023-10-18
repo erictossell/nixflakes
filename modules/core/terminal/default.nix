@@ -12,6 +12,7 @@ in
 {  
    # ---- Home Configuration ----
    home-manager.users.${username} = { pkgs, ... }: {
+
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
@@ -40,6 +41,7 @@ in
 			nvim-treesitter-parsers.regex
 			nvim-treesitter-parsers.sql		
 		];
+
     };
 
     programs.vim.enable = true;
@@ -62,6 +64,7 @@ in
       interactiveShellInit = ''
  			nitch
  		'';
+
     };
 
    programs.starship = {
@@ -122,8 +125,8 @@ in
       clock24 = true;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [ 
-		nord
-		yank
+		    nord
+		    yank
       ];
     };
   };

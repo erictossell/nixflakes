@@ -23,8 +23,7 @@
     _1password-gui = {
 	enable = true;
 	polkitPolicyOwners = [ "${username}" ];
-    };
- 
+    }; 
   gnupg.agent = {
       enable = true;
     };

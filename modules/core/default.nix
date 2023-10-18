@@ -15,6 +15,7 @@ in
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
+
     programs.gh.enable = true;
   };
 

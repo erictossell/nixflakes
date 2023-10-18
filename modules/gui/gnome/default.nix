@@ -19,6 +19,7 @@ in
 {
   # ---- Home Configuration ----
   home-manager.users.${username} = { pkgs, ...}: {
+
     home.packages = gnomeExtensionsList;
 
     dconf.settings = {

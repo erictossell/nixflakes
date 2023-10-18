@@ -21,5 +21,4 @@
   networking = {
     hostName = "${hostname}";
   };
-
 }
