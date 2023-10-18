@@ -7,7 +7,10 @@ in
   imports = [
     ./boot/systemd
     ../../users/${username}
+<<<<<<< HEAD
     ../../profiles/smb_client
+=======
+>>>>>>> e64df96 (Readme Restruct (#23))
     ./apps
     ./terminal
     ./browsing

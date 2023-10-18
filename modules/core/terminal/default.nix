@@ -64,6 +64,7 @@ in
 #   };
 
    programs.bash = {
+<<<<<<< HEAD
         interactiveShellInit = ''
    			nitch
    		'';
@@ -75,6 +76,13 @@ in
 		r = "ranger";
 	};
    };
+=======
+      interactiveShellInit = ''
+ 			nitch
+ 		'';
+
+    };
+>>>>>>> e64df96 (Readme Restruct (#23))
 
    programs.starship = {
 	enable = true;
