@@ -1,7 +1,9 @@
-{ pkgs, home-manager, user, ... }:
+
+{ pkgs, home-manager, username, ... }:
 {
   #----- Home Manager Config -----
-  home-manager.users.${user} = { pkgs, ... }: {
+  home-manager.users.${username} = { pkgs, ... }: {
+  
     home.packages = with pkgs; [
       nyxt
      ];

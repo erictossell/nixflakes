@@ -1,11 +1,10 @@
-{ config, pkgs, user, ... }:
-
+{ config, pkgs, username, ... }:
 {
 # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
+  users.users.${username} = {
     shell = pkgs.bash;
     isNormalUser = true;
-    description = "Eriim";
+
     extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
   };
 }

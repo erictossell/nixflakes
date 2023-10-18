@@ -14,190 +14,146 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-    
-    # Gnome Desktop - PopShell
-    nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        user = "eriim";
-        host = "retis";
-      } // attrs;        
-      modules = let
-        commonConfig = self.nixosConfigurations.desktop-gnome.config;
-
-        configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, user, host, ... }: {
-          imports = [
-           # Core Packages
-            ./modules/core
-    
-            # Core Packages
-            ./modules/gui/gnome
- 
-            # Video game things
-            ./modules/toys
-    
-            # Virtualisation
-            ./modules/virt
-          ];
-        })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
-    # KDE-Plasma Desktop 
-    nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        user = "eriim";
-        host = "retis";
-      } // attrs;        
-      modules = let
-        commonConfig = self.nixosConfigurations.desktop-plasma.config;
-
-        configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, user, host, ... }: {
-          imports = [  
-            # Core Packages
-            ./modules/core
-    
-            # Desktop Environment
-            ./modules/gui/plasma
-
-            # Video game things
-            ./modules/toys
-    
-            # Virtualisation
-            ./modules/virt
-          ];
-        })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
 
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "retis";
+        username = "eriim";
+        hostname = "retis";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.retis.config;
-
+        config = self.nixosConfigurations.retis.config;
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, user, host, ... }: {
+        ({pkgs, home-manager, hyprland, username, hostname, ... }: {
           imports = [
-            # Core Packages
+
             ./modules/core
-    
-            # Core Packages
             ./modules/gui/hyprland/nvidia
-   
-            # Video game things
+            ./modules/obs
             ./modules/toys
-    
-            # Virtualisation
             ./modules/virt
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
+    };#retis
 
     # Hyprland Laptop - no extra toys
     nixosConfigurations.sisyphus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "sisyphus";
+        username = "eriim";
+        hostname = "sisyphus";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.sisyphus .config;
-
+        config = self.nixosConfigurations.sisyphus .config;
         configModules = {
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
-        };      
+          hardwareConfig = { modulePath = "${self}/hosts/sisyphus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
+        };  
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
-            # Core Packages
             ./modules/core
-    
-            # Core Packages
             ./modules/gui/hyprland/standard
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
+    };#sisyphus
     
-    # Hyprland Laptop - no extra toys
+    # Hyprland Laptop - 1 monitor/no toys
     nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "icarus";
+        username = "eriim";
+        hostname = "icarus";
       } // attrs;        
       modules = let
-        commonConfig = self.nixosConfigurations.icarus.config;
-
+        config = self.nixosConfigurations.icarus.config;
         configModules = {
-         
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/icarus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
-    
-            # Core Packages
             ./modules/core
-    
-            # Core Packages
             ./modules/gui/hyprland/standard
-
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
+    };#icarus
 
-
-    # Pentest-VM - minimal install - quick deployment
+    # Pentest-VM 
     nixosConfigurations.aeneas = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "aeneas";
+        username = "eriim";
+        hostname = "aeneas";
       } // attrs;
       modules = let 
         config = self.nixosConfigurations.aeneas.config;
         configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/aeneas/hardware"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
-        };
-        in [
-          ({pkgs, home-manager, user, host, ... }: {
+          hardwareConfig = { modulePath = "${self}/hosts/aeneas"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
+        };  
+      in [
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
-            # Pentest Specific files
-            ./hosts/aeneas/home
-            
             ./modules/pentest
-
            ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };
+    };#aeneas
+
+    # Gnome Desktop 
+    nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        username = "eriim";
+        hostname = "retis";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.desktop-gnome.config;
+        configModules = {
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, username, hostname, ... }: {
+          imports = [  
+            ./modules/core
+            ./modules/gui/gnome
+            ./modules/toys
+            ./modules/virt
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };# Gnome Desktop
+
+    # KDE-Plasma Desktop 
+    nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        username = "eriim";
+        hostname = "retis";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.desktop-plasma.config;
+        configModules = {
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, username, hostname, ... }: {
+          imports = [  
+            ./modules/core
+            ./modules/gui/plasma
+            ./modules/toys
+            ./modules/virt
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    }; #KDE-Plasma Desktop
+
   };
 }
 

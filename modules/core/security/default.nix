@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, username, ... }:
 { 
   security = {
         
@@ -22,9 +22,8 @@
     _1password.enable = true;
     _1password-gui = {
 	enable = true;
-	polkitPolicyOwners = [ "${user}" ];
-    };
- 
+	polkitPolicyOwners = [ "${username}" ];
+    }; 
   gnupg.agent = {
       enable = true;
     };
