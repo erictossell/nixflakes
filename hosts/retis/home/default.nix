@@ -1,10 +1,10 @@
-{ pkgs, home-manager, user, host, ... }:
+{ pkgs, home-manager, username, hostname, ... }:
 {
   imports = [
     home-manager.nixosModules.default
   ];
 
-  home-manager.users.${user} = { pkgs, ... }: {
+  home-manager.users.${username} = { pkgs, ... }: {
     /* The home.stateVersion option does not have a default and must be set */
     home.stateVersion = "23.05";
     nixpkgs.config.allowUnfree = true;
@@ -19,7 +19,7 @@
   # ---- System Configurations ----
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; # For cross-compiling, https://discourse.nixos.org/t/how-do-i-cross-compile-a-flake/12062/6?u=srid
   networking = {
-    hostName = "${host}";
+    hostName = "${hostname}";
   };
 
 }

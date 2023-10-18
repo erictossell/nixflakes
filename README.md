@@ -2,25 +2,17 @@
 
 ## Eriim's Nixflakes
 
-This repo contains pure nix modules that can be imported to other Nix systems using a similar configuration.
-
-Modules are grouped by *functionality* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.
-
-Some modules have accompanying packages - they contain required or recommended accompanying packages and are imported by their dependants.
-
-- [/pkgs/core.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/core.nix)
-- [/pkgs/dev.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/dev.nix)
-- [/pkgs/hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/pkgs/hyprland.nix)
+Modules are grouped to be almost purely *functional* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.
 
 Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
 
 Requires Flake:
 
-- [hyprland-nvidia.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland-nvidia.nix)
+- [gui/hyprland/nvidia](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/nvidia/default.nix)
 
 Non Flake alternative (Still contains Nvidia Optional Settings):
 
-- [hyprland.nix](https://github.com/erictossell/nixflakes/blob/main/modules/hyprland.nix)
+- [gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
 
 ![Flake Structure](screens/diagram2.png)
 

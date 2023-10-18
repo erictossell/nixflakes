@@ -1,12 +1,14 @@
-{ pkgs, home-manager, user, host, ... }:
+{ pkgs, home-manager, username, hostname, ... }:
 let
   corePackages = import ./pkgs/core { inherit  pkgs; };
   devPackages = import ./pkgs/dev { inherit pkgs; };
 in
 { 
   imports = [
-    ../../users/${user}
-    ../../hosts/${host}/home
+    ./boot/systemd
+    ../../users/${username}
+    ../../hosts/${hostname}/home
+    ./apps
     ./terminal
     ./browsing
     ./obs
@@ -14,11 +16,7 @@ in
     ./vscode
   ];
 
-  home-manager.users.${user} = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      obsidian
-      discord
-     ];
+  home-manager.users.${username} = { pkgs, ... }: {
     programs.gh.enable = true;
   };
 
@@ -29,15 +27,6 @@ in
           
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Meshnet
   # services.tailscale.enable = true;

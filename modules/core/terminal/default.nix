@@ -1,4 +1,4 @@
-{ pkgs, home-manager, user, ... }:
+{ pkgs, home-manager, username, ... }:
 let
   packages = with pkgs; [
     alacritty # backup terminal
@@ -11,35 +11,35 @@ let
 in
 {  
    # ---- Home Configuration ----
-   home-manager.users.${user} = { pkgs, ... }: {
+   home-manager.users.${username} = { pkgs, ... }: {
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
        ".config/nvim".source = ./dotfiles/nvim;
      };
 
-     programs.bash.enable = true;
-     programs.git.enable = true;
+    programs.bash.enable = true;
+    programs.git.enable = true;
 
-     programs.neovim = {
-	enable = true;
-	defaultEditor = true;
-	withPython3 = true;
-	plugins = with pkgs.vimPlugins; [
-		nvim-tree-lua
-		nvim-treesitter-parsers.bash
-		nvim-treesitter-parsers.dockerfile
-		nvim-treesitter-parsers.go 
-		nvim-treesitter-parsers.gomod 
-		nvim-treesitter-parsers.gosum
-		nvim-treesitter-parsers.html
-		nvim-treesitter-parsers.javascript
-		nvim-treesitter-parsers.json
-		nvim-treesitter-parsers.nix
-		nvim-treesitter-parsers.python
-		nvim-treesitter-parsers.regex
-		nvim-treesitter-parsers.sql		
-	];
+    programs.neovim = {
+		enable = true;
+		defaultEditor = true;
+		withPython3 = true;
+		plugins = with pkgs.vimPlugins; [
+			nvim-tree-lua
+			nvim-treesitter-parsers.bash
+			nvim-treesitter-parsers.dockerfile
+			nvim-treesitter-parsers.go 
+			nvim-treesitter-parsers.gomod 
+			nvim-treesitter-parsers.gosum
+			nvim-treesitter-parsers.html
+			nvim-treesitter-parsers.javascript
+			nvim-treesitter-parsers.json
+			nvim-treesitter-parsers.nix
+			nvim-treesitter-parsers.python
+			nvim-treesitter-parsers.regex
+			nvim-treesitter-parsers.sql		
+		];
     };
 
     programs.vim.enable = true;
@@ -57,11 +57,11 @@ in
 #	nitch
 #	'';
 #   };
+
    programs.bash = {
- #    enable = true;
-     interactiveShellInit = ''
- 	nitch
- 	'';
+      interactiveShellInit = ''
+ 			nitch
+ 		'';
     };
 
    programs.starship = {
@@ -122,8 +122,8 @@ in
       clock24 = true;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [ 
-	nord
-	yank
+		nord
+		yank
       ];
     };
   };

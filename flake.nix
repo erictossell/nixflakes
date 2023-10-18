@@ -19,8 +19,8 @@
     nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "retis";
+        username = "eriim";
+        hostname = "retis";
       } // attrs;        
 
       modules = let
@@ -33,7 +33,7 @@
         };      
 
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, host, ... }: {
           imports = [
            # Core Packages
             ./modules/core    
@@ -52,8 +52,8 @@
     nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "retis";
+        username = "eriim";
+        hostname = "retis";
       } // attrs;        
 
       modules = let
@@ -66,7 +66,7 @@
         };      
 
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [  
             # Core Packages
             ./modules/core
@@ -85,8 +85,8 @@
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "retis";
+        username = "eriim";
+        hostname = "retis";
       } // attrs;        
 
       modules = let
@@ -99,7 +99,7 @@
         };      
       
       in [
-        ({pkgs, home-manager, hyprland, user, host, ... }: {
+        ({pkgs, home-manager, hyprland, username, hostname, ... }: {
           imports = [
             # Core Packages
             ./modules/core
@@ -118,8 +118,8 @@
     nixosConfigurations.sisyphus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "sisyphus";
+        username = "eriim";
+        hostname = "sisyphus";
       } // attrs;        
 
       modules = let
@@ -131,7 +131,7 @@
         };  
 
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
             # Core Packages
             ./modules/core
@@ -146,8 +146,8 @@
     nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "icarus";
+        username = "eriim";
+        hostname = "icarus";
       } // attrs;        
       
       modules = let
@@ -160,7 +160,7 @@
         };      
       
       in [
-        ({pkgs, home-manager, user, host, ... }: {
+        ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
             # Core Packages
             ./modules/core
@@ -176,8 +176,8 @@
     nixosConfigurations.aeneas = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        user = "eriim";
-        host = "aeneas";
+        username = "eriim";
+        hostname = "aeneas";
       } // attrs;
 
       modules = let 
@@ -187,7 +187,7 @@
         };
       
         in [
-          ({pkgs, home-manager, user, host, ... }: {
+          ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
             # Pentest Specific files
             ./hosts/aeneas/home    

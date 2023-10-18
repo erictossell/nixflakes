@@ -1,6 +1,6 @@
-{ pkgs, home-manager, user, ... }:
+{ pkgs, home-manager, username, ... }:
 {
-  home-manager.users.${user} = { pkgs, ... }: {
+  home-manager.users.${username} = { pkgs, ... }: {
 
      programs = {
 

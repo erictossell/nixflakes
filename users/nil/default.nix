@@ -1,8 +1,8 @@
-{ config, pkgs, virt-user, ... }:
+{ config, pkgs, username, ... }:
 
 {
 # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${virt-user} = {
+  users.users.${username} = {
     shell = pkgs.bash;
     password = "temp123";
     isNormalUser = true;

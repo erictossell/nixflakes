@@ -1,8 +1,8 @@
-{ pkgs, user, ... }:
+{ pkgs, username, ... }:
 {
   
   # Required to run Windows applications ie World of Warcraft
-  users.users.${user} = {
+  users.users.${username} = {
   packages = with pkgs; [ 
       (wineWowPackages.full.override {
         wineRelease = "staging";

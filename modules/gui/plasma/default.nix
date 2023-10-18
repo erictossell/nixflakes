@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, ... }:
 {
 	programs.dconf.enable=true;
 	services.xserver = {

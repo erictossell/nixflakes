@@ -1,4 +1,4 @@
-{ pkgs, home-manager, user,  ... }:
+{ pkgs, home-manager, username,  ... }:
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
 	user-themes
@@ -18,7 +18,7 @@ let
 in
 {
   # ---- Home Configuration ----
-  home-manager.users.${user} = { pkgs, ...}: {
+  home-manager.users.${username} = { pkgs, ...}: {
     home.packages = gnomeExtensionsList;
 
     dconf.settings = {

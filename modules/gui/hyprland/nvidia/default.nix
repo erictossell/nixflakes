@@ -1,4 +1,4 @@
-{ pkgs, hyprland, user, ... }:
+{ pkgs, hyprland, username, ... }:
 let
   hyprPackages = import ../pkgs { inherit pkgs; };
 in
@@ -18,7 +18,7 @@ in
   settings = {
     default_session = {
         command = "Hyprland";
-        user = user;
+        user = username;
       };
     };
   };
