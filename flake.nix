@@ -32,6 +32,7 @@
           imports = [
             ./modules/core
             ./modules/gui/hyprland/nvidia
+            ./modules/obs
             ./modules/toys
             ./modules/virt
           ];

@@ -10,7 +10,6 @@ in
     ./apps
     ./terminal
     ./browsing
-    ./obs
     ./security
     ./vscode
   ];
