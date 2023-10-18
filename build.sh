@@ -1,62 +1,120 @@
+
 #!/run/current-system/sw/bin/bash
-#!/bin/bash
 
-declare -A hosts
-hosts=( ["1"]="desktop" ["2"]="laptop" ) 
+cd "$(dirname "$0")" || exit 1
 
-declare -A desktop_commands
-desktop_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#desktop-hyprland' -p \"Hyprland\"" ["2"]="sudo nixos-rebuild switch --flake '.#desktop-gnome' -p \"Gnome\" " ["3"]="sudo nixos-rebuild switch --flake '.#desktop-plasma' -p \"KDE-Plasma\" ")
+echo -n "Enter new hostname: "
+read dir_name
 
-declare -A laptop_commands
-laptop_commands=( ["1"]="sudo nixos-rebuild switch --flake '.#laptop-hyprland' -p \"Hyprland\" ")
+validate_input() {
+    while : ; do
+        read -r input
+        case $input in
+            [Yy]) return 0 ;;
+            [Nn]) return 1 ;;
+            *) echo "Invalid input. Please enter Y or n:" ;;
+        esac
+    done
+}
 
-echo "Select a host:"
-for i in "${!hosts[@]}"; do
-  echo "$i) ${hosts[$i]}"
-done
-read -p "Enter choice: " host_choice
+modify_hardware_config() {
+    local file_path=$1
+    sed -i \
+        -e '1,10s/{ config, lib, pkgs, modulesPath, ... }:/ { config, lib, nixpkgs, ... }:/' \
+        -e '1,10s/\[ (modulesPath + "\/installer\/scan\/not-detected.nix") \]/\[ "${nixpkgs}\/nixos\/modules\/installer\/scan\/not-detected.nix" \]/' \
+        "$file_path"
+}
 
-current_host=$(hostname)
-selected_host=${hosts[$host_choice]}
+default_hardware_config_path="/etc/nixos/hardware-configuration.nix"
+default_config_path="/etc/nixos/configuration.nix"
 
-if [ "$selected_host" != "$current_host" ]; then
-  echo "Warning: The selected host ($selected_host) does not match the hostname of this device ($current_host)."
-  read -p "Do you want to continue? (y/n) " continue_choice
-  if [ "$continue_choice" != "y" ] && [ "$continue_choice" != "Y" ]; then
-    echo "Exiting."
-    exit 1
-  fi
-fi
+# Common path prefix
+host_dir="hosts/$dir_name"
 
-declare -A commands
-if [ "$selected_host" == "desktop" ]; then
-  for key in "${!desktop_commands[@]}"; do commands["$key"]="${desktop_commands[$key]}"; done
-elif [ "$selected_host" == "laptop" ]; then
-  for key in "${!laptop_commands[@]}"; do commands["$key"]="${laptop_commands[$key]}"; done
-fi
-
-echo "Select a build option:"
-for i in "${!commands[@]}"; do
-  echo "$i) $selected_host (Command: ${commands[$i]})"
-done
-read -p "Enter choice [ 1 -3 ] " choice
-echo "4) Exit"
-case $choice in
-  1|2|3)
-    echo "You selected option $choice (Command: ${commands[$choice]})"
-    read -p "Are you sure you want to proceed? (y/n) " confirm
-    if [ "$confirm" == "y" ] || [ "$confirm" == "Y" ]; then
-      echo "Running: ${commands[$choice]}"
-      eval "${commands[$choice]}"
-    else
-      echo "Cancelled."
+if test -s "$default_hardware_config_path"; then
+    echo "/etc/nixos/hardware-configuration.nix exists and is not empty, would you like to import it? Y/n"
+    if validate_input; then
+        echo "Importing existing $default_hardware_config_path..."
+        bool_import=true
     fi
-    ;;
-  4)
-    echo "Exiting."
-    exit 0
-    ;;
-  *)
-    echo "Invalid choice, please choose between 1-4."
-esac
+else
+    echo "File does not exist, would you like to generate both config files? Y/n"
+    if validate_input; then
+        echo "Generating $default_hardware_config_path..."
+        bool_generate=true
+    fi
+fi
+
+# Create directories and files
+mkdir -p "$host_dir" "$host_dir/hardware" "$host_dir/home"
+touch "$host_dir/default.nix" "$host_dir/hardware/default.nix" "$host_dir/home/default.nix"
+
+if bool_generate; then
+    nixos-generate-config
+    cp "$default_hardware_config_path" "$host_dir/hardware/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
+    modify_hardware_config "$host_dir/hardware/hardware-configuration.nix"
+elif [ "$bool_import" = true ]; then
+    cp "$default_hardware_config_path" "$host_dir/hardware/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
+    modify_hardware_config "$host_dir/hardware/hardware-configuration.nix"
+fi
+# Prepare for copying a home/default.nix profile
+echo "Select a profile to copy, or choose to create a basic default file:"
+select profile in retis sisyphus aeneas "Create basic default file"; do
+    case $profile in
+      retis|sisyphus|aeneas)
+            echo "Copying profile from hosts/$profile/home/default.nix to $host_dir/home/default.nix..."
+            cp "hosts/$profile/home/default.nix" "$host_dir/home/default.nix" || { echo "Failed to copy profile"; exit 1; }
+            cp "hosts/$profile/hardware/default.nix" "$host_dir/hardware/default.nix" || { echo "Failed to copy profile"; exit 1; }
+            break
+            ;;
+        "Create basic default file")
+            echo "Creating a basic default.nix file in $host_dir/home/default.nix..."
+            cat > "$host_dir/home/default.nix" << EOF
+{ pkgs, home-manager, username, hostname, ... }:
+{
+  imports = [
+    home-manager.nixosmodules.default
+  ];
+
+  home-manager.users.${username} = { pkgs, ... }: {
+    /* the home.stateversion option does not have a default and must be set */
+    home.stateversion = "23.05";
+    nixpkgs.config.allowunfree = true;
+  };
+
+  # ---- system configurations ---   
+  # enable networking - available with nmcli and nmtui
+  networking = {
+    hostname = "${hostname}";
+  }; 
+}
+EOF
+            cat > "$host_dir/hardware/default.nix" << EOF
+{ config, lib, pkgs, ... }:
+{
+	imports = [
+		./hardware-configuration.nix
+		../../../modules/hardware
+	];
+}
+EOF
+
+            break
+            ;;
+        *)
+            echo "Invalid option. Please try again."
+            ;;
+    esac
+done
+
+# Write to hosts/$dir_name/default.nix
+cat > "$host_dir/default.nix" << EOF
+{ config, lib, pkgs, ... }:
+{
+ imports = [
+   ./home
+   ./hardware
+ ];
+}
+EOF
 

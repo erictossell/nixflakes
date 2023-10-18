@@ -2,17 +2,17 @@
 
 ## Eriim's Nixflakes
 
-Modules are grouped to be almost purely *functional* and as such you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.
 
-Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. This includes:
+Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. 
 
 Requires Flake:
 
-- [gui/hyprland/nvidia](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/nvidia/default.nix)
+- [modules/gui/hyprland/nvidia](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/nvidia/default.nix)
 
 Non Flake alternative (Still contains Nvidia Optional Settings):
 
-- [gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
+- [modules/gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
 
 ![Flake Structure](.screens/diagram2.png)
 
@@ -49,29 +49,34 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
   - [`nitch` (sysfetch)](https://github.com/ssleert/nitch)
 
 #### Profiles
-1. Desktop (destkop-hyprland)
+1. Desktop (retis) - 3 monitors
 
    - WM: [hyprland](https://hyprland.org/)
    - All core modules + nvidia
 
-2. Desktop (desktop-gnome)
-
-   - DE: Customised [Gnome](https://www.gnome.org/) w [PopShell](https://github.com/pop-os/shell) for a WM experience
-   - All core modules + nvidia
-
-3. Desktop (desktop-plasma)
-
-   - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
-   - All core modules + nvidia
-
-3. Laptop (laptop-hyprland) [ Slightly stripped down version of my desktop ]
+2. Laptop (sisyphus) - 1 monitor
 
    - WM: [hyprland](https://hyprland.org/)
    - Most core modules (no extra toys)
 
-4. PentestVM (pentest-vm)
+3. Laptop (icarus) - 1 monitor
 
-	- Specialised set of packages for playing [HTB](https://www.hackthebox.com/)
+   - WM: [hyprland](https://hyprland.org/)
+   - Most core modules (no extra toys)
+
+4. PentestVM (aeneas)
+
+   - Specialised set of packages for playing [HTB](https://www.hackthebox.com/)
+
+5. Desktop (desktop-gnome) 
+
+   - DE: Customised [Gnome](https://www.gnome.org/) w [PopShell](https://github.com/pop-os/shell) for a WM experience
+   - All core modules + nvidia
+
+6. Desktop (desktop-plasma)
+
+   - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
+   - All core modules + nvidia
 
 ## Getting Started with NixOS Minimal
 
