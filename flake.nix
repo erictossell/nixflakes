@@ -34,27 +34,12 @@
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
-            # Desktop Specific files
-            ./hosts/retis/home.nix
-    
-            # Chromium Firefox Nyxt
-            ./modules/browsers.nix
-    
-            # Core Packages
+           # Core Packages
             ./modules/core.nix
     
             # Core Packages
-            ./modules/gnome.nix
-
-            # OBS-Studio
-            ./modules/obs.nix
-    
-            # Security Features
-            ./modules/security.nix
-    
-            # Terminal Customizations
-            ./modules/terminal
-    
+            ./modules/gui/gnome.nix
+ 
             # Video game things
             ./modules/vidya.nix
     
@@ -82,28 +67,13 @@
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
-          imports = [
-            # Desktop Specific files
-            ./hosts/retis/home.nix
-    
-            # Chromium Firefox Nyxt
-            ./modules/browsers.nix
-    
+          imports = [  
             # Core Packages
             ./modules/core.nix
     
-            # Core Packages
-            ./modules/plasma.nix
+            # Desktop Environment
+            ./modules/gui/plasma.nix
 
-            # OBS-Studio
-            ./modules/obs.nix
-    
-            # Security Features
-            ./modules/security.nix
-    
-            # Terminal Customizations
-            ./modules/terminal
-    
             # Video game things
             ./modules/vidya.nix
     
@@ -133,27 +103,12 @@
       in [
         ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
-            # Desktop Specific files
-            ./hosts/retis/home.nix
-    
-            # Chromium Firefox Nyxt
-            ./modules/browsers.nix
-    
             # Core Packages
             ./modules/core.nix
     
             # Core Packages
-            ./modules/hyprland-nvidia.nix
-
-            # OBS-Studio
-            ./modules/obs.nix
-    
-            # Security Features
-            ./modules/security.nix
-    
-            # Terminal Customizations
-            ./modules/terminal
-    
+            ./modules/gui/hyprland-nvidia.nix
+   
             # Video game things
             ./modules/vidya.nix
     
@@ -182,24 +137,11 @@
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
-            # Desktop Specific files
-            ./hosts/sisyphus/home.nix
-    
-            # Chromium Firefox Nyxt
-            ./modules/browsers.nix
-    
             # Core Packages
             ./modules/core.nix
     
             # Core Packages
-            ./modules/hyprland.nix
-
-            # Security Features
-            ./modules/security.nix
-    
-            # Terminal Customizations
-            ./modules/terminal
-    
+            ./modules/gui/hyprland.nix
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -223,24 +165,13 @@
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
-            # Desktop Specific files
-            ./hosts/icarus/home.nix
-    
-            # Chromium Firefox Nyxt
-            ./modules/browsers.nix
     
             # Core Packages
             ./modules/core.nix
     
             # Core Packages
-            ./modules/hyprland.nix
+            ./modules/gui/hyprland.nix
 
-            # Security Features
-            ./modules/security.nix
-    
-            # Terminal Customizations
-            ./modules/terminal
-    
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
