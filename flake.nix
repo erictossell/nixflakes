@@ -15,7 +15,7 @@
   in 
   { 
     
-    # Gnome Desktop - PopShell
+    # KDE-Plasma Desktop 
     nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -27,20 +27,18 @@
         commonConfig = self.nixosConfigurations.desktop-gnome.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
 
       in [
-        ({pkgs, home-manager, username, host, ... }: {
-          imports = [
-           # Core Packages
-            ./modules/core    
+        ({pkgs, home-manager, username, hostname, ... }: {
+          imports = [  
+            # Core Packages
+            ./modules/core
             # Desktop Environment
-            ./modules/gui/gnome 
+            ./modules/gui/gnome
             # Video game things
-            ./modules/toys    
+            ./modules/toys
             # Virtualisation
             ./modules/virt
           ];
@@ -60,9 +58,7 @@
         commonConfig = self.nixosConfigurations.desktop-plasma.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
 
       in [
@@ -93,9 +89,7 @@
         commonConfig = self.nixosConfigurations.retis.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       
       in [
@@ -126,8 +120,7 @@
         commonConfig = self.nixosConfigurations.sisyphus .config;
 
         configModules = {
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/sisyphus"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };  
 
       in [
@@ -154,9 +147,7 @@
         commonConfig = self.nixosConfigurations.icarus.config;
 
         configModules = {
-         
-          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/icarus"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       
       in [
@@ -183,7 +174,7 @@
       modules = let 
         config = self.nixosConfigurations.aeneas.config;
         configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/aeneas/hardware"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/aeneas"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
         };
       
         in [
