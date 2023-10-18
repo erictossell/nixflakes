@@ -17,6 +17,78 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
+<<<<<<< HEAD
+=======
+    
+    # Gnome Desktop - PopShell
+    nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        user = "eriim";
+        host = "retis";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.desktop-gnome.config;
+
+        configModules = {
+          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, user, host, ... }: {
+          imports = [
+           # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/gui/gnome.nix
+ 
+            # Video game things
+            ./modules/vidya.nix
+    
+            # Virtualisation
+            ./modules/virt.nix
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
+    # KDE-Plasma Desktop 
+    nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        user = "eriim";
+        host = "retis";
+      } // attrs;        
+      modules = let
+        commonConfig = self.nixosConfigurations.desktop-plasma.config;
+
+        configModules = {
+          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+        };      
+      in [
+        ({pkgs, home-manager, user, host, ... }: {
+          imports = [  
+            # Core Packages
+            ./modules/core.nix
+    
+            # Desktop Environment
+            ./modules/gui/plasma.nix
+
+            # Video game things
+            ./modules/vidya.nix
+    
+            # Virtualisation
+            ./modules/virt.nix
+          ];
+        })
+      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+    };
+>>>>>>> 4de057b (Module restructure)
 
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
@@ -33,12 +105,26 @@
       in [
         ({pkgs, home-manager, hyprland, username, hostname, ... }: {
           imports = [
+<<<<<<< HEAD
 
             ./modules/core
             ./modules/gui/hyprland/nvidia
             ./modules/obs
             ./modules/toys
             ./modules/virt
+=======
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/gui/hyprland-nvidia.nix
+   
+            # Video game things
+            ./modules/vidya.nix
+    
+            # Virtualisation
+            ./modules/virt.nix
+>>>>>>> 4de057b (Module restructure)
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -59,8 +145,16 @@
       in [
         ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
+<<<<<<< HEAD
             ./modules/core
             ./modules/gui/hyprland/standard
+=======
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/gui/hyprland.nix
+>>>>>>> 4de057b (Module restructure)
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -81,8 +175,18 @@
       in [
         ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
+<<<<<<< HEAD
             ./modules/core
             ./modules/gui/hyprland/standard
+=======
+    
+            # Core Packages
+            ./modules/core.nix
+    
+            # Core Packages
+            ./modules/gui/hyprland.nix
+
+>>>>>>> 4de057b (Module restructure)
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
