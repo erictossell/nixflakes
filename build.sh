@@ -22,7 +22,7 @@ modify_hardware_config() {
     sed -i \
         -e '1,10s/{ config, lib, pkgs, modulesPath, ... }:/ { config, lib, nixpkgs, ... }:/' \
         -e '1,10s/\[ (modulesPath + "\/installer\/scan\/not-detected.nix") \]/\[ "${nixpkgs}\/nixos\/modules\/installer\/scan\/not-detected.nix" \]/' \
-        -e 's/\(imports\s*=\s*\[\s*\)([^]]*)/\1\n\t\t.\/qemu-guest.nix\n\t\t]/' \
+        -e 's/\(modulesPath + "\/profiles\/qemu-guest.nix"\)/.\/qemu-guest.nix/' \
         "$file_path"
 }
 
