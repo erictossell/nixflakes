@@ -1,6 +1,6 @@
 { pkgs, hyprland, user, ... }:
 let
-  hyprPackages = import ../pkgs/hyprland.nix { inherit pkgs; };
+  hyprPackages = import ../pkgs { inherit pkgs; };
 in
 {
  

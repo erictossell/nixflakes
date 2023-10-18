@@ -1,17 +1,17 @@
-{ pkgs, home-manager, user, ... }:
+{ pkgs, home-manager, user, host, ... }:
 let
-  corePackages = import ../pkgs/core.nix { inherit  pkgs; };
-  devPackages = import ../pkgs/dev.nix { inherit pkgs; };
+  corePackages = import ./pkgs/core { inherit  pkgs; };
+  devPackages = import ./pkgs/dev { inherit pkgs; };
 in
 { 
   imports = [
-    ../users/${user}.nix
-    ../hosts/${host}/home.nix
+    ../../users/${user}
+    ../../hosts/${host}/home
     ./terminal
-    ./browsers.nix
-    ./obs.nix
-    ./security.nix
-    ./vscode.nix
+    ./browsing
+    ./obs
+    ./security
+    ./vscode
   ];
 
   home-manager.users.${user} = { pkgs, ... }: {

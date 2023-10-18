@@ -26,25 +26,24 @@
         commonConfig = self.nixosConfigurations.desktop-gnome.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
            # Core Packages
-            ./modules/core.nix
+            ./modules/core
     
             # Core Packages
-            ./modules/gui/gnome.nix
+            ./modules/gui/gnome
  
             # Video game things
-            ./modules/vidya.nix
+            ./modules/toys
     
             # Virtualisation
-            ./modules/virt.nix
+            ./modules/virt
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -60,25 +59,24 @@
         commonConfig = self.nixosConfigurations.desktop-plasma.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [  
             # Core Packages
-            ./modules/core.nix
+            ./modules/core
     
             # Desktop Environment
-            ./modules/gui/plasma.nix
+            ./modules/gui/plasma
 
             # Video game things
-            ./modules/vidya.nix
+            ./modules/toys
     
             # Virtualisation
-            ./modules/virt.nix
+            ./modules/virt
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -95,25 +93,24 @@
         commonConfig = self.nixosConfigurations.retis.config;
 
         configModules = {
-          nvidia = { modulePath = "${self}/modules/nvidia.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          nvidia = { modulePath = "${self}/modules/nvidia"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/retis/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, hyprland, user, host, ... }: {
           imports = [
             # Core Packages
-            ./modules/core.nix
+            ./modules/core
     
             # Core Packages
-            ./modules/gui/hyprland-nvidia.nix
+            ./modules/gui/hyprland/nvidia
    
             # Video game things
-            ./modules/vidya.nix
+            ./modules/toys
     
             # Virtualisation
-            ./modules/virt.nix
+            ./modules/virt
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -130,18 +127,17 @@
         commonConfig = self.nixosConfigurations.sisyphus .config;
 
         configModules = {
-          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/sisyphus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Core Packages
-            ./modules/core.nix
+            ./modules/core
     
             # Core Packages
-            ./modules/gui/hyprland.nix
+            ./modules/gui/hyprland/standard
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -158,19 +154,19 @@
         commonConfig = self.nixosConfigurations.icarus.config;
 
         configModules = {
-          bluetooth = { modulePath = "${self}/modules/bluetooth.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          sound = { modulePath = "${self}/modules/sound.nix"; args = { inherit pkgs; config = commonConfig; }; };
-          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
+         
+          hardwareShared = { modulePath = "${self}/modules/hardware"; args = { inherit pkgs; config = commonConfig; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/icarus/hardware"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
         ({pkgs, home-manager, user, host, ... }: {
           imports = [
     
             # Core Packages
-            ./modules/core.nix
+            ./modules/core
     
             # Core Packages
-            ./modules/gui/hyprland.nix
+            ./modules/gui/hyprland/standard
 
           ];
         })
@@ -183,19 +179,18 @@
       system = "x86_64-linux";
       specialArgs = {
         user = "eriim";
-        host = "datus";
+        host = "aeneas";
       } // attrs;
       modules = let 
         config = self.nixosConfigurations.aeneas.config;
-
         configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/aeneas/hardware-configuration.nix"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
+          hardwareConfig = { modulePath = "${self}/hosts/aeneas/hardware"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
         };
         in [
           ({pkgs, home-manager, user, host, ... }: {
           imports = [
             # Pentest Specific files
-            ./hosts/aeneas/home.nix
+            ./hosts/aeneas/home
             
             ./modules/pentest
 
