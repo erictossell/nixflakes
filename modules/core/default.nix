@@ -1,40 +1,25 @@
-{ pkgs, home-manager, user, ... }:
+{ pkgs, home-manager, user, host, ... }:
 let
-  corePackages = import ../pkgs/core.nix { inherit  pkgs; };
-  devPackages = import ../pkgs/dev.nix { inherit pkgs; };
+  corePackages = import ./pkgs/core { inherit  pkgs; };
+  devPackages = import ./pkgs/dev { inherit pkgs; };
 in
 { 
   imports = [
-    ../users/${user}.nix 
+    ../../users/${user}
+    ../../hosts/${host}/home
+    ./terminal
+    ./browsing
+    ./obs
+    ./security
+    ./vscode
   ];
 
   home-manager.users.${user} = { pkgs, ... }: {
-
     home.packages = with pkgs; [
       obsidian
       discord
      ];
-    
     programs.gh.enable = true;
-    # VS Code on Wayland has issues, make sure to set the title bar to custom
-    # https://github.com/microsoft/vscode/issues/181533
-    programs.vscode = {
-      enable = true;
-      enableUpdateCheck = true;
-      enableExtensionUpdateCheck = true;
-      extensions = with pkgs.vscode-extensions; [
-        golang.go
-        vscodevim.vim
-        github.copilot
-        github.github-vscode-theme
-        github.vscode-github-actions
-        ms-python.python
-        bbenoist.nix
-      ];
-      userSettings = {
-         "window.titleBarStyle" = "custom";
-      };
-    };
   };
 
   services.gnome.gnome-keyring.enable = true;
