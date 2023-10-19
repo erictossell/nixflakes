@@ -61,11 +61,16 @@ in
 #   };
 
    programs.bash = {
-      interactiveShellInit = ''
- 			nitch
- 		'';
-
-    };
+        interactiveShellInit = ''
+   			nitch
+   		'';
+	shellAliases = {
+		g = "git";
+		n = "nvim";
+		t = "tmux";
+		r = "ranger";
+	};
+   };
 
    programs.starship = {
 	enable = true;
