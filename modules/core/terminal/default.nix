@@ -80,9 +80,11 @@ in
     settings = {
       add_newline = false;
       scan_timeout = 10;
-      format = ''[┌───────────────────>](bold green)
+      format = ''
+  [┌───────────────────>](bold green)
   [│](bold green)$all$username$character$directory$cmd_duration
-  [└─>](bold green)'';
+  [└─>](bold green)
+  '';
       username = {
         style_user = "green";
         style_root = "red";
