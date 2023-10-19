@@ -10,10 +10,12 @@
     nixpkgs.config.allowUnfree = true;
     
     home.file = {
-      ".config/hypr".source = ../../.dotfiles/3monitor/hypr;
-      ".config/swaylock".source = ../../.dotfiles/shared/swaylock;
-      ".config/waybar".source = ../../.dotfiles/3monitor/waybar;
-      ".config/wofi".source = ../../.dotfiles/shared/wofi;    
+
+      ".config/hypr".source = ../.dotfiles/3monitor/hypr;
+      ".config/swaylock".source = ../.dotfiles/shared/swaylock;
+      ".config/waybar".source = ../.dotfiles/shared/waybar;
+      ".config/wofi".source = ../.dotfiles/3monitor/wofi;    
+
     };
   };
   # ---- System Configurations ----
