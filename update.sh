@@ -9,5 +9,5 @@ git add .
 git commit -m "$commit_message"
 
 # Push changes to the remote repository
-git push origin develop
+git push 
 

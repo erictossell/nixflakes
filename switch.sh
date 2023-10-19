@@ -10,10 +10,12 @@ do
         "Hyprland")
             echo "You chose Hyprland"
             sudo nixos-rebuild switch --flake '.' -p "Hyprland"
+            exit
             ;;
         "System")
             echo "You chose System"
             sudo nixos-rebuild switch --flake '.'
+            exit
             ;;
 
         "Quit")
