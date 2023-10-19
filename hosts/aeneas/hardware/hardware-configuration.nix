@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-	imports = [
-		./qemu-guest.nix
-		];
 	
 	boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
 	boot.initrd.kernelModules = [ ];
@@ -20,4 +17,17 @@
 	swapDevices = [ ];
 
 	nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+	# Bootloader.
+	boot.loader = {
+		grub.enable = true;
+		grub.device = "/dev/vda";
+		grub.useOSProber = true;
+	};
+	boot.initrd.secrets = {
+		"/crypto_keyfile.bin" = null;
+	};
+
+	boot.loader.grub.enableCryptodisk = true;
+	boot.initrd.luks.devices."luks-6b8fec0a-e846-4cda-ac66-eeddd2b1ce53".keyFile = "/crypto_keyfile.bin";
+ 
 }

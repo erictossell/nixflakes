@@ -1,8 +1,10 @@
 #!/run/current-system/sw/bin/bash
+
+cd "$HOME/repos/nixflakes" || exit 1
+
 echo "Commit message:"
 read commit_message
 
-git pull
 # Add changes to the staging area
 git add .
 
@@ -10,5 +12,5 @@ git add .
 git commit -m "$commit_message"
 
 # Push changes to the remote repository
-git push origin develop
+git push 
 

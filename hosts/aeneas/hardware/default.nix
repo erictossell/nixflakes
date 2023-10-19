@@ -2,7 +2,7 @@
 {
 	imports = [
 		./hardware-configuration.nix
-		./qemu-guest.nix
+ 	        ../../../profiles/qemu-guest.nix
 	];
 }
 

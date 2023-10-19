@@ -5,7 +5,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   # Defining flake import structure for packages
@@ -14,7 +17,6 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -30,7 +32,6 @@
       in [
         ({pkgs, home-manager, hyprland, username, hostname, ... }: {
           imports = [
-
             ./modules/core
             ./modules/gui/hyprland/nvidia
             ./modules/obs

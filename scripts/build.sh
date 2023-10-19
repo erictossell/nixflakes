@@ -1,4 +1,3 @@
-
 #!/run/current-system/sw/bin/bash
 
 cd "$(dirname "$0")" || exit 1
@@ -17,13 +16,16 @@ validate_input() {
     done
 }
 
+
 modify_hardware_config() {
     local file_path=$1
     sed -i \
         -e '1,10s/{ config, lib, pkgs, modulesPath, ... }:/ { config, lib, nixpkgs, ... }:/' \
         -e '1,10s/\[ (modulesPath + "\/installer\/scan\/not-detected.nix") \]/\[ "${nixpkgs}\/nixos\/modules\/installer\/scan\/not-detected.nix" \]/' \
+        -e 's/\(modulesPath + "\/profiles\/qemu-guest.nix"\)/.\/qemu-guest.nix/' \
         "$file_path"
 }
+
 
 default_hardware_config_path="/etc/nixos/hardware-configuration.nix"
 default_config_path="/etc/nixos/configuration.nix"

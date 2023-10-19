@@ -3,13 +3,19 @@ let
   hyprPackages = import ../pkgs { inherit pkgs; };
 in
 {
- 
+  imports = [ hyprland.nixosModules.default ];
+
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    hyprland.packages.${system}.hyprland-nvidia
+    #hyprland.packages.${system}.hyprland-nvidia
   ] ++ hyprPackages;
+
+  programs.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+  };
 
   programs.dconf.enable = true;
   #services.getty.autologinUser = user; 
