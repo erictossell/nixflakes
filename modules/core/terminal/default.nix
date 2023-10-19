@@ -5,6 +5,8 @@ let
     btop
     cava
     foot
+    kitty
+    libsixel
     nitch
     vim
   ];
