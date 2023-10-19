@@ -19,7 +19,7 @@ in
        ".config/foot".source = ./dotfiles/foot;     
        ".config/kitty".source = ./dotfiles/kitty;     
        ".config/nvim".source = ./dotfiles/nvim;
-       ".config/ranger".source = ./dotfiles/ranger;
+ #      ".config/ranger".source = ./dotfiles/ranger;
      };
 
     programs.bash.enable = true;
