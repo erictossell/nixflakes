@@ -65,6 +65,7 @@ in
    			nitch
    		'';
 	shellAliases = {
+		e = "exit";
 		g = "git";
 		n = "nvim";
 		t = "tmux";
