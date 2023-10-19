@@ -1,3 +1,4 @@
+{ pkgs, username, ... }:
 {
 # Enable networking - available with nmcli and nmtui
   networking = {
@@ -14,9 +15,9 @@
     device = "//nb/public";
     fsType = "cifs";
   };
-  fileSystems."/home/${username}/Shared/Private" = {
-    device = "//nb/private";
-    fsType = "cifs";
-  };
+ # fileSystems."/home/${username}/Shared/Private" = {
+ #   device = "//nb/private";
+ #   fsType = "cifs";
+ # };
 
 }
