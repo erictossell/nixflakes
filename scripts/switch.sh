@@ -1,6 +1,6 @@
 #!/run/current-system/sw/bin/bash
 
-cd "~/repos/nixflakes" || exit 1
+cd "$HOME/repos/nixflakes" || exit 1
 
 PS3='Please enter your choice: '
 

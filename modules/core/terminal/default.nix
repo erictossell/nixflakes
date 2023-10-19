@@ -6,7 +6,6 @@ let
     cava
     foot
     kitty
-    libsixel
     nitch
     vim
   ];
@@ -18,7 +17,9 @@ in
      home.file = {
        ".config/cava".source = ./dotfiles/cava;
        ".config/foot".source = ./dotfiles/foot;     
+       ".config/kitty".source = ./dotfiles/kitty;     
        ".config/nvim".source = ./dotfiles/nvim;
+       ".config/ranger".source = ./dotfiles/ranger;
      };
 
     programs.bash.enable = true;

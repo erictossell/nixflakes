@@ -50,7 +50,7 @@
         "format": " {percentage_used}% ({free})",
         "tooltip": true,
         "interval": 2,
-        "on-click":"foot sh -c 'ranger'"
+        "on-click":"kitty sh -c 'ranger'"
     },
     "clock": {
         "format": "  {:%d <small>%a</small> %H:%M}",
