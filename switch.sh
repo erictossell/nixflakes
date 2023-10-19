@@ -1,8 +1,9 @@
 #!/run/current-system/sw/bin/bash
 
-PS3='Enter a choice: '
 
-options=("Hyprland" "System" "Desktop" "Quit")
+PS3='Please enter your choice: '
+
+options=("Hyprland" "System" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -12,17 +13,12 @@ do
             ;;
         "System")
             echo "You chose System"
-            # Your command here e.g., pwd
             sudo nixos-rebuild switch --flake '.'
             ;;
-        "Desktop")
-            echo "You chose Desktop <deprecated>"
-            # Your command here e.g., whoami
-            ;;
+
         "Quit")
             break
             ;;
         *) echo "Invalid option $REPLY";;
     esac
 done
-
