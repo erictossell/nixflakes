@@ -1,4 +1,7 @@
 #!/run/current-system/sw/bin/bash
+
+cd "$HOME/repos/nixflakes" || exit 1
+
 echo "Commit message:"
 read commit_message
 
