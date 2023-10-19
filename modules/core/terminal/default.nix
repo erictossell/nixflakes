@@ -67,6 +67,7 @@ in
    			nitch
    		'';
 	      shellAliases = {
+	  b = "btop";
           e = "exit";
           g = "git";
           n = "nvim";
