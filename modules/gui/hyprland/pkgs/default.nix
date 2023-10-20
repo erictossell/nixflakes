@@ -3,8 +3,9 @@ with pkgs; [
   eww-wayland
   grim
   hyprpaper
+  hyprpicker
   libsForQt5.kwallet
-  libsForQt5.polkit-kde-agent
+  polkit_gnome
   mako
   slurp
   swaylock

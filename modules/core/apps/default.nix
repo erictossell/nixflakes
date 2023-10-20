@@ -6,4 +6,7 @@
       discord
      ];
   };
+  environment.systemPackages = with pkgs; [ 
+    runelite
+  ];
 }
