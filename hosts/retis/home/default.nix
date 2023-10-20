@@ -11,7 +11,7 @@
     
     home.file = {
 
-      ".config/hypr/backgrounds".source = ../../.dotfiles/3monitor/hypr/backgrounds;
+      ".config/hypr".source = ../../.dotfiles/3monitor/hypr;
       ".config/swaylock".source = ../../.dotfiles/shared/swaylock;
       ".config/waybar".source = ../../.dotfiles/3monitor/waybar;
       ".config/wofi".source = ../../.dotfiles/shared/wofi;    
