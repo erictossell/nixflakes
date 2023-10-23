@@ -2,11 +2,13 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, nixpkgs, ... }:
-
+let
+  modulesPath = "${nixpkgs}/nixos/modules";
+in 
 {
-  imports = [
-    "${nixpkgs}/nixos/modules/installer/scan/not-detected.nix" 
-   ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];

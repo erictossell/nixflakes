@@ -14,10 +14,20 @@
         github.github-vscode-theme
         github.vscode-github-actions
         ms-python.python
+        ms-vscode.powershell
         bbenoist.nix
       ];
       userSettings = {
          "window.titleBarStyle" = "custom";
+         "workbench.colorTheme" = "Github Dark Colorblind (Beta)";
+         "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace";
+         "github.copilot.enable" = {
+           "*" = true;
+           "plaintext" = false;
+           "markdown" = true;
+           "scminput" = false;
+         };
+         "powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
       };
     };
   };

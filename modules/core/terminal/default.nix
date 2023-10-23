@@ -47,32 +47,22 @@ in
     };
 
     programs.vim.enable = true;
-    #programs.wezterm.enable = true;
-    services.gpg-agent.enableFishIntegration = true;
   };
 
   # ---- System Configuration ----
- 
-#  programs.fish = {
-#    enable = true;
-#    interactiveShellInit = ''
-#	set fish_greeting # Disable greeting
-#	clear
-#	nitch
-#	'';
-#   };
-
-   programs.bash = {
-        interactiveShellInit = ''
-   			nitch
-   		'';
-	      shellAliases = {
-          e = "exit";
-          g = "git";
-          n = "nvim";
-          t = "tmux";
-          r = "ranger";
-	      };
+  programs.bash = {
+    interactiveShellInit = ''
+      	nitch
+    '';
+    shellAliases = {
+	polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+	b = "btop";
+	e = "exit";
+	g = "git";
+	n = "nvim";
+	t = "tmux";
+	r = "ranger";
+    };
   };
   programs.starship = {
     enable = true;

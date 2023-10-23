@@ -48,6 +48,7 @@ else
 fi
 
 # Create directories and files
+cd ..
 mkdir -p "$host_dir" "$host_dir/hardware" "$host_dir/home"
 touch "$host_dir/default.nix" "$host_dir/hardware/default.nix" "$host_dir/home/default.nix"
 
