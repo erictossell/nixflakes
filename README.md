@@ -14,7 +14,7 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
 
 - [modules/gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
 
-![Flake Structure](.screens/diagram4.png)
+![Flake Structure](.screens/FlakeStructure.png)
 ![Flake Profiles](.screens/FlakeProfiles.png)
 
 ### To Be Done
