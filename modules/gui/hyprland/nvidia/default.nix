@@ -8,7 +8,7 @@ in
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.systemPackages = with pkgs; [  ] ++ hyprPackages;
+  environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit  ] ++ hyprPackages;
 
   programs.hyprland = {
     enable = true;
@@ -17,7 +17,6 @@ in
 
   programs.dconf.enable = true;
   
-  #services.getty.autologinUser = user; 
   services.greetd = {
   enable = true;
   settings = {
@@ -27,7 +26,10 @@ in
       };
     };
   };
-
+  
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
   # Unlock with Swaylock
   security = {
     polkit.enable = true;
@@ -39,9 +41,9 @@ in
             auth include login
           '';
         };
-        # Try to unlock keyring on login
-        # Used for GPG keys and Account tokens
-        login.enableKwallet = true;
+    
+   
+        login.enableGnomeKeyring = true;
       };
     };
   };

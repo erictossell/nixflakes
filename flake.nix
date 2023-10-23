@@ -37,6 +37,7 @@
             ./modules/obs
             ./modules/toys
             ./modules/virt
+            ./profiles/smb_client
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -59,6 +60,7 @@
           imports = [
             ./modules/core
             ./modules/gui/hyprland/standard
+            ./profiles/smb_client
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
@@ -81,6 +83,7 @@
           imports = [
             ./modules/core
             ./modules/gui/hyprland/standard
+            ./profiles/smb_client
           ];
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);

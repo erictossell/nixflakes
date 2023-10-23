@@ -5,16 +5,14 @@ in
 {
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.systemPackages = hyprPackages;
+  environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit ] ++ hyprPackages;
   
   # ---- System Configuration ---- 
   programs.dconf.enable = true;
   programs = { 
       hyprland = {
 	   enable = true;
-	   xwayland = {
-	      enable = true;
-	  };
+	  # xwayland.enable = true;
           # enableNvidiaPatches = true;
         };
   };
@@ -26,9 +24,6 @@ in
   };
   # Unlock with Swaylock
   security = {
-    #Application prompts
-    polkit.enable = true;
-
     pam = {
       services = {
         swaylock = {
@@ -37,6 +32,7 @@ in
             auth include login
           '';
         };
+        login.enableGnomeKeyring = true;
       };
     };
   };

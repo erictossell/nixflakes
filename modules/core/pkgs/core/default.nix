@@ -5,7 +5,6 @@ with pkgs; [
   playerctl
   ranger
   ripgrep
-  samba
   unzip
   wget
   yubikey-manager 

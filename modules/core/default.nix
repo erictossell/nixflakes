@@ -7,7 +7,6 @@ in
   imports = [
     ./boot/systemd
     ../../users/${username}
-    ../../profiles/smb_client
     ./apps
     ./terminal
     ./browsing
