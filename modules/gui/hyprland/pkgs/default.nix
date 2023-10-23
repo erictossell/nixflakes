@@ -4,8 +4,6 @@ with pkgs; [
   grim
   hyprpaper
   hyprpicker
-  libsForQt5.kwallet
-  polkit_gnome
   mako
   slurp
   swaylock

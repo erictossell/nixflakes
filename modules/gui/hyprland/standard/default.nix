@@ -35,6 +35,5 @@ in
         login.enableGnomeKeyring = true;
       };
     };
-  };
-  
+  }; 
 }
