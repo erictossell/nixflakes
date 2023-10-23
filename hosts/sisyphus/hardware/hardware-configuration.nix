@@ -2,7 +2,9 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
  { config, lib, nixpkgs, ... }:
-
+let
+  modulesPath = "${nixpkgs}/nixos/modules";
+in 
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
