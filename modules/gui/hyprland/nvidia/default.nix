@@ -32,7 +32,6 @@ in
   };
   # Unlock with Swaylock
   security = {
-    polkit.enable = true;
     pam = {
       services = {
         swaylock = {
@@ -41,8 +40,6 @@ in
             auth include login
           '';
         };
-    
-   
         login.enableGnomeKeyring = true;
       };
     };
