@@ -50,6 +50,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "sisyphus";
+        displayConfig = "1monitor";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.sisyphus .config;
@@ -73,6 +74,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "icarus";
+        displayConfig = "1monitor";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.icarus.config;
