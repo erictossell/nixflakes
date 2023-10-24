@@ -25,17 +25,7 @@
      '';
     };
   }; 
-
   services.udev.packages = [ pkgs.yubikey-personalization ];
-  programs = {
-    _1password.enable = true;
-    _1password-gui = {
-	enable = true;
-	polkitPolicyOwners = [ "${username}" ];
-    }; 
-  gnupg.agent = {
-      enable = true;
-    };
-  };
+  programs.gnupg.agent.enable = true;
 }
 

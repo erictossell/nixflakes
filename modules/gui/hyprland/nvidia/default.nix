@@ -1,10 +1,17 @@
-{ pkgs, home-manager, hyprland, username, ... }:
+{ pkgs, displayConfig, home-manager, hyprland, username, ... }:
 let
+  dotfiles = {
+    "1monitor" = [ (import ../dotfiles/1monitor { inherit home-manager username; }) ];
+    "3monitor" = [ (import ../dotfiles/3monitor { inherit home-manager username; }) ];
+  };
   hyprPackages = import ../pkgs { inherit pkgs; };
 in
 {
-  #imports = [ hyprland.nixosModules.default ];
-  
+
+  imports = [
+    (import ../dotfiles/shared { inherit home-manager username; })
+  ] ++ (dotfiles.${displayConfig} or [ ]); 
+
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
