@@ -23,11 +23,11 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
 
 ## Screenshots
 
-![Hyprland](.screens/screen-hyprland.png)
+![Hyprland](.screens/hyprland1.png)
 
-![Hyprland1](.screens/screen-hyprland1.png)
+![Hyprland1](.screens/hyprland2.png)
 
-![Hyprland3](.screens/screen-hyprland3.png)
+![Hyprland3](.screens/hyprland3.png)
 
 ### My Nixdots Contain Configurations for
 
