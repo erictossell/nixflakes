@@ -8,9 +8,7 @@ let
   };
 in
 {
-
   imports = [
     ./apps
   ] ++ (guiSet.${gui} or [ ]); 
-
 }
