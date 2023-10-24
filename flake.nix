@@ -27,14 +27,15 @@
         gui = "hypr-nvidia";
         nvidia_bool = "enabled";
       } // attrs;        
-      modules = let
-        config = self.nixosConfigurations.retis.config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
+      modules = [
+        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
           imports = [
+            (import ./hosts {
+              inherit (nixpkgs) lib pkgs;
+              hostname = hostname;
+              config = config;
+              nixpkgs = nixpkgs.outPath;
+            })
             ./modules/core
             ./modules/gui
             ./modules/obs
@@ -43,10 +44,10 @@
             ./profiles/smb_client
           ];
         })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+      ];
     };#retis
 
-    # Hyprland Laptop - no extra toys
+    # Hyprland Laptop 
     nixosConfigurations.sisyphus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -56,23 +57,24 @@
         gui = "hypr";
         nvidia_bool = "disabled";
       } // attrs;        
-      modules = let
-        config = self.nixosConfigurations.sisyphus .config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/sisyphus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
-        };  
-      in [
-        ({pkgs, home-manager, username, hostname, gui, ... }: {
+      modules = [
+        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
           imports = [
+            (import ./hosts {
+              inherit (nixpkgs) lib pkgs;
+              hostname = hostname;
+              config = config;
+              nixpkgs = nixpkgs.outPath;
+            })
             ./modules/core
             ./modules/gui
             ./profiles/smb_client
           ];
         })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+      ];
     };#sisyphus
-    
-    # Hyprland Laptop - 1 monitor/no toys
+
+    # Hyprland Laptop 
     nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
@@ -82,20 +84,21 @@
         gui = "hypr";
         nvidia_bool = "disabled";
       } // attrs;        
-      modules = let
-        config = self.nixosConfigurations.icarus.config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/icarus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, username, hostname, gui, ... }: {
+      modules = [
+        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
           imports = [
+            (import ./hosts {
+              inherit (nixpkgs) lib pkgs;
+              hostname = hostname;
+              config = config;
+              nixpkgs = nixpkgs.outPath;
+            })
             ./modules/core
             ./modules/gui
             ./profiles/smb_client
           ];
         })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+      ];
     };#icarus
 
     # Pentest-VM 
@@ -105,18 +108,19 @@
         username = "eriim";
         hostname = "aeneas";
       } // attrs;
-      modules = let 
-        config = self.nixosConfigurations.aeneas.config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/aeneas"; args = { inherit (nixpkgs) lib pkgs; config = config;  nixpkgs = nixpkgs.outPath; }; };
-        };  
-      in [
-        ({pkgs, home-manager, username, hostname, ... }: {
+      modules = [
+        ({config, pkgs, home-manager, username, hostname, ... }: {
           imports = [
+            (import ./hosts {
+              inherit (nixpkgs) lib pkgs;
+              hostname = hostname;
+              config = config;
+              nixpkgs = nixpkgs.outPath;
+            })
             ./modules/pentest
            ];
         })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
+      ];
     };#aeneas
 
   };

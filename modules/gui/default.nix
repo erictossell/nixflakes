@@ -1,4 +1,4 @@
-{ pkgs, displayConfig, gui, home-manager, hyprland, username, ... }:
+{ gui, ... }:
 let
   guiSet = {
     "hypr-nvidia" = [ (import ./hyprland/nvidia) ];
