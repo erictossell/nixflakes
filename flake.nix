@@ -17,6 +17,7 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
+
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -100,6 +101,7 @@
         })
       ];
     };#icarus
+
   };
 }
 
