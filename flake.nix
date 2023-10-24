@@ -100,29 +100,6 @@
         })
       ];
     };#icarus
-
-    # Pentest-VM 
-    nixosConfigurations.aeneas = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        username = "eriim";
-        hostname = "aeneas";
-      } // attrs;
-      modules = [
-        ({config, pkgs, home-manager, username, hostname, ... }: {
-          imports = [
-            (import ./hosts {
-              inherit (nixpkgs) lib pkgs;
-              hostname = hostname;
-              config = config;
-              nixpkgs = nixpkgs.outPath;
-            })
-            ./modules/pentest
-           ];
-        })
-      ];
-    };#aeneas
-
   };
 }
 
