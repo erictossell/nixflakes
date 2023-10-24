@@ -168,7 +168,6 @@ bind = $mainMod, 8, exec,$w8
 bind = $mainMod, 9, workspace, name:$wI
 bind = $mainMod, 9, exec,$w9
 
-# Move active window to a workspace with mainMod + SHIFT + [0-9]
 bind = $mainMod SHIFT, 1, movetoworkspace,name:$wA
 
 bind = $mainMod SHIFT, 2, movetoworkspace,name:$wB
