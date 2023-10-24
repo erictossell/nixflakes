@@ -107,7 +107,7 @@
 	"tooltip-format-enumerate-connected": "{device_alias}   {device_address}"      
 	},
 	"network": {
-		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"interface": "wlp*",
 		"format": "󰱓 {bandwidthTotalBytes}",
 		"format-disconnected": "{icon} No Internet",
 		"format-linked": "󰅛 {ifname} (No IP)",
