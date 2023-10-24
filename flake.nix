@@ -23,6 +23,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "retis";
+        displayConfig = "3monitor";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.retis.config;
@@ -30,7 +31,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, username, hostname, ... }: {
+        ({pkgs, home-manager, hyprland, username, hostname, displayConfig, ... }: {
           imports = [
             ./modules/core
             ./modules/gui/hyprland/nvidia
@@ -109,54 +110,6 @@
         })
       ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
     };#aeneas
-
-    # Gnome Desktop 
-    nixosConfigurations.desktop-gnome = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        username = "eriim";
-        hostname = "retis";
-      } // attrs;        
-      modules = let
-        commonConfig = self.nixosConfigurations.desktop-gnome.config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, username, hostname, ... }: {
-          imports = [  
-            ./modules/core
-            ./modules/gui/gnome
-            ./modules/toys
-            ./modules/virt
-          ];
-        })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    };# Gnome Desktop
-
-    # KDE-Plasma Desktop 
-    nixosConfigurations.desktop-plasma = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        username = "eriim";
-        hostname = "retis";
-      } // attrs;        
-      modules = let
-        commonConfig = self.nixosConfigurations.desktop-plasma.config;
-        configModules = {
-          hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = commonConfig; nixpkgs = nixpkgs.outPath; }; };
-        };      
-      in [
-        ({pkgs, home-manager, username, hostname, ... }: {
-          imports = [  
-            ./modules/core
-            ./modules/gui/plasma
-            ./modules/toys
-            ./modules/virt
-          ];
-        })
-      ] ++ (nixpkgs.lib.mapAttrsToList (name: value: import value.modulePath value.args) configModules);
-    }; #KDE-Plasma Desktop
 
   };
 }

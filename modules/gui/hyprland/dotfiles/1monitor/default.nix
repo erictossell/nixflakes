@@ -1,0 +1,446 @@
+{ home-manager, username, ... }:
+{
+  home-manager.users.${username} =  { ... }: {
+    home.file = {
+
+      ".config/hypr/backgrounds".source = ./backgrounds;
+
+      ".config/hypr/hyprland.conf".text = ''
+#monitor=edp-1,3840 x 2160,auto,auto
+monitor=,preferred,auto,auto
+
+exec-once = waybar & hyprpaper & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# some default env vars.
+env=BROWSER, firefox
+env=XCURSOR_SIZE,24
+env=XDG_CURRENT_DESKTOP,Hyprland
+env=XDG_SESSION_DESKTOP,Hyprland
+env=XDG_SESSION_TYPE,wayland
+env=GDK_BACKEND,wayland,x11
+env=QT_QPA_PLATFORM,wayland
+# for all categories, see https://wiki.hyprland.org/configuring/variables/
+input {
+	kb_layout = us
+	follow_mouse = 0
+	touchpad {
+		natural_scroll = no
+	}
+	sensitivity = -0.1 # -1.0 - 1.0, 0 means no modification.
+}
+
+general {
+	gaps_in = 5
+	gaps_out = 10
+	border_size = 2
+	col.active_border = rgba(00ba69ee) rgba(ffffffee) 45deg
+	col.inactive_border = rgba(595959aa)
+	layout = dwindle
+	cursor_inactive_timeout = 0
+	no_cursor_warps = yes
+	resize_on_border = yes
+	hover_icon_on_border = yes
+}
+
+decoration {
+	rounding = 10
+	drop_shadow = yes
+	shadow_range = 4
+	shadow_render_power = 3
+	col.shadow = rgba(1a1a1aee)
+	active_opacity = 0.9
+	inactive_opacity = 0.85
+	fullscreen_opacity = 1.0
+	blur {
+		enabled = yes
+		size = 8
+		passes = 3
+		new_optimizations = true
+		xray = true
+		}
+}
+
+animations {
+	enabled = yes
+	bezier = snappybezier, 0.4, 0.0, 0.2, 1.0
+	bezier = smoothbezier, 0.25, 0.1, 0.25, 1.0
+	animation = windows, 1, 7, snappybezier
+	animation = windowsOut, 1, 7, snappybezier, popin 85%
+	animation = border, 1, 10, snappybezier
+	animation = borderangle, 1, 8, smoothbezier
+	animation = fade, 1, 7, smoothbezier
+	animation = workspaces, 1, 6, smoothbezier
+}
+
+dwindle {
+	pseudotile = yes # master switch for pseudotiling. enabling is bound to mainmod + p in the keybinds section below
+	preserve_split = yes # you probably want this
+}
+
+master {
+	new_is_master = true
+}
+
+gestures {
+	workspace_swipe = off
+}
+
+device:epic-mouse-v1 {
+	sensitivity = -0.5
+}
+
+$mainmod = SUPER
+
+bind = $mainmod, q, exec, foot 
+bind = $mainmod, w, killactive, 
+bind = $mainmod, m, exit, 
+bind = $mainmod, e, exec, kitty -e ranger
+bind = $mainmod, v, togglefloating, 
+bind = $mainmod, r, exec, wofi --show drun
+bind = $mainmod, p, pseudo, # dwindle
+bind = $mainmod, j, togglesplit, # dwindle
+bind = $mainmod, 0, exec, swaylock
+bind = $mainmod, s, exec, grim -g "$(slurp)" ~/pictures/screenshots/$(date +'%y%m%d_%h%m%s').png
+
+bind = $mainmod, left, movefocus, l
+bind = $mainmod, right, movefocus, r
+bind = $mainmod, up, movefocus, u
+bind = $mainmod, down, movefocus, d
+
+bind = $mainmod SHIFT, left, movewindow, l
+bind = $mainmod SHIFT, right, movewindow, r
+bind = $mainmod SHIFT, up, movewindow, u
+bind = $mainmod SHIFT, down, movewindow, d
+
+
+$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
+$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/storage.jpg"
+$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/scifi_landscape.jpg"
+$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
+$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/storage.jpg"
+$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/scifi_landscape.jpg"
+$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
+
+$wa = Alpha
+$wb = Bravo
+$wc = Charlie
+$wd = Delta
+$we = Echo
+$wf = Foxtrot
+$wg = Golf
+$wh = Hotel
+$wi = Are ya lost bud
+
+workspace=name:$wa,monitor:eDP-1,default:true
+workspace=name:$wb,monitor:eDP-1
+workspace=name:$wc,monitor:eDP-1
+workspace=name:$wd,monitor:eDP-1
+workspace=name:$we,monitor:eDP-1
+workspace=name:$wf,monitor:eDP-1
+workspace=name:$wg,monitor:eDP-1
+workspace=name:$wh,monitor:eDP-1
+workspace=name:$wi,monitor:eDP-1
+
+bind = $mainmod, 1, workspace, name:$wa
+bind = $mainmod, 1, exec,$w1
+
+bind = $mainmod, 2, workspace, name:$wb
+bind = $mainmod, 2, exec,$w2
+
+bind = $mainmod, 3, workspace, name:$wc
+bind = $mainmod, 3, exec,$w3
+
+bind = $mainmod, 4, workspace, name:$wd
+bind = $mainmod, 4, exec,$w4
+
+bind = $mainmod, 5, workspace, name:$we
+bind = $mainmod, 5, exec,$w5
+
+bind = $mainmod, 6, workspace, name:$wf
+bind = $mainmod, 6, exec,$w6
+
+bind = $mainmod, 7, workspace, name:$wg
+bind = $mainmod, 7, exec,$w7
+
+bind = $mainmod, 8, workspace, name:$wh
+
+bind = $mainmod, 9, workspace, name:$wi
+
+bind = $mainmod SHIFT, 1, movetoworkspace,name:$wa
+bind = $mainmod SHIFT, 1, exec,$w1
+
+bind = $mainmod SHIFT, 2, movetoworkspace,name:$wb
+bind = $mainmod SHIFT, 2, exec,$w2
+
+bind = $mainmod SHIFT, 3, movetoworkspace,name:$wc
+bind = $mainmod SHIFT, 3, exec,$w3
+
+bind = $mainmod SHIFT, 4, movetoworkspace,name:$wd
+bind = $mainmod SHIFT, 4, exec,$w4
+
+bind = $mainmod SHIFT, 5, movetoworkspace,name:$we
+bind = $mainmod SHIFT, 5, exec,$w5
+
+bind = $mainmod SHIFT, 6, movetoworkspace,name:$wf
+bind = $mainmod SHIFT, 6, exec,$w6
+
+bind = $mainmod SHIFT, 7, movetoworkspace,name:$wg
+bind = $mainmod SHIFT, 7, exec,$w7
+
+bind = $mainmod SHIFT, 8, movetoworkspace,name:$wh
+
+bind = $mainmod SHIFT, 9, movetoworkspace, name:$wi
+
+bind = $mainmod, mouse_down, workspace, e+1
+bind = $mainmod, mouse_up, workspace, e-1
+
+bindm = $mainmod, mouse:272, movewindow
+bindm = $mainmod, mouse:273, resizewindow
+      '';
+
+      ".config/hypr/hyprpaper.conf".text = ''
+preload = ~/.config/hypr/backgrounds/keyboard.png
+preload = ~/.config/hypr/backgrounds/scifi_landscape.jpg
+preload = ~/.config/hypr/backgrounds/storage.jpg
+
+wallpaper = eDP-1, ~/.config/hypr/backgrounds/keyboard.png
+      '';  
+
+      ".config/waybar/config.jsonc".text = ''
+{
+	"layer": "top",
+	"height": 45,
+	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": [ "pulseaudio","backlight", "bluetooth", "network","battery", "clock"],
+	"custom/nix": {
+		"format": " ",
+		"tooltip": false,
+		"on-click": "/run/current-system/sw/bin/wofi --show drun"
+	},
+	"hyprland/workspaces": {
+		"format": "{name} {icon}",
+		"tooltip": false,
+		"all-outputs": true,
+		"format-icons": {
+		"active": "",
+		"default": ""
+		},
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+		"on-click": "activate"
+	},
+	"cpu": {
+		"format": "󰻠 {usage}%",
+		"tooltip": true,
+		"on-click": "foot sh -c 'btop'",
+		"interval": 2
+	},
+	"memory": {
+		"format": " {}%",
+		"tooltip": true,
+		"on-click": "foot sh -c 'btop'",
+		"interval": 2
+	},
+	"temperature": {
+		// "thermal-zone": 2,
+		// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"critical-threshold": 40,
+		"format-critical": "{icon} {temperaturec}°c",
+		"format": "{icon} {temperaturec}°c",
+		"format-icons": [
+			"",
+			"",
+			""
+		],
+		"interval": 2
+	},
+	"disk": {
+		"format": " {percentage_used}% ({free})",
+		"tooltip": true,
+		"interval": 2,
+		"on-click": "foot sh -c 'ranger'"
+	},
+	"clock": {
+		"format": "  {:%d <small>%a</small> %h:%m}",
+		//"format": " {:%a %b %d %y | %h:%m}",
+		"format-alt": "  {:%a %b %d %y (%v) | %r}",
+		"tooltip-format": "<big>{:%y %b}</big>\n<tt><small>{calendar}</small></tt>",
+		"calendar-weeks-pos": "right",
+		"today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+		"format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
+		"format-calendar-weeks": "<span color='#94e2d5'><b>w{:%u}</b></span>",
+		"format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+		"interval": 60
+	},    
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "<span color='#2da14c'>{icon}</span> {percent}%",
+		"format-icons": ["", "", "", "", "", "", "", "", ""],
+		"on-scroll-up": "brightnessctl set +2%",
+		"on-scroll-down": "brightnessctl set 2%-",
+		"interval": 2
+	},
+	"pulseaudio": {
+		// "scroll-step": 1, // %, can be a float
+		"format": "{icon} {volume}%", // {format_source}
+		"format-bluetooth": "{icon} {volume}%", // {format_source}
+		"format-bluetooth-muted": "󰗿", // {format_source}
+		"format-muted": "", // {format_source}
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "󰋋",
+			"headset": "󰋎",
+			"phone": "",
+			"portable": "",
+			"car": " ",
+			"default": [
+				"",
+				"",
+				" "
+			]
+		},
+		"on-click": "pavucontrol"
+	}, 
+	"bluetooth": {
+		"format": "<span color='#0056a3'></span> {status}",
+		"format-disabled": "", // an empty format will hide the module
+		"format-connected": "<span color='#0056a3'></span> {num_connections}",
+		"tooltip-format": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}   {device_address}"      
+	},
+	"network": {
+		// "interface": "wlp2*", // (optional) to force the use of this interface
+		"format": "󰱓 {bandwidthtotalbytes}",
+		"format-disconnected": "{icon} no internet",
+		"format-linked": "󰅛 {ifname} (no ip)",
+		"format-alt": "󰛶 {bandwidthupbytes} | 󰛴 {bandwidthdownbytes}",
+		"tooltip-format": "{ifname}: {ipaddr}/{cidr} gateway: {gwaddr}",
+		"tooltip-format-wifi": "{icon} {essid} ({signalstrength}%)",
+		"tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
+		"tooltip-format-disconnected": "{icon} disconnected",
+		"format-icons": {
+			"ethernet": "󰈀",
+			"disconnected": "⚠",
+			"wifi": [
+				"󰖪",
+				""
+			]
+		},
+		"interval": 2
+	},
+	"battery": {
+		"states": {
+			"good": 100,
+			"warning": 30,
+			"critical": 10
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} {time}",
+		// "format-good": "", // an empty format will hide the module
+		"format-full": " {capacity}%",
+		"format-icons": [" ", " ", " ", " ", " ", " "],
+		"format-charging": "<span color='#2da14c'> </span> {capacity}%",
+		"interval": 2
+	},
+	"custom/power": {
+		"format": "{}",
+		// "exec": "~/.scripts/tools/expand power",
+		"exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"power\"}'",
+		"return-type": "json",
+		"on-click": "sudo ~/.config/wlogout/launch.sh"
+	}
+}
+      '';    
+
+      ".config/waybar/style.css".text = ''
+* {
+	font-family: 'm+1code nerd font';
+	font-size: 16px;
+	min-height: 30px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+#workspaces {
+	background-color: transparent;
+	color: #0d74bd;
+	margin-top: 15px;
+	margin-right: 15px;
+	padding-top: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#custom-nix {
+	background-color: transparent;
+	color: #0a60ab;
+	margin-top: 15px;
+	margin-right: 15px;
+	padding-top: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#custom-nix {
+	font-size: 20px;
+	margin-left: 15px;
+	color: #0a60ab;
+}
+
+#workspaces button {
+	background: transparent;
+	color: #0d74bd;
+}
+
+#cpu, #memory, #temperature, #disk, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power {
+	background-color: transparent;
+	color: #00ba69;
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 15px;
+}
+
+#cpu {
+	color: #ffd700;
+}
+
+#memory {
+	color: #008000;
+}
+
+#disk {
+	color: #a8a8a8;
+
+}
+
+#backlight, #bluetooth {
+	color: #0056a3;
+	padding-right: 5px;
+	margin-right: 0
+}
+
+#network {
+	color: #10a140;
+	padding-left: 5px;
+}
+
+#pulseaudio {
+	color: #ba23d9;
+	padding-left: 5px;
+}
+
+#clock {
+	color: #00ba69;
+}
+      '';
+
+    };
+  };
+}

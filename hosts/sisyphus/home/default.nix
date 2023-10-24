@@ -8,15 +8,6 @@
     /* The home.stateVersion option does not have a default and must be set */
     home.stateVersion = "23.05";
     nixpkgs.config.allowUnfree = true;
-
-    home.file = {
-
-      ".config/hypr".source = ../../.dotfiles/1monitor/hypr;
-      ".config/swaylock".source = ../../.dotfiles/shared/swaylock;
-      ".config/waybar".source = ../../.dotfiles/1monitor/waybar;
-      ".config/wofi".source = ../../.dotfiles/shared/wofi;    
-
-    };
   };
 
   # ---- System Configurations ----
