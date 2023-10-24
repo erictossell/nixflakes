@@ -24,6 +24,7 @@
         username = "eriim";
         hostname = "retis";
         displayConfig = "3monitor";
+        gui = "hypr-nvidia";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.retis.config;
@@ -34,7 +35,7 @@
         ({pkgs, home-manager, hyprland, username, hostname, displayConfig, ... }: {
           imports = [
             ./modules/core
-            ./modules/gui/hyprland/nvidia
+            ./modules/gui
             ./modules/obs
             ./modules/toys
             ./modules/virt
@@ -51,6 +52,7 @@
         username = "eriim";
         hostname = "sisyphus";
         displayConfig = "1monitor";
+        gui = "hypr";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.sisyphus .config;
@@ -61,7 +63,7 @@
         ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
             ./modules/core
-            ./modules/gui/hyprland/standard
+            ./modules/gui
             ./profiles/smb_client
           ];
         })
@@ -75,6 +77,7 @@
         username = "eriim";
         hostname = "icarus";
         displayConfig = "1monitor";
+        gui = "hypr";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.icarus.config;
@@ -85,7 +88,7 @@
         ({pkgs, home-manager, username, hostname, ... }: {
           imports = [
             ./modules/core
-            ./modules/gui/hyprland/standard
+            ./modules/gui
             ./profiles/smb_client
           ];
         })
