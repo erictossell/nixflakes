@@ -27,7 +27,6 @@ in
       	nitch
     '';
     shellAliases = {
-	polkit-gnome = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
 	b = "btop";
 	e = "exit";
 	g = "git";
