@@ -8,13 +8,10 @@ in
     ./boot/systemd
     ../../users/${username}
     ./terminal
-    ./browsing
     ./security
-    ./vscode
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
-
     programs.gh.enable = true;
   };
 

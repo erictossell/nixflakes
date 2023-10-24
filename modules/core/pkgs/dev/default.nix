@@ -5,7 +5,6 @@ with pkgs; [
   cmake
   gnumake
   go
-  libsForQt5.kate
   nim
   nix-prefetch-git
   nodejs_20
