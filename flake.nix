@@ -33,6 +33,8 @@
           imports = [
             (import ./hosts {
               inherit (nixpkgs) lib pkgs;
+              home-manager = home-manager;
+              username = username;
               hostname = hostname;
               config = config;
               nixpkgs = nixpkgs.outPath;
@@ -63,6 +65,8 @@
           imports = [
             (import ./hosts {
               inherit (nixpkgs) lib pkgs;
+              home-manager = home-manager;
+              username = username;
               hostname = hostname;
               config = config;
               nixpkgs = nixpkgs.outPath;
@@ -90,6 +94,8 @@
           imports = [
             (import ./hosts {
               inherit (nixpkgs) lib pkgs;
+              home-manager = home-manager;
+              username = username;
               hostname = hostname;
               config = config;
               nixpkgs = nixpkgs.outPath;
