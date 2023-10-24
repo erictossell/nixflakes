@@ -2,7 +2,7 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
-      ".config/swaylock/background.jpg".source = swaylock/background.jpg;
+      ".config/swaylock/background.jpg".source = ./background.jpg;
 
       ".config/swaylock/config".text = ''
 # indicator
