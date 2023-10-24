@@ -11,6 +11,8 @@
         login.u2fAuth = true;
         # Sudo with Yubikey
         sudo.u2fAuth = true;
+        
+        login.enableGnomeKeyring = true;
       };
     };
     polkit = {
@@ -25,6 +27,9 @@
      '';
     };
   }; 
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
   services.udev.packages = [ pkgs.yubikey-personalization ];
   programs.gnupg.agent.enable = true;
 }
