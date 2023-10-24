@@ -10,7 +10,5 @@ in
 {
   imports = [
     ./apps
-    ./browsing
-    ./vscode
   ] ++ (guiSet.${gui} or [ ]); 
 }
