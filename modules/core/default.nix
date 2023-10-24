@@ -6,7 +6,7 @@ in
 { 
   imports = [
     ./boot/systemd
-    ../../users/${username}
+    ./users/${username}
     ./terminal
     ./security
   ];
@@ -25,11 +25,6 @@ in
 
   # Meshnet
   # services.tailscale.enable = true;
-
-  # Enable networking - available with nmcli and nmtui
-  networking = {
-    networkmanager.enable = true;
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
