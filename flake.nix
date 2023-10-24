@@ -25,6 +25,7 @@
         hostname = "retis";
         displayConfig = "3monitor";
         gui = "hypr-nvidia";
+        nvidia_bool = "enabled";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.retis.config;
@@ -32,7 +33,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/retis"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, hyprland, username, hostname, displayConfig, ... }: {
+        ({pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
           imports = [
             ./modules/core
             ./modules/gui
@@ -53,6 +54,7 @@
         hostname = "sisyphus";
         displayConfig = "1monitor";
         gui = "hypr";
+        nvidia_bool = "disabled";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.sisyphus .config;
@@ -60,7 +62,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/sisyphus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };  
       in [
-        ({pkgs, home-manager, username, hostname, ... }: {
+        ({pkgs, home-manager, username, hostname, gui, ... }: {
           imports = [
             ./modules/core
             ./modules/gui
@@ -78,6 +80,7 @@
         hostname = "icarus";
         displayConfig = "1monitor";
         gui = "hypr";
+        nvidia_bool = "disabled";
       } // attrs;        
       modules = let
         config = self.nixosConfigurations.icarus.config;
@@ -85,7 +88,7 @@
           hardwareConfig = { modulePath = "${self}/hosts/icarus"; args = { inherit (nixpkgs) lib pkgs; config = config; nixpkgs = nixpkgs.outPath; }; };
         };      
       in [
-        ({pkgs, home-manager, username, hostname, ... }: {
+        ({pkgs, home-manager, username, hostname, gui, ... }: {
           imports = [
             ./modules/core
             ./modules/gui
