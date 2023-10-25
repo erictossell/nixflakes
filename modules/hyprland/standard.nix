@@ -6,6 +6,8 @@
   
   # ---- System Configuration ---- 
   programs.dconf.enable = true;
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
   services.getty.autologinUser = username; 
 }
