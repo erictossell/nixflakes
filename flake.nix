@@ -7,7 +7,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland = {
@@ -18,11 +18,7 @@
   };
   
   # Defining flake import structure for packages
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@attrs: 
-  let
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  in 
-  { 
+  outputs = { self, nixpkgs, ... } @ attrs: { 
     # Hyprland Laptop 
     nixosConfigurations.sisyphus-1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
