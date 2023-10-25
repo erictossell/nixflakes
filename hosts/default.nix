@@ -2,7 +2,6 @@
 {
   imports = [
     ./${hostname}
-    ./hardware
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
