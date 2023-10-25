@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./apps
+    ./core
+    ./hyprland
+  ];
+}

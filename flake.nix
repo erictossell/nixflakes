@@ -4,11 +4,17 @@
   # Defining package channels
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixkgs";
+    };
+
     hyprland = {
       url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
   
   # Defining flake import structure for packages
@@ -17,7 +23,21 @@
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in 
   { 
-
+    # Hyprland Laptop 
+    nixosConfigurations.sisyphus-1 = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {
+        username = "eriim";
+        hostname = "sisyphus";
+        displayConfig = "1monitor";
+        gui = "hypr";
+        nvidia_bool = "disabled";
+      } // attrs;        
+      modules = [
+            ./.
+            ./profiles/smb_client
+          ];
+    };#sisyphus
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -39,8 +59,7 @@
               config = config;
               nixpkgs = nixpkgs.outPath;
             })
-            ./modules/core
-            ./modules/gui
+            ./.
             ./modules/obs
             ./modules/toys
             ./modules/virt
@@ -71,8 +90,7 @@
               config = config;
               nixpkgs = nixpkgs.outPath;
             })
-            ./modules/core
-            ./modules/gui
+            ./.
             ./profiles/smb_client
           ];
         })
@@ -100,8 +118,7 @@
               config = config;
               nixpkgs = nixpkgs.outPath;
             })
-            ./modules/core
-            ./modules/gui
+            ./.
             ./profiles/smb_client
           ];
         })

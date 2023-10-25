@@ -2,17 +2,9 @@
 
 ## Eriim's Nixflakes
 
-Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.             
 
-Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. 
-
-Requires Flake:
-
-- [modules/gui/hyprland/nvidia](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/nvidia/default.nix)
-
-Non Flake alternative (Still contains Nvidia Optional Settings):
-
-- [modules/gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
+This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
 
 ![Flake Structure](.screens/FlakeStructure2.png)
 ![Flake Profiles](.screens/FlakeProfiles3.png)

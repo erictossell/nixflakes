@@ -19,14 +19,20 @@
   programs.dconf.enable = true;
   
   services.greetd = {
-  enable = true;
-  settings = {
-    default_session = {
-        command = "Hyprland";
+    enable = true;
+    restart = false;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = username;
+      };
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
         user = username;
       };
     };
   };
+
   services.gnome = {
     gnome-keyring.enable = true;
   };
