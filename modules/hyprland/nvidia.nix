@@ -1,10 +1,5 @@
-{ pkgs, displayConfig, home-manager, hyprland, username, ... }:
+{ pkgs, username, ... }:
 {
-
-  imports = [
-    ../pkgs
-  ];
-
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -13,7 +8,6 @@
   programs.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
   };
 
   programs.dconf.enable = true;

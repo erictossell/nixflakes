@@ -2,9 +2,7 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
-      ".config/hypr/backgrounds".source = ../backgrounds;
-
-      ".config/hypr/hyprland.conf".text = ''
+    ".config/hypr/hyprland.conf".text = ''
 monitor=DP-2,preferred,1080x400,1
 monitor=HDMI-A-1,preferred,3640x0,1
 monitor=DP-1,preferred,0x0,1,transform,3
@@ -114,13 +112,13 @@ bind = $mainMod shift, right, movewindow, r
 bind = $mainMod shift, up, movewindow, u
 bind = $mainMod shift, down, movewindow, d
 
-$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/laptop_dj.jpg"
-$w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/storage.jpg"
-$w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/keyboard.png"
-$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/snow-tree.jpg"
-$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/moon.jpg"
-$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/hypr/backgrounds/disknee.jpg"
+$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/scifi_landscape.jpg"
+$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/laptop_dj.jpg"
+$w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
+$w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
+$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/snow-tree.jpg"
+$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/moon.jpg"
+$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/disknee.jpg"
 
 $wA = Alpha
 $wB = Bravo
@@ -202,20 +200,20 @@ bindm = $mainMod, mouse:273, resizewindow
       '';
 
       ".config/hypr/hyprpaper.conf".text = ''
-preload = ~/.config/hypr/backgrounds/disknee.jpg
-preload = ~/.config/hypr/backgrounds/keyboard.png
-preload = ~/.config/hypr/backgrounds/laptop_dj.jpg
-preload = ~/.config/hypr/backgrounds/mario.jpg
-preload = ~/.config/hypr/backgrounds/moon.jpg
-preload = ~/.config/hypr/backgrounds/scifi_landscape.jpg
-preload = ~/.config/hypr/backgrounds/snow-tree.jpg
-preload = ~/.config/hypr/backgrounds/storage.jpg
-preload = ~/.config/hypr/backgrounds/sunset-train.jpg
-preload = ~/.config/hypr/backgrounds/tree_hill_snow.jpg
+preload = ~/.config/backgrounds/disknee.jpg
+preload = ~/.config/backgrounds/keyboard.png
+preload = ~/.config/backgrounds/laptop_dj.jpg
+preload = ~/.config/backgrounds/mario.jpg
+preload = ~/.config/backgrounds/moon.jpg
+preload = ~/.config/backgrounds/scifi_landscape.jpg
+preload = ~/.config/backgrounds/snow-tree.jpg
+preload = ~/.config/backgrounds/storage.jpg
+preload = ~/.config/backgrounds/sunset-train.jpg
+preload = ~/.config/backgrounds/tree_hill_snow.jpg
 
-wallpaper = DP-1, ~/.config/hypr/backgrounds/keyboard.png
-wallpaper = DP-2, ~/.config/hypr/backgrounds/scifi_landscape.jpg
-wallpaper = HDMI-A-1, ~/.config/hypr/backgrounds/keyboard.png
+wallpaper = DP-1, ~/.config/backgrounds/keyboard.png
+wallpaper = DP-2, ~/.config/backgrounds/scifi_landscape.jpg
+wallpaper = HDMI-A-1, ~/.config/backgrounds/keyboard.png
       '';  
     };
   };

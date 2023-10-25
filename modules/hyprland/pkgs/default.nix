@@ -1,12 +1,5 @@
 {pkgs, ...}:
 {
-  imports = [
-    ./hypr
-    ./mako
-    ./swaylock
-    ./waybar
-    ./wofi
-  ];
   environment.systemPackages = with pkgs; [
     eww-wayland
     grim

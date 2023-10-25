@@ -2,8 +2,6 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
-      ".config/hypr/backgrounds".source = ../backgrounds;
-
       ".config/hypr/hyprland.conf".text = ''
 #monitor=edp-1,3840 x 2160,auto,auto
 monitor=,preferred,auto,auto
@@ -112,13 +110,13 @@ bind = $mainmod SHIFT, up, movewindow, u
 bind = $mainmod SHIFT, down, movewindow, d
 
 
-$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
-$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/storage.jpg"
-$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
-$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/storage.jpg"
-$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/scifi_landscape.jpg"
-$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/hypr/backgrounds/keyboard.png"
+$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
+$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
+$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
+$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
+$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
 
 $wa = Alpha
 $wb = Bravo
@@ -198,11 +196,11 @@ bindm = $mainmod, mouse:273, resizewindow
       '';
 
       ".config/hypr/hyprpaper.conf".text = ''
-preload = ~/.config/hypr/backgrounds/keyboard.png
-preload = ~/.config/hypr/backgrounds/scifi_landscape.jpg
-preload = ~/.config/hypr/backgrounds/storage.jpg
+preload = ~/.config/backgrounds/keyboard.png
+preload = ~/.config/backgrounds/scifi_landscape.jpg
+preload = ~/.config/backgrounds/storage.jpg
 
-wallpaper = eDP-1, ~/.config/hypr/backgrounds/keyboard.png
+wallpaper = eDP-1, ~/.config/backgrounds/keyboard.png
       '';  
     };
   };
