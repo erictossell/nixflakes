@@ -13,11 +13,6 @@ This repo has become more opinionated over time and now requires passing down va
 
 ![Flake Profiles](docs/screens/FlakeProfiles3.png)
 
-### To Be Done
-
-- SOPS for nixsecrets
-- NVIDIA Imports by Driver (Currently only newer cards are supported)
-
 ## Screenshots
 
 ![Hyprland](docs/screens/hyprland1.png)
@@ -72,5 +67,11 @@ This repo has become more opinionated over time and now requires passing down va
 
    - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
 
-## [How to use this repo](docs/usage.md)
-## [Getting Started with NixOS Minimal](docs/minimal-install.md)
+### To Be Done
+
+- SOPS for nixsecrets
+- NVIDIA Imports by Driver (Currently only newer cards are supported)
+
+[How to use this repo](docs/usage.md)
+
+[Getting Started with NixOS Minimal](docs/minimal-install.md)
