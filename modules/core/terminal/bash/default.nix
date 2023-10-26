@@ -91,7 +91,7 @@
 	cc = "cargo clippy";
 	cf = "cargo fmt";
 
-	py = "${pkgs.python312}./bin/python3";
+	py = "${pkgs.python312}/bin/python3";
       };
     };
 

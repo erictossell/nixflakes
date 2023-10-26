@@ -25,8 +25,7 @@
 			nvim-treesitter-parsers.regex
 			nvim-treesitter-parsers.sql		
 		];
-
-    };
+	};
   };
 
 

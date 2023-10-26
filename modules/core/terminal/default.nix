@@ -1,12 +1,4 @@
 { pkgs, home-manager, username, ... }:
-let
-  packages = with pkgs; [
-    alacritty # backup terminal
-    btop
-    nitch
-    vim
-  ];
-in
 {  
    imports = [
     ./bash
@@ -53,5 +45,10 @@ in
 	};
    };
 
-   environment.systemPackages = packages;
+   environment.systemPackages = with pkgs; [
+     alacritty # backup terminal
+     btop
+     nitch
+     vim
+   ];
 }
