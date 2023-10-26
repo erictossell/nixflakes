@@ -13,13 +13,13 @@
    scripts/build.sh
    ```
       
-      a. Enter a new hostname
+   a. Enter a new hostname
    
-      b. Enter a new username
+   b. Enter a new username
       
-      c. Y/n for Nvidia usage.
-         
-      d. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
+   c. Y/n for Nvidia usage.
+     
+   d. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
  
    ##### 3. Validate the flake imports went okay.
 
