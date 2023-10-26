@@ -5,7 +5,7 @@
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
 ### Flake Structure
-Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.             
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.             
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
 
