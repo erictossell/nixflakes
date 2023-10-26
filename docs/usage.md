@@ -3,8 +3,9 @@
 
 These steps assume that you have already installed NixOS.
 
-For documentation on how to complete a minimal install: [Minimal Install](minimal-install.md)
+For documentation on how to complete a minimal NixOS install: [Minimal Install](minimal-install.md)
 
+There are no inherit advantages to using the minimal installation as opposed to the GUI. If you want to enable LUKS without manually encrypting your drive, use the GUI.
 
    ### 1. Clone the repo and change directory.
 
@@ -31,12 +32,14 @@ For documentation on how to complete a minimal install: [Minimal Install](minima
    ### 3. Validate the flake imports went okay.
 
    ```bash
+   git add .
    nix flake check
    ```
 
    **If you havent enabled experimental features**
 
    ```bash
+   git add .
    nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
    ```
    
@@ -52,5 +55,3 @@ For documentation on how to complete a minimal install: [Minimal Install](minima
 
    ### 5. Let me know if you run into any issues. :)
   
-
-

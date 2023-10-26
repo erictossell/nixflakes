@@ -19,7 +19,7 @@ read hostname
 echo -n "Enter a new username: "
 read username
 
-echo -n "Do you use Nvidia?"
+echo -n "Do you use Nvidia? Y/n: "
 if validate_input; then
     nvidia="enabled"
 else
@@ -34,13 +34,13 @@ host_dir="hosts/$hostname"
 user_dir="users/$username"
 
 if test -s "$default_hardware_config_path"; then
-    echo "/etc/nixos/hardware-configuration.nix exists and is not empty, would you like to import it? Y/n"
+    echo "/etc/nixos/hardware-configuration.nix exists and is not empty, would you like to import it? Y/n: "
     if validate_input; then
         echo "Importing existing $default_hardware_config_path..."
         bool_import=true
     fi
 else
-    echo "File does not exist, would you like to generate both config files? Y/n"
+    echo "File does not exist, would you like to generate both config files? Y/n: "
     if validate_input; then
         echo "Generating $default_hardware_config_path..."
         bool_generate=true
