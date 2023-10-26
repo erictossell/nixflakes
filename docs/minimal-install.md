@@ -1,5 +1,5 @@
 ## NixOS Minimal Install (Mini Guide)
-You've done an initial install from a minimal image because the GUI is no fun, what now?
+You've loaded NixOS on a live USB to do a minimal install because the GUI is no fun, what now?
 
 ### 1. Connect to the Internet
 
