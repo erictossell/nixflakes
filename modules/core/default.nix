@@ -6,7 +6,6 @@ in
 { 
   imports = [
     ./boot/systemd
-    ./users/${username}
     ./terminal
     ./security
   ];

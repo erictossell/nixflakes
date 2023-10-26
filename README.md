@@ -1,20 +1,39 @@
-> :warning: **Disclaimer:** These are *machine specific flakes*. You *WILL* run into errors if you attempt to flake from this repo and you are not using my machines.
+# Eriim's Nixflakes
 
-## Eriim's Nixflakes
+## How to use this repo
+Requirements: NixOS, x86_64
 
-Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.
+   1. `git clone https://github.com/erictossell/nixflakes.git`
 
-Some modules will require you to flake your configuration to fully use them, they have non-flaked counterparts. 
+   2. `cd nixflakes`
 
-Requires Flake:
+   3. `scripts/build.sh`
+      a. Enter a new hostname
+      b. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
+      c. Validate that your `hardware-configuration.nix` imported succesfully.
+   
+   4. Rename my user or create your own inside of `/users`.
+   
+   5. Add your system configuration to the flake.nix.
 
-- [modules/gui/hyprland/nvidia](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/nvidia/default.nix)
+      *username*: Must be the same as the new user you created in `/users`.
+      *hostname*: Must be the same as the new directory created in `/hosts`.
+      *displayConfig*: (1monitor | 3 monitor) Import display specific dotfiles. Importing the 3monitor config will likely require editing the contents of `modules/hyprland/config/3monitor` to suit your monitor layout.
+      *nvidia_bool*: (enabled | disabled) Nvidia Drivers and Hyprland Nvidia patches.
 
-Non Flake alternative (Still contains Nvidia Optional Settings):
+      *Modules*: `./.` is enough for my Hyprland WM environment. 
+         *Optional*: `modules/obs`, `modules/toys`, `modules/virt`
 
-- [modules/gui/hyprland/standard](https://github.com/erictossell/nixflakes/blob/main/modules/gui/hyprland/standard/default.nix)
+   6. `sudo nixos-rebuild switch --flake '.#hostname'` OR `sudo nixos-rebuild switch --flake .` if your `hostname` already matches the hostname specificed in the `flake.nix`.
+
+
+### Flake Structure
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.             
+
+This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
 
 ![Flake Structure](.screens/FlakeStructure2.png)
+
 ![Flake Profiles](.screens/FlakeProfiles3.png)
 
 ### To Be Done
@@ -65,19 +84,15 @@ Non Flake alternative (Still contains Nvidia Optional Settings):
    - WM: [hyprland](https://hyprland.org/)
    - Most core modules (no extra toys)
 
-4. PentestVM (aeneas)
+4. Specializations:
 
-   - Specialised set of packages for playing [HTB](https://www.hackthebox.com/)
-
-5. Desktop (desktop-gnome) 
+   i) gnome `sudo nixos-rebuild switch --flake '.#hostname' --specialization 'gnome'`
 
    - DE: Customised [Gnome](https://www.gnome.org/) w [PopShell](https://github.com/pop-os/shell) for a WM experience
-   - All core modules + nvidia
 
-6. Desktop (desktop-plasma)
+   ii) plasma `sudo nixos-rebuild switch --flake '.#hostname' --specialization 'plasma'`
 
    - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
-   - All core modules + nvidia
 
 ## Getting Started with NixOS Minimal
 
@@ -119,7 +134,8 @@ You've done an initial install from a minimal image because the GUI is no fun, w
 
    - Make sure to include a user and an internet connection method.
    - Add your preferred text editor to the pkgs list.
-   - (Optionally) Add any programs and services you know you will need from the get go. There is not need to incrementally build your system but it's easier to figure out what's going wrong if you go slow.
+   - (Optionally) Add any programs and services you know you will need from the get go. There is no need to incrementally build your system but it's easier to figure out what's going wrong if you go slow.
    - Save your changes.
 
 ### 3. `nixos-rebuild boot` To Launch NixOS for the First time
+

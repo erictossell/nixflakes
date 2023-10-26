@@ -4,20 +4,21 @@
   # Defining package channels
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    hyprland = {
-      url = "github:hyprwm/hyprland";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+    };
+
   };
   
   # Defining flake import structure for packages
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@attrs: 
-  let
-    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-  in 
-  { 
-
+  outputs = { self, nixpkgs, ... } @ attrs: { 
+    
     # Hyprland Desktop - 3 monitors 
     nixosConfigurations.retis = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -25,29 +26,14 @@
         username = "eriim";
         hostname = "retis";
         displayConfig = "3monitor";
-        gui = "hypr-nvidia";
         nvidia_bool = "enabled";
       } // attrs;        
       modules = [
-        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
-          imports = [
-            (import ./hosts {
-              inherit (nixpkgs) lib pkgs;
-              home-manager = home-manager;
-              username = username;
-              hostname = hostname;
-              config = config;
-              nixpkgs = nixpkgs.outPath;
-            })
-            ./modules/core
-            ./modules/gui
+            ./.
             ./modules/obs
             ./modules/toys
             ./modules/virt
-            ./profiles/smb_client
           ];
-        })
-      ];
     };#retis
 
     # Hyprland Laptop 
@@ -57,26 +43,11 @@
         username = "eriim";
         hostname = "sisyphus";
         displayConfig = "1monitor";
-        gui = "hypr";
         nvidia_bool = "disabled";
       } // attrs;        
       modules = [
-        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
-          imports = [
-            (import ./hosts {
-              inherit (nixpkgs) lib pkgs;
-              home-manager = home-manager;
-              username = username;
-              hostname = hostname;
-              config = config;
-              nixpkgs = nixpkgs.outPath;
-            })
-            ./modules/core
-            ./modules/gui
-            ./profiles/smb_client
+            ./.
           ];
-        })
-      ];
     };#sisyphus
 
     # Hyprland Laptop 
@@ -86,28 +57,12 @@
         username = "eriim";
         hostname = "icarus";
         displayConfig = "1monitor";
-        gui = "hypr";
         nvidia_bool = "disabled";
       } // attrs;        
       modules = [
-        ({config, pkgs, home-manager, hyprland, username, hostname, displayConfig, nvidia_bool, ... }: {
-          imports = [
-            (import ./hosts {
-              inherit (nixpkgs) lib pkgs;
-              home-manager = home-manager;
-              username = username;
-              hostname = hostname;
-              config = config;
-              nixpkgs = nixpkgs.outPath;
-            })
-            ./modules/core
-            ./modules/gui
-            ./profiles/smb_client
+            ./.
           ];
-        })
-      ];
     };#icarus
-
   };
 }
 

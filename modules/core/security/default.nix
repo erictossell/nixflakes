@@ -11,6 +11,7 @@
         login.u2fAuth = true;
         # Sudo with Yubikey
         sudo.u2fAuth = true;
+        
       };
     };
     polkit = {

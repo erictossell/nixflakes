@@ -1,10 +1,7 @@
 { pkgs, home-manager, username, hostname, ... }:
 {
   imports = [
-    home-manager.nixosModules.default
-    ./${hostname}/hardware-configuration.nix
     ./${hostname}
-    ./hardware
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
