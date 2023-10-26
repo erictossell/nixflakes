@@ -28,8 +28,9 @@ in
     # Required if applications are having trouble opening links
     xdg-utils
   ];
-
+  
   programs.dconf.enable = true;
+  programs.hyprland.enable = true;
 
   services.greetd = {
     enable = true;
