@@ -5,7 +5,6 @@
     ./assets
     ./hosts
     ./modules
-    ./specialisations
     ./users/${username}
   ];
 }
