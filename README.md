@@ -70,3 +70,7 @@ This repo has become more opinionated over time and now requires passing down va
 
    - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
 
+## [How to use this repo](docs/usage.md)
+## [Getting Started with NixOS Minimal](docs/minimal-install.md)
+
+
