@@ -4,6 +4,8 @@ cd "$(dirname "$0")" || exit 1
 
 echo -n "Enter new hostname: "
 read dir_name
+echo -n "Enter a new username: "
+read username
 
 validate_input() {
     while : ; do
@@ -21,6 +23,7 @@ default_config_path="/etc/nixos/configuration.nix"
 
 # Common path prefix
 host_dir="hosts/$dir_name"
+user_dir="users/$username"
 
 if test -s "$default_hardware_config_path"; then
     echo "/etc/nixos/hardware-configuration.nix exists and is not empty, would you like to import it? Y/n"
@@ -38,8 +41,8 @@ fi
 
 # Create directories and files
 cd ..
-mkdir -p "$host_dir" 
-touch "$host_dir/default.nix" 
+mkdir -p "$host_dir" "$user_dir"
+touch "$host_dir/default.nix"
 
 if bool_generate; then
     nixos-generate-config
@@ -57,3 +60,16 @@ cat > "$host_dir/default.nix" << EOF
 }
 EOF
 
+echo "Creating a basic $username file in $user_dir/default.nix..."
+cat > "$user_dir/default.nix" << EOF
+{ pkgs, username, ... }:
+{
+# Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.${username} = {
+    shell = pkgs.bash;
+    isNormalUser = true;
+    password = "temp123";
+    extraGroups = [ "wheel" ];
+  };
+}
+EOF

@@ -1,4 +1,7 @@
 {
+  users.users.${username} = {
+    extraGroups = [ "audio" ];
+  };
   # Sound settings
   security.rtkit.enable = true;
   sound.enable = true;

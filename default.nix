@@ -1,8 +1,7 @@
-{ home-manager, hyprland, username, ... }:
+{ home-manager, username, ... }:
 {
   imports = [
     home-manager.nixosModules.home-manager
-    hyprland.nixosModules.default
     ./assets
     ./hosts
     ./modules
