@@ -16,17 +16,6 @@ validate_input() {
     done
 }
 
-
-modify_hardware_config() {
-    local file_path=$1
-    sed -i \
-        -e '1,10s/{ config, lib, pkgs, modulesPath, ... }:/ { config, lib, nixpkgs, ... }:/' \
-        -e '1,10s/\[ (modulesPath + "\/installer\/scan\/not-detected.nix") \]/\[ "${nixpkgs}\/nixos\/modules\/installer\/scan\/not-detected.nix" \]/' \
-        -e 's/\(modulesPath + "\/profiles\/qemu-guest.nix"\)/.\/qemu-guest.nix/' \
-        "$file_path"
-}
-
-
 default_hardware_config_path="/etc/nixos/hardware-configuration.nix"
 default_config_path="/etc/nixos/configuration.nix"
 
@@ -49,75 +38,22 @@ fi
 
 # Create directories and files
 cd ..
-mkdir -p "$host_dir" "$host_dir/hardware" "$host_dir/home"
-touch "$host_dir/default.nix" "$host_dir/hardware/default.nix" "$host_dir/home/default.nix"
+mkdir -p "$host_dir" 
+touch "$host_dir/default.nix" 
 
 if bool_generate; then
     nixos-generate-config
-    cp "$default_hardware_config_path" "$host_dir/hardware/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
-    modify_hardware_config "$host_dir/hardware/hardware-configuration.nix"
+    cp "$default_hardware_config_path" "$host_dir/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
 elif [ "$bool_import" = true ]; then
-    cp "$default_hardware_config_path" "$host_dir/hardware/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
-    modify_hardware_config "$host_dir/hardware/hardware-configuration.nix"
+    cp "$default_hardware_config_path" "$host_dir/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
 fi
-# Prepare for copying a home/default.nix profile
-echo "Select a profile to copy, or choose to create a basic default file:"
-select profile in retis sisyphus aeneas "Create basic default file"; do
-    case $profile in
-      retis|sisyphus|aeneas)
-            echo "Copying profile from hosts/$profile/home/default.nix to $host_dir/home/default.nix..."
-            cp "hosts/$profile/home/default.nix" "$host_dir/home/default.nix" || { echo "Failed to copy profile"; exit 1; }
-            cp "hosts/$profile/hardware/default.nix" "$host_dir/hardware/default.nix" || { echo "Failed to copy profile"; exit 1; }
-            break
-            ;;
-        "Create basic default file")
-            echo "Creating a basic default.nix file in $host_dir/home/default.nix..."
-            cat > "$host_dir/home/default.nix" << EOF
-{ pkgs, home-manager, username, hostname, ... }:
+echo "Creating a basic default.nix file in $host_dir/default.nix..."
+cat > "$host_dir/default.nix" << EOF
 {
   imports = [
-    home-manager.nixosmodules.default
+    ./hardware-configuration.nix
   ];
-
-  home-manager.users.${username} = { pkgs, ... }: {
-    /* the home.stateversion option does not have a default and must be set */
-    home.stateversion = "23.05";
-    nixpkgs.config.allowunfree = true;
-  };
-
-  # ---- system configurations ---   
-  # enable networking - available with nmcli and nmtui
-  networking = {
-    hostname = "${hostname}";
-  }; 
-}
-EOF
-            cat > "$host_dir/hardware/default.nix" << EOF
-{ config, lib, pkgs, ... }:
-{
-	imports = [
-		./hardware-configuration.nix
-		../../../modules/hardware
-	];
-}
-EOF
-
-            break
-            ;;
-        *)
-            echo "Invalid option. Please try again."
-            ;;
-    esac
-done
-
-# Write to hosts/$dir_name/default.nix
-cat > "$host_dir/default.nix" << EOF
-{ config, lib, pkgs, ... }:
-{
- imports = [
-   ./home
-   ./hardware
- ];
+  #----Host specific config ----
 }
 EOF
 
