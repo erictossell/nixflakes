@@ -1,7 +1,7 @@
 { pkgs, nvidia_bool, username, ... }:
 let
   hyprNvidia = {
-    "enabled" = [ (import ./nvidia.nix {inherit hyprland pkgs;}) ];
+    "enabled" = [ (import ./nvidia.nix) ];
     "disabled" = [ ];
     };
 in
