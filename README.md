@@ -5,9 +5,9 @@ Modules are grouped to be almost purely *functional* and as a result you will of
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
 
-![Flake Structure](.screens/FlakeStructure2.png)
+![Flake Structure](screens/FlakeStructure2.png)
 
-![Flake Profiles](.screens/FlakeProfiles3.png)
+![Flake Profiles](screens/FlakeProfiles3.png)
 
 ### To Be Done
 
@@ -15,11 +15,11 @@ This repo has become more opinionated over time and now requires passing down va
 
 ## Screenshots
 
-![Hyprland](.screens/hyprland1.png)
+![Hyprland](screens/hyprland1.png)
 
-![Hyprland1](.screens/hyprland2.png)
+![Hyprland1](screens/hyprland2.png)
 
-![Hyprland3](.screens/hyprland3.png)
+![Hyprland3](screens/hyprland3.png)
 
 ### My Nixdots Contain Configurations for
 
