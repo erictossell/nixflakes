@@ -1,10 +1,5 @@
 #!/run/current-system/sw/bin/bash
 
-cd "$(dirname "$0")" || exit 1
-
-echo -n "Enter new hostname: "
-read dir_name
-
 validate_input() {
     while : ; do
         read -r input
@@ -16,11 +11,27 @@ validate_input() {
     done
 }
 
+cd "$(dirname "$0")" || exit 1
+
+echo -n "Enter new hostname: "
+read hostname
+
+echo -n "Enter a new username: "
+read username
+
+echo -n "Do you use Nvidia?"
+if validate_input; then
+    nvidia="enabled"
+else
+    nvidia="disabled"
+fi
+
 default_hardware_config_path="/etc/nixos/hardware-configuration.nix"
 default_config_path="/etc/nixos/configuration.nix"
 
 # Common path prefix
-host_dir="hosts/$dir_name"
+host_dir="hosts/$hostname"
+user_dir="users/$username"
 
 if test -s "$default_hardware_config_path"; then
     echo "/etc/nixos/hardware-configuration.nix exists and is not empty, would you like to import it? Y/n"
@@ -38,8 +49,8 @@ fi
 
 # Create directories and files
 cd ..
-mkdir -p "$host_dir" 
-touch "$host_dir/default.nix" 
+mkdir -p "$host_dir" "$user_dir"
+touch "$host_dir/default.nix"
 
 if bool_generate; then
     nixos-generate-config
@@ -57,3 +68,41 @@ cat > "$host_dir/default.nix" << EOF
 }
 EOF
 
+echo "Creating a basic $username file in $user_dir/default.nix..."
+cat > "$user_dir/default.nix" << EOF
+{ pkgs, username, ... }:
+{
+# Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.${username} = {
+    shell = pkgs.bash;
+    isNormalUser = true;
+    initialPassword = "temp123";
+    extraGroups = [ "wheel" "input" ];
+  };
+}
+EOF
+
+echo "Creating a basic system configuration in flake.nix..."
+# Define the new configuration block
+# Define the new configuration block
+read -r -d '' NEW_CONFIG << EOM
+    # Appended new system
+    nixosConfigurations.$hostname = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+            username = "$username";
+            hostname = "$hostname";
+            displayConfig = "1monitor";
+            nvidia_bool = "$nvidia";
+        } // attrs;        
+        modules = [
+              ./.
+          ];
+    };#$hostname
+EOM
+
+# Use awk to append the new configuration block before the last closing brace of the outputs block
+awk -v n="$NEW_CONFIG" '
+    /};#icarus/ { print; print n; next }
+    { print }
+' flake.nix > temp && mv temp flake.nix

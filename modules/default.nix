@@ -1,3 +1,4 @@
+{ hyprland, ... }:
 {
   imports = [
     ./apps

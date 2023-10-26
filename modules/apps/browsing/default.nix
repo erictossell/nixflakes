@@ -1,4 +1,3 @@
-
 { pkgs, home-manager, username, ... }:
 {
   #----- Home Manager Config -----

@@ -1,4 +1,4 @@
-{ pkgs, nvidia_bool, username, ... }:
+{ hyprland, pkgs, nvidia_bool, username, ... }:
 let
   hyprNvidia = {
     "enabled" = [ (import ./nvidia.nix) ];
@@ -7,9 +7,9 @@ let
 in
 {
   imports = [
+    hyprland.nixosModules.default
     ./config
     ./mako
-    ./pkgs
     ./swaylock
     ./waybar
     ./wofi
@@ -30,6 +30,7 @@ in
   ];
   
   programs.dconf.enable = true;
+
   programs.hyprland.enable = true;
 
   services.greetd = {
