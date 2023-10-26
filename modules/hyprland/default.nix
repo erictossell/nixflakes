@@ -1,8 +1,8 @@
 { pkgs, nvidia_bool, username, ... }:
 let
   hyprNvidia = {
-    "enabled" = [ (import ./nvidia.nix {inherit pkgs username;}) ];
-    "disabled" = [ (import ./standard.nix {inherit pkgs username;}) ];
+    "enabled" = [ (import ./nvidia.nix {inherit hyprland pkgs;}) ];
+    "disabled" = [ ];
     };
 in
 {
@@ -17,10 +17,19 @@ in
   
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.systemPackages = with pkgs; [ hyprpaper hyprpicker lxqt.lxqt-policykit ];
+  environment.systemPackages = with pkgs; [ 
+    eww-wayland
+    grim
+    hyprpaper
+    hyprpicker
+    lxqt.lxqt-policykit
+    slurp
+    wl-clipboard
+    # Required if applications are having trouble opening links
+    xdg-utils
+  ];
 
   programs.dconf.enable = true;
-  
 
   services.greetd = {
     enable = true;
