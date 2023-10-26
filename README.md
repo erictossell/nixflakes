@@ -1,6 +1,7 @@
 # Eriim's Nixflakes
 
 [How to use this repo](docs/usage.md)
+
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
 ### Flake Structure
