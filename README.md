@@ -9,7 +9,7 @@ Modules are grouped to be almost purely *functional* and as a result you will of
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
 
-![Flake Structure](docs/screens/FlakeStructure2.png)
+![Flake Structure](docs/screens/FlakeStructure4.png)
 
 ![Flake Profiles](docs/screens/FlakeProfiles3.png)
 
