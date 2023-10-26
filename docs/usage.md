@@ -1,33 +1,52 @@
 ## How to use this repo
-Requirements: NixOS, x86_64
+### Requirements: NixOS, x86_64
 
-   1. `git clone https://github.com/erictossell/nixflakes.git`
+   1. Clone the repo and change directory.
 
-   2. `cd nixflakes`
+   ```bash
+   git clone --depth 1 https://github.com/erictossell/nixflakes.git && cd nixflakes
+   ```
 
-   3. `scripts/build.sh`
+   2. Run the build script. 
 
-      a. Enter a new hostname
-
-      b. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
-
-      c. Validate that your `hardware-configuration.nix` imported succesfully.
+   ```bash
+   scripts/build.sh
+   ```
+      
+   a. Enter a new hostname
    
-   4. Rename my user or create your own inside of `/users`.
+   b. Enter a new username
+      
+   c. Y/n for Nvidia usage.
+         
+   d. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
+
+   e. Validate that your `hardware-configuration.nix` imported succesfully.
+
    
-   5. Add your system configuration to the flake.nix.
+   3. Validate the flake imports went okay.
 
-      *username*: Must be the same as the new user you created in `/users`.
+   ```bash
+   nix flake check
+   ```
 
-      *hostname*: Must be the same as the new directory created in `/hosts`.
+   **If you havent enabled experimental features**
 
-      *displayConfig*: (1monitor | 3monitor) Import display specific dotfiles. Importing the 3monitor config will likely require editing the contents of `modules/hyprland/config/3monitor` to suit your monitor layout.
+   ```bash
+   nix flake check --extra-experimental-features nix-command --extra-experimental-features flakes
+   ```
+   
+   4. Build the system. 
 
-      *nvidia_bool*: (enabled | disabled) Nvidia Drivers and Hyprland Nvidia patches.
+   ```bash
+   sudo nixos-rebuild switch --flake '.#hostname'
+   ```
+   **OR if your `hostname` already matches the hostname specificed in the `flake.nix`.**
+   ```bash
+   sudo nixos-rebuild switch --flake .
+   ```
 
-      *Modules*: `./.` is enough for my Hyprland WM environment. 
-         *Optional*: `modules/obs`, `modules/toys`, `modules/virt`
-
-   6. `sudo nixos-rebuild switch --flake '.#hostname'` OR `sudo nixos-rebuild switch --flake .` if your `hostname` already matches the hostname specificed in the `flake.nix`.
+   5. Let me know if you run into any issues. :)
+  
 
 

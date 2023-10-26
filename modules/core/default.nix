@@ -6,15 +6,17 @@ in
 { 
   imports = [
     ./boot/systemd
+    ../../users/${username}
+    ./apps
     ./terminal
+    ./browsing
     ./security
+    ./vscode
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
     programs.gh.enable = true;
   };
-
-  services.gnome.gnome-keyring.enable = true;
   
   # Enable Flakes and nix-commands
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -25,6 +27,7 @@ in
   # Meshnet
   # services.tailscale.enable = true;
 
+  # Enable networking - available with nmcli and nmtui
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
