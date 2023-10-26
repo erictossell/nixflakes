@@ -15,8 +15,10 @@ cd "$(dirname "$0")" || exit 1
 
 echo -n "Enter new hostname: "
 read hostname
+
 echo -n "Enter a new username: "
 read username
+
 echo -n "Do you use Nvidia?"
 if validate_input; then
     nvidia="enabled"
@@ -84,7 +86,6 @@ echo "Creating a basic system configuration in flake.nix..."
 # Define the new configuration block
 # Define the new configuration block
 read -r -d '' NEW_CONFIG << EOM
-
     # Appended new system
     nixosConfigurations.$hostname = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -98,7 +99,6 @@ read -r -d '' NEW_CONFIG << EOM
               ./.
           ];
     };#$hostname
-
 EOM
 
 # Use awk to append the new configuration block before the last closing brace of the outputs block

@@ -1,6 +1,6 @@
 { pkgs, home-manager, username, ... }:
 {
-  environment.systemPackages = with pkgs; [ samba cifs-utils ];
+  environment.systemPackages = with pkgs; [ cifs-utils samba thunar ];
   # Enable networking - available with nmcli and nmtui
   networking = {
     extraHosts = ''
