@@ -26,7 +26,7 @@
 			nvim-treesitter-parsers.sql		
 		];
 	};
-  ;
+  };
 
 
 }
