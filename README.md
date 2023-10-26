@@ -15,6 +15,7 @@ This repo has become more opinionated over time and now requires passing down va
 ### To Be Done
 
 - SOPS for nixsecrets
+- NVIDIA Imports by Driver (Currently only newer cards are supported)
 
 ## Screenshots
 
@@ -72,5 +73,3 @@ This repo has become more opinionated over time and now requires passing down va
 
 ## [How to use this repo](docs/usage.md)
 ## [Getting Started with NixOS Minimal](docs/minimal-install.md)
-
-

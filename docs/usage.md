@@ -1,11 +1,17 @@
 # How to use this repo
 ## Requirements: NixOS, x86_64
 
+These steps assume that you have already installed NixOS
+For documentation on how to complete a minimal install: [Minimal Install](minimal-install.md)
+
+
    ### 1. Clone the repo and change directory.
 
    ```bash
    git clone --depth 1 https://github.com/erictossell/nixflakes.git && cd nixflakes
    ```
+   
+   #### a) If you have not installed anything beyond the minimal image, you will need to `nix-shell -p git` to temporarily install git.
 
    ### 2. Run the build script. 
 
