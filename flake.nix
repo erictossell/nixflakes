@@ -1,6 +1,5 @@
 {
   description = "Machine specific configuration flake.";
-
   # Defining package channels
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,7 +12,6 @@
     hyprland = {
       url = "github:hyprwm/hyprland";
     };
-
   };
   
   # Defining flake import structure for packages
