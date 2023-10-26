@@ -1,5 +1,8 @@
 # Eriim's Nixflakes
 
+[How to use this repo](docs/usage.md)
+[Getting Started with NixOS Minimal](docs/minimal-install.md)
+
 ### Flake Structure
 Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will this paradigm.             
 
@@ -8,9 +11,6 @@ This repo has become more opinionated over time and now requires passing down va
 ![Flake Structure](docs/screens/FlakeStructure2.png)
 
 ![Flake Profiles](docs/screens/FlakeProfiles3.png)
-
-## [How to use this repo](docs/usage.md)
-## [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
 ### To Be Done
 

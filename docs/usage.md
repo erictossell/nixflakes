@@ -1,7 +1,8 @@
 # How to use this repo
 ## Requirements: NixOS, x86_64
 
-These steps assume that you have already installed NixOS
+These steps assume that you have already installed NixOS.
+
 For documentation on how to complete a minimal install: [Minimal Install](minimal-install.md)
 
 
