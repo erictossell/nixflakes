@@ -95,6 +95,7 @@ bind = $mainMod, q, exec, foot
 bind = $mainMod, w, killactive, 
 bind = $mainMod, m, exit, 
 bind = $mainMod, e, exec, kitty -e ranger
+bind = $mainMod, b, exec, foot -e btop
 bind = $mainMod, v, togglefloating, 
 bind = $mainMod, r, exec, wofi --show drun
 bind = $mainMod, p, pseudo, # dwindle
