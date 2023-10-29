@@ -4,12 +4,11 @@
     home.file = {
       ".config/foot/foot.ini".text = ''
 font=M+1Code Nerd Font:size=13
-pad=10x10
+pad=15x15
 
 [colors]
-alpha=0.2
-background=3b0ec4
-      '';     
+background=232136
+'';     
     };
   };
 }

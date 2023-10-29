@@ -16,7 +16,7 @@
   };
   home-manager.users.${username} =  { ... }: {
     home.file = {
-      ".config/swaylock/background.jpg".source = ./background.jpg;
+      ".config/swaylock/background.jpg".source = ./nix-wallpaper-dracula.png;
 
       ".config/swaylock/config".text = ''
 # indicator

@@ -33,7 +33,7 @@ general {
 	gaps_in = 5
 	gaps_out = 10
 	border_size = 2
-	col.active_border = rgba(00ba69ee) rgba(ffffffee) 45deg
+	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
 	col.inactive_border = rgba(595959aa)
 	layout = dwindle
 	cursor_inactive_timeout = 0
@@ -48,8 +48,8 @@ decoration {
 	shadow_range = 4
 	shadow_render_power = 3
 	col.shadow = rgba(1a1a1aee)
-	active_opacity = 0.85
-	inactive_opacity = 0.8
+	active_opacity = 1.0
+	inactive_opacity = 1.0
 	fullscreen_opacity = 1.0
 	blur {
 		enabled = yes
@@ -113,8 +113,8 @@ bind = $mainMod shift, right, movewindow, r
 bind = $mainMod shift, up, movewindow, u
 bind = $mainMod shift, down, movewindow, d
 
-$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/laptop_dj.jpg"
+$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
 $w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
 $w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
 $w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/snow-tree.jpg"
@@ -201,20 +201,19 @@ bindm = $mainMod, mouse:273, resizewindow
       '';
 
       ".config/hypr/hyprpaper.conf".text = ''
+preload = ~/.config/backgrounds/232136.png
+preload = ~/.config/backgrounds/1A1C23.png
 preload = ~/.config/backgrounds/disknee.jpg
 preload = ~/.config/backgrounds/keyboard.png
-preload = ~/.config/backgrounds/laptop_dj.jpg
 preload = ~/.config/backgrounds/mario.jpg
 preload = ~/.config/backgrounds/moon.jpg
 preload = ~/.config/backgrounds/scifi_landscape.jpg
-preload = ~/.config/backgrounds/snow-tree.jpg
 preload = ~/.config/backgrounds/storage.jpg
-preload = ~/.config/backgrounds/sunset-train.jpg
 preload = ~/.config/backgrounds/tree_hill_snow.jpg
 
-wallpaper = DP-1, ~/.config/backgrounds/keyboard.png
-wallpaper = DP-2, ~/.config/backgrounds/scifi_landscape.jpg
-wallpaper = HDMI-A-1, ~/.config/backgrounds/keyboard.png
+wallpaper = DP-1, ~/.config/backgrounds/232136.png
+wallpaper = DP-2, ~/.config/backgrounds/232136.png
+wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
       '';  
     };
   };
