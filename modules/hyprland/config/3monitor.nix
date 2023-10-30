@@ -5,13 +5,9 @@
       ".config/hypr/hyprpaper.conf".text = ''
 preload = ~/.config/backgrounds/232136.png
 preload = ~/.config/backgrounds/1A1C23.png
-preload = ~/.config/backgrounds/disknee.jpg
 preload = ~/.config/backgrounds/keyboard.png
-preload = ~/.config/backgrounds/mario.jpg
-preload = ~/.config/backgrounds/moon.jpg
-preload = ~/.config/backgrounds/scifi_landscape.jpg
 preload = ~/.config/backgrounds/storage.jpg
-preload = ~/.config/backgrounds/tree_hill_snow.jpg
+
 
 wallpaper = DP-1, ~/.config/backgrounds/232136.png
 wallpaper = DP-2, ~/.config/backgrounds/232136.png
@@ -55,9 +51,9 @@ $w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
 $w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
 $w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
 $w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
-$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/snow-tree.jpg"
-$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/moon.jpg"
-$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/disknee.jpg"
+$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
 
 $wA = Alpha
 $wB = Bravo
