@@ -2,6 +2,14 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
+      ".config/hypr/hyprpaper.conf".text = ''
+preload = ~/.config/backgrounds/keyboard.png
+preload = ~/.config/backgrounds/scifi_landscape.jpg
+preload = ~/.config/backgrounds/storage.jpg
+
+wallpaper = eDP-1, ~/.config/backgrounds/keyboard.png
+      '';  
+
       ".config/hypr/hyprland.conf".text = ''
 #monitor=edp-1,3840 x 2160,auto,auto
 monitor=,preferred,auto,auto
@@ -16,6 +24,52 @@ env=XDG_SESSION_DESKTOP,Hyprland
 env=XDG_SESSION_TYPE,wayland
 env=GDK_BACKEND,wayland,x11
 env=QT_QPA_PLATFORM,wayland
+
+$mainmod = SUPER
+
+bind = $mainmod, q, exec, foot 
+bind = $mainmod, w, killactive
+bind = $mainMod, d, exec, pavucontrol
+bind = $mainmod, f, fullscreen, 1
+bind = $mainmod, m, exit
+bind = $mainmod, e, exec, kitty -e ranger
+bind = $mainmod, b, exec, foot -e btop
+bind = $mainmod, v, togglefloating, 
+bind = $mainmod, r, exec, wofi --show drun
+bind = $mainmod, p, pseudo, # dwindle
+bind = $mainmod, j, togglesplit, # dwindle
+bind = $mainmod, 0, exec, swaylock
+bind = $mainmod, s, exec, grim -g "$(slurp)" ~/pictures/screenshots/$(date +'%y%m%d_%h%m%s').png
+
+bind = $mainmod, left, movefocus, l
+bind = $mainmod, right, movefocus, r
+bind = $mainmod, up, movefocus, u
+bind = $mainmod, down, movefocus, d
+
+bind = $mainmod SHIFT, left, movewindow, l
+bind = $mainmod SHIFT, right, movewindow, r
+bind = $mainmod SHIFT, up, movewindow, u
+bind = $mainmod SHIFT, down, movewindow, d
+
+
+$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
+$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
+$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
+$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
+$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+
+$wa = Alpha
+$wb = Bravo
+$wc = Charlie
+$wd = Delta
+$we = Echo
+$wf = Foxtrot
+$wg = Golf
+$wh = Hotel
+$wi = Are ya lost bud
+
 # for all categories, see https://wiki.hyprland.org/configuring/variables/
 input {
 	kb_layout = us
@@ -33,7 +87,7 @@ general {
 	col.active_border = rgba(00ba69ee) rgba(ffffffee) 45deg
 	col.inactive_border = rgba(595959aa)
 	layout = dwindle
-	cursor_inactive_timeout = 0
+	cursor_inactive_timeout = 15
 	no_cursor_warps = yes
 	resize_on_border = yes
 	hover_icon_on_border = yes
@@ -86,48 +140,12 @@ device:epic-mouse-v1 {
 	sensitivity = -0.5
 }
 
-$mainmod = SUPER
-
-bind = $mainmod, q, exec, foot 
-bind = $mainmod, w, killactive, 
-bind = $mainmod, m, exit, 
-bind = $mainmod, e, exec, kitty -e ranger
-bind = $mainmod, b, exec, foot -e btop
-bind = $mainmod, v, togglefloating, 
-bind = $mainmod, r, exec, wofi --show drun
-bind = $mainmod, p, pseudo, # dwindle
-bind = $mainmod, j, togglesplit, # dwindle
-bind = $mainmod, 0, exec, swaylock
-bind = $mainmod, s, exec, grim -g "$(slurp)" ~/pictures/screenshots/$(date +'%y%m%d_%h%m%s').png
-
-bind = $mainmod, left, movefocus, l
-bind = $mainmod, right, movefocus, r
-bind = $mainmod, up, movefocus, u
-bind = $mainmod, down, movefocus, d
-
-bind = $mainmod SHIFT, left, movewindow, l
-bind = $mainmod SHIFT, right, movewindow, r
-bind = $mainmod SHIFT, up, movewindow, u
-bind = $mainmod SHIFT, down, movewindow, d
-
-
-$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
-$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
-$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
-$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
-$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
-$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
-
-$wa = Alpha
-$wb = Bravo
-$wc = Charlie
-$wd = Delta
-$we = Echo
-$wf = Foxtrot
-$wg = Golf
-$wh = Hotel
-$wi = Are ya lost bud
+misc {
+	disable_hyprland_logo = true
+	enable_swallow = true
+	swallow_regex = ^(foot)$
+	background_color = 0x232136
+}
 
 workspace=name:$wa,monitor:eDP-1,default:true
 workspace=name:$wb,monitor:eDP-1
@@ -196,13 +214,6 @@ bindm = $mainmod, mouse:272, movewindow
 bindm = $mainmod, mouse:273, resizewindow
       '';
 
-      ".config/hypr/hyprpaper.conf".text = ''
-preload = ~/.config/backgrounds/keyboard.png
-preload = ~/.config/backgrounds/scifi_landscape.jpg
-preload = ~/.config/backgrounds/storage.jpg
-
-wallpaper = eDP-1, ~/.config/backgrounds/keyboard.png
-      '';  
     };
   };
 }
