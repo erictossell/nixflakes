@@ -25,19 +25,39 @@ exec-once = waybar & hyprpaper & mako & lxqt-policykit-agent & dbus-update-activ
 # some default env vars.
 env=BROWSER, firefox
 env=XCURSOR_SIZE,24
+
 env=XDG_CURRENT_DESKTOP,Hyprland
 env=XDG_SESSION_DESKTOP,Hyprland
 env=XDG_SESSION_TYPE,wayland
 env=GDK_BACKEND,wayland,x11
+env=SDL_VIDEODRIVER,wayland
+env=CLUTTER_BACKEND,wayland
+env=MOZ_ENABLE_WAYLAND,1
+env=MOZ_DISABLE_RDD_SANDBOX,1
+env=_JAVA_AWT_WM_NONREPARENTING,1
+env=QT_AUTO_SCREEN_SCALE_FACTOR,1
 env=QT_QPA_PLATFORM,wayland
+env=LIBVA_DRIVER_NAME,nvidia
+env=GBM_BACKEND,nvidia-drm
+env=__GLX_VENDER_LIBRARYNAME,nvidia
+env=__NV_PRIME_RENDER_OFFLOAD,1
+env=__VK_LAYER_NV_optimus,NVIDIA_only
+env=PROTON_ENABLE_NGX_UPDATER,1
+env=NVD_BACKEND,direct
+env=__GL_GSYNC_ALLOWED,1
+env=__GL_VRR_ALLOWED,1
+env=WLR_DRM_NO_ATOMIC,1
+env=WLR_USE_LIBINPUT,1
+env=__GL_MaxFramesAllowed,1
+env=WLR_RENDERER_ALLOW_SOFTWARE,1
 
 $mainMod = SUPER
 
 bind = $mainMod, q, exec, foot 
-bind = $mainMod, w, killactive, 
+bind = $mainMod, w, killactive 
 bind = $mainMod, f, fullscreen, 1
 bind = $mainMod, d, exec, pavucontrol
-bind = $mainMod, m, exit, 
+bind = $mainMod, m, exit
 bind = $mainMod, e, exec, kitty -e ranger
 bind = $mainMod, b, exec, foot -e btop
 bind = $mainMod, v, togglefloating, 
@@ -82,7 +102,7 @@ general {
 	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
 	col.inactive_border = rgba(595959aa)
 	layout = dwindle
-	cursor_inactive_timeout = 0
+	cursor_inactive_timeout = 15
 	no_cursor_warps = yes
 	resize_on_border = yes
 	hover_icon_on_border = yes
