@@ -1,13 +1,17 @@
 # Eriim's Nixflakes
 
+```
+There are many paths to the top of the mountain, but the view is always the same.
+```
+
 [How to use this repo](docs/usage.md)
 
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
 ### Flake Structure
-Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users will use this paradigm.             
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users use this paradigm.
 
-This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages. This area is heavily WIP.
+This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages and eventually theming elements. 
 
 ![Flake Structure](docs/screens/FlakeStructure4.png)
 
@@ -24,16 +28,9 @@ This repo has become more opinionated over time and now requires passing down va
 ### My Nixdots Contain Configurations for
 
 #### Core Modules
-  - Browsers (Firefox, Chrome, Nyxt)
-  - Nvidia
-  - [OBS Studio](https://obsproject.com/) (for screen recording and streaming/sharing screen)
-  - Security Config ([1Password](https://1password.com/), [Yubico](https://www.yubico.com/) Authentication)
-
-#### Extra Toys
-- Vidya (Steam, Wine)
-- Virt (Docker, kvm/qemu)
-
-#### Terminal Module
+- Boot
+- Security Config ([Yubico](https://www.yubico.com/) Authentication)
+  ##### Terminal Module
   - Editor: [`nvim`](https://neovim.io/), `vim`
   - Terminals: [`foot`](https://codeberg.org/dnkl/foot), [`alacritty`](https://github.com/alacritty/alacritty), [`wezterm`](https://wezfurlong.org/wezterm/index.html)
   - Shell: `bash`
@@ -41,7 +38,27 @@ This repo has become more opinionated over time and now requires passing down va
   - [`cava` (Music Visualizer)](https://github.com/karlstav/cava)
   - [`nitch` (sysfetch)](https://github.com/ssleert/nitch)
 
-#### Profiles
+#### Hyprland
+- [Dotfiles](modules/hyprland/config/)
+- [greetd](modules/hyprland/greetd/default.nix)
+- [mako](modules/hyprland/mako/default.nix)
+- [swaylock](modules/hyprland/swaylock/default.nix)
+- [waybar](modules/hyprland/waybar/default.nix)
+- [wofi](modules/hyprland/wofi/default.nix)
+
+#### Apps
+- [1Password](https://1password.com/)
+- Browsers (Firefox, Chrome, Nyxt)
+- [Discord](https://discord.com)
+- [Obsidian](https://obsidian.md/)
+- [VSCode](https://code.visualstudio.com/)
+
+#### Extra Toys
+- [OBS Studio](https://obsproject.com/) (for screen recording and streaming/sharing screen)
+- Vidya (Steam, Wine)
+- Virt (Docker, kvm/qemu)
+
+#### Configurations
 1. Desktop (retis) - 3 monitors
 
    - WM: [hyprland](https://hyprland.org/)
@@ -57,20 +74,9 @@ This repo has become more opinionated over time and now requires passing down va
    - WM: [hyprland](https://hyprland.org/)
    - Most core modules (no extra toys)
 
-4. Specializations:
-
-   i) gnome `sudo nixos-rebuild switch --flake '.#hostname' --specialization 'gnome'`
-
-   - DE: Customised [Gnome](https://www.gnome.org/) w [PopShell](https://github.com/pop-os/shell) for a WM experience
-
-   ii) plasma `sudo nixos-rebuild switch --flake '.#hostname' --specialization 'plasma'`
-
-   - DE: [KDE Plasma](https://kde.org/plasma-desktop/)
-
 ### To Be Done
 
-- SOPS for nixsecrets
-- NVIDIA Imports by Driver (Currently only newer cards are supported)
+- sops-nix/agenix for nixsecrets
 
 [How to use this repo](docs/usage.md)
 
