@@ -8,6 +8,9 @@ Host *
       '';
      };
    };
+   programs.bash.interactiveShellInit = ''
+source /home/eriim/.config/op/plugins.sh
+   '';
    programs = {
     _1password.enable = true;
     _1password-gui = {
