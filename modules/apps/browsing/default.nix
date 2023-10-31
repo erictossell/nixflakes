@@ -32,7 +32,7 @@
 	  };
 	extensions = [
 	  "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-	  "aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
+	  #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
       ];
     };
   };

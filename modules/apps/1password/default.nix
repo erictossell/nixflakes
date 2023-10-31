@@ -17,6 +17,13 @@ source /home/eriim/.config/op/plugins.sh
 	enable = true;
 	polkitPolicyOwners = [ "${username}" ];
     }; 
+    #chromium = {
+	#extensions = [
+	  #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
+      #];
+    #};
   };
+
+
 }
 
