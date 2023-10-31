@@ -22,6 +22,7 @@ This repo has become more opinionated over time and now requires passing down va
 Current 
 ------
 ![Hyprland](docs/screens/hyprland4.png)
+![Hyprland](docs/screens/hyprland5.png)
 
 October 2023
 ------
