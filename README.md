@@ -9,9 +9,9 @@ There are many paths to the top of the mountain, but the view is always the same
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
 ### Flake Structure
-Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all Nix users use this paradigm.
+Modules are grouped to be almost purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
 
-This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to grab appropriate modules and packages and eventually theming elements. 
+This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate modules and packages and eventually theming elements. 
 
 ![Flake Structure](docs/screens/FlakeStructure4.png)
 
@@ -19,6 +19,12 @@ This repo has become more opinionated over time and now requires passing down va
 
 ## Screenshots
 
+Current 
+------
+![Hyprland](docs/screens/hyprland4.png)
+
+October 2023
+------
 ![Hyprland](docs/screens/hyprland1.png)
 
 ![Hyprland1](docs/screens/hyprland2.png)
