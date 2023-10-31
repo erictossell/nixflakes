@@ -2,7 +2,12 @@
 {  
    # ---- Home Configuration ----
    home-manager.users.${username} = { pkgs, ... }: {
-    programs.bash.enable = true;
+    programs.bash = {
+      enable = true;
+      interactiveShellInit = ''
+	source /home/eriim/.config/op/plugins.sh
+      ''
+    };
    };
 
   # ---- System Configuration ----
