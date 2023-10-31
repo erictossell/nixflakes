@@ -2,11 +2,17 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
+      ".config/hypr/hyprpaper.conf".text = ''
+preload = ~/.config/backgrounds/232136.png
+preload = ~/.config/backgrounds/1A1C23.png
+wallpaper = eDP-1, ~/.config/backgrounds/232136.png
+      '';  
+
       ".config/hypr/hyprland.conf".text = ''
 #monitor=edp-1,3840 x 2160,auto,auto
 monitor=,preferred,auto,auto
 
-exec-once = waybar & hyprpaper & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = hyprpaper & waybar & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # some default env vars.
 env=BROWSER, firefox
@@ -16,10 +22,45 @@ env=XDG_SESSION_DESKTOP,Hyprland
 env=XDG_SESSION_TYPE,wayland
 env=GDK_BACKEND,wayland,x11
 env=QT_QPA_PLATFORM,wayland
+
+$mainMod = SUPER
+
+bind = $mainMod, q, exec, foot 
+bind = $mainMod, w, killactive, 
+bind = $mainMod, f, fullscreen, 1
+bind = $mainMod, d, exec, pavucontrol
+bind = $mainMod, m, exit, 
+bind = $mainMod, e, exec, kitty -e ranger
+bind = $mainMod, b, exec, foot -e btop
+bind = $mainMod, v, togglefloating, 
+bind = $mainMod, r, exec, wofi --show drun
+bind = $mainMod, p, pseudo, # dwindle
+bind = $mainMod, j, togglesplit, # dwindle
+bind = $mainMod, 0, exec, swaylock
+bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
+
+$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/1A1C23.png"
+$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
+
+$wA = Alpha
+$wB = Bravo
+$wC = Charlie
+$wD = Delta
+$wE = Echo
+$wF = Foxtrot
+$wG = Golf
+$wH = Hotel
+$wI = are ya lost bud
+
 # for all categories, see https://wiki.hyprland.org/configuring/variables/
 input {
 	kb_layout = us
-	follow_mouse = 0
+	follow_mouse = 1
 	touchpad {
 		natural_scroll = no
 	}
@@ -30,10 +71,10 @@ general {
 	gaps_in = 5
 	gaps_out = 10
 	border_size = 2
-	col.active_border = rgba(00ba69ee) rgba(ffffffee) 45deg
+	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
 	col.inactive_border = rgba(595959aa)
 	layout = dwindle
-	cursor_inactive_timeout = 0
+	cursor_inactive_timeout = 15
 	no_cursor_warps = yes
 	resize_on_border = yes
 	hover_icon_on_border = yes
@@ -45,8 +86,8 @@ decoration {
 	shadow_range = 4
 	shadow_render_power = 3
 	col.shadow = rgba(1a1a1aee)
-	active_opacity = 0.9
-	inactive_opacity = 0.85
+	active_opacity = 1.0
+	inactive_opacity = 1.0
 	fullscreen_opacity = 1.0
 	blur {
 		enabled = yes
@@ -86,122 +127,91 @@ device:epic-mouse-v1 {
 	sensitivity = -0.5
 }
 
-$mainmod = SUPER
+misc {
+	disable_hyprland_logo = true
+	enable_swallow = true
+	swallow_regex = ^(foot)$
+	background_color = 0x232136
+}
 
-bind = $mainmod, q, exec, foot 
-bind = $mainmod, w, killactive, 
-bind = $mainmod, m, exit, 
-bind = $mainmod, e, exec, kitty -e ranger
-bind = $mainmod, v, togglefloating, 
-bind = $mainmod, r, exec, wofi --show drun
-bind = $mainmod, p, pseudo, # dwindle
-bind = $mainmod, j, togglesplit, # dwindle
-bind = $mainmod, 0, exec, swaylock
-bind = $mainmod, s, exec, grim -g "$(slurp)" ~/pictures/screenshots/$(date +'%y%m%d_%h%m%s').png
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
 
-bind = $mainmod, left, movefocus, l
-bind = $mainmod, right, movefocus, r
-bind = $mainmod, up, movefocus, u
-bind = $mainmod, down, movefocus, d
-
-bind = $mainmod SHIFT, left, movewindow, l
-bind = $mainmod SHIFT, right, movewindow, r
-bind = $mainmod SHIFT, up, movewindow, u
-bind = $mainmod SHIFT, down, movewindow, d
+bind = $mainMod shift, left, movewindow, l
+bind = $mainMod shift, right, movewindow, r
+bind = $mainMod shift, up, movewindow, u
+bind = $mainMod shift, down, movewindow, d
 
 
-$w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
-$w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
-$w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
-$w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/storage.jpg"
-$w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/scifi_landscape.jpg"
-$w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/keyboard.png"
+workspace=name:$wA,monitor:eDP-1,default:true
+workspace=name:$wB,monitor:eDP-1
+workspace=name:$wC,monitor:eDP-1
+workspace=name:$wD,monitor:eDP-1
+workspace=name:$wE,monitor:eDP-1
+workspace=name:$wF,monitor:eDP-1
+workspace=name:$wG,monitor:eDP-1
+workspace=name:$wH,monitor:eDP-1
+workspace=name:$wI,monitor:eDP-1
 
-$wa = Alpha
-$wb = Bravo
-$wc = Charlie
-$wd = Delta
-$we = Echo
-$wf = Foxtrot
-$wg = Golf
-$wh = Hotel
-$wi = Are ya lost bud
+bind = $mainMod, 1, workspace, name:$wA
+bind = $mainMod, 1, exec,$w1
 
-workspace=name:$wa,monitor:eDP-1,default:true
-workspace=name:$wb,monitor:eDP-1
-workspace=name:$wc,monitor:eDP-1
-workspace=name:$wd,monitor:eDP-1
-workspace=name:$we,monitor:eDP-1
-workspace=name:$wf,monitor:eDP-1
-workspace=name:$wg,monitor:eDP-1
-workspace=name:$wh,monitor:eDP-1
-workspace=name:$wi,monitor:eDP-1
+bind = $mainMod, 2, workspace, name:$wB
+bind = $mainMod, 2, exec,$w2
 
-bind = $mainmod, 1, workspace, name:$wa
-bind = $mainmod, 1, exec,$w1
+bind = $mainMod, 3, workspace, name:$wC
+bind = $mainMod, 3, exec,$w3
 
-bind = $mainmod, 2, workspace, name:$wb
-bind = $mainmod, 2, exec,$w2
+bind = $mainMod, 4, workspace, name:$wD
+bind = $mainMod, 4, exec,$w4
 
-bind = $mainmod, 3, workspace, name:$wc
-bind = $mainmod, 3, exec,$w3
+bind = $mainMod, 5, workspace, name:$wE
+bind = $mainMod, 5, exec,$w5
 
-bind = $mainmod, 4, workspace, name:$wd
-bind = $mainmod, 4, exec,$w4
+bind = $mainMod, 6, workspace, name:$wF
+bind = $mainMod, 6, exec,$w6
 
-bind = $mainmod, 5, workspace, name:$we
-bind = $mainmod, 5, exec,$w5
+bind = $mainMod, 7, workspace, name:$wG
+bind = $mainMod, 7, exec,$w7
 
-bind = $mainmod, 6, workspace, name:$wf
-bind = $mainmod, 6, exec,$w6
+bind = $mainMod, 8, workspace, name:$wH
 
-bind = $mainmod, 7, workspace, name:$wg
-bind = $mainmod, 7, exec,$w7
+bind = $mainMod, 9, workspace, name:$wI
 
-bind = $mainmod, 8, workspace, name:$wh
+bind = $mainMod SHIFT, 1, movetoworkspace,name:$wA
+bind = $mainMod SHIFT, 1, exec,$w1
 
-bind = $mainmod, 9, workspace, name:$wi
+bind = $mainMod SHIFT, 2, movetoworkspace,name:$wB
+bind = $mainMod SHIFT, 2, exec,$w2
 
-bind = $mainmod SHIFT, 1, movetoworkspace,name:$wa
-bind = $mainmod SHIFT, 1, exec,$w1
+bind = $mainMod SHIFT, 3, movetoworkspace,name:$wC
+bind = $mainMod SHIFT, 3, exec,$w3
 
-bind = $mainmod SHIFT, 2, movetoworkspace,name:$wb
-bind = $mainmod SHIFT, 2, exec,$w2
+bind = $mainMod SHIFT, 4, movetoworkspace,name:$wD
+bind = $mainMod SHIFT, 4, exec,$w4
 
-bind = $mainmod SHIFT, 3, movetoworkspace,name:$wc
-bind = $mainmod SHIFT, 3, exec,$w3
+bind = $mainMod SHIFT, 5, movetoworkspace,name:$wE
+bind = $mainMod SHIFT, 5, exec,$w5
 
-bind = $mainmod SHIFT, 4, movetoworkspace,name:$wd
-bind = $mainmod SHIFT, 4, exec,$w4
+bind = $mainMod SHIFT, 6, movetoworkspace,name:$wF
+bind = $mainMod SHIFT, 6, exec,$w6
 
-bind = $mainmod SHIFT, 5, movetoworkspace,name:$we
-bind = $mainmod SHIFT, 5, exec,$w5
+bind = $mainMod SHIFT, 7, movetoworkspace,name:$wG
+bind = $mainMod SHIFT, 7, exec,$w7
 
-bind = $mainmod SHIFT, 6, movetoworkspace,name:$wf
-bind = $mainmod SHIFT, 6, exec,$w6
+bind = $mainMod SHIFT, 8, movetoworkspace,name:$wH
 
-bind = $mainmod SHIFT, 7, movetoworkspace,name:$wg
-bind = $mainmod SHIFT, 7, exec,$w7
+bind = $mainMod SHIFT, 9, movetoworkspace, name:$wI
 
-bind = $mainmod SHIFT, 8, movetoworkspace,name:$wh
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
 
-bind = $mainmod SHIFT, 9, movetoworkspace, name:$wi
-
-bind = $mainmod, mouse_down, workspace, e+1
-bind = $mainmod, mouse_up, workspace, e-1
-
-bindm = $mainmod, mouse:272, movewindow
-bindm = $mainmod, mouse:273, resizewindow
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
       '';
 
-      ".config/hypr/hyprpaper.conf".text = ''
-preload = ~/.config/backgrounds/keyboard.png
-preload = ~/.config/backgrounds/scifi_landscape.jpg
-preload = ~/.config/backgrounds/storage.jpg
-
-wallpaper = eDP-1, ~/.config/backgrounds/keyboard.png
-      '';  
     };
   };
 }

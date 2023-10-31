@@ -2,7 +2,9 @@
 {  
    # ---- Home Configuration ----
    home-manager.users.${username} = { pkgs, ... }: {
-    programs.bash.enable = true;
+    programs.bash = {
+      enable = true;
+    };
    };
 
   # ---- System Configuration ----

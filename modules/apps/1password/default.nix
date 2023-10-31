@@ -8,12 +8,22 @@ Host *
       '';
      };
    };
+   programs.bash.interactiveShellInit = ''
+source /home/eriim/.config/op/plugins.sh
+   '';
    programs = {
     _1password.enable = true;
     _1password-gui = {
 	enable = true;
 	polkitPolicyOwners = [ "${username}" ];
     }; 
+    #chromium = {
+	#extensions = [
+	  #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
+      #];
+    #};
   };
+
+
 }
 

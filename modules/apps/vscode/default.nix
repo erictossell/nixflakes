@@ -13,7 +13,7 @@
         github.copilot
         github.github-vscode-theme
         github.vscode-github-actions
-        ms-python.python
+        #ms-python.python
         ms-vscode.powershell
         bbenoist.nix
       ];

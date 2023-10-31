@@ -110,24 +110,17 @@ require('lazy').setup({
       end,
     },
   },
-
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
-
+  
+  { "EdenEast/nightfox.nvim" }, 
+  
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
+        icons_enabled = true,
+        theme = 'horizon',
         component_separators = '|',
         section_separators = '',
       },
@@ -194,7 +187,7 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-
+vim.cmd("colorscheme duskfox")
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -362,8 +355,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-vim.keymap.set('n', '<leader>m', ':Dashboard<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>m', ':Alpha<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>l', ':Neo<CR>', { noremap = true, silent = true})
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.

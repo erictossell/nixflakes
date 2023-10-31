@@ -2,6 +2,18 @@
 {
   home-manager.users.${username} =  { ... }: {
     home.file = {
+      ".config/hypr/hyprpaper.conf".text = ''
+preload = ~/.config/backgrounds/232136.png
+preload = ~/.config/backgrounds/1A1C23.png
+preload = ~/.config/backgrounds/keyboard.png
+preload = ~/.config/backgrounds/storage.jpg
+
+
+wallpaper = DP-1, ~/.config/backgrounds/232136.png
+wallpaper = DP-2, ~/.config/backgrounds/232136.png
+wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
+      '';  
+
     ".config/hypr/hyprland.conf".text = ''
 monitor=DP-2,preferred,1080x400,1
 monitor=HDMI-A-1,preferred,3640x0,1
@@ -13,11 +25,52 @@ exec-once = waybar & hyprpaper & mako & lxqt-policykit-agent & dbus-update-activ
 # some default env vars.
 env=BROWSER, firefox
 env=XCURSOR_SIZE,24
+
 env=XDG_CURRENT_DESKTOP,Hyprland
 env=XDG_SESSION_DESKTOP,Hyprland
 env=XDG_SESSION_TYPE,wayland
+
 env=GDK_BACKEND,wayland,x11
+env=MOZ_ENABLE_WAYLAND,1
+env=MOZ_DISABLE_RDD_SANDBOX,1
+
+env=QT_AUTO_SCREEN_SCALE_FACTOR,1
 env=QT_QPA_PLATFORM,wayland
+
+
+$mainMod = SUPER
+
+bind = $mainMod, q, exec, foot 
+bind = $mainMod, w, killactive 
+bind = $mainMod, f, fullscreen, 1
+bind = $mainMod, d, exec, pavucontrol
+bind = $mainMod, m, exit
+bind = $mainMod, e, exec, kitty -e ranger
+bind = $mainMod, b, exec, foot -e btop
+bind = $mainMod, v, togglefloating, 
+bind = $mainMod, r, exec, wofi --show drun
+bind = $mainMod, p, pseudo, # dwindle
+bind = $mainMod, j, togglesplit, # dwindle
+bind = $mainMod, 0, exec, swaylock
+bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
+
+$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
+$w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
+$w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
+$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+
+$wA = Alpha
+$wB = Bravo
+$wC = Charlie
+$wD = Delta
+$wE = Echo
+$wF = Foxtrot
+$wG = Golf
+$wH = Hotel
+$wI = are ya lost bud
 
 # for all categories, see https://wiki.hyprland.org/configuring/variables/
 input {
@@ -33,13 +86,11 @@ general {
 	gaps_in = 5
 	gaps_out = 10
 	border_size = 2
-	col.active_border = rgba(00ba69ee) rgba(ffffffee) 45deg
+	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
 	col.inactive_border = rgba(595959aa)
 	layout = dwindle
-	cursor_inactive_timeout = 0
+	cursor_inactive_timeout = 15
 	no_cursor_warps = yes
-	resize_on_border = yes
-	hover_icon_on_border = yes
 }
 
 decoration {
@@ -48,8 +99,8 @@ decoration {
 	shadow_range = 4
 	shadow_render_power = 3
 	col.shadow = rgba(1a1a1aee)
-	active_opacity = 0.85
-	inactive_opacity = 0.8
+	active_opacity = 1.0
+	inactive_opacity = 1.0
 	fullscreen_opacity = 1.0
 	blur {
 		enabled = yes
@@ -89,18 +140,12 @@ device:epic-mouse-v1 {
 	sensitivity = -0.5
 }
 
-$mainMod = SUPER
-
-bind = $mainMod, q, exec, foot 
-bind = $mainMod, w, killactive, 
-bind = $mainMod, m, exit, 
-bind = $mainMod, e, exec, kitty -e ranger
-bind = $mainMod, v, togglefloating, 
-bind = $mainMod, r, exec, wofi --show drun
-bind = $mainMod, p, pseudo, # dwindle
-bind = $mainMod, j, togglesplit, # dwindle
-bind = $mainMod, 0, exec, swaylock
-bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
+misc {
+	disable_hyprland_logo = true
+	enable_swallow = true
+	swallow_regex = ^(foot)$
+	background_color = 0x232136
+}
 
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
@@ -111,24 +156,6 @@ bind = $mainMod shift, left, movewindow, l
 bind = $mainMod shift, right, movewindow, r
 bind = $mainMod shift, up, movewindow, u
 bind = $mainMod shift, down, movewindow, d
-
-$w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/scifi_landscape.jpg"
-$w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/laptop_dj.jpg"
-$w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
-$w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
-$w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/snow-tree.jpg"
-$w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/moon.jpg"
-$w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/disknee.jpg"
-
-$wA = Alpha
-$wB = Bravo
-$wC = Charlie
-$wD = Delta
-$wE = Echo
-$wF = Foxtrot
-$wG = Golf
-$wH = Hotel
-$wI = are ya lost bud
 
 workspace=name:$wA,monitor:DP-1
 workspace=name:$wB,monitor:DP-2,default:true
@@ -199,22 +226,6 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow 
       '';
 
-      ".config/hypr/hyprpaper.conf".text = ''
-preload = ~/.config/backgrounds/disknee.jpg
-preload = ~/.config/backgrounds/keyboard.png
-preload = ~/.config/backgrounds/laptop_dj.jpg
-preload = ~/.config/backgrounds/mario.jpg
-preload = ~/.config/backgrounds/moon.jpg
-preload = ~/.config/backgrounds/scifi_landscape.jpg
-preload = ~/.config/backgrounds/snow-tree.jpg
-preload = ~/.config/backgrounds/storage.jpg
-preload = ~/.config/backgrounds/sunset-train.jpg
-preload = ~/.config/backgrounds/tree_hill_snow.jpg
-
-wallpaper = DP-1, ~/.config/backgrounds/keyboard.png
-wallpaper = DP-2, ~/.config/backgrounds/scifi_landscape.jpg
-wallpaper = HDMI-A-1, ~/.config/backgrounds/keyboard.png
-      '';  
     };
   };
 }

@@ -23,8 +23,8 @@
       clock24 = true;
       newSession = true;
       plugins = with pkgs.tmuxPlugins; [ 
-		    nord
-		    yank
+	catppuccin
+	yank
       ];
     };
   };

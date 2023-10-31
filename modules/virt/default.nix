@@ -13,7 +13,7 @@
   };
   
   # For advanced features
-  services.qemuGuest.enable = true;
+  #services.qemuGuest.enable = true;
   
   # User permissions 
   users.users.${username}.extraGroups = [ "libvirtd" "docker" ];
