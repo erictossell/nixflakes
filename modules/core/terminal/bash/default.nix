@@ -6,7 +6,7 @@
       enable = true;
       interactiveShellInit = ''
 	source /home/eriim/.config/op/plugins.sh
-      ''
+      '';
     };
    };
 
