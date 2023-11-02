@@ -18,7 +18,7 @@ in
   
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  xdg.portal.xdgOpenUsePortal = true;
+  
   environment.systemPackages = with pkgs; [ 
     eww-wayland
     grim
@@ -33,7 +33,8 @@ in
   
   programs.hyprland.enable = true;
   programs.dconf.enable = true;
- 
+  
+
   services.gnome = {
     gnome-keyring.enable = true;
   };
@@ -46,3 +47,4 @@ in
     };
   };
 }
+

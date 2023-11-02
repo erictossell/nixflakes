@@ -4,7 +4,7 @@
   users.users.${username} = {
 
   packages = with pkgs; [ 
-      (wineWowPackages.waylandFull.override {
+      (wineWowPackages.full.override {
         wineRelease = "staging";
         mingwSupport = true;
        })
