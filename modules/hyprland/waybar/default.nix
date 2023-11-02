@@ -1,8 +1,8 @@
 { pkgs, displayConfig, home-manager, username, ... }:
 let
   dotfiles = {
-    "1monitor" = [ (import ./1monitor.nix { inherit home-manager username; }) ];
-    "3monitor" = [ (import ./3monitor.nix { inherit home-manager username; }) ];
+    "laptop" = [ (import ./laptop.nix { inherit home-manager username; }) ];
+    "desktop" = [ (import ./desktop.nix { inherit home-manager username; }) ];
   };
 in
 { 

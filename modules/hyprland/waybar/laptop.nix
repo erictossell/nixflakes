@@ -8,7 +8,7 @@
 "height": 45,
 	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
 "modules-center": ["hyprland/workspaces"],
-	"modules-right": [ "pulseaudio", "brightness", "network","backlight", "clock"],
+	"modules-right": [ "pulseaudio", "backlight", "network", "battery", "clock"],
 	"custom/nix": {
 	"format": " ",
 	"tooltip": false,
