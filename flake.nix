@@ -23,7 +23,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "retis";
-        displayConfig = "3monitor";
+        displayConfig = "desktop";
         nvidia_bool = "enabled";
       } // attrs;        
       modules = [
@@ -40,7 +40,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "sisyphus";
-        displayConfig = "1monitor";
+        displayConfig = "laptop";
         nvidia_bool = "disabled";
       } // attrs;        
       modules = [
@@ -54,7 +54,7 @@
       specialArgs = {
         username = "eriim";
         hostname = "icarus";
-        displayConfig = "1monitor";
+        displayConfig = "laptop";
         nvidia_bool = "disabled";
       } // attrs;        
       modules = [
