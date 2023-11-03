@@ -18,7 +18,7 @@ There are no inherit advantages to using the minimal installation as opposed to 
    ### 2. Run the build script. 
 
    ```bash
-   scripts/build.sh
+   sh/build.sh
    ```
       
    a. Enter a new hostname
