@@ -4,7 +4,7 @@
   home-manager.users.${username} = { pkgs, ... }: {
 
      home.file = {
-       ".config/nvim".source = ./dots;
+       ".config/nvim".source = ./dotfiles;
      };
      programs.neovim = {
 		enable = true;
