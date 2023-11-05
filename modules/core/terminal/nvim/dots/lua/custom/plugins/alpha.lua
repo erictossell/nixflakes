@@ -22,6 +22,7 @@ return {
             dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
             dashboard.button( "f", "󰺄  > Find file", ":cd $HOME/repos | Telescope find_files<CR>"),
             dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+            dashboard.button( "k", "󱔗  > Docs" , ":cd $HOME/Docs | Telescope find_files<CR>"),
             dashboard.button( "n", "  > Nixflakes" , ":cd $HOME/repos/nixflakes | Telescope find_files<CR>"),
             dashboard.button( "q", "󰗼  > Quit NVIM", ":qa<CR>"),
         }
