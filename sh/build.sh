@@ -103,6 +103,6 @@ EOM
 
 # Use awk to append the new configuration block before the last closing brace of the outputs block
 awk -v n="$NEW_CONFIG" '
-    /};#icarus/ { print; print n; next }
+    /};#sisyphus / { print; print n; next }
     { print }
 ' flake.nix > temp && mv temp flake.nix

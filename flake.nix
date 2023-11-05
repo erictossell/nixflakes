@@ -48,19 +48,5 @@
           ];
     };#sisyphus
 
-    # Hyprland Laptop 
-    nixosConfigurations.icarus = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        username = "eriim";
-        hostname = "icarus";
-        displayConfig = "laptop";
-        nvidia_bool = "disabled";
-      } // attrs;        
-      modules = [
-            ./.
-          ];
-    };#icarus
-
   };
 }
