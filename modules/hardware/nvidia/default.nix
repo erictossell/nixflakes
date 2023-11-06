@@ -23,6 +23,6 @@
     open = true;
     nvidiaSettings = true;
     # Video card specific - stable supports "newer" cards
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 }
