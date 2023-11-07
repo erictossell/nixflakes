@@ -25,7 +25,7 @@
     };
     cmd_duration = {
       min_time = 500;
-      format = "ook [$duration](bold yellow)";
+      format = "took [$duration](bold yellow)";
     };
     aws = {
       symbol = "aws ";
