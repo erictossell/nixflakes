@@ -6,242 +6,149 @@
     settings = {
       add_newline = false;
       scan_timeout = 10;
-      format = ''
-format = '$all'
-
-[character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vimcmd_symbol = "[<](bold green)"
-
-[git_commit]
-tag_symbol = " tag "
-
-[git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
-deleted = "x"
-
-[cmd_duration]
-min_time = 500
-format = 'took [$duration](bold yellow)'
-
-[aws]
-symbol = "aws "
-
-[azure]
-symbol = "az "
-
-[bun]
-symbol = "bun "
-
-[c]
-symbol = "C "
-
-[cobol]
-symbol = "cobol "
-
-[conda]
-symbol = "conda "
-
-[crystal]
-symbol = "cr "
-
-[cmake]
-symbol = "cmake "
-
-[daml]
-symbol = "daml "
-
-[dart]
-symbol = "dart "
-
-[deno]
-symbol = "deno "
-
-[dotnet]
-symbol = ".NET "
-
-[directory]
-read_only = " ro"
-
-[docker_context]
-symbol = "docker "
-
-[elixir]
-symbol = "exs "
-
-[elm]
-symbol = "elm "
-
-[fennel]
-symbol = "fnl "
-
-[fossil_branch]
-symbol = "fossil "
-
-[gcloud]
-symbol = "gcp "
-
-[git_branch]
-symbol = "git "
-
-[golang]
-symbol = "go "
-
-[gradle]
-symbol = "gradle "
-
-[guix_shell]
-symbol = "guix "
-
-[hg_branch]
-symbol = "hg "
-
-[hostname]
-ssh_only= false
-format = " on [$hostname](bold red)\n"
-disabled = false
-
-[java]
-symbol = "java "
-
-[julia]
-symbol = "jl "
-
-[kotlin]
-symbol = "kt "
-
-[lua]
-symbol = "lua "
-
-[nodejs]
-symbol = "nodejs "
-
-[memory_usage]
-symbol = "memory "
-
-[meson]
-symbol = "meson "
-
-[nim]
-symbol = "nim "
-
-[nix_shell]
-symbol = "nix "
-
-[ocaml]
-symbol = "ml "
-
-[opa]
-symbol = "opa "
-
-[os.symbols]
-Alpaquita = "alq "
-Alpine = "alp "
-Amazon = "amz "
-Android = "andr "
-Arch = "rch "
-Artix = "atx "
-CentOS = "cent "
-Debian = "deb "
-DragonFly = "dfbsd "
-Emscripten = "emsc "
-EndeavourOS = "ndev "
-Fedora = "fed "
-FreeBSD = "fbsd "
-Garuda = "garu "
-Gentoo = "gent "
-HardenedBSD = "hbsd "
-Illumos = "lum "
-Linux = "lnx "
-Mabox = "mbox "
-Macos = "mac "
-Manjaro = "mjo "
-Mariner = "mrn "
-MidnightBSD = "mid "
-Mint = "mint "
-NetBSD = "nbsd "
-NixOS = "nix "
-OpenBSD = "obsd "
-OpenCloudOS = "ocos "
-openEuler = "oeul "
-openSUSE = "osuse "
-OracleLinux = "orac "
-Pop = "pop "
-Raspbian = "rasp "
-Redhat = "rhl "
-RedHatEnterprise = "rhel "
-Redox = "redox "
-Solus = "sol "
-SUSE = "suse "
-Ubuntu = "ubnt "
-Unknown = "unk "
-Windows = "win "
-
-[package]
-symbol = "pkg "
-
-[perl]
-symbol = "pl "
-
-[php]
-symbol = "php "
-
-[pijul_channel]
-symbol = "pijul "
-
-[pulumi]
-symbol = "pulumi "
-
-[purescript]
-symbol = "purs "
-
-[python]
-symbol = "py "
-
-[raku]
-symbol = "raku "
-
-[ruby]
-symbol = "rb "
-
-[rust]
-symbol = "rs "
-
-[scala]
-symbol = "scala "
-
-[spack]
-symbol = "spack "
-
-[solidity]
-symbol = "solidity "
-
-[status]
-symbol = "[x](bold red) "
-
-[sudo]
-symbol = "sudo "
-
-[swift]
-symbol = "swift "
-
-[terraform]
-symbol = "terraform "
-
-[username]
-style_user = 'green bold'
-style_root = 'red bold'
-format = '[$user]($style)'
-disabled= false
-show_always=true
-
-[zig]
-symbol = "zig "
-    '';
-  };
-  };
+      format = "$all";
+    character = {
+      success_symbol = "[>](bold green)";
+      error_symbol = "[x](bold red)";
+      vimcmd_symbol = "[<](bold green)";
+     };
+    
+    git_commit = {
+      tag_symbol = " tag ";
+    };
+    git_status = {
+      ahead = ">";
+      behind = "<";
+      diverged = "<>";
+      renamed = "r";
+      deleted = "x";
+    };
+    cmd_duration = {
+      min_time = 500;
+      format = "ook [$duration](bold yellow)";
+    };
+    aws = {
+      symbol = "aws ";
+    };
+    azure = {
+      symbol = "az ";
+    };
+    bun = {
+      symbol = "bun ";
+    };
+    
+    cmake = {
+    symbol = "cmake ";
+    };
+    deno = {
+    symbol = "deno ";
+    };
+    directory = {
+    read_only = " ro";
+    };
+    docker_context = {
+      symbol = "docker ";
+    };
+    git_branch = {
+      symbol = "git ";
+    };
+    golang = {
+      symbol = "go ";
+    };
+    hostname = {
+      ssh_only= false;
+      format = " on [$hostname](bold red)\n";
+      disabled = false;
+    };
+    lua = {
+      symbol = "lua ";
+    };
+    nodejs = {
+      symbol = "nodejs ";
+    };
+    memory_usage = {
+      symbol = "memory ";
+    };
+    nim = {
+      symbol = "nim ";
+    };
+    nix_shell = {
+      symbol = "nix ";
+    };
+    os.symbols = {
+      Alpaquita = "alq ";
+      Alpine = "alp ";
+      Amazon = "amz ";
+      Android = "andr ";
+      Arch = "rch ";
+      Artix = "atx ";
+      CentOS = "cent ";
+      Debian = "deb ";
+      DragonFly = "dfbsd ";
+      Emscripten = "emsc ";
+      EndeavourOS = "ndev ";
+      Fedora = "fed ";
+      FreeBSD = "fbsd ";
+      Garuda = "garu ";
+      Gentoo = "gent ";
+      HardenedBSD = "hbsd ";
+      Illumos = "lum ";
+      Linux = "lnx ";
+      Mabox = "mbox ";
+      Macos = "mac ";
+      Manjaro = "mjo ";
+      Mariner = "mrn ";
+      MidnightBSD = "mid ";
+      Mint = "mint ";
+      NetBSD = "nbsd ";
+      NixOS = "nix ";
+      OpenBSD = "obsd ";
+      OpenCloudOS = "ocos ";
+      openEuler = "oeul ";
+      openSUSE = "osuse ";
+      OracleLinux = "orac ";
+      Pop = "pop ";
+      Raspbian = "rasp ";
+      Redhat = "rhl ";
+      RedHatEnterprise = "rhel ";
+      Redox = "redox ";
+      Solus = "sol ";
+      SUSE = "suse ";
+      Ubuntu = "ubnt ";
+      Unknown = "unk ";
+      Windows = "win ";
+    };
+    package = {
+      symbol = "pkg ";
+    };
+    purescript = {
+      symbol = "purs ";
+    };
+    python = {
+      symbol = "py ";
+    };
+    rust = {
+      symbol = "rs ";
+    };
+    status = {
+      symbol = "[x](bold red) ";
+    };
+    sudo = {
+      symbol = "sudo ";
+    };
+    terraform = {
+      symbol = "terraform ";
+    };
+    username = {
+      style_user = "green bold";
+      style_root = "red bold";
+      format = "[$user]($style)";
+      disabled= false;
+      show_always=true;
+    };
+    zig = {
+      symbol = "zig ";
+    };
+  };  
+};
 }
