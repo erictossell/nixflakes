@@ -19,7 +19,7 @@
   users.users.${username}.extraGroups = [ "libvirtd" "docker" ];
 
   # Also recomended to install virt-manager in your packages if you want a GUI
-  environment.systemPackages = with pkgs; [ virt-manager virt-viewer ];
+  environment.systemPackages = with pkgs; [ docker-compose virt-manager virt-viewer ];
   
   home-manager.users.${username} = { pkgs, ... }: {
    dconf.settings = {
