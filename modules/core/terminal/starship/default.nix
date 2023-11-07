@@ -240,6 +240,8 @@ disabled= false
 show_always=true
 
 [zig]
-symbol = "zig "'';
+symbol = "zig "
+    '';
+  };
   };
 }
