@@ -7,14 +7,12 @@
       add_newline = false;
       scan_timeout = 10;
       format = ''
+format = '$all'
+
 [character]
 success_symbol = "[>](bold green)"
 error_symbol = "[x](bold red)"
 vimcmd_symbol = "[<](bold green)"
-
-[cmd_duration]
-min_time = 500
-format = 'took [$duration](bold yellow)'
 
 [git_commit]
 tag_symbol = " tag "
@@ -25,6 +23,10 @@ behind = "<"
 diverged = "<>"
 renamed = "r"
 deleted = "x"
+
+[cmd_duration]
+min_time = 500
+format = 'took [$duration](bold yellow)'
 
 [aws]
 symbol = "aws "
@@ -97,6 +99,11 @@ symbol = "guix "
 
 [hg_branch]
 symbol = "hg "
+
+[hostname]
+ssh_only= false
+format = " on [$hostname](bold red)\n"
+disabled = false
 
 [java]
 symbol = "java "
@@ -225,8 +232,14 @@ symbol = "swift "
 [terraform]
 symbol = "terraform "
 
+[username]
+style_user = 'green bold'
+style_root = 'red bold'
+format = '[$user]($style)'
+disabled= false
+show_always=true
+
 [zig]
-symbol = "zig "
-'';
+symbol = "zig "'';
   };
 }
