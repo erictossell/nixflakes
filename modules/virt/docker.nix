@@ -8,6 +8,4 @@
   };
   # User permissions 
   users.users.${username}.extraGroups = [ "docker" ];
-
-
 }
