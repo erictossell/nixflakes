@@ -1,6 +1,8 @@
-A wise man once said: 'There is beauty in simplicity'. However he hadn't yet plunged into the depths of `Nix` packaging or beheld the orchestrated complexity of `NixOS`. 
+A wise man once said: 'There is beauty in simplicity'.
 
-I like simple things, so you may find that there is not all that much complex going on in this repository. I do not build any of my own packages or make extreme modifications to any of the example configurations I have found online that make up this mottley crew of `.nix`. What I can say is that the `main` branch of this configuration is relatively thoroughly tested.  
+That man hadn't yet plunged into the depths of `Nix` packaging or beheld the orchestrated complexity of `NixOS`. 
+
+I like simple things, so you may find that there is not all that much complex going on in this repository. I do not build any of my own packages or make extreme modifications to any of the example configurations I have found online that make up this mottley crew of `.nix`. What I can say, is that the `main` branch of this configuration is relatively thoroughly tested.  
 
 `NixOS` is not a simple thing. You'll probably learn that quickly if you do end up falling down this pit. I had a lot of dotfiles, I didnt like managing a lot of dotifles. The DevOps side of my brain knew there must be something better.
 
