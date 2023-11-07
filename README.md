@@ -1,4 +1,4 @@
-A wise man once said: 'There is beauty in simplicity'.
+A wise man once said: ` 'There is beauty in simplicity'. ` 
 
 That man hadn't yet plunged into the depths of `Nix` packaging or beheld the orchestrated complexity of `NixOS`. 
 
@@ -8,7 +8,7 @@ I like simple things, so you may find that there is not all that much complex go
 
 `Nix` and `NixOS` started as an echo in my mind some several months ago. An internet hooligan that probably didn't even know what they were talking about introduced me to the idea while I was perusing public `dotfiles` and somehow it reverberated. It's evolved into an ever deepening rabbit hole of declaration, stability and reproduceability.
 
-I am not an authority on `Nix` or `NixOS`. I am barely an aspiring citizen of this wonderland, I'm much more of an Alice. At least for the time being. That is hopefully subject to change.
+I am not an authority on `Nix` or `NixOS`. I am merely an apprentice, an Alice navigating the wonderland. At least for now.
 
 Was it worth it? ***Oh heavens no sweet child. Turn back now while you still can, you've been warned.***
 
