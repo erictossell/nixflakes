@@ -2,6 +2,7 @@
 {
   imports = [ 
     ./1password
+    ./libreoffice
     ./browsing
     ./vscode
   ];
