@@ -27,7 +27,7 @@ There are no inherit advantages to using the minimal installation as opposed to 
       
    c. Y/n for Nvidia usage.
      
-   d. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will as if you would like to import it. If you have not generated one yet it will do so for you and then import it.
+   d. If you have an existing `hardware-configuration.nix` stored in `/etc/nixos` the script will ask if you would like to import it. If you have not generated one yet it will do so for you and then import it.
  
    ### 3. Validate the flake imports went okay.
 

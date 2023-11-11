@@ -12,6 +12,7 @@
     hyprland = {
       url = "github:hyprwm/hyprland";
     };
+
   };
   
   # Defining flake import structure for packages
