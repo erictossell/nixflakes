@@ -4,12 +4,13 @@ The official NixOS.org site has very good documentation. This is a condensed ver
 
 https://nixos.org/manual/nixos/stable/#sec-booting-from-usb
 
+You will need to `sudo` or `sudo -i` the majority of these commands.
 ## Create Installation Media
 1. Flash the minimal image to a USB device from Linux
-`sudo dd if=<nixos-minimal-image.iso> of=/path/to/usb bs=4M conv=fsync`
+`dd if=<nixos-minimal-image.iso> of=/path/to/usb bs=4M conv=fsync`
 2. Boot from the USB on the target device
 ## Wireless Networking
-1. Start wpa_supplicant > `sudo systemctl start wpa_supplicant`
+1. Start wpa_supplicant > `systemctl start wpa_supplicant`
 2. Enable a wireless network > `wpa_cli`
 ```
 add_network 0
@@ -20,7 +21,7 @@ enable_network 0
 ```
 ## Partition
 1. `lsblk` - to identify connected drives
-2. Format the disk > `sudo fdisk /dev/path-to-target`
+2. Format the disk > `fdisk /dev/path-to-target`
 
 3. Create a new GPT partition table > `g`
 4. Create a new partition > `n`
@@ -32,20 +33,20 @@ enable_network 0
 ```
 6. Write changes to disk > `w`
 ## Format
-1. For EFI > `sudo mkfs.fat -F 32 /dev/sda1`
-2. For Primary > `sudo mkfs.ext4 /dev/sda2`
-3. For swap > `sudo mkswap -L swap /dev/sda3` > `sudo swapon`
+1. For EFI > `mkfs.fat -F 32 /dev/sda1`
+2. For Primary > `mkfs.ext4 /dev/sda2`
+3. For swap > `mkswap -L swap /dev/sda3` > `sudo swapon`
 ## Encrypted Primary
 1. Format with LUKS > `cryptsetup luksFormat /dev/sda2`
 2. Open with LUKS > `cryptsetup luksOpen /dev/sda2 cryptroot`
-3. Format mapped cryptroot > `sudo mkfs.ext4 -L nixos /dev/mapper/cryptroot`
+3. Format mapped cryptroot > `mkfs.ext4 -L nixos /dev/mapper/cryptroot`
 ## Mounting
-1. Mount the primary partition to `/mnt` > `sudo mount /dev/disk/by-label/nixos /mnt`
-2. Make boot dir > `sudo mkdir -p /mnt/boot`
-3. Mount boot > `sudo mount /dev/sda1 /mnt/boot`
+1. Mount the primary partition to `/mnt` > `mount /dev/disk/by-label/nixos /mnt`
+2. Make boot dir > `mkdir -p /mnt/boot`
+3. Mount boot > `mount /dev/sda1 /mnt/boot`
 ## Generate configuration
-1. Generate > `sudo nixos-generate-config --root /mnt`
-2. Edit `configuration.nix` > `sudo nano /mnt/etc/nixos/configuration.nix`
+1. Generate > `nixos-generate-config --root /mnt`
+2. Edit `configuration.nix` > `nano /mnt/etc/nixos/configuration.nix`
 
 ## Minimal Configuration for wireless networking with wpa_supplicant
 ```
@@ -73,6 +74,6 @@ enable_network 0
 swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 ```
 ## Install and reboot
-1. Install > `sudo nixos-install`
+1. Install > `nixos-install`
 2. You will be prompted for a root password afterwards.
-3. Reboot > `sudo reboot`
+3. Reboot > `reboot`
