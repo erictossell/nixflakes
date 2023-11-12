@@ -21,18 +21,18 @@ set_network 0 key_mgmt WPA-PSK
 enable_network 0
 ```
 ## Partition
-3. `lsblk` - to identify connected drives
-4. Format the disk > `sudo fdisk /dev/path-to-target`
+1. `lsblk` - to identify connected drives
+2. Format the disk > `sudo fdisk /dev/path-to-target`
 
-a. Create a new GPT partition table > `g`
-b. Create a new partition > `n`
-c. Create the following structure at minimum
+3. Create a new GPT partition table > `g`
+4. Create a new partition > `n`
+5. Create the following structure at minimum
 ```
 |-/dev/sda1 efi   > t > 1
 |-/dev/sda2 linux-filesystem 
 |-/dev/sda3 (optional)swap t > 19
 ```
-d. Write changes to disk > `w`
+6. Write changes to disk > `w`
 ## Format
 1. For EFI > `sudo mkfs.fat -F 32 /dev/sda1`
 2. For Primary > `sudo mkfs.ext4 /dev/sda2`
