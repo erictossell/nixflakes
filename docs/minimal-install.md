@@ -9,10 +9,8 @@ https://nixos.org/manual/nixos/stable/#sec-booting-from-usb
 `sudo dd if=<nixos-minimal-image.iso> of=/path/to/usb bs=4M conf=fsync`
 2. Boot from the USB on the target device
 ## Wireless Networking
-1. Start wpa_supplicant
-`sudo systemctl start wpa_supplicant`
-2. Enable a wireless network
-`wpa_cli`
+1. Start wpa_supplicant > `sudo systemctl start wpa_supplicant`
+2. Enable a wireless network > `wpa_cli`
 ```
 add_network 0
 set_network 0 ssid "SSID"
