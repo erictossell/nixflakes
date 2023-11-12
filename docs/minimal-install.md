@@ -1,6 +1,6 @@
 # NixOS Minimal Install - From Live ISO
 
-The official NixOS.org site has very good documentation. This is a condensed version for myself.
+The official NixOS.org site has excellent documentation to get you started. This is a condensed version for myself.
 
 https://nixos.org/manual/nixos/stable/#sec-booting-from-usb
 
