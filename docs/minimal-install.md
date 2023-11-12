@@ -6,7 +6,7 @@ https://nixos.org/manual/nixos/stable/#sec-booting-from-usb
 
 ## Create Installation Media
 1. Flash the minimal image to a USB device from Linux
-`sudo dd if=<nixos-minimal-image.iso> of=/path/to/usb bs=4M conf=fsync`
+`sudo dd if=<nixos-minimal-image.iso> of=/path/to/usb bs=4M conv=fsync`
 2. Boot from the USB on the target device
 ## Wireless Networking
 1. Start wpa_supplicant > `sudo systemctl start wpa_supplicant`
