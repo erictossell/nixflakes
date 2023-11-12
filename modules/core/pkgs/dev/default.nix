@@ -6,6 +6,7 @@ with pkgs; [
   gnumake
   go
   nim
+  nix-melt
   nix-prefetch-git
   nodejs_20
   powershell

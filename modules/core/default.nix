@@ -6,8 +6,8 @@ in
 { 
   imports = [
     ./boot/systemd
-    ./terminal
     ./security
+    ./terminal
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {
@@ -20,8 +20,6 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
  
-  
-
   environment.systemPackages = corePackages ++ devPackages;
   
   # Dont change.
