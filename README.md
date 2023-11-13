@@ -99,7 +99,7 @@ October 2023
 
 ### To Be Done
 
-- sops-nix/agenix for nixsecrets
+- Flake Neovim configuration, use nixvim
 
 [How to use this repo](docs/usage.md)
 
