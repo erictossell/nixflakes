@@ -46,6 +46,7 @@
       } // attrs;        
       modules = [
             ./.
+            ./modules/virt
           ];
     };#sisyphus
 
