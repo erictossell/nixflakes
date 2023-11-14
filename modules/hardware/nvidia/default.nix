@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 {
   # Environment variables
   # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----
@@ -24,5 +24,9 @@
     nvidiaSettings = true;
     # Video card specific - stable supports "newer" cards
     package = config.boot.kernelPackages.nvidiaPackages.production;
+  };
+  
+  users.users.${username} = {
+    extraGroups = [ "video" "render" ];
   };
 }
