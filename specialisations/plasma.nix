@@ -1,14 +1,7 @@
-{ gui, ... }:
-let
-  guiSet = {
-    "hypr-nvidia" = [ (import ./hyprland/nvidia) ];
-    "hypr" = [ (import ./hyprland/standard) ];
-    "gnome" = [ (import ./gnome) ];
-    "plasma" = [ (import ./plasma) ];
-  };
-in
+{ ... }:
 {
-  imports = [
-    ./apps
-  ] ++ (guiSet.${gui} or [ ]); 
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.defaultSession = "plasmawayland";
 }
