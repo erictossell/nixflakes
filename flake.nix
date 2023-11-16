@@ -81,7 +81,7 @@
 
     defaultTemplate = {
       path = ./.;
-    };
+    };#templates
     
   };
 }
