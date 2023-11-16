@@ -5,5 +5,4 @@ let
 in 
 {
   environment.systemPackages = corePackages ++ devPackages;
-
 }
