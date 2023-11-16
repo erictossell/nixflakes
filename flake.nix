@@ -33,7 +33,7 @@
           ./modules/toys
           ./modules/virt
         ];
-    };#retis
+      };#retis
 
       sisyphus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -46,6 +46,21 @@
         modules = [
             ./.
         ];
-    };#sisyphus
+      };#sisyphus
+      
+      live = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          username = "eriim";
+          hostname = "live";
+          displayConfig = "laptop";
+          nvidia_bool = "disabled";
+          } // attrs;
+          modules = [
+            ./.
+          ];
+      };#live-image
+
+    };
   };
 }
