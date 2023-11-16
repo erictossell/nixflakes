@@ -77,6 +77,11 @@
           ];
       };#live-image
 
+    };#configurations
+
+    defaultTemplate = {
+      path = ./.;
     };
+    
   };
 }
