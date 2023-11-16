@@ -15,10 +15,10 @@
 
   };
   
- 
   outputs = { self, nixpkgs, ... } @ attrs: { 
 
     nixosConfigurations = { 
+ 
       retis = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
@@ -47,20 +47,65 @@
             ./.
         ];
       };#sisyphus
+# Appended new system
+            test1 = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = {
+                    username = "test1";
+                    hostname = "test1";
+                    displayConfig = "laptop";
+                    nvidia_bool = "enabled";
+                } // attrs;        
+                modules = [
+                    ./.
+                ];
+            };#test1
+# Appended new system
+    test = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+            username = "test";
+            hostname = "test";
+            displayConfig = "laptop";
+            nvidia_bool = "enabled";
+        } // attrs;        
+        modules = [
+              ./.
+          ];
+    };#test
       
+      # A minimal dev-vm config for building custom ISO's
       live = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          username = "eriim";
+          username = "nixos";
           hostname = "live";
           displayConfig = "laptop";
           nvidia_bool = "disabled";
           } // attrs;
           modules = [
-            ./.
+            ./minimal.nix
+          ];
+      };#live-image
+      
+      
+      live-hyprland = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          username = "nixos";
+          hostname = "live";
+          displayConfig = "laptop";
+          nvidia_bool = "disabled";
+          } // attrs;
+          modules = [
+            ./minimal.nix
+            ./modules/hyprland
+            ./assets
           ];
       };#live-image
 
+
+      
     };
   };
 }
