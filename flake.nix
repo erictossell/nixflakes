@@ -3,7 +3,7 @@
   
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
+  
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +12,10 @@
     hyprland = {
       url = "github:hyprwm/hyprland";
     };
-
+    
+    eriixvim = {
+      url = "github:erictossell/nixvim";
+    };
   };
   
   outputs = { self, nixpkgs, ... } @ attrs: { 
@@ -83,6 +86,6 @@
       path = ./.;
       description = "The default template for this flake";
     };#templates
-    
+   
   };
 }
