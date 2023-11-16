@@ -10,7 +10,7 @@ There are no inherit advantages to using the minimal installation as opposed to 
    ### 1. Fetch the flake template
 
    ```bash
-   nix flake new -t 'github:erictossell/nixflakes' ./nixflakes
+   nix flake new -t 'github:erictossell/nixflakes' ./nixflakes && cd nixflakes
    ```
 
    ### 2. Run the build script. 

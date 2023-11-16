@@ -48,7 +48,7 @@
         ];
       };#sisyphus
      
-      # A minimal dev-vm config for building custom ISO's
+      # A minimal dev-vm config
       live-image = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
