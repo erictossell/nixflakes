@@ -49,11 +49,11 @@
       };#sisyphus
      
       # A minimal dev-vm config for building custom ISO's
-      live = nixpkgs.lib.nixosSystem {
+      live-image = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "nixos";
-          hostname = "live";
+          hostname = "live-image";
           displayConfig = "laptop";
           nvidia_bool = "disabled";
           } // attrs;
@@ -62,11 +62,11 @@
           ];
       };#live-image
       
-      live-hyprland = nixpkgs.lib.nixosSystem {
+      live-image-hyprland = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "nixos";
-          hostname = "live";
+          hostname = "live-image";
           displayConfig = "laptop";
           nvidia_bool = "disabled";
           } // attrs;
@@ -77,8 +77,6 @@
           ];
       };#live-image
 
-
-      
     };
   };
 }
