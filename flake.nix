@@ -14,7 +14,7 @@
     };
     
     eriixvim = {
-      url = "github:erictossell/nixvim";
+      url = "github:erictossell/eriixvim";
     };
   };
   
