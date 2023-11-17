@@ -2,6 +2,7 @@
 {
   imports = [
     ./${hostname}
+    ./internationalisation
   ];
 
   home-manager.users.${username} = { pkgs, ... }: {

@@ -5,5 +5,6 @@
     ./core
     ./hardware
     ./hyprland
+    ./network
   ];
 }

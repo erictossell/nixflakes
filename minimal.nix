@@ -5,6 +5,5 @@
     ./users
     ./hosts
     ./modules/core/terminal
-    ./modules/core/pkgs
   ];
 }
