@@ -22,11 +22,11 @@
 
     nixosConfigurations = { 
  
-      retis = nixpkgs.lib.nixosSystem {
+      principium = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "eriim";
-          hostname = "retis";
+          hostname = "principium";
           displayConfig = "desktop";
           nvidia_bool = "enabled";
         } // attrs;        
@@ -36,7 +36,7 @@
           ./modules/toys
           ./modules/virt
         ];
-      };#retis
+      };#principium
 
       sisyphus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -50,8 +50,7 @@
             ./.
         ];
       };#sisyphus
-     
-      # A minimal dev-vm config
+
       live-image = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
@@ -62,21 +61,6 @@
           } // attrs;
           modules = [
             ./minimal.nix
-          ];
-      };#live-image
-      
-      live-image-hyprland = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          username = "nixos";
-          hostname = "live-image";
-          displayConfig = "laptop";
-          nvidia_bool = "disabled";
-          } // attrs;
-          modules = [
-            ./minimal.nix
-            ./modules/hyprland
-            ./assets
           ];
       };#live-image
 
