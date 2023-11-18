@@ -7,7 +7,7 @@ let
 in 
 {
   imports = [
-	#./bluetooth
+	./bluetooth
 	./sound
   ] ++ (nvidia.${nvidia_bool} or [ ]); 
 }
