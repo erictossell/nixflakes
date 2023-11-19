@@ -6,6 +6,21 @@
 Host *
   IdentityAgent ~/.1password/agent.sock
       '';
+      ".gitconfig".text = ''
+[user]
+  name = "Eric Tossell"
+  email = erictossell@gmail.com	
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJlYStL/v+XPU4XwmEhbJqtQSh5b8qcoj8GllynuqKP6
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/run/current-system/sw/bin/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+      '';
      };
    };
    programs.bash.interactiveShellInit = ''
