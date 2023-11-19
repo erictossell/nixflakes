@@ -87,18 +87,18 @@ echo "Creating a basic system configuration in flake.nix..."
 # Define the new configuration block
 read -r -d '' NEW_CONFIG << EOM
 
-        # Appended new system
-        # $hostname = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = {
-                username = "$username";
-                hostname = "$hostname";
-                displayConfig = "laptop";
-                nvidia_bool = "$nvidia";
-            } // attrs;        
-            modules = [
-                ./.
-            ];
+# Appended new system
+	$hostname = nixpkgs.lib.nixosSystem {
+	  system = "x86_64-linux";
+          specialArgs = {
+            username = "$username";
+            hostname = "$hostname";
+            displayConfig = "laptop";
+            nvidia_bool = "$nvidia";
+          } // attrs;        
+          modules = [
+            ./.
+          ];
         };#$hostname
 EOM
 
