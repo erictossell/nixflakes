@@ -1,5 +1,6 @@
 {
   imports = [
+    ./agenix
     ./apps
     ./boot/systemd
     ./core

@@ -10,7 +10,7 @@
       extensions = with pkgs.vscode-extensions; [
         golang.go
         vscodevim.vim
-        github.copilot
+        #github.copilot
         github.github-vscode-theme
         github.vscode-github-actions
         #ms-python.python
@@ -21,12 +21,12 @@
          "window.titleBarStyle" = "custom";
          "workbench.colorTheme" = "Github Dark Colorblind (Beta)";
          "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace";
-         "github.copilot.enable" = {
-           "*" = true;
-           "plaintext" = false;
-           "markdown" = true;
-           "scminput" = false;
-         };
+         #"github.copilot.enable" = {
+         #  "*" = true;
+         #  "plaintext" = false;
+         #  "markdown" = true;
+         #  "scminput" = false;
+         #};
          "powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
       };
     };
