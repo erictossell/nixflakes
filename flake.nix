@@ -35,7 +35,7 @@
         specialArgs = {
           username = "eriim";
           hostname = "principium";
-          displayConfig = "desktop";
+          hyprlandConfig = "desktop";
           nvidia_bool = "enabled";
 	  inherit system;
         } // attrs;        
@@ -54,7 +54,7 @@
         specialArgs = {
           username = "eriim";
           hostname = "sisyphus";
-          displayConfig = "laptop";
+          hyprlandConfig = "laptop";
           nvidia_bool = "disabled";
 	  inherit system;
         } // attrs;        
@@ -70,7 +70,7 @@
         specialArgs = {
           username = "nixos";
           hostname = "live-image";
-          displayConfig = "laptop";
+          hyprlandConfig = "laptop";
           nvidia_bool = "disabled";
 	  inherit system;
           } // attrs;
