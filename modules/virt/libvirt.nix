@@ -1,14 +1,15 @@
 { config, pkgs, home-manager, username, ... }:
 {
   # Enable virtual machines with qemu
-  virtualisation.libvirtd = {
-    enable = true;
-    
-    qemu = {
-      package = pkgs.qemu_kvm;
-      swtpm.enable = true;
-      ovmf.enable = true;
-      ovmf.packages = [ pkgs.OVMFFull.fd ];
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
     };
     spiceUSBRedirection.enable = true;
   };
