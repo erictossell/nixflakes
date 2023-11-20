@@ -28,13 +28,16 @@
 
     nixosConfigurations = { 
  
-      principium = nixpkgs.lib.nixosSystem {
+      principium =
+      let system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "eriim";
           hostname = "principium";
           displayConfig = "desktop";
           nvidia_bool = "enabled";
+	  inherit system;
         } // attrs;        
         modules = [
           ./.
@@ -44,26 +47,32 @@
         ];
       };#principium
 
-      sisyphus = nixpkgs.lib.nixosSystem {
+      sisyphus =
+      let system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "eriim";
           hostname = "sisyphus";
           displayConfig = "laptop";
           nvidia_bool = "disabled";
+	  inherit system;
         } // attrs;        
         modules = [
             ./.
         ];
       };#sisyphus
 
-      live-image = nixpkgs.lib.nixosSystem {
+      live-image = 
+      let system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           username = "nixos";
           hostname = "live-image";
           displayConfig = "laptop";
           nvidia_bool = "disabled";
+	  inherit system;
           } // attrs;
           modules = [
             ./minimal.nix
