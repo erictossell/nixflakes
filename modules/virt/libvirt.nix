@@ -7,32 +7,26 @@
     qemu = {
       package = pkgs.qemu_kvm;
       swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [ 
-          (pkgs.OVMFFull.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })
-        ];
-      };
+      ovmf.enable = true;
+      ovmf.packages = [ pkgs.OVMFFull.fd ];
     };
+    spiceUSBRedirection.enable = true;
   };
+  services.spice-vdagentd.enable = true;  
   
   # User permissions 
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   # Also recomended to install virt-manager in your packages if you want a GUI
-  environment.systemPackages = with pkgs; [ OVMF virt-manager virt-viewer ];
-  environment.etc = {
-    "ovmf/edk2-x86_64-secure-code.fd" = {
-      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-x86_64-secure-code.fd";
-    };
-
-    "ovmf/edk2-i386-vars.fd" = {
-      source = config.virtualisation.libvirtd.qemu.package + "/share/qemu/edk2-i386-vars.fd";
-    };
-  };
+  environment.systemPackages = with pkgs; [ 
+    spice
+    spice-gtk
+    spice-protocol
+    virt-manager
+    virt-viewer 
+    win-virtio
+    win-spice
+  ];
 
   home-manager.users.${username} = { pkgs, ... }: {
     dconf.settings = {
