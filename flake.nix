@@ -31,7 +31,7 @@
       principium =
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+	system = system;
         specialArgs = {
           username = "eriim";
           hostname = "principium";
@@ -50,7 +50,7 @@
       sisyphus =
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+	system = system;
         specialArgs = {
           username = "eriim";
           hostname = "sisyphus";
@@ -66,7 +66,7 @@
       live-image = 
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      	system = system;
         specialArgs = {
           username = "nixos";
           hostname = "live-image";
