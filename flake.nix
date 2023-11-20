@@ -31,8 +31,7 @@
       principium =
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-	system = system;
-        specialArgs = {
+	specialArgs = {
           username = "eriim";
           hostname = "principium";
           hyprlandConfig = "desktop";
@@ -50,7 +49,6 @@
       sisyphus =
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-	system = system;
         specialArgs = {
           username = "eriim";
           hostname = "sisyphus";
@@ -66,13 +64,12 @@
       live-image = 
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
-      	system = system;
+        system = system;
         specialArgs = {
           username = "nixos";
           hostname = "live-image";
           hyprlandConfig = "laptop";
           nvidia_bool = "disabled";
-	  inherit system;
           } // attrs;
           modules = [
             ./minimal.nix
