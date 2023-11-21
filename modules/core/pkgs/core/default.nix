@@ -1,6 +1,6 @@
 {pkgs, ...}:
 with pkgs; [
-  awscli2
+  #awscli2
   brightnessctl
   cachix
   pavucontrol

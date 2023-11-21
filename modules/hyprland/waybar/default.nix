@@ -1,4 +1,4 @@
-{ pkgs, displayConfig, home-manager, username, ... }:
+{ pkgs, hyprlandConfig, home-manager, username, ... }:
 let
   dotfiles = {
     "laptop" = [ (import ./laptop.nix { inherit home-manager username; }) ];
@@ -7,6 +7,6 @@ let
 in
 { 
   imports = [
-  ] ++ (dotfiles.${displayConfig} or [ ]); 
+  ] ++ (dotfiles.${hyprlandConfig} or [ ]); 
   environment.systemPackages = with pkgs; [ waybar ];
 }
