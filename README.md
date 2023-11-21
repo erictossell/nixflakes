@@ -32,10 +32,15 @@ This repo has become more opinionated over time and now requires passing down va
 #### Flake Github URLS
 
 Transparency is cool.
+
 [nixpkgs: nixos-unstable](https://github.com/NixOS/nixpkgs)
+
 [home-manager: following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix)
+
 [agenix: following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix)
+
 [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)
+
 [eriixvim: my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix)
 
 ##### These Diagrams are ever so slightly out of date, I hope to update them soon.
