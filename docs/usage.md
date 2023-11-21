@@ -5,7 +5,7 @@ These steps assume that you have already installed NixOS.
 
 For documentation on how to complete a minimal NixOS install: [Minimal Install](minimal-install.md)
 
-There are no inherit advantages to using the minimal installation as opposed to the GUI. If you want to enable LUKS without manually encrypting your drive, use the GUI.
+There are no inherent advantages to using the minimal installation as opposed to the GUI. If you want to enable LUKS without manually encrypting your drive, use the GUI.
 
    ### 1. Fetch the flake template
 
