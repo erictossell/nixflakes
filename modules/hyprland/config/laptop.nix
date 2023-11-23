@@ -7,6 +7,11 @@ preload = ~/.config/backgrounds/232136.png
 preload = ~/.config/backgrounds/1A1C23.png
 wallpaper = eDP-1, ~/.config/backgrounds/232136.png
       '';  
+    
+      ".config/hypr/vol.sh" = {
+    	source = ../../../sh/vol.sh;
+ 	executable = true;
+      };
 
       ".config/hypr/hyprland.conf".text = ''
 #monitor=edp-1,3840 x 2160,auto,auto
@@ -38,6 +43,10 @@ bind = $mainMod, p, pseudo, # dwindle
 bind = $mainMod, j, togglesplit, # dwindle
 bind = $mainMod, 0, exec, swaylock
 bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
+
+bind = ,XF86AudioMute, exec, ~/.config/hypr/vol.sh --mute
+bind = ,XF86AudioLowerVolume, exec, ~/.config/hypr/vol.sh --down
+bind = ,XF86AudioRaiseVolume, exec, ~/.config/hypr/vol.sh --up
 
 $w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
 $w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/1A1C23.png"
