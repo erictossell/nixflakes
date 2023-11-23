@@ -48,6 +48,10 @@ bind = ,XF86AudioMute, exec, ~/.config/hypr/vol.sh --mute
 bind = ,XF86AudioLowerVolume, exec, ~/.config/hypr/vol.sh --down
 bind = ,XF86AudioRaiseVolume, exec, ~/.config/hypr/vol.sh --up
 
+bind = ,xF86AudioPlay, exec, playerctl play-pause
+bind = ,xF86AudioNext, exec, playerctl next
+bind = ,xF86AudioPrev, exec, playerctl previous
+
 $w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
 $w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/1A1C23.png"
 $w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
