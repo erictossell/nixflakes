@@ -1,4 +1,4 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 {
   users.users.${username} = {
     extraGroups = [ "audio" ];
@@ -7,7 +7,7 @@
   security.rtkit.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = false;
-
+  environment.systemPackages = with pkgs; [ pulseaudio ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
