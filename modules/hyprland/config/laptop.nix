@@ -111,16 +111,17 @@ decoration {
 		}
 }
 
+
 animations {
 	enabled = yes
-	bezier = snappybezier, 0.4, 0.0, 0.2, 1.0
-	bezier = smoothbezier, 0.25, 0.1, 0.25, 1.0
-	animation = windows, 1, 7, snappybezier
-	animation = windowsOut, 1, 7, snappybezier, popin 85%
-	animation = border, 1, 10, snappybezier
-	animation = borderangle, 1, 8, smoothbezier
-	animation = fade, 1, 7, smoothbezier
-	animation = workspaces, 1, 6, smoothbezier
+	bezier = snappyBezier, 0.4, 0.0, 0.2, 1.0
+	bezier = smoothBezier, 0.25, 0.1, 0.25, 1.0
+	animation = windows, 1, 7, smoothBezier, slide
+	animation = windowsOut, 1, 7, snappyBezier, slide
+	animation = border, 1, 10, snappyBezier
+	animation = borderangle, 1, 100, smoothBezier, loop
+	animation = fade, 1, 7, smoothBezier
+	animation = workspaces, 1, 6, smoothBezier, slidefadevert 20%
 }
 
 dwindle {

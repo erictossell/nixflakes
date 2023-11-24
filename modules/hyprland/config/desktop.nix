@@ -127,12 +127,12 @@ animations {
 	enabled = yes
 	bezier = snappyBezier, 0.4, 0.0, 0.2, 1.0
 	bezier = smoothBezier, 0.25, 0.1, 0.25, 1.0
-	animation = windows, 1, 7, snappyBezier
-	animation = windowsOut, 1, 7, snappyBezier, popin 85%
+	animation = windows, 1, 7, smoothBezier, slide
+	animation = windowsOut, 1, 7, snappyBezier, slide
 	animation = border, 1, 10, snappyBezier
-	animation = borderangle, 1, 8, smoothBezier
+	animation = borderangle, 1, 100, smoothBezier, loop
 	animation = fade, 1, 7, smoothBezier
-	animation = workspaces, 1, 6, smoothBezier
+	animation = workspaces, 1, 6, smoothBezier, slidefadevert 20%
 }
 
 dwindle {
