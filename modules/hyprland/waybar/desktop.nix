@@ -7,13 +7,13 @@
 "layer": "top",
 "height": 45,
 	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
-"modules-center": ["hyprland/workspaces"],
+	"modules-center": ["hyprland/workspaces"],
 	"modules-right": [ "pulseaudio", "network", "clock"],
 	"custom/nix": {
 	"format": " ",
 	"tooltip": false,
 	"on-click": "/run/current-system/sw/bin/wofi --show drun"
-},
+	},
 	"hyprland/workspaces": {
 	"format": "{name} {icon}",
 	"tooltip": false,

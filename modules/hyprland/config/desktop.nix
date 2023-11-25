@@ -8,11 +8,15 @@ preload = ~/.config/backgrounds/1A1C23.png
 preload = ~/.config/backgrounds/keyboard.png
 preload = ~/.config/backgrounds/storage.jpg
 
-
 wallpaper = DP-1, ~/.config/backgrounds/232136.png
 wallpaper = DP-2, ~/.config/backgrounds/232136.png
 wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
       '';  
+
+    ".config/hypr/vol.sh" = {
+    	source = ../../../sh/vol.sh;
+	executable = true;
+    };
 
     ".config/hypr/hyprland.conf".text = ''
 monitor=DP-2,preferred,1080x400,1
@@ -53,6 +57,14 @@ bind = $mainMod, p, pseudo, # dwindle
 bind = $mainMod, j, togglesplit, # dwindle
 bind = $mainMod, 0, exec, swaylock
 bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
+
+bind = ,XF86AudioMute, exec, ~/.config/hypr/vol.sh --mute
+bind = ,XF86AudioLowerVolume, exec, ~/.config/hypr/vol.sh --down
+bind = ,XF86AudioRaiseVolume, exec, ~/.config/hypr/vol.sh --up
+
+bind = ,xF86AudioPlay, exec, playerctl play-pause
+bind = ,xF86AudioNext, exec, playerctl next
+bind = ,xF86AudioPrev, exec, playerctl previous
 
 $w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
 $w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
@@ -115,12 +127,12 @@ animations {
 	enabled = yes
 	bezier = snappyBezier, 0.4, 0.0, 0.2, 1.0
 	bezier = smoothBezier, 0.25, 0.1, 0.25, 1.0
-	animation = windows, 1, 7, snappyBezier
-	animation = windowsOut, 1, 7, snappyBezier, popin 85%
+	animation = windows, 1, 7, smoothBezier, slide
+	animation = windowsOut, 1, 7, snappyBezier, slide
 	animation = border, 1, 10, snappyBezier
-	animation = borderangle, 1, 8, smoothBezier
+	animation = borderangle, 1, 100, smoothBezier, loop
 	animation = fade, 1, 7, smoothBezier
-	animation = workspaces, 1, 6, smoothBezier
+	animation = workspaces, 1, 6, smoothBezier, slidefadevert 20%
 }
 
 dwindle {

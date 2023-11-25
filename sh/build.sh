@@ -86,19 +86,20 @@ echo "Creating a basic system configuration in flake.nix..."
 # Define the new configuration block
 # Define the new configuration block
 read -r -d '' NEW_CONFIG << EOM
-    # Appended new system
-    nixosConfigurations.$hostname = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
+
+# Appended new system
+	$hostname = nixpkgs.lib.nixosSystem {
+	  system = "x86_64-linux";
+          specialArgs = {
             username = "$username";
             hostname = "$hostname";
             displayConfig = "laptop";
             nvidia_bool = "$nvidia";
-        } // attrs;        
-        modules = [
-              ./.
+          } // attrs;        
+          modules = [
+            ./.
           ];
-    };#$hostname
+        };#$hostname
 EOM
 
 # Use awk to append the new configuration block before the last closing brace of the outputs block

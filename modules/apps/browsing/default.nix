@@ -5,7 +5,8 @@
   
     home.packages = with pkgs; [
       nyxt
-     ];
+      qutebrowser
+    ];
 
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;

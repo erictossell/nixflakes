@@ -2,28 +2,23 @@
 {
   imports = [
     ./${hostname}
+    ./internationalisation
   ];
+
   home-manager.users.${username} = { pkgs, ... }: {
     /* The home.stateVersion option does not have a default and must be set */
     home.stateVersion = "23.05";
     nixpkgs.config.allowUnfree = true;
   };
-  # ---- System Configurations ----
-  networking = {
-    networkmanager.enable = true;
-    hostName = "${hostname}";
-  };
-  users.users.${username} = {
-    extraGroups = [ "networkmanager" ];
-  };
-  # Set your time zone.
-  time.timeZone = "America/Toronto";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_CA.UTF-8";
-    
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+  # ----- System Config -----
+  # Enable Flakes and nix-commands
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+          
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+   
+  # Dont change.
+  system.stateVersion = "23.05"; # Did you read the comment?
+
 }
