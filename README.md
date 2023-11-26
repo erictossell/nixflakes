@@ -29,7 +29,7 @@ Modules are grouped to be ***almost*** purely *functional* and as a result you w
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate modules and packages and eventually theming elements. 
 
-#### Flake Github URLS
+### Flake Github URLS
 
 Transparency is cool.
 
@@ -43,10 +43,11 @@ Transparency is cool.
 
 [eriixvim: my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix)
 
-##### These Diagrams are ever so slightly out of date, I hope to update them soon.
-![Flake Structure](docs/screens/FlakeStructure4.png)
+### Diagrams
 
-![Flake Profiles](docs/screens/FlakeProfiles3.png)
+![Flake Structure](docs/screens/FlakeStructure7.png)
+
+![Flake Profiles](docs/screens/FlakeProfiles7.png)
 
 ## Screenshots
 
@@ -107,10 +108,9 @@ October 2023
    - WM: [hyprland](https://hyprland.org/)
    - Most core modules (no extra toys)
 
-3. Laptop (icarus) - 1 monitor
+3. Live Boot Image (live-image)
 
-   - WM: [hyprland](https://hyprland.org/)
-   - Most core modules (no extra toys)
+   - A customized minimal boot example.
 
 [How to use this repo](docs/usage.md)
 
