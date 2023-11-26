@@ -8,6 +8,7 @@ in
 {
   imports = [
 	#./bluetooth
+	./network
 	./sound
   ] ++ (nvidia.${nvidia_bool} or [ ]); 
 }

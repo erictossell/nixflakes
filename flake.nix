@@ -40,7 +40,7 @@
         } // attrs;        
         modules = [
           ./.
-          ./modules/obs
+          ./modules/apps/obs
           ./modules/toys
           ./modules/virt
         ];

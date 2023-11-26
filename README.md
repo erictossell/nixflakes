@@ -4,8 +4,6 @@ That man hadn't yet plunged into the depths of `Nix` packaging or beheld the orc
 
 I like simple things, so you may find that there is not all that much complex going on in this repository. I do not build any of my own packages or make extreme modifications to any of the example configurations I have found online that make up this motley crew of `.nix`. What I can say, is that the `main` branch of this configuration is relatively thoroughly tested.  
 
-`NixOS` is not a simple thing. You'll probably learn that quickly if you do end up falling down this pit. I had a lot of dotfiles, I didnt like managing a lot of dotfiles. The DevOps side of my brain knew there must be something better.
-
 `Nix` and `NixOS` started as an echo in my mind some several months ago. An internet hooligan that probably didn't even know what they were talking about introduced me to the idea while I was perusing public `dotfiles` and somehow it reverberated. It's evolved into an ever deepening rabbit hole of declaration, stability and reproduceability.
 
 I am not an authority on `Nix` or `NixOS`. I am merely an apprentice, an Alice navigating the wonderland. At least for now.
@@ -29,7 +27,7 @@ Modules are grouped to be ***almost*** purely *functional* and as a result you w
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate modules and packages and eventually theming elements. 
 
-#### Flake Github URLS
+### Flake Github URLS
 
 Transparency is cool.
 
@@ -43,10 +41,11 @@ Transparency is cool.
 
 [eriixvim: my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix)
 
-##### These Diagrams are ever so slightly out of date, I hope to update them soon.
-![Flake Structure](docs/screens/FlakeStructure4.png)
+### Diagrams
 
-![Flake Profiles](docs/screens/FlakeProfiles3.png)
+![Flake Structure](docs/screens/FlakeStructure7.png)
+
+![Flake Profiles](docs/screens/FlakeProfiles7.png)
 
 ## Screenshots
 
@@ -107,10 +106,9 @@ October 2023
    - WM: [hyprland](https://hyprland.org/)
    - Most core modules (no extra toys)
 
-3. Laptop (icarus) - 1 monitor
+3. Live Boot Image (live-image)
 
-   - WM: [hyprland](https://hyprland.org/)
-   - Most core modules (no extra toys)
+   - A customized minimal boot example.
 
 [How to use this repo](docs/usage.md)
 
