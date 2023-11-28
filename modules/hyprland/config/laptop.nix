@@ -12,6 +12,11 @@ wallpaper = eDP-1, ~/.config/backgrounds/232136.png
     	source = ../../../sh/vol.sh;
  	executable = true;
       };
+     ".config/hypr/toggle_waybar.sh" = {
+	source = ../../../sh/toggle_waybar.sh;
+	executable = true;
+     };
+
 
       ".config/hypr/hyprland.conf".text = ''
 #monitor=edp-1,3840 x 2160,auto,auto
@@ -42,6 +47,7 @@ bind = $mainMod, r, exec, wofi --show drun
 bind = $mainMod, p, pseudo, # dwindle
 bind = $mainMod, j, togglesplit, # dwindle
 bind = $mainMod, 0, exec, swaylock
+bind = $mainMod, o, exec, ~/.config/hypr/toggle_waybar.sh
 bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
 
 bind = ,XF86AudioMute, exec, ~/.config/hypr/vol.sh --mute

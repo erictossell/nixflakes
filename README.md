@@ -96,7 +96,7 @@ October 2023
 - Virt (Docker, kvm/qemu)
 
 #### Configurations
-1. Desktop (retis) - 3 monitors
+1. Desktop (principium) - 3 monitors
 
    - WM: [hyprland](https://hyprland.org/)
    - All core modules + nvidia

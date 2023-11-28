@@ -19,7 +19,7 @@ wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
     };
 
     ".config/hypr/toggle_waybar.sh" = {
-	source = ../../..sh/togggle_waybar.sh;
+	source = ../../../sh/toggle_waybar.sh;
 	executable = true;
     };
 
