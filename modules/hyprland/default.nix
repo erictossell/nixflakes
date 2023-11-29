@@ -14,7 +14,7 @@ in
     ./swaylock
     ./waybar
     ./wofi
-  ] ++ (hyprNvidia.${nvidia_bool} or [ ]);
+  ]; #++ (hyprNvidia.${nvidia_bool} or [ ]);
   
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -45,6 +45,14 @@ in
         login.enableGnomeKeyring = true;
       };
     };
+  };
+  
+  xdg.portal.config = {
+    common = {
+      default = [ "xdph" "gtk" ];
+      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+    };
+
   };
 }
 
