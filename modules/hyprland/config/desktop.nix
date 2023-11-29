@@ -18,6 +18,11 @@ wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
 	executable = true;
     };
 
+    ".config/hypr/toggle_waybar.sh" = {
+	source = ../../../sh/toggle_waybar.sh;
+	executable = true;
+    };
+
     ".config/hypr/hyprland.conf".text = ''
 monitor=DP-2,preferred,1080x400,1
 monitor=HDMI-A-1,preferred,3640x0,1
@@ -56,6 +61,7 @@ bind = $mainMod, r, exec, wofi --show drun
 bind = $mainMod, p, pseudo, # dwindle
 bind = $mainMod, j, togglesplit, # dwindle
 bind = $mainMod, 0, exec, swaylock
+bind = $mainMod, o, exec, bash -i ~/.config/hypr/toggle_waybar.sh
 bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
 
 bind = ,XF86AudioMute, exec, ~/.config/hypr/vol.sh --mute
