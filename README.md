@@ -4,7 +4,7 @@ That man hadn't yet plunged into the depths of `Nix` packaging or beheld the orc
 
 I like simple things, so you may find that there is not all that much complex going on in this repository. I do not build any of my own packages or make extreme modifications to any of the example configurations I have found online that make up this motley crew of `.nix`. What I can say, is that the `main` branch of this configuration is relatively thoroughly tested.  
 
-`Nix` and `NixOS` started as an echo in my mind some several months ago. An internet hooligan that probably didn't even know what they were talking about introduced me to the idea while I was perusing public `dotfiles` and somehow it reverberated. It's evolved into an ever deepening rabbit hole of declaration, stability and reproduceability.
+`Nix` and `NixOS` started as an echo in my mind some several months ago. An internet hooligan that probably didn't even know what they were talking about introduced me to the idea while I was perusing public `dotfiles` and somehow it reverberated. It's evolved into an ever deepening rabbit hole of declaration, stability and reproducibility.
 
 I am not an authority on `Nix` or `NixOS`. I am merely an apprentice, an Alice navigating the wonderland. At least for now.
 
