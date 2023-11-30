@@ -22,7 +22,7 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    # Video card specific - stable supports "newer" cards
+    # Video card specific - stable supports "newer" cards, "production" is 535
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
   
