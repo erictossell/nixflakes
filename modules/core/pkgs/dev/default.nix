@@ -12,6 +12,7 @@ with pkgs; [
   powershell
   postgresql_15
   python312
+  railway
   thokr
   zig
 ]
