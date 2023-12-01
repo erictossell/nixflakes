@@ -88,13 +88,15 @@ echo "Creating a basic system configuration in flake.nix..."
 read -r -d '' NEW_CONFIG << EOM
 
 # Appended new system
-	$hostname = nixpkgs.lib.nixosSystem {
-	  system = "x86_64-linux";
+	$hostname =
+        let system = "x86_84-linux";
+	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
             hostname = "$hostname";
             displayConfig = "laptop";
             nvidia_bool = "$nvidia";
+	    inherit system;
           } // attrs;        
           modules = [
             ./.

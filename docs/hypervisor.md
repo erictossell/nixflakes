@@ -1,5 +1,10 @@
-{ config, pkgs, home-manager, username, ... }:
-{
+## NixOS as a HyperVisor
+
+NixOS can take full advantage of `kvm` and `qemu` (among other virtualization software) to virtualize secondary operating systems. 
+
+The following is a basic configuration that allows for emulating TPM 2.0 (Windows 11), providing remote desktop connections over SPICE and some graphical tools to assist with the creation and management of VM's and their snaphots. 
+
+```nix
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -13,7 +18,7 @@
     spiceUSBRedirection.enable = true;
   };
   services.spice-vdagentd.enable = true;  
-
+  
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   environment.systemPackages = with pkgs; [ 
@@ -25,6 +30,7 @@
     win-virtio
     win-spice
   ];
+  
 
   home-manager.users.${username} = { pkgs, ... }: {
     dconf.settings = {
@@ -34,4 +40,6 @@
       };
     };
   };
-}
+```
+
+

@@ -1,5 +1,5 @@
 {
-  description = "Machine specific configuration flake.";
+  description = "Eriim's machine specific configuration flake.";
   
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
