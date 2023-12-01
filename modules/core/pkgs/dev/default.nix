@@ -8,6 +8,7 @@ with pkgs; [
   nim
   nix-melt
   nix-prefetch-git
+  nixpacks
   nodejs_20
   powershell
   postgresql_15

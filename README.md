@@ -93,6 +93,7 @@ October 2023
 #### Extra Toys
 - [OBS Studio](https://obsproject.com/) (for screen recording and streaming/sharing screen)
 - Vidya (Lutris, Steam, Wine)
+
 - Virt (Docker, Podman, kvm/qemu)
 
 #### Configurations
