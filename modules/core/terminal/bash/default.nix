@@ -14,6 +14,7 @@
     '';
     shellAliases = {
 	cp = "cp -ia";
+	ls = "ls -la";
 	mv = "mv -i";
 
 	b = "btop";
