@@ -25,7 +25,7 @@ wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
 
     ".config/hypr/hyprland.conf".text = ''
 monitor=DP-2,preferred,1080x400,1
-monitor=HDMI-A-1,preferred,3640x0,1
+monitor=HDMI-A-1,preferred,3640x200,1
 monitor=DP-1,preferred,0x0,1,transform,3
 monitor=,preferred,auto,auto
 
