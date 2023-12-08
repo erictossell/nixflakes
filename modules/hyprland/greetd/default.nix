@@ -8,10 +8,6 @@
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = username;
       };
-      initial_session = {
-        command = "Hyprland";
-        user = username;
-      };
     };
   };
 }
