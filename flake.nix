@@ -41,6 +41,7 @@
         modules = [
           ./.
           ./modules/apps/obs
+	  #./modules/ssh
           ./modules/toys
           ./modules/virt
         ];
@@ -80,7 +81,7 @@
 
     templates.default = {
       path = ./.;
-      description = "The default template for this flake";
+      description = "The default template for Eriim's nixflakes.";
     };#templates
    
   };
