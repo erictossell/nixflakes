@@ -5,11 +5,7 @@
     restart = false;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = username;
-      };
-      initial_session = {
-        command = "Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --greeting 'Welcome to Wonderland' --asterisks --cmd Hyprland";
         user = username;
       };
     };
