@@ -41,6 +41,7 @@
         modules = [
           ./.
           ./modules/apps/obs
+	  ./modules/ssh
           ./modules/toys
           ./modules/virt
         ];
