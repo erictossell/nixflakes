@@ -80,7 +80,7 @@
 
     templates.default = {
       path = ./.;
-      description = "The default template for this flake";
+      description = "The default template for Eriim's nixflakes.";
     };#templates
    
   };
