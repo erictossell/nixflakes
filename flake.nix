@@ -74,7 +74,7 @@
           } // attrs;
           modules = [
             ./minimal.nix
-	    ./specialisations/gnome.nix
+	    #./specialisations/gnome.nix
           ];
       };#live-image
 
