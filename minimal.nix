@@ -5,5 +5,6 @@
     ./users
     ./hosts
     ./modules/core/terminal
+    ./modules/virt
   ];
 }
