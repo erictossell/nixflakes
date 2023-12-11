@@ -3,5 +3,5 @@
     ./docker.nix
     ./libvirt.nix
     ./podman.nix
-   ];
+  ];
 }
