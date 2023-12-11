@@ -165,6 +165,9 @@ misc {
 	background_color = 0x232136
 }
 
+windowrulev2 = stayfocused, title:^()$,class:^(steam)$
+windowrulev2 = minsize 1 1, title:^()$,class:^(steam)$
+
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
 bind = $mainMod, up, movefocus, u
