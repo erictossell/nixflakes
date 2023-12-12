@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -6,4 +7,5 @@
   services.gvfs = {
     enable = true;
   };
+  environment.systemPackages = with pkgs; [ thunar ];
 }
