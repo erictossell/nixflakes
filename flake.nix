@@ -22,6 +22,11 @@
     eriixvim = {
       url = "github:erictossell/eriixvim";
     };
+
+    NixOS-WSL = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { self, nixpkgs, ... } @ attrs: { 
@@ -74,9 +79,22 @@
           } // attrs;
           modules = [
             ./minimal.nix
-	    ./specialisations/gnome.nix
           ];
       };#live-image
+
+      winders = 
+      let system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
+        system = system;
+        specialArgs = {
+          username = "eriim";
+          hostname = "winders";
+        } // attrs;
+        modules = [
+          ./wsl.nix         
+        ];
+      };#winders-wsl
+
 
     };#configurations
 

@@ -1,9 +1,10 @@
-{ home-manager, ... }:
+{ home-manager, nixpkgs, ... }:
 {
   imports = [
     home-manager.nixosModules.home-manager
-    ./users
+    {nix.registry.nixpkgs.flake = nixpkgs; }
     ./hosts
     ./modules/core/terminal
   ];
+
 }
