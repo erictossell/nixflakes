@@ -3,7 +3,7 @@
 {
   imports = [
     NixOS-WSL.nixosModules.wsl
-  ]
+  ];
   wsl.enable = true;
   wsl.defaultUser = "eriim";
   wsl.nativeSystemd = true;

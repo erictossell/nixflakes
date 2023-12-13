@@ -26,7 +26,7 @@
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
   
   outputs = { self, nixpkgs, ... } @ attrs: { 
@@ -85,14 +85,13 @@
       winders = 
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
+        system = system;
         specialArgs = {
           username = "eriim";
           hostname = "winders";
         } // attrs;
         modules = [
-          {nix.registry.nixpkgs.flake = nixpkgs; }
-          ./hosts
-          ./modules/core/terminal
+          ./wsl.nix         
         ];
       };#winders-wsl
 
