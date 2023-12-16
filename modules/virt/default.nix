@@ -1,6 +1,6 @@
 {
   imports = [
-    #./docker.nix
+    ./docker.nix
     ./libvirt.nix
     #./podman.nix
   ];
