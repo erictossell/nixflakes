@@ -21,9 +21,9 @@ read username
 
 echo -n "Do you use Nvidia? Y/n: "
 if validate_input; then
-    nvidia="enabled"
+    nvidia=true
 else
-    nvidia="disabled"
+    nvidia=false
 fi
 
 default_hardware_config_path="/etc/nixos/hardware-configuration.nix"
@@ -52,7 +52,7 @@ cd ..
 mkdir -p "$host_dir" "$user_dir"
 touch "$host_dir/default.nix"
 
-if bool_generate; then
+if [ "$bool_generate" = true ]; then
     nixos-generate-config
     cp "$default_hardware_config_path" "$host_dir/" || { echo "Failed to copy $default_hardware_config_path"; exit 1; }
 elif [ "$bool_import" = true ]; then
@@ -83,19 +83,37 @@ cat > "$user_dir/default.nix" << EOF
 EOF
 
 echo "Creating a basic system configuration in flake.nix..."
-# Define the new configuration block
-# Define the new configuration block
-read -r -d '' NEW_CONFIG << EOM
 
-# Appended new system
+if [ "$nvidia" = true ]; then
+	read -r -d '' NEW_CONFIG << EOM
+	
+	# Appended new system
 	$hostname =
-        let system = "x86_84-linux";
+       	let system = "x86_84-linux";
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
             hostname = "$hostname";
             displayConfig = "laptop";
-            nvidia_bool = "$nvidia";
+	    inherit system;
+          } // attrs;        
+          modules = [
+            ./.
+	    ./modules/hardware/nvidia
+          ];
+        };#$hostname
+EOM
+else
+	read -r -d '' NEW_CONFIG << EOM
+	
+	# Appended new system
+	$hostname =
+       	let system = "x86_84-linux";
+	in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "$username";
+            hostname = "$hostname";
+            displayConfig = "laptop";
 	    inherit system;
           } // attrs;        
           modules = [
@@ -103,9 +121,10 @@ read -r -d '' NEW_CONFIG << EOM
           ];
         };#$hostname
 EOM
-
-# Use awk to append the new configuration block before the last closing brace of the outputs block
+fi
 awk -v n="$NEW_CONFIG" '
     /};#sisyphus/ { print; print n; next }
     { print }
 ' flake.nix > temp && mv temp flake.nix
+
+echo "Validate that this import when okay by running 'nix flake check'."

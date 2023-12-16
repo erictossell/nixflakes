@@ -1,4 +1,4 @@
-{ hyprland, pkgs, nvidia_bool, username, ... }:
+{ hyprland, pkgs, username, ... }:
 {
   imports = [
     hyprland.nixosModules.default

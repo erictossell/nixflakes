@@ -40,13 +40,12 @@
           username = "eriim";
           hostname = "principium";
           hyprlandConfig = "desktop";
-          nvidia_bool = "enabled";
 	  inherit system;
         } // attrs;        
         modules = [
           ./.
+	  ./modules/hardware/nvidia
           ./modules/apps/obs
-	  #./modules/ssh
           ./modules/toys
           ./modules/virt
         ];
@@ -59,14 +58,13 @@
           username = "eriim";
           hostname = "sisyphus";
           hyprlandConfig = "laptop";
-          nvidia_bool = "disabled";
 	  inherit system;
         } // attrs;        
         modules = [
             ./.
         ];
       };#sisyphus
-
+ 
       live-image = 
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
@@ -75,25 +73,24 @@
           username = "nixos";
           hostname = "live-image";
           hyprlandConfig = "laptop";
-          nvidia_bool = "disabled";
           } // attrs;
           modules = [
             ./minimal.nix
           ];
       };#live-image
 
-      winders = 
+      winix = 
       let system = "x86_64-linux";
       in nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = {
           username = "eriim";
-          hostname = "winders";
+          hostname = "winix";
         } // attrs;
         modules = [
           ./wsl.nix         
         ];
-      };#winders-wsl
+      };#winix-wsl
 
 
     };#configurations
