@@ -92,7 +92,6 @@
         ];
       };#winix-wsl
 
-
     };#configurations
 
     templates.default = {
