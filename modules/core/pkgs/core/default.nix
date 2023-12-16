@@ -3,6 +3,7 @@ with pkgs; [
   awscli2
   brightnessctl
   cachix
+  glow
   pavucontrol
   playerctl
   ranger
