@@ -35,9 +35,9 @@ Transparency is cool.
 
 ### Diagrams
 
-![Flake Structure](docs/screens/FlakeStructure8.png)
+![Flake Structure](docs/screens/FlakeStructure8.svg)
 
-![Flake Profiles](docs/screens/FlakeProfiles8.png)
+![Flake Profiles](docs/screens/FlakeProfiles8.svg)
 
 ## Screenshots
 
