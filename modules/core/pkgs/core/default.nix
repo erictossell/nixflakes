@@ -9,5 +9,4 @@ with pkgs; [
   ripgrep
   unzip
   wget
-  yubikey-manager 
 ]
