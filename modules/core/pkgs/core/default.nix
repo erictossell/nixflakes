@@ -1,6 +1,7 @@
 {pkgs, ...}:
 with pkgs; [
   awscli2
+  azure-cli
   brightnessctl
   cachix
   glow
