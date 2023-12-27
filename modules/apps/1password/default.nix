@@ -1,11 +1,18 @@
 { pkgs, home-manager, username, ... }:
 { 
+   
+  
+   #
    home-manager.users.${username} = { pkgs, ... }: {
     home.file = {
+
+      # Configuration for 1password SSH Agent.
       ".ssh/config".text = ''
 Host *
   IdentityAgent ~/.1password/agent.sock
       '';
+      
+      # Configure 1password to handle SSH commit signing
       ".gitconfig".text = ''
 [user]
   name = "Eric Tossell"
@@ -23,22 +30,24 @@ Host *
       '';
      };
    };
+
+   # Enable 1password plugins on interactive shell init
    programs.bash.interactiveShellInit = ''
 source /home/${username}/.config/op/plugins.sh
    '';
+
+
+   # Enable 1password and the CLI
    programs = {
     _1password.enable = true;
     _1password-gui = {
 	enable = true;
 	polkitPolicyOwners = [ "${username}" ];
     }; 
-    #chromium = {
-	#extensions = [
-	  #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
-      #];
-    #};
   };
 
+  # Enable 1password to open with gnomekeyring
+  security.pam.services."1password".enableGnomeKeyring = true;
 
 }
 

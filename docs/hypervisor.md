@@ -5,6 +5,9 @@ NixOS can take full advantage of `kvm` and `qemu` (among other virtualization so
 The following is a basic configuration that allows for emulating TPM 2.0 (Windows 11), providing remote desktop connections over SPICE and some graphical tools to assist with the creation and management of VM's and their snaphots. 
 
 ```nix
+  # This may already be in your hardware-configuration.nix
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
+  
   virtualisation = {
     libvirtd = {
       enable = true;
