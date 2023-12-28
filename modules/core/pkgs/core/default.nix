@@ -9,6 +9,7 @@ with pkgs; [
   playerctl
   ranger
   ripgrep
+  terraform
   unzip
   wget
 ]
