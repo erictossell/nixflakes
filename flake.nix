@@ -23,6 +23,14 @@
       url = "github:erictossell/eriixvim";
     };
 
+    GoSSH = {
+      url = "github:erictossell/GoSSH";
+    };
+
+    russh = {
+      url = "github:erictossell/russh";
+    };
+    
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,6 +70,8 @@
         } // attrs;        
         modules = [
             ./.
+	    ./modules/GoSSH
+	    ./modules/russh
         ];
       };#sisyphus
  
