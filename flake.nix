@@ -71,7 +71,7 @@
         modules = [
             ./.
 	    ./modules/GoSSH
-	    #./modules/russh
+	    ./modules/russh
         ];
       };#sisyphus
  

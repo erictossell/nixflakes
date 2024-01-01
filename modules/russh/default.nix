@@ -1,6 +1,6 @@
 { pkgs, russh, ... }: 
 {
   environment.systemPackages = with pkgs; [
-    russh.packages.${system}.russh
+    russh.packages.${system}.default
   ];
 }
