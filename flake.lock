@@ -524,11 +524,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1704071171,
-        "narHash": "sha256-6PXSbrUBQPzAVyvnGl2fDDRNzjIIfKg2bjF140cc2iU=",
+        "lastModified": 1704087697,
+        "narHash": "sha256-wRL28ICAn242bhcuGNGgPKq/vvvR065u8n3CHdOfaJY=",
         "owner": "erictossell",
         "repo": "russh",
-        "rev": "55bdb79f788a321fcf40c08f4589ec2eb4caa748",
+        "rev": "d43d5a2648130a1fd660ed453527507787860553",
         "type": "github"
       },
       "original": {
