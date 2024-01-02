@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704091507,
-        "narHash": "sha256-SMtf/mgpYro3H2kGxck3W3jc3LYKnyAgNegjsEUuKfs=",
+        "lastModified": 1704191803,
+        "narHash": "sha256-OWYyK69PhnYWD3u1IJw8tvzM1e0nV+y+YVAOVug3jxs=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "b8d2747e2f7474e6c1ba5a63f265424c8d000257",
+        "rev": "f557430d41e76b43c28a7b55615c1713cf15704a",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1704136827,
-        "narHash": "sha256-KU4HbrN1/hdOE3fDqTOiULKDmfOuznTAEkdl0DIAnmE=",
+        "lastModified": 1704203430,
+        "narHash": "sha256-umzNv3lHwuzn2RhT4I4smtMCMcIUbeWlPkUSXRPUyQI=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "1a4f23eb2fee77b23b2cc6ff1fbfc87f60f10314",
+        "rev": "3c33d4b9dda3c418a6b842c71720040b092f8510",
         "type": "github"
       },
       "original": {
@@ -505,11 +505,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1704145535,
-        "narHash": "sha256-0KjGbPPbn7Q7+b9qOxT82pDFba4PXevaZYwzcRLL06U=",
+        "lastModified": 1704168605,
+        "narHash": "sha256-wGWvgpsOkEhOZoLMbK9r3WVgDVNRbMm/LA+Z5bA3GzM=",
         "owner": "erictossell",
         "repo": "russh",
-        "rev": "a0571f369a42bbf15e1829bd3502394142b70011",
+        "rev": "82cf6a7f6181628b2265e3250f3bc3c8ca02650f",
         "type": "github"
       },
       "original": {
