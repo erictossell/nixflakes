@@ -5,6 +5,7 @@ with pkgs; [
   brightnessctl
   cachix
   glow
+  gh
   pavucontrol
   playerctl
   ranger
