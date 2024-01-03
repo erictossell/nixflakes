@@ -33,6 +33,8 @@ Transparency is cool.
 
 [eriixvim: my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix)
 
+[ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix)
+
 ### Diagrams
 
 ![Flake Structure](docs/screens/FlakeStructure8.png)
