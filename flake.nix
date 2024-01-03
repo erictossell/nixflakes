@@ -66,7 +66,6 @@
         } // attrs;        
         modules = [
             ./.
-	    ./modules/GoSSH
 	    ./modules/russh
         ];
       };#sisyphus
