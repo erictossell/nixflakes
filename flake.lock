@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1704088926,
-        "narHash": "sha256-aVJ30P9k8sAU7vCHkGX7AAA0eImoOweirvr3uFXI5Rk=",
+        "lastModified": 1704216006,
+        "narHash": "sha256-UFVH0x1ISRQO0Rx4d1Io63m2OYYuvvLUB6kRaPINKxM=",
         "owner": "erictossell",
         "repo": "GoSSH",
-        "rev": "fa15fd690bbd8f3fe7bf3d0de335c81513f516bf",
+        "rev": "47235c13720bb00a74a4acd84fa6a21d1b08b847",
         "type": "github"
       },
       "original": {
@@ -260,11 +260,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1704203430,
-        "narHash": "sha256-umzNv3lHwuzn2RhT4I4smtMCMcIUbeWlPkUSXRPUyQI=",
+        "lastModified": 1704230318,
+        "narHash": "sha256-aYjwKz4ybEEGqG45xFlnQbb0eN5GUxj9NMRcEYBPT3w=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "3c33d4b9dda3c418a6b842c71720040b092f8510",
+        "rev": "1512b81126dd115f089fd21244692d92034c78f8",
         "type": "github"
       },
       "original": {
@@ -505,11 +505,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1704208571,
-        "narHash": "sha256-2pKP0O+Qjxe8EzKzCL+k1mW5jdCtCDJp7nODnvCLWek=",
+        "lastModified": 1704240564,
+        "narHash": "sha256-moYpOCCnOKWFsfqbSwhS1sjiLuGpn5wzmCJSfDkTkU4=",
         "owner": "erictossell",
         "repo": "russh",
-        "rev": "baa40b820b0a1b8af230b938bfddda186cc65f6b",
+        "rev": "a55e75596fc523e7003de9b9178caf267b60d064",
         "type": "github"
       },
       "original": {
