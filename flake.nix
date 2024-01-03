@@ -23,10 +23,6 @@
       url = "github:erictossell/eriixvim";
     };
 
-    GoSSH = {
-      url = "github:erictossell/GoSSH";
-    };
-
     russh = {
       url = "github:erictossell/russh";
     };
