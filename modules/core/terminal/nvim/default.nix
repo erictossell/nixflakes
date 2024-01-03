@@ -1,6 +1,6 @@
-{ pkgs, eriixvim,  ... }:
+{ pkgs, eriixvim, system, ... }:
 {
   environment.systemPackages = with pkgs; [
-    eriixvim.packages.x86_64-linux.default
+    eriixvim.packages.${system}.default
   ];
 }

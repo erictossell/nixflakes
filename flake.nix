@@ -23,10 +23,6 @@
       url = "github:erictossell/eriixvim";
     };
 
-    GoSSH = {
-      url = "github:erictossell/GoSSH";
-    };
-
     russh = {
       url = "github:erictossell/russh";
     };
@@ -70,7 +66,6 @@
         } // attrs;        
         modules = [
             ./.
-	    ./modules/GoSSH
 	    ./modules/russh
         ];
       };#sisyphus
@@ -83,6 +78,7 @@
           username = "nixos";
           hostname = "live-image";
           hyprlandConfig = "laptop";
+	  inherit system;
           } // attrs;
           modules = [
             ./minimal.nix
@@ -96,6 +92,7 @@
         specialArgs = {
           username = "eriim";
           hostname = "winix";
+	  inherit system;
         } // attrs;
         modules = [
           ./wsl.nix         

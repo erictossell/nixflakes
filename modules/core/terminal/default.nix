@@ -24,7 +24,6 @@
    };
 
    environment.systemPackages = with pkgs; [
-     alacritty # backup terminal
      btop
      nitch
      vim

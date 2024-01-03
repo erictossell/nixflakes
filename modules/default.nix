@@ -6,5 +6,6 @@
     ./core
     ./hardware
     ./hyprland
+    ./nix
   ];
 }
