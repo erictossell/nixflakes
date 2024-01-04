@@ -52,6 +52,7 @@
           ./modules/apps/obs
           ./modules/toys
           ./modules/virt
+	  ./modules/russh
         ];
       };#principium
 
