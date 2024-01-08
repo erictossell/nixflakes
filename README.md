@@ -57,14 +57,14 @@ This repo has become more opinionated over time and now requires passing down va
 
 Transparency is cool.
 
-| Input | Details |
+| Input | Following |
 | --- | --- |
 | nixpkgs | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
 | home-manager | [following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix) |
 | agenix | [following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix) |
-| [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| | 
-| eriixvim | [my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix) |
-| [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | |
+| [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| [nixos-unstable](https://github.com/NixOS/nixpkgs)| 
+| eriixvim [my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
+| [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
 
 ### Diagrams
 
