@@ -34,7 +34,7 @@ sudo nixos-rebuild switch --flake github:user/nix-config/
 
 ### Control with Flakes
 
-Flakes in Nix provide a more controlled and manageable way to handle inputs and outputs. They offer a declarative and reproducible package management system.
+Flakes in Nix provide a more controlled and manageable way to handle inputs and outputs. They offer a declarative and reproducible package management system. Flakes are used to build `system configurations`, `development shells`, `packages` and the `nixpkgs` monorepo itself.
 
 ```nix
 
@@ -43,7 +43,7 @@ Flakes in Nix provide a more controlled and manageable way to handle inputs and 
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.03";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
   };
 
   outputs = { self, nixpkgs }: {
