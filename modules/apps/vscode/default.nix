@@ -1,6 +1,6 @@
 { pkgs, home-manager, username, ... }:
 {
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
     # VS Code on Wayland has issues, make sure to set the title bar to custom
     # https://github.com/microsoft/vscode/issues/181533
     programs.vscode = {

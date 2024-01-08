@@ -26,7 +26,7 @@
     win-spice
   ];
 
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = [ "qemu:///system" ];

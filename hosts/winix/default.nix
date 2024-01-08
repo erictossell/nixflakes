@@ -1,4 +1,4 @@
-{ config, lib, username, hostname, pkgs, NixOS-WSL, ... }:
+{ username, hostname, NixOS-WSL, ... }:
 
 {
   imports = [

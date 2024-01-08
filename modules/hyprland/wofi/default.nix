@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [ wofi ];
 
-  home-manager.users.${username} = _: {
+  home-manager.users.${username} = {
     home.file = {
       ".config/wofi/config".text = ''
         width=420

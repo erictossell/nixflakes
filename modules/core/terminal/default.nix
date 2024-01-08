@@ -12,7 +12,7 @@
   ];
 
   # ---- Home Configuration ----
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
     programs.git.enable = true;
     programs.vim.enable = true;
   };
