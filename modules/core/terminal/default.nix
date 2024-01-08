@@ -24,6 +24,7 @@
    };
 
    environment.systemPackages = with pkgs; [
+     alacritty
      btop
      nitch
      vim

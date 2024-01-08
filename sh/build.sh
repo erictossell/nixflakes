@@ -94,7 +94,7 @@ if [ "$nvidia" = true ]; then
           specialArgs = {
             username = "$username";
             hostname = "$hostname";
-            displayConfig = "laptop";
+            hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
           modules = [
@@ -113,7 +113,7 @@ else
           specialArgs = {
             username = "$username";
             hostname = "$hostname";
-            displayConfig = "laptop";
+            hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
           modules = [
