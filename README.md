@@ -14,16 +14,15 @@ There are many paths to the top of the mountain, but the view is always the same
 
 ## What is in this repo?
 
-#### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png)
- (opinionated) Configuration Structure
+#### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) (opinionated) Configuration Structure
 
-#### 2. An interactive build script for adding new hosts/users at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
-
-#### 3. Flake templates - Quickly grab this configuration and make it your own with:
+#### 2. Flake templates - Quickly grab this configuration and make it your own with:
 
 ```nix
 nix flake new -t 'github:erictossell/nixflakes' ./<your-repo-name-here>
 ```
+
+#### 3. An interactive build script for adding new [`hosts`](https://github.com/erictossell/nixflakes/tree/main/hosts)/[`users`](https://github.com/erictossell/nixflakes/tree/main/users) at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
 
 #### 4. [`eriixvim`](https://github.com/erictossell/eriixvim) - a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
 
