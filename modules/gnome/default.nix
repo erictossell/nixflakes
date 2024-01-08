@@ -18,7 +18,7 @@ let
 in
 {
   # ---- Home Configuration ----
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
 
     home.packages = gnomeExtensionsList;
 

@@ -1,6 +1,6 @@
 { pkgs, home-manager, username, ... }:
 {
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
     programs = {
       obs-studio = {
         enable = true;

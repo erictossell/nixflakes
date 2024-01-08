@@ -3,7 +3,7 @@
 
 
   #
-  home-manager.users.${username} = { pkgs, ... }: {
+  home-manager.users.${username} = {
     home.file = {
 
       # Configuration for 1password SSH Agent.

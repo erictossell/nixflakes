@@ -1,4 +1,4 @@
-{ pkgs, home-manager, username, hostname, ... }:
+{ hostname, ... }:
 {
   imports = [
     ./${hostname}
