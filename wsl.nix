@@ -6,7 +6,7 @@
     ./hosts
     ./modules/core/terminal
     ./modules/core/pkgs
-    ./modules/nix
+    ./modules/core/nix
   ];
 
 }

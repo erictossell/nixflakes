@@ -6,7 +6,6 @@ let
   };
 in
 {
-  imports = [
-  ] ++ (dotfiles.${hyprlandConfig} or [ ]);
+  imports = dotfiles.${hyprlandConfig} or [ ];
   environment.systemPackages = with pkgs; [ waybar ];
 }

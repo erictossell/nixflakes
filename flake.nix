@@ -84,7 +84,7 @@
         live-image =
           let system = "x86_64-linux";
           in nixpkgs.lib.nixosSystem {
-            system = system;
+            inherit system;
             specialArgs = {
               username = "nixos";
               hostname = "live-image";
@@ -99,7 +99,7 @@
         winix =
           let system = "x86_64-linux";
           in nixpkgs.lib.nixosSystem {
-            system = system;
+            inherit system;
             specialArgs = {
               username = "eriim";
               hostname = "winix";
@@ -118,7 +118,7 @@
         in
         {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [ statix  ];
+            buildInputs = with pkgs; [ statix ];
           };
         });
 

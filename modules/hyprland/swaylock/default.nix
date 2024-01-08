@@ -14,7 +14,7 @@
       };
     };
   };
-  home-manager.users.${username} = { ... }: {
+  home-manager.users.${username} = _: {
     home.file = {
       ".config/swaylock/background.jpg".source = ./nix-wallpaper-dracula.png;
 
