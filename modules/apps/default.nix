@@ -1,6 +1,6 @@
 { pkgs, home-manager, username, ... }:
 {
-  imports = [ 
+  imports = [
     ./1password
     ./libreoffice
     ./browsing
@@ -10,6 +10,6 @@
     home.packages = with pkgs; [
       #obsidian
       discord
-     ];
+    ];
   };
 }

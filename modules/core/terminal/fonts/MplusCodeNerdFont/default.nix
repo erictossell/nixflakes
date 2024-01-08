@@ -1,4 +1,4 @@
-{ stdenv, lib , pkgs }:
+{ stdenv, lib, pkgs }:
 
 stdenv.mkDerivation rec {
   pname = "M+1CodeNerdFont";

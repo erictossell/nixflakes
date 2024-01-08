@@ -1,49 +1,49 @@
-{ pkgs, home-manager, username,  ... }:
+{ pkgs, home-manager, username, ... }:
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
-	user-themes
-	blur-my-shell
-	pano
-	desktop-cube
-	desktop-clock
-	pop-shell
-	vitals
-	docker
-	unblank
-	custom-accent-colors	
-	system-monitor
-	tailscale-qs
-	tailscale-status
+    user-themes
+    blur-my-shell
+    pano
+    desktop-cube
+    desktop-clock
+    pop-shell
+    vitals
+    docker
+    unblank
+    custom-accent-colors
+    system-monitor
+    tailscale-qs
+    tailscale-status
   ];
 in
 {
   # ---- Home Configuration ----
-  home-manager.users.${username} = { pkgs, ...}: {
+  home-manager.users.${username} = { pkgs, ... }: {
 
     home.packages = gnomeExtensionsList;
 
     dconf.settings = {
       "org/gnome/shell".enabled-extensions = (map (extension: extension.extensionUuid) gnomeExtensionsList)
-      ++
-      [
-        "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-navigator@gnome-shell-extensions.gcampax.github.com"
-        "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
-       #"native-window-placement@gnome-shell-extensions.gcampax.github.com"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-      ];
+        ++
+        [
+          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+          "window-list@gnome-shell-extensions.gcampax.github.com"
+          "places-menu@gnome-shell-extensions.gcampax.github.com"
+          "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
+          "apps-menu@gnome-shell-extensions.gcampax.github.com"
+          "window-navigator@gnome-shell-extensions.gcampax.github.com"
+          "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+          #"native-window-placement@gnome-shell-extensions.gcampax.github.com"
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+        ];
 
-      "org/gnome/shell".disabled-extensions = [];
+      "org/gnome/shell".disabled-extensions = [ ];
 
       "org/gnome/shell".favorite-apps = [ "firefox.desktop" "code.desktop" "discord.desktop" "virt-manager.desktop" ];
-      
+
       "org/gnome/desktop/interface" = {
-        enable-hot-corners = false;  
-           
+        enable-hot-corners = false;
+
         gtk-theme = "Nordic";
 
         ## Clock
@@ -54,7 +54,7 @@ in
         monospace-font-name = "RobotoMono Nerd Font 10";
         font-antialiasing = "rgba";
       };
- 
+
       # Keybindings
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
@@ -67,9 +67,9 @@ in
         command = "foot  > /dev/null 2>&1 &";
         name = "open-terminal";
       };
-    
+
       "org/gnome/shell/keybindings" = {
-        show-screenshot-ui=["<Shift><Super>s"];
+        show-screenshot-ui = [ "<Shift><Super>s" ];
       };
 
       "org/gnome/desktop/wm/preferences" = {
@@ -84,7 +84,7 @@ in
 
       "org/gnome/desktop/wm/keybindings" = {
         toggle-message-tray = "disabled";
-        close = ["<Super>w"];
+        close = [ "<Super>w" ];
         maximize = "disabled";
         minimize = "disabled";
         move-to-monitor-down = "disabled";
@@ -109,7 +109,7 @@ in
       "org/gnome/shell/extensions/pop-shell" = {
         tile-by-default = true;
       };
- 
+
       # Configure blur-my-shell
       "org/gnome/shell/extensions/blur-my-shell" = {
         brightness = 0.85;
@@ -125,8 +125,8 @@ in
 
       # Configure Pano
       "org/gnome/shell/extensions/pano" = {
-        global-shortcut = ["<Super>comma"];
-        incognito-shortcut = ["<Shift><Super>less"];
+        global-shortcut = [ "<Super>comma" ];
+        incognito-shortcut = [ "<Shift><Super>less" ];
       };
 
       # Set the default window for primary applications
@@ -145,14 +145,14 @@ in
 
       "org/gnome/shell/extensions/user-theme" = {
         name = "nordic";
-      };     
-   };
+      };
+    };
   };
- 
+
   # ---- System Configuration ----
   services.xserver = {
     enable = true;
-    desktopManager.gnome.enable=true;
+    desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
       wayland = true;
@@ -173,7 +173,7 @@ in
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
-    ]) ++ (with pkgs.gnome; [
+  ]) ++ (with pkgs.gnome; [
     gnome-music
     gedit
     epiphany

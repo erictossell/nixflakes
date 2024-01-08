@@ -7,5 +7,5 @@ let
 in
 {
   imports = [
-  ] ++ (dotfiles.${hyprlandConfig} or [ ]); 
+  ] ++ (dotfiles.${hyprlandConfig} or [ ]);
 }

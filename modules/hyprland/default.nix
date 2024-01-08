@@ -9,11 +9,11 @@
     ./waybar
     ./wofi
   ];
-  
+
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
-  environment.systemPackages = with pkgs; [ 
+
+  environment.systemPackages = with pkgs; [
     eww-wayland
     grim
     hyprpaper
@@ -24,11 +24,11 @@
     # Required if applications are having trouble opening links
     xdg-utils
   ];
-  
+
   programs.hyprland.enable = true;
 
   programs.dconf.enable = true;
-  
+
   services.gnome = {
     gnome-keyring.enable = true;
   };
@@ -40,7 +40,7 @@
       };
     };
   };
-  
+
   xdg.portal.config = {
     common = {
       default = [ "xdph" "gtk" ];

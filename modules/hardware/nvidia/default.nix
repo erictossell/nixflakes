@@ -25,7 +25,7 @@
     # Video card specific - stable supports "newer" cards, "production" is 535
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
-  
+
   users.users.${username} = {
     extraGroups = [ "video" "render" ];
   };

@@ -1,6 +1,6 @@
 { pkgs, home-manager, username, ... }:
-{  
-   imports = [
+{
+  imports = [
     ./bash
     ./cava
     ./fonts
@@ -9,24 +9,24 @@
     ./nvim
     ./starship
     ./tmux
-   ];
+  ];
 
-   # ---- Home Configuration ----
-   home-manager.users.${username} = { pkgs, ... }: {
-     programs.git.enable = true;
-     programs.vim.enable = true;
-   };
+  # ---- Home Configuration ----
+  home-manager.users.${username} = { pkgs, ... }: {
+    programs.git.enable = true;
+    programs.vim.enable = true;
+  };
 
-   # ---- System Configuration ----
-   programs = {
-     htop.enable = true;
-     mtr.enable = true;  
-   };
+  # ---- System Configuration ----
+  programs = {
+    htop.enable = true;
+    mtr.enable = true;
+  };
 
-   environment.systemPackages = with pkgs; [
-     alacritty
-     btop
-     nitch
-     vim
-   ];
+  environment.systemPackages = with pkgs; [
+    alacritty
+    btop
+    nitch
+    vim
+  ];
 }
