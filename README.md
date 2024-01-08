@@ -1,4 +1,4 @@
-> :warning: I am not an authority on `Nix` or `NixOS`. I am merely an apprentice, an *Alice* navigating the *wonderland*. At least for now.
+> :warning: **I am not an authority on `Nix` or `NixOS`. I am merely an apprentice, an *Alice* navigating the *wonderland*. At least for now.**
 
 So anyways. Here's my dots. I hope you like them.
 
@@ -15,7 +15,13 @@ There are many paths to the top of the mountain, but the view is always the same
 ### Flake Structure
 Modules are grouped to be ***almost*** purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
 
-This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate modules and packages and eventually theming elements. 
+This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate `host` and `user` specific configurations for a given device.
+
+My `nixvim` configuration is available as a standalone at [https://github.com/erictossell/eriixvim](https://github.com/erictossell/eriixvim).
+Want to give it a temporary try? Without installing anything else?
+Just run `nix run github:erictossell/eriixvim` 
+
+[`nixvim`](https://github.com/nix-community/nixvim) allows for building fully reproducible neovim configurations. Build your neovim config once and run it anywhere, even on Windows (with `wsl`).
 
 ### Flake Github URLS
 
@@ -54,40 +60,6 @@ October 2023
 
 ![Hyprland3](docs/screens/hyprland3.png)
 
-### My Nixdots Contain Configurations for
-
-#### Core Modules
-- Boot
-- Security Config ([Yubico](https://www.yubico.com/) Authentication)
-  ##### Terminal Module
-  - Editor: [`nvim`](https://neovim.io/), `vim`
-  - Terminals: [`foot`](https://codeberg.org/dnkl/foot), [`alacritty`](https://github.com/alacritty/alacritty), [`wezterm`](https://wezfurlong.org/wezterm/index.html)
-  - Shell: `bash`
-  - [`btop` (Resource Monitoring)](https://github.com/aristocratos/btop)
-  - [`cava` (Music Visualizer)](https://github.com/karlstav/cava)
-  - [`nitch` (sysfetch)](https://github.com/ssleert/nitch)
-
-#### Hyprland
-- [Dotfiles](modules/hyprland/config/)
-- [greetd](modules/hyprland/greetd/default.nix)
-- [mako](modules/hyprland/mako/default.nix)
-- [swaylock](modules/hyprland/swaylock/default.nix)
-- [waybar](modules/hyprland/waybar/default.nix)
-- [wofi](modules/hyprland/wofi/default.nix)
-
-#### Apps
-- [1Password](https://1password.com/)
-- Browsers (Firefox, Chrome, Nyxt)
-- [Discord](https://discord.com)
-- [Obsidian](https://obsidian.md/)
-- [VSCode](https://code.visualstudio.com/)
-
-#### Extra Toys
-- [OBS Studio](https://obsproject.com/) (for screen recording and streaming/sharing screen)
-- Vidya (Lutris, Steam, Wine)
-
-- Virt (Docker, Podman, kvm/qemu)
-
 #### Configurations
 1. Desktop (principium) - 3 monitors
 
@@ -101,7 +73,11 @@ October 2023
 
 3. Live Boot Image (live-image)
 
-   - A customized minimal boot example.
+   - A customized live-installation media example.
+
+4. WSL Configuration (winix)
+
+    - My fully reproducible `linux` terminal environment on `Windows`.
 
 [How to use this repo](docs/usage.md)
 
