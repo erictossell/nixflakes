@@ -119,10 +119,10 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-   	      git
-	      nixpkgs-fmt
-	      statix
-	    ];
+              git
+              nixpkgs-fmt
+              statix
+            ];
           };
         });
 
