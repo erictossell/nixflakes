@@ -5,6 +5,6 @@
     ./users
     ./hosts
     ./modules/core/terminal
-    ./modules/nix
+    ./modules/core/nix
   ];
 }
