@@ -22,8 +22,8 @@
     htop.enable = true;
     mtr.enable = true;
   };
-  
-  
+
+
   environment.systemPackages = with pkgs; [
     alacritty
     btop
