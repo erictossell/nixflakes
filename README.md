@@ -14,17 +14,18 @@ There are many paths to the top of the mountain, but the view is always the same
 
 ## What is in this repo?
 
-- [Modular (opinionated) Configuration Structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png)
+##### [Modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png)
+ (opinionated) Configuration Structure
 
-- [Interactive build script for adding new hosts/users at `sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
+##### Interactive build script for adding new hosts/users at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
 
-- Flake templates - Quickly grab this configuration and make it your own with:
+##### Flake templates - Quickly grab this configuration and make it your own with:
 
 ```nix
 nix flake new -t 'github:erictossell/nixflakes' ./<your-repo-name-here>
 ```
 
-- [`eriixvim`](https://github.com/erictossell/eriixvim) is a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
+##### [`eriixvim`](https://github.com/erictossell/eriixvim) is a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
 
 Try it out with:
 
@@ -32,18 +33,18 @@ Try it out with:
 nix run github:erictossell/eriixvim
 ```
 
-- [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
+##### [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
 
-- Semi up to date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
+##### Semi up to date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
 
-- A simple example of a custom built `rust` package: [`russh`](https://github.com/erictossell/russh). The highlight being how simple it is to package any application with `flakes` and import them into a `configuration`.
+##### A simple example of a custom built `rust` package: [`russh`](https://github.com/erictossell/russh). The highlight being how simple it is to package any application with `flakes` and import them into a `configuration`.
 
-- Places I run this `flake`:
+##### Places I run this `flake`:
 ```md
-    principium - My Desktop with full virtualisation capabilities.
-    sisyphus - My laptop as a default baseline for the flake.
-    live-image - Customized Installation Media
-    winix - My WSL `NixOS` configuration.
+    principium  - My Desktop with full virtualisation capabilities.
+    sisyphus    - My laptop as a default baseline for the flake.
+    live-image  - Customized Installation Media
+    winix       - My WSL `NixOS` configuration.
 ```
 
 ### Flake Structure
