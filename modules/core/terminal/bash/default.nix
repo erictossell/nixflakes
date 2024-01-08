@@ -1,11 +1,11 @@
 { pkgs, home-manager, username, ... }:
 {
   # ---- Home Configuration ----
-  home-manager.users.${username} = { pkgs, ... }: {
-    programs.bash = {
-      enable = true;
-    };
-  };
+  #home-manager.users.${username} = { pkgs, ... }: {
+  #  programs.bash = {
+  #    enable = true;
+  #  };
+  #};
 
   # Shell Aliases inspired by:
   # https://github.com/donovanglover/nix-config

@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     brightnessctl
-    glow
     gh
     pavucontrol
     playerctl
