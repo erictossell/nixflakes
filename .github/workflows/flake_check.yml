@@ -29,14 +29,9 @@ jobs:
     # uses: DeterminateSystems/flake-checker-action@4b90f9fc724969ff153fe1803460917c84fe00a3
       uses: DeterminateSystems/flake-checker-action@v5
 
-    - name: Commit and push if necessary
-      env:
-        TOKEN: ${{ secrets.TOKEN }}  # Use the secret
-      run: |
-        git config --global user.name 'Eric Tossell'
-        git config --global user.email 'erictossell@gmail.com'
-        git add **/*.nix
-        git diff --staged --exit-code || git commit -m "Format Nix files"
-        git push https://${{ env.TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF_NAME}
+    - name: Commit
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Auto lint/format
+        branch: develop
 
-           
