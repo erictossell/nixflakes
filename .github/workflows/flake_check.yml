@@ -12,19 +12,31 @@ jobs:
 
     - name: Install Nix
       uses: cachix/install-nix-action@v23
+      with: 
+        nix_path: nixpkgs=channel:nixos-unstable
 
-    - name: Run Nix Flake Check
-      run: |
-        output=$(nix flake check 2>&1)
-        echo "$output"
-        if echo "$output" | grep -q -i error; then
-          exit 1
-        fi
+    - name: Install Nix Linting and Formatting Tools
+      run: nix-env -i statix nixpkgs-fmt -f '<nixpkgs>'
+
+    - name: Run Statix Lint
+      run: statix fix
+
+    - name: Run Nix Format
+      run: nix fmt
 
     - name: Nix Flake Checker
     # You may pin to the exact commit or the version.
     # uses: DeterminateSystems/flake-checker-action@4b90f9fc724969ff153fe1803460917c84fe00a3
       uses: DeterminateSystems/flake-checker-action@v5
-      with:
-           send-statistics: true # optional, default is true
-      
+
+    - name: Commit and push if necessary
+      env:
+        TOKEN: ${{ secrets.TOKEN }}  # Use the secret
+      run: |
+        git config --global user.name 'Eric Tossell'
+        git config --global user.email 'erictossell@gmail.com'
+        git add **/*.nix
+        git diff --staged --exit-code || git commit -m "Format Nix files"
+        git push https://${{ env.TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF_NAME}
+
+           

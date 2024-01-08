@@ -6,7 +6,7 @@
       enable = true;
     };
   };
-  
+
   # Shell Aliases inspired by:
   # https://github.com/donovanglover/nix-config
   # ---- System Configuration ----
