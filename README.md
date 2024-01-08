@@ -19,7 +19,7 @@ There are many paths to the top of the mountain, but the view is always the same
 #### 2. Flake templates - Quickly grab this configuration and make it your own with:
 
 ```nix
-nix flake new -t 'github:erictossell/nixflakes' ./<your-repo-name-here>
+nix flake new -t github:erictossell/nixflakes ./<your-repo-name-here>
 ```
 
 #### 3. An interactive build script for adding new [`hosts`](https://github.com/erictossell/nixflakes/tree/main/hosts)/[`users`](https://github.com/erictossell/nixflakes/tree/main/users) at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
@@ -48,7 +48,7 @@ The highlight being how simple it is to package any application with `flakes` an
 
 #### 8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
 
-### Flake Structure
+## Flake Structure
 Modules are grouped to be ***almost*** purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate `host` and `user` specific configurations for a given device.
@@ -57,17 +57,14 @@ This repo has become more opinionated over time and now requires passing down va
 
 Transparency is cool.
 
-[nixpkgs: nixos-unstable](https://github.com/NixOS/nixpkgs)
-
-[home-manager: following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix)
-
-[agenix: following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix)
-
-[hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)
-
-[eriixvim: my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix)
-
-[ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix)
+| Input | Details |
+| --- | --- |
+| nixpkgs | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
+| home-manager | [following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix) |
+| agenix | [following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix) |
+| [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| | 
+| eriixvim | [my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix) |
+| [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | |
 
 ### Diagrams
 
