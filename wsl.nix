@@ -2,11 +2,11 @@
 {
   imports = [
     home-manager.nixosModules.home-manager
-    {nix.registry.nixpkgs.flake = nixpkgs; }
+    { nix.registry.nixpkgs.flake = nixpkgs; }
     ./hosts
     ./modules/core/terminal
     ./modules/core/pkgs
     ./modules/nix
-    ];
+  ];
 
 }

@@ -12,16 +12,16 @@
     };
     spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;  
+  services.spice-vdagentd.enable = true;
 
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     spice
     spice-gtk
     spice-protocol
     virt-manager
-    virt-viewer 
+    virt-viewer
     win-virtio
     win-spice
   ];
@@ -29,8 +29,8 @@
   home-manager.users.${username} = { pkgs, ... }: {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
-	      autoconnect = [ "qemu:///system" ];
-	      uris = [ "qemu:///system" ];
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
       };
     };
   };

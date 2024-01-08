@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
-	#./bluetooth
-	./network
-	./sound
+    #./bluetooth
+    ./network
+    ./sound
   ];
 }

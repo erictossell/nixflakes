@@ -1,6 +1,6 @@
 { pkgs, username, ... }:
-{ 
-  security = {       
+{
+  security = {
     pam = {
       # Auth with FIDO Keys
       # Documentation is available on the NixOS wiki.
@@ -13,6 +13,6 @@
         sudo.u2fAuth = true;
       };
     };
-  }; 
+  };
   services.udev.packages = [ pkgs.yubikey-personalization ];
 }

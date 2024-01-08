@@ -5,8 +5,8 @@ let
     "desktop" = [ (import ./desktop.nix { inherit home-manager username; }) ];
   };
 in
-{ 
+{
   imports = [
-  ] ++ (dotfiles.${hyprlandConfig} or [ ]); 
+  ] ++ (dotfiles.${hyprlandConfig} or [ ]);
   environment.systemPackages = with pkgs; [ waybar ];
 }
