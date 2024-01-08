@@ -101,11 +101,14 @@
       };#winix-wsl
 
     };#configurations
+    
+
 
     templates.default = {
       path = ./.;
       description = "The default template for Eriim's nixflakes.";
     };#templates
-   
+ 
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;  
   };
 }
