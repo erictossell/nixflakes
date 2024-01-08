@@ -87,25 +87,6 @@ October 2023
 
 ![Hyprland3](docs/screens/hyprland3.png)
 
-#### Configurations
-1. Desktop (principium) - 3 monitors
-
-   - WM: [hyprland](https://hyprland.org/)
-   - All core modules + nvidia
-
-2. Laptop (sisyphus) - 1 monitor
-
-   - WM: [hyprland](https://hyprland.org/)
-   - Most core modules (no extra toys)
-
-3. Live Boot Image (live-image)
-
-   - A customized live-installation media example.
-
-4. WSL Configuration (winix)
-
-    - My fully reproducible `linux` terminal environment on `Windows`.
-
 [How to use this repo](docs/usage.md)
 
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
