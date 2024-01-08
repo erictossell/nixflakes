@@ -152,21 +152,23 @@ in
   # ---- System Configuration ----
   services.xserver = {
     enable = true;
+    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
       wayland = true;
     };
+    gnome = {
+      evolution-data-server.enable = true;
+      gnome-keyring.enable = true;
+    };
   };
 
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
 
   programs.dconf.enable = true;
 
-  services.gnome = {
-    evolution-data-server.enable = true;
-    gnome-keyring.enable = true;
-  };
+
 
   environment.systemPackages = with pkgs; [ nordic ];
 

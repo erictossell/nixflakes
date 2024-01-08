@@ -1,6 +1,6 @@
 { home-manager, username, ... }:
 {
-  home-manager.users.${username} = { ... }: {
+  home-manager.users.${username} = _: {
     home.file = {
       ".config/foot/foot.ini".text = ''
         font=M+1Code Nerd Font:size=13

@@ -6,6 +6,5 @@ let
   };
 in
 {
-  imports = [
-  ] ++ (dotfiles.${hyprlandConfig} or [ ]);
+  imports = dotfiles.${hyprlandConfig} or [ ];
 }

@@ -33,82 +33,100 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: {
+  outputs = { self, nixpkgs, ... } @ attrs:
+    let
+      supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
 
-    nixosConfigurations = {
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-      principium =
-        let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "eriim";
-            hostname = "principium";
-            hyprlandConfig = "desktop";
+      # Nixpkgs instantiated for supported system types.
+      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+    in
+    {
+
+      nixosConfigurations = {
+
+        principium =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "eriim";
+              hostname = "principium";
+              hyprlandConfig = "desktop";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./.
+              ./modules/hardware/nvidia
+              ./modules/apps/obs
+              ./modules/toys
+              ./modules/virt
+              ./modules/russh
+            ];
+          }; #principium
+
+        sisyphus =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "eriim";
+              hostname = "sisyphus";
+              hyprlandConfig = "laptop";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./.
+              ./modules/russh
+            ];
+          }; #sisyphus
+
+        live-image =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
             inherit system;
-          } // attrs;
-          modules = [
-            ./.
-            ./modules/hardware/nvidia
-            ./modules/apps/obs
-            ./modules/toys
-            ./modules/virt
-            ./modules/russh
-          ];
-        }; #principium
+            specialArgs = {
+              username = "nixos";
+              hostname = "live-image";
+              hyprlandConfig = "laptop";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./minimal.nix
+            ];
+          }; #live-image
 
-      sisyphus =
-        let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "eriim";
-            hostname = "sisyphus";
-            hyprlandConfig = "laptop";
+        winix =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
             inherit system;
-          } // attrs;
-          modules = [
-            ./.
-            ./modules/russh
-          ];
-        }; #sisyphus
+            specialArgs = {
+              username = "eriim";
+              hostname = "winix";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./wsl.nix
+            ];
+          }; #winix-wsl
 
-      live-image =
-        let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {
-            username = "nixos";
-            hostname = "live-image";
-            hyprlandConfig = "laptop";
-            inherit system;
-          } // attrs;
-          modules = [
-            ./minimal.nix
-          ];
-        }; #live-image
+      }; #configurations
 
-      winix =
-        let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {
-            username = "eriim";
-            hostname = "winix";
-            inherit system;
-          } // attrs;
-          modules = [
-            ./wsl.nix
-          ];
-        }; #winix-wsl
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [ statix ];
+          };
+        });
 
-    }; #configurations
+      templates.default = {
+        path = ./.;
+        description = "The default template for Eriim's nixflakes.";
+      }; #templates
 
-
-
-    templates.default = {
-      path = ./.;
-      description = "The default template for Eriim's nixflakes.";
-    }; #templates
-
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-  };
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+    };
 }

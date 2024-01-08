@@ -1,6 +1,6 @@
 { home-manager, username, ... }:
 {
-  home-manager.users.${username} = { ... }: {
+  home-manager.users.${username} = _: {
     home.file = {
       ".config/hypr/hyprpaper.conf".text = ''
         preload = ~/.config/backgrounds/232136.png

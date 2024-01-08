@@ -1,7 +1,7 @@
 { pkgs, home-manager, username, ... }:
 {
   environment.systemPackages = with pkgs; [ mako ];
-  home-manager.users.${username} = { ... }: {
+  home-manager.users.${username} = _: {
     home.file = {
       ".config/mako/config".text = ''
         font=M+1Code Nerd Font

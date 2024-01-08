@@ -7,6 +7,8 @@
     };
   };
 
+  # Shell Aliases inspired by:
+  # https://github.com/donovanglover/nix-config
   # ---- System Configuration ----
   programs.bash = {
     interactiveShellInit = ''
@@ -69,6 +71,7 @@
 
       nf = "nix flake";
       nfu = "nix flake update";
+      nfc = "nix flake check";
       nd = "nix develop";
       nb = "nix build";
       ns = "nix shell";
