@@ -36,7 +36,7 @@ nix run github:erictossell/eriixvim
 
 The highlight being how simple it is to package any application with `flakes` and import them into a `configuration` and ***not*** my `rust` code.
 
-#### 6. Semi up to date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
+#### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
 
 #### 7. Places I run this `flake`:
 ```md
@@ -63,7 +63,7 @@ Transparency is cool.
 | home-manager | [following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix) |
 | agenix | [following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix) |
 | [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| [nixos-unstable](https://github.com/NixOS/nixpkgs)| 
-| eriixvim [my nixvim flake](https://github.com/erictossell/eriixvim/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
+| [eriixvim](https://github.com/erictossell/eriixvim/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
 | [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
 
 ### Diagrams
