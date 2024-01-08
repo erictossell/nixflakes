@@ -3,11 +3,6 @@
   #----- Home Manager Config -----
   home-manager.users.${username} = { pkgs, ... }: {
 
-    home.packages = with pkgs; [
-      nyxt
-      qutebrowser
-    ];
-
     home.sessionVariables = {
       MOZ_ENABLE_WAYLAND = 1;
     };

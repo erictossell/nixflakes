@@ -2,14 +2,10 @@
 {
   imports = [
     ./1password
-    ./libreoffice
     ./browsing
+    ./libreoffice
+    # Electron Issues - I'm just editting markdown at the moment.
+    #./obsidian
     ./vscode
   ];
-  home-manager.users.${username} = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      #obsidian
-      discord
-    ];
-  };
 }
