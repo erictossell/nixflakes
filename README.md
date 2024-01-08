@@ -12,16 +12,44 @@ There are many paths to the top of the mountain, but the view is always the same
 
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
 
+## What is in this repo?
+
+- [Modular (opinionated) Configuration Structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png)
+
+- [Interactive build script for adding new hosts/users at `sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
+
+- Flake templates - Quickly grab this configuration and make it your own with:
+
+```nix
+nix flake new -t 'github:erictossell/nixflakes' ./<your-repo-name-here>
+```
+
+- [`eriixvim`](https://github.com/erictossell/eriixvim) is a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
+
+Try it out with:
+
+```nix
+nix run github:erictossell/eriixvim
+```
+
+- [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
+
+- Semi up to date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
+
+- A simple example of a custom built `rust` package: [`russh`](https://github.com/erictossell/russh). The highlight being how simple it is to package any application with `flakes` and import them into a `configuration`.
+
+- Places I run this `flake`:
+```md
+    principium - My Desktop with full virtualisation capabilities.
+    sisyphus - My laptop as a default baseline for the flake.
+    live-image - Customized Installation Media
+    winix - My WSL `NixOS` configuration.
+```
+
 ### Flake Structure
 Modules are grouped to be ***almost*** purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
 
 This repo has become more opinionated over time and now requires passing down variables from the `flake.nix` in order to fetch appropriate `host` and `user` specific configurations for a given device.
-
-My `nixvim` configuration is available as a standalone at [https://github.com/erictossell/eriixvim](https://github.com/erictossell/eriixvim).
-Want to give it a temporary try? Without installing anything else?
-Just run `nix run github:erictossell/eriixvim` 
-
-[`nixvim`](https://github.com/nix-community/nixvim) allows for building fully reproducible neovim configurations. Build your neovim config once and run it anywhere, even on Windows (with `wsl`).
 
 ### Flake Github URLS
 
