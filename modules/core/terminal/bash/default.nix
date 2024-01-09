@@ -58,6 +58,9 @@
       gt = "git tag";
       gts = "git tag -s";
 
+      gor = "go run .";
+      gob = "go build .";
+
       n = "nvim";
       t = "tmux";
       r = "ranger";
