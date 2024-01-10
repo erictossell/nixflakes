@@ -28,6 +28,7 @@
     alacritty
     btop
     nitch
+    todoist
     vim
   ];
 }
