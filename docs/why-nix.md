@@ -22,19 +22,9 @@ With NixOS, the entire system configuration can be declared in a single reposito
 }
 ```
 
-### Remote Configuration Reference
-
-Nix allows referencing configurations remotely. This feature is invaluable for quickly setting up new machines or sharing configurations with others. This also allows for very quick and reliable clustering.
-
-```nix
-
-# Referencing your remote configuration
-sudo nixos-rebuild switch --flake github:user/nix-config/
-```
-
 ### Control with Flakes
 
-Flakes in Nix provide a more controlled and manageable way to handle inputs and outputs. They offer a declarative and reproducible package management system. Flakes are used to build `system configurations`, `development shells`, `packages` and the `nixpkgs` monorepo itself.
+Flakes in Nix provide a more controlled and manageable way to handle inputs and outputs. They offer a declarative and reproducible package management system. Flakes are used to build `system configurations`, `development shells`, `packages` and the `nixpkgs` monorepo itself. They provide a common interface and entry-point to any `.nix` code.
 
 ```nix
 
