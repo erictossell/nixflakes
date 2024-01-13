@@ -119,6 +119,20 @@
               ./minimal.nix
             ];
           }; #virtualis
+	
+	ambiens = 
+ 	  let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              username = "eriim";
+              hostname = "ambiens";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./minimal.nix
+            ];
+          }; #ambiens
 
       }; #configurations
 
