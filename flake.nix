@@ -131,6 +131,7 @@
             } // attrs;
             modules = [
               ./minimal.nix
+              ./modules/hardware/network
             ];
           }; #ambiens
 
