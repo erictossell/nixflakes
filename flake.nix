@@ -106,6 +106,34 @@
             ];
           }; #winix-wsl
 
+        virtualis =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              username = "eriim";
+              hostname = "virtualis";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./minimal.nix
+            ];
+          }; #virtualis
+
+        ambiens =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              username = "eriim";
+              hostname = "ambiens";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./minimal.nix
+            ];
+          }; #ambiens
+
       }; #configurations
 
       devShells = forAllSystems (system:

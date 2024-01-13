@@ -43,14 +43,18 @@ The highlight being how simple it is to package any application with `flakes` an
 #### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
 
 #### 7. Places I run this `flake`:
+
 ```md
     principium  - My Desktop with full virtualisation capabilities.
     sisyphus    - My laptop as a default baseline for the flake.
     live-image  - Customized Installation Media
     winix       - My WSL `NixOS` configuration.
+    virtualis   - A quick VM for testing.
+    ambiens     - A formalized VM.
 ```
 
 #### 8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
+
 
 ## Flake Structure
 Modules are grouped to be ***almost*** purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
