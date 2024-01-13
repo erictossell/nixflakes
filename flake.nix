@@ -105,6 +105,20 @@
               ./wsl.nix
             ];
           }; #winix-wsl
+          
+	virtualis =
+          let system = "x86_64-linux";
+          in nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              username = "eriim";
+              hostname = "virtualis";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./minimal.nix
+            ];
+          }; #virtualis
 
       }; #configurations
 
