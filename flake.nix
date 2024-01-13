@@ -105,8 +105,8 @@
               ./wsl.nix
             ];
           }; #winix-wsl
-          
-	virtualis =
+
+        virtualis =
           let system = "x86_64-linux";
           in nixpkgs.lib.nixosSystem {
             inherit system;
@@ -119,9 +119,9 @@
               ./minimal.nix
             ];
           }; #virtualis
-	
-	ambiens = 
- 	  let system = "x86_64-linux";
+
+        ambiens =
+          let system = "x86_64-linux";
           in nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
@@ -131,6 +131,7 @@
             } // attrs;
             modules = [
               ./minimal.nix
+	      ./modules/hardware/network
             ];
           }; #ambiens
 
