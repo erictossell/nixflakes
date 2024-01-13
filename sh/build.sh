@@ -89,7 +89,7 @@ if [ "$nvidia" = true ]; then
 	
 	# Appended new system
 	$hostname =
-       	let system = "x86_84-linux";
+       	let system = "x86_64-linux";
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
@@ -108,7 +108,7 @@ else
 	
 	# Appended new system
 	$hostname =
-       	let system = "x86_84-linux";
+       	let system = "x86_64-linux";
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";

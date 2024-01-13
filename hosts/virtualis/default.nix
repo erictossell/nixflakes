@@ -4,7 +4,6 @@
   imports = [
     (nixpkgs + "/nixos/modules/virtualisation/qemu-vm.nix")
     (nixpkgs + "/nixos/modules/virtualisation/qemu-guest-agent.nix")
-    #./hardware-configuration.nix
   ];
   virtualisation.vmVariant = {
     virtualisation = {
