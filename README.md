@@ -42,15 +42,24 @@ The highlight being how simple it is to package any application with `flakes` an
 
 #### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
 
-#### 7. Places I run this `flake`:
+#### 7. nix flake show github:erictossell/nixflakes 
 
-```md
-    principium  - My Desktop with full virtualisation capabilities.
-    sisyphus    - My laptop as a default baseline for the flake.
-    live-image  - Customized Installation Media
-    winix       - My WSL `NixOS` configuration.
-    virtualis   - A quick VM for testing.
-    ambiens     - A formalized VM.
+```nix
+github:erictossell/nixflakes/bbca96ce85416b025d652d752c87d3816b2bf8ad
+├───devShells
+│   └───x86_64-linux
+│       └───default: development environment 'nix-shell'
+├───formatter
+│   └───x86_64-linux: package 'nixpkgs-fmt-1.3.0'
+├───nixosConfigurations
+│   ├───ambiens: NixOS configuration
+│   ├───live-image: NixOS configuration
+│   ├───principium: NixOS configuration
+│   ├───sisyphus: NixOS configuration
+│   ├───virtualis: NixOS configuration
+│   └───winix: NixOS configuration
+└───templates
+    └───default: template: The default template for Eriim's nixflakes.
 ```
 
 #### 8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
