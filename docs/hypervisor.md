@@ -20,7 +20,6 @@ The following is a basic configuration that allows for emulating TPM 2.0 (Window
     };
     spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;  
   
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
