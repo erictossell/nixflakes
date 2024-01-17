@@ -42,7 +42,7 @@ The highlight being how simple it is to package any application with `flakes` an
 
 #### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
 
-#### 7. nix flake show github:erictossell/nixflakes 
+#### 7. `nix flake show github:erictossell/nixflakes` 
 
 ```nix
 github:erictossell/nixflakes/bbca96ce85416b025d652d752c87d3816b2bf8ad
