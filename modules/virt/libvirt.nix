@@ -12,7 +12,6 @@
     };
     spiceUSBRedirection.enable = true;
   };
-  services.spice-vdagentd.enable = true;
 
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
