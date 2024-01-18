@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, username, ... }:
+{ pkgs, home-manager, username, ... }:
 {
   virtualisation = {
     libvirtd = {
@@ -21,7 +21,7 @@
     spice-protocol
     virt-manager
     virt-viewer
-    win-virtio
+    virtio-win
     win-spice
   ];
 
