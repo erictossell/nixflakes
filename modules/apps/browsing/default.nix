@@ -8,28 +8,28 @@
     };
 
     programs = {
-      chromium = {
-        enable = true;
-      };
+      #chromium = {
+      #  enable = true;
+      #};
       firefox.enable = true;
     };
   };
 
   #----- System Configuration -----
-  programs = {
-    chromium = {
-      enable = true;
-      extraOpts = {
-        "BrowserSignin" = 1;
-        "SyncDisabled" = false;
-        "PasswordManagerEnabled" = false;
-        "SpellcheckEnabled" = true;
-        "SpellcheckLanguage" = [ "en-US" ];
-      };
-      extensions = [
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-        #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
-      ];
-    };
-  };
+  #programs = {
+  #  chromium = {
+  #    enable = true;
+  #    extraOpts = {
+  #      "BrowserSignin" = 1;
+  #      "SyncDisabled" = false;
+  #      "PasswordManagerEnabled" = false;
+  #      "SpellcheckEnabled" = true;
+  #      "SpellcheckLanguage" = [ "en-US" ];
+  #    };
+  #    extensions = [
+  #      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+  #      #"aeblfdkhhhdcdjpifhhbdiojplfjncoa" # 1password
+  #    ];
+  #  };
+  #};
 }
