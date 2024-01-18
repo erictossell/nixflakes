@@ -3,7 +3,7 @@
   imports = [
     ./1password
     ./browsing
-    ./libreoffice
+    #./libreoffice
     # Electron Issues - I'm just editting markdown at the moment.
     #./obsidian
     ./vscode
