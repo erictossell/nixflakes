@@ -3,9 +3,8 @@
     ./agenix
     ./apps
     ./core
-    ./go-time
+    ./custom 
     ./hardware
     ./hyprland
-    ./russh
   ];
 }
