@@ -26,7 +26,7 @@
     russh = {
       url = "github:erictossell/russh";
     };
-    
+
     go-time = {
       url = "github:erictossell/go-time";
     };
