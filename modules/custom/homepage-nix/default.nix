@@ -7,6 +7,6 @@
   services.homepage-rs = {
     enable = true;
     port = 8080;
-    staticDir = "/home/${username}/repos/misc/homepage-rs/static";
+    staticDir = "/home/${username}/repos/nix/homepage-nix/static";
   };
 }
