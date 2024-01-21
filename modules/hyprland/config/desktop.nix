@@ -50,17 +50,20 @@
         $mainMod = SUPER
 
         bind = $mainMod, q, exec, foot 
-        bind = $mainMod, w, killactive 
+        bind = $mainMod, w, killactive, 
         bind = $mainMod, f, fullscreen, 1
-        bind = $mainMod, d, exec, pavucontrol
-        bind = $mainMod, m, exit
+        bind = $mainMod, a, exec, pavucontrol
+	bind = $mainMod, v, exec, foot -e nvim
+        bind = $mainMod, 0, exit, 
         bind = $mainMod, e, exec, kitty -e ranger
         bind = $mainMod, b, exec, foot -e btop
-        bind = $mainMod, v, togglefloating, 
+	bind = $mainMod, t, exec, foot -e tmux
+	bind = $mainMod, g, exec, foot -e firefox
+        bind = $mainMod, c, togglefloating, 
         bind = $mainMod, r, exec, wofi --show drun
         bind = $mainMod, p, pseudo, # dwindle
         bind = $mainMod, j, togglesplit, # dwindle
-        bind = $mainMod, 0, exec, swaylock
+        bind = $mainMod, l, exec, swaylock
         bind = $mainMod, o, exec, bash -i ~/.config/hypr/toggle_waybar.sh
         bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
 

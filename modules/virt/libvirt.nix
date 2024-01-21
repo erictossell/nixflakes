@@ -1,4 +1,4 @@
-{ pkgs, home-manager, username, ... }:
+{ config, pkgs, home-manager, username, ... }:
 {
   virtualisation = {
     libvirtd = {
