@@ -15,8 +15,6 @@
 |`Super + o` | Toggle Waybar |
 |`Super + v` | Neovim |
 |`Super + 0` | Exit |
-
 |`Super + p` | Psudeo |
 |`Super + j` | Toggle split |
-
 |`Super + 1-9` | Workspace 1-9 |
