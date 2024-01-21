@@ -82,6 +82,7 @@ Transparency is cool.
 | [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| [nixos-unstable](https://github.com/NixOS/nixpkgs)| 
 | [eriixvim](https://github.com/erictossell/eriixvim/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
 | [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
+| [homepage-nix](https://github.com/erictossell/homepage-nix/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
 
 ### Diagrams
 
