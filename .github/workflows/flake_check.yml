@@ -27,6 +27,9 @@ jobs:
     - name: Run Nix Format
       run: nix fmt
 
+    - name: Nix Flake Check - Manual
+      run: nix flake check
+
     - name: Nix Flake Checker
     # You may pin to the exact commit or the version.
     # uses: DeterminateSystems/flake-checker-action@4b90f9fc724969ff153fe1803460917c84fe00a3
