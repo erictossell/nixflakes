@@ -31,6 +31,10 @@
       url = "github:erictossell/go-time";
     };
 
+    homepage-nix = {
+      url = "github:erictossell/homepage-nix";
+    };
+
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +66,6 @@
               ./modules/apps/obs
               ./modules/toys
               ./modules/virt
-              ./modules/russh
             ];
           }; #principium
 
@@ -77,7 +80,6 @@
             } // attrs;
             modules = [
               ./.
-              ./modules/russh
             ];
           }; #sisyphus
 
