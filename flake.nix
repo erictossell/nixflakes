@@ -27,6 +27,10 @@
       url = "github:erictossell/russh";
     };
 
+    go-time = {
+      url = "github:erictossell/go-time";
+    };
+
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
