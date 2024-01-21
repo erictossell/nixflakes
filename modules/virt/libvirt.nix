@@ -21,7 +21,7 @@
     spice-protocol
     virt-manager
     virt-viewer
-    win-virtio
+    virtio-win
     win-spice
   ];
 
