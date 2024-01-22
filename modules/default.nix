@@ -3,7 +3,7 @@
     ./agenix
     ./apps
     ./core
-    ./custom
+    ./eriixpkgs
     ./hardware
     ./hyprland
   ];

@@ -19,20 +19,9 @@
       url = "github:hyprwm/hyprland";
     };
 
-    eriixvim = {
-      url = "github:erictossell/eriixvim";
-    };
-
-    russh = {
-      url = "github:erictossell/russh";
-    };
-
-    go-time = {
-      url = "github:erictossell/go-time";
-    };
-
-    homepage-nix = {
-      url = "github:erictossell/homepage-nix";
+    eriixpkgs = {
+      url = "github:erictossell/eriixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     NixOS-WSL = {
