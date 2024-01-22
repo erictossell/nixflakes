@@ -1,7 +1,7 @@
-{ pkgs, eriixvim, system, ... }:
+{ eriixpkgs, system, ... }:
 {
   environment.variables.EDITOR = "nvim";
-  environment.systemPackages = with pkgs; [
-    eriixvim.packages.${system}.default
+  environment.systemPackages = [
+    eriixpkgs.packages.${system}.eriixvim
   ];
 }

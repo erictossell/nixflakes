@@ -1,7 +1,7 @@
-{ homepage-nix, system, username, ... }:
+{ eriixpkgs, system, username, ... }:
 {
   imports = [
-    homepage-nix.nixosModules.${system}.default
+    eriixpkgs.nixosModules.${system}.homepage-nix
   ];
 
   services.homepage-nix = {
