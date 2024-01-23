@@ -11,9 +11,20 @@
       #chromium = {
       #  enable = true;
       #};
-      firefox.enable = true;
+      firefox = {
+        enable = true;
+	profiles = {
+	  ${username} = {
+	    isDefault = true;
+	    settings = {
+	      "browser.startup.homepage" = "http://localhost:8080";
+	    };
+	};
     };
-  };
+};
+};
+};
+  
 
   #----- System Configuration -----
   #programs = {
