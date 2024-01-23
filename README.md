@@ -95,7 +95,7 @@ Transparency is cool.
 </details> 
 
 <details>
-<summary>## Screenshots</summary>
+<summary>Screenshots</summary>
 
 Current 
 ------
