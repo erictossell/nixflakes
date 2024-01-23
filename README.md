@@ -17,7 +17,7 @@ There are many paths to the top of the mountain, but the view is always the same
 Got questions? Send them in the form of an [issue](https://github.com/erictossell/nixflakes/issues/new) or reach me at any of my other points of contact available on my [GitHub Profile](https://github.com/erictossell) - I make no guarantees but I'm happy to do my best.
 
 <details>
-<summary>📁 What is in this repo?</summary>
+##<summary>📁 What is in this repo?</summary>
 
 #### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) (opinionated) Configuration Structure
 
