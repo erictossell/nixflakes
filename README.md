@@ -16,9 +16,10 @@ There are many paths to the top of the mountain, but the view is always the same
 
 Got questions? Send them in the form of an [issue](https://github.com/erictossell/nixflakes/issues/new) or reach me at any of my other points of contact available on my [GitHub Profile](https://github.com/erictossell) - I make no guarantees but I'm happy to do my best.
 
-## What is in this repo?
+<details>
+<summary>📁 What is in this repo?</summary>
 
-#### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) (opinionated) Configuration Structure
+#### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) (opinionated) Configuration Structure
 
 #### 2. Flake templates - Quickly grab this configuration and make it your own with:
 
@@ -40,7 +41,7 @@ nix run github:erictossell/eriixvim
 
 The highlight being how simple it is to package any application with `flakes` and import them into a `configuration` and ***not*** my `rust` code.
 
-#### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure8.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles8.png) managed by [me](https://github.com/erictossell).
+#### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles9.png) managed by [me](https://github.com/erictossell).
 
 #### 7. `nix flake show github:erictossell/nixflakes` 
 
@@ -64,6 +65,7 @@ github:erictossell/nixflakes/bbca96ce85416b025d652d752c87d3816b2bf8ad
 
 #### 8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
 
+</details>
 
 ## Flake Structure
 Modules are grouped to be ***almost*** purely *functional* and as a result you will often find both the system configuration and the home-manager configuration in the same place. Not all NixOS users use this paradigm.
@@ -78,19 +80,22 @@ Transparency is cool.
 | --- | --- |
 | nixpkgs | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
 | home-manager | [following nixpkgs](https://github.com/nix-community/home-manager/blob/master/flake.nix) |
+| NixOS-WSL | [following nixpkgs](https://github.com/nix-community/NixOS-WSL/blob/master/flake.nix) |
 | agenix | [following nixpkgs](https://github.com/ryantm/agenix/blob/main/flake.nix) |
 | [hyprland](https://github.com/hyprwm/Hyprland/blob/main/flake.nix)| [nixos-unstable](https://github.com/NixOS/nixpkgs)| 
-| [eriixvim](https://github.com/erictossell/eriixvim/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
-| [ruSSH: a simple SSH multiplier](https://github.com/erictossell/russh/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs) |
-| [homepage-nix](https://github.com/erictossell/homepage-nix/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
+| [eriixpkgs](https://github.com/erictossell/eriixpkgs/blob/main/flake.nix) | [nixos-unstable](https://github.com/NixOS/nixpkgs)|
 
-### Diagrams
+<details>
+<summary>📊 Diagrams</summary>
 
-![Flake Structure](docs/screens/FlakeStructure8.png)
+![Flake Structure](docs/screens/FlakeStructure9.png)
 
-![Flake Profiles](docs/screens/FlakeProfiles8.png)
+![Flake Profiles](docs/screens/FlakeProfiles9.png)
 
-## Screenshots
+</details> 
+
+<details>
+<summary>📸 Screenshots</summary>
 
 Current 
 ------
@@ -105,6 +110,7 @@ October 2023
 
 ![Hyprland3](docs/screens/hyprland3.png)
 
+</details>
 [How to use this repo](docs/usage.md)
 
 [Getting Started with NixOS Minimal](docs/minimal-install.md)

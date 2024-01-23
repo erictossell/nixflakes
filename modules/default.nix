@@ -6,5 +6,6 @@
     ./eriixpkgs
     ./hardware
     ./hyprland
+    ./tailscale
   ];
 }
