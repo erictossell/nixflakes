@@ -111,6 +111,7 @@ October 2023
 ![Hyprland3](docs/screens/hyprland3.png)
 
 </details>
+
 [How to use this repo](docs/usage.md)
 
 [Getting Started with NixOS Minimal](docs/minimal-install.md)
