@@ -15,5 +15,11 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
+  
+  services = {
+    spice-autorandr.enable = true;
+    spice-vdagent.enable = true;
+    spice-webdavd.enable = true;
+  };
 
 }
