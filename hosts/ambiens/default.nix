@@ -18,7 +18,7 @@
   
   services = {
     spice-autorandr.enable = true;
-    spice-vdagent.enable = true;
+    spice-vdagentd.enable = true;
     spice-webdavd.enable = true;
   };
 
