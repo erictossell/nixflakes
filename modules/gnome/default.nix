@@ -11,7 +11,6 @@ let
     docker
     unblank
     custom-accent-colors
-    system-monitor
     tailscale-qs
     tailscale-status
   ];
@@ -152,17 +151,17 @@ in
   # ---- System Configuration ----
   services.xserver = {
     enable = true;
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
     desktopManager.gnome.enable = true;
     displayManager.gdm = {
       enable = true;
       wayland = true;
     };
-    gnome = {
+    };
+    services.gnome = {
       evolution-data-server.enable = true;
       gnome-keyring.enable = true;
     };
-  };
+
 
   programs.dconf.enable = true;
 
@@ -171,9 +170,9 @@ in
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
+    gedit
   ]) ++ (with pkgs.gnome; [
     gnome-music
-    gedit
     epiphany
     geary
     evince

@@ -127,6 +127,7 @@
             modules = [
               ./minimal.nix
               ./modules/hardware/network
+	      ./modules/gnome
             ];
           }; #ambiens
 
