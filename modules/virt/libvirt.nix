@@ -19,11 +19,12 @@
     spice
     spice-gtk
     spice-protocol
-    virt-manager
     virt-viewer
     virtio-win
     win-spice
+
   ];
+  programs.virt-manager.enable = true;
 
   home-manager.users.${username} = {
     dconf.settings = {
