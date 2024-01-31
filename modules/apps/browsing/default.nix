@@ -13,18 +13,18 @@
       #};
       firefox = {
         enable = true;
-	profiles = {
-	  ${username} = {
-	    isDefault = true;
-	    settings = {
-	      "browser.startup.homepage" = "http://localhost:8080";
-	    };
-	};
+        profiles = {
+          ${username} = {
+            isDefault = true;
+            settings = {
+              "browser.startup.homepage" = "http://localhost:8080";
+            };
+          };
+        };
+      };
     };
-};
-};
-};
-  
+  };
+
 
   #----- System Configuration -----
   #programs = {

@@ -156,11 +156,11 @@ in
       enable = true;
       wayland = true;
     };
-    };
-    services.gnome = {
-      evolution-data-server.enable = true;
-      gnome-keyring.enable = true;
-    };
+  };
+  services.gnome = {
+    evolution-data-server.enable = true;
+    gnome-keyring.enable = true;
+  };
 
 
   programs.dconf.enable = true;

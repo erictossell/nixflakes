@@ -8,8 +8,8 @@
     desktopManager.plasma5.enable = true;
   };
   qt = {
-  enable = true;
-  platformTheme = "gnome";
-  style = "adwaita-dark";
-};
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 }

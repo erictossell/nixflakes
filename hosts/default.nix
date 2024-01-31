@@ -1,7 +1,7 @@
-{ hostname, ... }:
+{ hostName, ... }:
 {
   imports = [
-    ./${hostname}
+    ./${hostName}
     ./internationalisation
   ];
 
