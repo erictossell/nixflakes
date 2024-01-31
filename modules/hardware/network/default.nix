@@ -3,7 +3,6 @@
   networking = {
     networkmanager = {
       enable = true;
-      unmanaged = [ "enp7s0" ];
       wifi.powersave = true;
     };
 
