@@ -23,6 +23,9 @@
       wl-clipboard
       # Required if applications are having trouble opening links
       xdg-utils
+
+      gnome.adwaita-icon-theme
+      glib
     ];
   };
 
