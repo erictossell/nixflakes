@@ -1,6 +1,7 @@
 name: Nix Flake Check
 
 on:
+  workflow_dispatch:
   schedule: #once a week
     - cron:  '0 0 * * 0'
 
