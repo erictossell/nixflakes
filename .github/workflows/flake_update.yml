@@ -1,4 +1,4 @@
-name: Nix Flake Check
+name: Flake Update
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron:  '0 0 * * 0'
 
 jobs:
-  check:
+  flake-update:
     runs-on: ubuntu-latest
     
     permissions:

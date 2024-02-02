@@ -1,9 +1,9 @@
-name: Nix Flake Check
+name: Flake Check
 
 on: [pull_request]
 
 jobs:
-  check:
+  flake-check:
     runs-on: ubuntu-latest
     
     permissions:
