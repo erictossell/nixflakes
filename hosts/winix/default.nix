@@ -1,4 +1,4 @@
-{ username, hostname, NixOS-WSL, ... }:
+{ username, hostName, NixOS-WSL, ... }:
 
 {
   imports = [
@@ -10,6 +10,6 @@
     nativeSystemd = true;
   };
 
-  networking.hostName = "${hostname}";
+  networking.hostName = "${hostName}";
 
 }

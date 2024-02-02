@@ -45,7 +45,7 @@
           in nixpkgs.lib.nixosSystem {
             specialArgs = {
               username = "eriim";
-              hostname = "principium";
+              hostName = "principium";
               hyprlandConfig = "desktop";
               inherit system;
             } // attrs;
@@ -63,7 +63,7 @@
           in nixpkgs.lib.nixosSystem {
             specialArgs = {
               username = "eriim";
-              hostname = "sisyphus";
+              hostName = "sisyphus";
               hyprlandConfig = "laptop";
               inherit system;
             } // attrs;
@@ -78,7 +78,7 @@
             inherit system;
             specialArgs = {
               username = "nixos";
-              hostname = "live-image";
+              hostName = "live-image";
               hyprlandConfig = "laptop";
               inherit system;
             } // attrs;
@@ -93,7 +93,7 @@
             inherit system;
             specialArgs = {
               username = "eriim";
-              hostname = "winix";
+              hostName = "winix";
               inherit system;
             } // attrs;
             modules = [
@@ -107,7 +107,7 @@
             inherit system;
             specialArgs = {
               username = "eriim";
-              hostname = "virtualis";
+              hostName = "virtualis";
               inherit system;
             } // attrs;
             modules = [
@@ -121,12 +121,13 @@
             inherit system;
             specialArgs = {
               username = "eriim";
-              hostname = "ambiens";
+              hostName = "ambiens";
               inherit system;
             } // attrs;
             modules = [
               ./minimal.nix
               ./modules/hardware/network
+              ./modules/plasma
             ];
           }; #ambiens
 
@@ -139,7 +140,6 @@
         {
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
-              git
               nixpkgs-fmt
               statix
             ];

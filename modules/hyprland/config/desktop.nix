@@ -3,6 +3,7 @@
   home-manager.users.${username} = _: {
     home.file = {
       ".config/hypr/hyprpaper.conf".text = ''
+        splash = false
         preload = ~/.config/backgrounds/232136.png
         preload = ~/.config/backgrounds/1A1C23.png
         preload = ~/.config/backgrounds/keyboard.png
@@ -25,14 +26,14 @@
 
       ".config/hypr/hyprland.conf".text = ''
                 monitor=DP-2,preferred,1080x400,1
-                monitor=HDMI-A-1,preferred,3640x1200,1
+                monitor=HDMI-A-1,preferred,3640x400,1
                 monitor=DP-1,preferred,0x0,1,transform,3
                 monitor=,preferred,auto,auto
 
                 exec-once = waybar & hyprpaper & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                 # some default env vars.
-                env=BROWSER, firefox
+                env=BROWSER,firefox
                 env=XCURSOR_SIZE,24
 
                 env=XDG_CURRENT_DESKTOP,Hyprland
@@ -92,6 +93,7 @@
                 $wG = Golf
                 $wH = Hotel
                 $wI = are ya lost bud
+
 
                 # for all categories, see https://wiki.hyprland.org/configuring/variables/
                 input {

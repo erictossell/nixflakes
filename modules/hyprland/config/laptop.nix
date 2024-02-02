@@ -3,6 +3,7 @@
   home-manager.users.${username} = _: {
     home.file = {
       ".config/hypr/hyprpaper.conf".text = ''
+        splash = false
         preload = ~/.config/backgrounds/232136.png
         preload = ~/.config/backgrounds/1A1C23.png
         wallpaper = eDP-1, ~/.config/backgrounds/232136.png

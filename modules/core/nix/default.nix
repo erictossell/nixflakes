@@ -22,4 +22,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }
