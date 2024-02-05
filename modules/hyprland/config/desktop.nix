@@ -3,16 +3,16 @@
   home-manager.users.${username} = _: {
     home.file = {
       ".config/hypr/hyprpaper.conf".text = ''
-        splash = false
-	preload = ~/.config/backgrounds/porthole.jpg
-        preload = ~/.config/backgrounds/232136.png
-        preload = ~/.config/backgrounds/1A1C23.png
-        preload = ~/.config/backgrounds/keyboard.png
-        preload = ~/.config/backgrounds/storage.jpg
+                splash = false
+        	preload = ~/.config/backgrounds/porthole.jpg
+                preload = ~/.config/backgrounds/232136.png
+                preload = ~/.config/backgrounds/1A1C23.png
+                preload = ~/.config/backgrounds/keyboard.png
+                preload = ~/.config/backgrounds/storage.jpg
 
-        wallpaper = DP-1, ~/.config/backgrounds/232136.png
-        wallpaper = DP-2, ~/.config/backgrounds/porthole.jpg
-        wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
+                wallpaper = DP-1, ~/.config/backgrounds/232136.png
+                wallpaper = DP-2, ~/.config/backgrounds/porthole.jpg
+                wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
       '';
 
       ".config/hypr/vol.sh" = {
