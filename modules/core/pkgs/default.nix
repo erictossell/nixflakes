@@ -5,6 +5,7 @@
     gh
     pavucontrol
     playerctl
+    musikcube
     ranger
     ripgrep
     unzip
