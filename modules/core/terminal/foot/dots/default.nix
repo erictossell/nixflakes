@@ -7,6 +7,7 @@
         pad=15x15
 
         [colors]
+	alpha=0.8
         background=232136
       '';
     };

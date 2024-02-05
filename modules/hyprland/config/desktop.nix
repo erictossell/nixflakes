@@ -4,13 +4,14 @@
     home.file = {
       ".config/hypr/hyprpaper.conf".text = ''
         splash = false
+	preload = ~/.config/backgrounds/porthole.jpg
         preload = ~/.config/backgrounds/232136.png
         preload = ~/.config/backgrounds/1A1C23.png
         preload = ~/.config/backgrounds/keyboard.png
         preload = ~/.config/backgrounds/storage.jpg
 
         wallpaper = DP-1, ~/.config/backgrounds/232136.png
-        wallpaper = DP-2, ~/.config/backgrounds/232136.png
+        wallpaper = DP-2, ~/.config/backgrounds/porthole.jpg
         wallpaper = HDMI-A-1, ~/.config/backgrounds/232136.png
       '';
 
@@ -76,7 +77,7 @@
                 bind = ,xF86AudioNext, exec, playerctl next
                 bind = ,xF86AudioPrev, exec, playerctl previous
 
-                $w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
+                $w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/porthole.jpg"
                 $w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
                 $w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
                 $w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
