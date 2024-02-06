@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install Nix
       uses: cachix/install-nix-action@v23
@@ -31,8 +31,6 @@ jobs:
       run: nix flake check
 
     - name: Nix Flake Checker
-    # You may pin to the exact commit or the version.
-    # uses: DeterminateSystems/flake-checker-action@4b90f9fc724969ff153fe1803460917c84fe00a3
       uses: DeterminateSystems/flake-checker-action@v5
 
     - name: Commit
