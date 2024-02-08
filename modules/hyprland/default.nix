@@ -17,7 +17,7 @@
     gtk.theme.name = "adw-gtk3-dark";
     gtk.theme.package = pkgs.adw-gtk3;
   };
-  
+
   environment = {
     sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -35,7 +35,7 @@
   };
 
   programs.hyprland.enable = true;
-  
+
   programs.dconf.enable = true;
 
   services.gnome = {
@@ -56,7 +56,7 @@
       common = {
         default = [ "xdph" "gtk" ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-	"org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
+        "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
       };
     };
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
