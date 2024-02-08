@@ -1,4 +1,4 @@
-{ hyprland, pkgs, username, ... }:
+{ hyprland, pkgs, username, home-manager, ... }:
 {
   imports = [
     hyprland.nixosModules.default
@@ -9,6 +9,14 @@
     ./waybar
     ./wofi
   ];
+
+  home-manager.users.${username} = _: {
+    gtk.enable = true;
+    gtk.cursorTheme.name = "Adwaita";
+    gtk.cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
+    gtk.theme.name = "Adwaita-Dark";
+    gtk.theme.package = pkgs.adw-gtk3;
+  };
 
   environment = {
     sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
@@ -23,9 +31,6 @@
       wl-clipboard
       # Required if applications are having trouble opening links
       xdg-utils
-
-      gnome.adwaita-icon-theme
-      glib
     ];
   };
 
@@ -45,12 +50,16 @@
     };
   };
 
-  xdg.portal.config = {
-    common = {
-      default = [ "xdph" "gtk" ];
-      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = [ "xdph" "gtk" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+	"org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
+      };
     };
-
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 }
 
