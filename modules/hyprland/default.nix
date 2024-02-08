@@ -1,4 +1,4 @@
-{ hyprland, pkgs, username, home-manager, ... }:
+{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }:
 {
   imports = [
     hyprland.nixosModules.default
@@ -17,7 +17,7 @@
     gtk.theme.name = "adw-gtk3-dark";
     gtk.theme.package = pkgs.adw-gtk3;
   };
-
+  
   environment = {
     sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -25,7 +25,7 @@
       eww-wayland
       grim
       hyprpaper
-      hyprpicker
+      hyprpicker.packages.${system}.default
       lxqt.lxqt-policykit
       slurp
       wl-clipboard
@@ -35,7 +35,7 @@
   };
 
   programs.hyprland.enable = true;
-
+  
   programs.dconf.enable = true;
 
   services.gnome = {

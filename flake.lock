@@ -449,6 +449,26 @@
         "type": "github"
       }
     },
+    "hyprpicker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1703987863,
+        "narHash": "sha256-MHhAk74uk0qHVwSkLCcXLXMe4478M2oZEFPXwjSoo2E=",
+        "owner": "hyprwm",
+        "repo": "hyprpicker",
+        "rev": "2ef703474fb96e97e03e66e8820f213359f29382",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprpicker",
+        "type": "github"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
@@ -813,6 +833,7 @@
         "eriixpkgs": "eriixpkgs",
         "home-manager": "home-manager_3",
         "hyprland": "hyprland",
+        "hyprpicker": "hyprpicker",
         "nixpkgs": "nixpkgs_10"
       }
     },
