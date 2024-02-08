@@ -1,4 +1,4 @@
-{ hyprland, pkgs, username, home-manager, ... }:
+{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }:
 {
   imports = [
     hyprland.nixosModules.default
@@ -25,7 +25,7 @@
       eww-wayland
       grim
       hyprpaper
-      hyprpicker
+      hyprpicker.packages.${system}.default
       lxqt.lxqt-policykit
       slurp
       wl-clipboard
@@ -56,7 +56,7 @@
       common = {
         default = [ "xdph" "gtk" ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-	"org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
+        "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
       };
     };
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
