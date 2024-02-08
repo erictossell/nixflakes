@@ -2,7 +2,10 @@
 
 So anyways. Here's my dots. I hope you like them.
 
+
 # Eriim's Nixflakes
+
+[![Flake Check](https://github.com/erictossell/nixflakes/actions/workflows/flake_check.yml/badge.svg)](https://github.com/erictossell/nixflakes/actions/workflows/flake_check.yml)
 
 ```
 There are many paths to the top of the mountain, but the view is always the same.
