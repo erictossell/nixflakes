@@ -58,11 +58,11 @@
         "russh": "russh"
       },
       "locked": {
-        "lastModified": 1707524239,
-        "narHash": "sha256-SBoOMQhlqjHR0Kb2zns8cQBX4SV1inF5Wx/49oOrxJY=",
+        "lastModified": 1707573670,
+        "narHash": "sha256-lu1GKMZx0B6+MbPCacM6pT62S/YPuSGBjuKt5iMbMUw=",
         "owner": "erictossell",
         "repo": "eriixpkgs",
-        "rev": "4b483d8a6e2f176fa9e7f6d69f01135de9455f1b",
+        "rev": "a1a871878c5bdbe7547644e41b3f227bb69f57e1",
         "type": "github"
       },
       "original": {
@@ -78,11 +78,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1707438200,
-        "narHash": "sha256-Nkq83z5Ol+B9uO0QxOFlFYSBI2hPZeWGQcoLZx8oTtw=",
+        "lastModified": 1707524585,
+        "narHash": "sha256-j4MNeyy8WezscJhWOJPoxcjFQCSDCf4qmTVxZNXasBM=",
         "owner": "erictossell",
         "repo": "eriixvim",
-        "rev": "8f0699a539a9a3348933997c76a93f91584aa18a",
+        "rev": "5914901143e5e11f6f9668fd2f017c7efdea595a",
         "type": "github"
       },
       "original": {
@@ -735,11 +735,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1707344886,
-        "narHash": "sha256-icqj994+jxpkNMP8r6csF3MoEwYzme4CM0rPF4044oM=",
+        "lastModified": 1707516359,
+        "narHash": "sha256-uDIEvKg0LOozL93UluLu0atEtP711E84+WVXsIfJ+LE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "ec07263b1693ebbd74080b1e21d9b88ae7b74d18",
+        "rev": "92c623a436604b548b295536ba8888dd5e184a84",
         "type": "github"
       },
       "original": {
