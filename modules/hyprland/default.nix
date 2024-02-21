@@ -25,7 +25,7 @@
     systemPackages = with pkgs; [
       eww-wayland
       grim
-      hyprpaper
+      swww
       hyprpicker.packages.${system}.default
       lxqt.lxqt-policykit
       slurp
