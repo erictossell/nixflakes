@@ -37,7 +37,7 @@
     ripgrep
     todoist
     unzip
-    wget   
+    wget
     vim
   ];
 }
