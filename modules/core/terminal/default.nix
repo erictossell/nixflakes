@@ -26,9 +26,18 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    brightnessctl
     btop
+    gh
     nitch
+    pavucontrol
+    playerctl
+    musikcube
+    ranger
+    ripgrep
     todoist
+    unzip
+    wget   
     vim
   ];
 }

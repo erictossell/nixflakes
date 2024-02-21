@@ -4,6 +4,7 @@
     hyprland.nixosModules.default
     ./config
     #./greetd
+    #./hyprlock
     ./mako
     ./swaylock
     ./waybar
