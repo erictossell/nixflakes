@@ -36,6 +36,7 @@
     ranger
     ripgrep
     todoist
+    tty-clock
     unzip
     wget
     vim
