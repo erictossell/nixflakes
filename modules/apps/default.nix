@@ -5,7 +5,7 @@
     ./browsing
     #./libreoffice
     # Electron Issues - I'm just editting markdown at the moment.
-    #./obsidian
+    ./obsidian
     ./vscode
   ];
 }

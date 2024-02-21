@@ -3,7 +3,7 @@
   imports = [
     hyprland.nixosModules.default
     ./config
-    ./greetd
+    #./greetd
     ./mako
     ./swaylock
     ./waybar
