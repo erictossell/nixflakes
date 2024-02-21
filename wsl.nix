@@ -5,7 +5,6 @@
     { nix.registry.nixpkgs.flake = nixpkgs; }
     ./hosts
     ./modules/core/terminal
-    ./modules/core/pkgs
     ./modules/core/nix
   ];
 

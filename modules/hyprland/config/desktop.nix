@@ -160,10 +160,6 @@
                 	workspace_swipe = off
                 }
 
-                device:epic-mouse-v1 {
-                	sensitivity = -0.5
-                }
-
                 misc {
                 	disable_hyprland_logo = true
                 	enable_swallow = true

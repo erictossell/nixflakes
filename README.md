@@ -84,37 +84,37 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=f5f962943c9850a47dd36470daceef2ae1dad95d&rev=f5f962943c9850a47dd36470daceef2ae1dad95d&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&rev=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/flr7f242jlj2wq34jiibhg2h3708gfnw-source
-Revision:      f5f962943c9850a47dd36470daceef2ae1dad95d
-Last modified: 2024-02-08 01:11:49
+Path:          /nix/store/61z69falf46fmr6413drpdpk72yhgvgn-source
+Revision:      e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6
+Last modified: 2024-02-21 21:18:32
 Inputs:
-├───NixOS-WSL: github:nix-community/NixOS-WSL/4bb6b2e814be63caa115038e917c6c25b7fc2ac1
+├───NixOS-WSL: github:nix-community/NixOS-WSL/e6bbc01a35626b8db741bcbc0af807379d372218
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
 │   ├───flake-utils: github:numtide/flake-utils/1ef2e671c3b0c19053962c07dbda38332dcebf26
 │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
 │   └───nixpkgs follows input 'nixpkgs'
-├───agenix: github:ryantm/agenix/417caa847f9383e111d1397039c9d4337d024bf0
+├───agenix: github:ryantm/agenix/8cb01a0e717311680e0cbca06a76cbceba6f3ed6
 │   ├───darwin follows input ''
 │   ├───home-manager: github:nix-community/home-manager/3bfaacf46133c037bb356193bd2f1765d9dc82c1
 │   │   └───nixpkgs follows input 'agenix/nixpkgs'
 │   ├───nixpkgs follows input 'nixpkgs'
 │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
-├───eriixpkgs: github:erictossell/eriixpkgs/517296fb45fabd701480f38d505e0b78d8855523
-│   ├───eriixvim: github:erictossell/eriixvim/ece21a27b2a9dc00ab68bc432b458faafb940756
+├───eriixpkgs: github:erictossell/eriixpkgs/e9194204357e208189a23c97f310b4a70fa38312
+│   ├───eriixvim: github:erictossell/eriixvim/8dbca309002a2336912eadc1164c6db9c393e456
 │   │   ├───flake-parts: github:hercules-ci/flake-parts/b253292d9c0a5ead9bc98c4e9a26c6312e27d69f
 │   │   │   └───nixpkgs-lib: github:NixOS/nixpkgs/97b17f32362e475016f942bbdfda4a4a72a8a652?dir=lib
-│   │   ├───nixpkgs: github:nixos/nixpkgs/e92b6015881907e698782c77641aa49298330223
-│   │   └───nixvim: github:nix-community/nixvim/a181b63aaf6431641690573723d6d2649b1cc53f
+│   │   ├───nixpkgs: github:nixos/nixpkgs/f9d39fb9aff0efee4a3d5f4a6d7c17701d38a1d8
+│   │   └───nixvim: github:nix-community/nixvim/183eac72a9f0ae0032239510d89dbc474b180d33
 │   │       ├───flake-parts: github:hercules-ci/flake-parts/b253292d9c0a5ead9bc98c4e9a26c6312e27d69f
 │   │       │   └───nixpkgs-lib follows input 'eriixpkgs/eriixvim/nixvim/nixpkgs'
-│   │       ├───home-manager: github:nix-community/home-manager/880d9bc2110f7cae59698f715b8ca42cdc53670c
+│   │       ├───home-manager: github:nix-community/home-manager/5b9156fa9a8b8beba917b8f9adbfd27bf63e16af
 │   │       │   └───nixpkgs follows input 'eriixpkgs/eriixvim/nixvim/nixpkgs'
 │   │       ├───nix-darwin: github:lnl7/nix-darwin/bdbae6ecff8fcc322bf6b9053c0b984912378af7
 │   │       │   └───nixpkgs follows input 'eriixpkgs/eriixvim/nixvim/nixpkgs'
-│   │       ├───nixpkgs: github:NixOS/nixpkgs/b8b232ae7b8b144397fdb12d20f592e5e7c1a64d
-│   │       └───pre-commit-hooks: github:cachix/pre-commit-hooks.nix/7c54e08a689b53c8a1e5d70169f2ec9e2a68ffaf
+│   │       ├───nixpkgs: github:NixOS/nixpkgs/f8e2ebd66d097614d51a56a755450d4ae1632df1
+│   │       └───pre-commit-hooks: github:cachix/pre-commit-hooks.nix/0db2e67ee49910adfa13010e7f012149660af7f0
 │   │           ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
 │   │           ├───flake-utils: github:numtide/flake-utils/4022d587cbbfd70fe950c1e2083a02621806a725
 │   │           │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
@@ -133,11 +133,11 @@ Inputs:
 │   │   └───utils: github:numtide/flake-utils/1ef2e671c3b0c19053962c07dbda38332dcebf26
 │   │       └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
 │   ├───nixpkgs follows input 'nixpkgs'
-│   ├───readme-py: github:erictossell/readme-py/bb3e80e2a8205d915cfc38ed2b4f2951443b0024
+│   ├───readme-py: github:erictossell/readme-py/13abe670abb22d266761d383eed42898c5ec6a11
 │   │   ├───flake-utils: github:numtide/flake-utils/1ef2e671c3b0c19053962c07dbda38332dcebf26
 │   │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
-│   │   ├───nixpkgs: github:NixOS/nixpkgs/b8b232ae7b8b144397fdb12d20f592e5e7c1a64d
-│   │   └───poetry2nix: github:nix-community/poetry2nix/e0b44e9e2d3aa855d1dd77b06f067cd0e0c3860d
+│   │   ├───nixpkgs: github:NixOS/nixpkgs/5863c27340ba4de8f83e7e3c023b9599c3cb3c80
+│   │   └───poetry2nix: github:nix-community/poetry2nix/403d923ea8e2e6cedce3a0f04a9394c4244cb806
 │   │       ├───flake-utils: github:numtide/flake-utils/ff7b65b44d01cf9ba6a71320833626af21126384
 │   │       │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
 │   │       ├───nix-github-actions: github:nix-community/nix-github-actions/4bb5e752616262457bc7ca5882192a564c0472d2
@@ -152,31 +152,37 @@ Inputs:
 │       ├───nixpkgs: github:NixOS/nixpkgs/e5d1c87f5813afde2dda384ac807c57a105721cc
 │       └───utils: github:numtide/flake-utils/1ef2e671c3b0c19053962c07dbda38332dcebf26
 │           └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e
-├───home-manager: github:nix-community/home-manager/f99eace7c167b8a6a0871849493b1c613d0f1b80
+├───home-manager: github:nix-community/home-manager/517601b37c6d495274454f63c5a483c8e3ca6be1
 │   └───nixpkgs follows input 'nixpkgs'
-├───hyprland: github:hyprwm/hyprland/ded174d6e5d14bc376919194cbc52c238a07f640
+├───hyprland: github:hyprwm/hyprland/13d985489788fa5349b3457d6eb1c19bad8f37e9
 │   ├───hyprland-protocols: github:hyprwm/hyprland-protocols/0c2ce70625cb30aef199cb388f99e19a61a6ce03
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───nixpkgs: github:NixOS/nixpkgs/ae5c332cbb5827f6b1f02572496b141021de335f
+│   ├───hyprlang: github:hyprwm/hyprlang/aeb3e012adc7b3235335c540b214b82267c2b983
+│   │   └───nixpkgs follows input 'hyprland/nixpkgs'
+│   ├───nixpkgs: github:NixOS/nixpkgs/d934204a0f8d9198e1e4515dd6fec76a139c87f0
 │   ├───systems: github:nix-systems/default-linux/31732fcf5e8fea42e59c2488ad31a0e651500f68
 │   ├───wlroots: gitlab:wlroots/wlroots/00b869c1a96f300a8f25da95d624524895e0ddf2
-│   └───xdph: github:hyprwm/xdg-desktop-portal-hyprland/5a592647587cd20b9692a347df6939b6d371b3bb
+│   └───xdph: github:hyprwm/xdg-desktop-portal-hyprland/c06fd88b3da492b8f9067be021b9184f7012b5a8
 │       ├───hyprland-protocols follows input 'hyprland/hyprland-protocols'
 │       ├───hyprlang: github:hyprwm/hyprlang/6624f2bb66d4d27975766e81f77174adbe58ec97
 │       │   └───nixpkgs follows input 'hyprland/xdph/nixpkgs'
 │       ├───nixpkgs follows input 'hyprland/nixpkgs'
 │       └───systems follows input 'hyprland/systems'
+├───hyprlock: github:hyprwm/hyprlock/7b15d34f0af9b1c8ef49279827eee47e4dca9afa
+│   ├───hyprlang: github:hyprwm/hyprlang/11d5ccda071c153dfdc18ef65338956a51cef96a
+│   │   └───nixpkgs follows input 'hyprlock/nixpkgs'
+│   └───nixpkgs follows input 'nixpkgs'
 ├───hyprpicker: github:hyprwm/hyprpicker/2ef703474fb96e97e03e66e8820f213359f29382
 │   └───nixpkgs follows input 'nixpkgs'
-└───nixpkgs: github:NixOS/nixpkgs/faf912b086576fd1a15fca610166c98d47bc667e
+└───nixpkgs: github:NixOS/nixpkgs/b98a4e1746acceb92c509bc496ef3d0e5ad8d4aa
 
 ```
 
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?ref=f5f962943c9850a47dd36470daceef2ae1dad95d&rev=f5f962943c9850a47dd36470daceef2ae1dad95d&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?ref=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&rev=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'

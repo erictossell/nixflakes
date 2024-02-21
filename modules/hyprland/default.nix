@@ -3,7 +3,8 @@
   imports = [
     hyprland.nixosModules.default
     ./config
-    ./greetd
+    #./greetd
+    #./hyprlock
     ./mako
     ./swaylock
     ./waybar
@@ -24,13 +25,14 @@
     systemPackages = with pkgs; [
       eww-wayland
       grim
-      hyprpaper
+      swww
       hyprpicker.packages.${system}.default
       lxqt.lxqt-policykit
       slurp
       wl-clipboard
       # Required if applications are having trouble opening links
       xdg-utils
+      xfce.thunar
     ];
   };
 
