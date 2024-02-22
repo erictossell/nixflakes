@@ -22,7 +22,7 @@ There are many paths to the top of the mountain, but the view is always the same
 
 [NixOS as a Hypervisor](docs/hypervisor.md)
 
-[Keybindings Implemented by this Configuration](docs/keybinds.md) - 
+[Keybindings Implemented by this Configuration](docs/keybinds.md) 
 
 If you have questions you are welcome to send them in the form of an [issue](https://github.com/erictossell/nixflakes/issues/new) or reach me at any of my other points of contact available on my [GitHub Profile](https://github.com/erictossell) - I make no guarantees but I'm happy to do my best.
 
@@ -93,11 +93,11 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=c485b07f581b9ada3e532ce4254422f41933fbed&rev=c485b07f581b9ada3e532ce4254422f41933fbed&shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/ldcfkfwfmgjz0f1gihjk4zgncfvm03d9-source
-Revision:      d87627eb46f7118b551d329d0f3d6c12b6fa0c76-dirty
-Last modified: 2024-02-22 18:45:38
+Path:          /nix/store/b3dykiivxsg1kxqzwg88dgvqj1k7sfc3-source
+Revision:      c485b07f581b9ada3e532ce4254422f41933fbed
+Last modified: 2024-02-22 18:50:43
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/e6bbc01a35626b8db741bcbc0af807379d372218
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
@@ -191,7 +191,7 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?ref=c485b07f581b9ada3e532ce4254422f41933fbed&rev=c485b07f581b9ada3e532ce4254422f41933fbed&shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
