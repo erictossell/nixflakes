@@ -28,7 +28,7 @@
 
 ### Bash Aliases
 
-Can be found here: [bash aliases](modules/core/terminal/bash/default.nix)
+Can be found here: [bash aliases](https://github.com/erictossell/nixflakes/blob/main/modules/core/terminal/bash/default.nix)
 
 
 ### Eriixvim Keybindings
