@@ -4,7 +4,7 @@
 | --- | --- |
 |`Super + q` | Launch foot ina new window |
 |`Super + w` | Kill Window |
-|`Super + e` | Launch `ranger` in a new window |
+|`Super + e` | Launch `thunar` in a new window |
 |`Super + r` | Launch Wofi |
 |`Super + t` | Open Tmux in a new window |
 |`Super + g` | Launch Firefox |

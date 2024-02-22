@@ -45,7 +45,7 @@
                 bind = $mainMod, a, exec, pavucontrol
         	bind = $mainMod, v, exec, foot -e nvim
                 bind = $mainMod, 0, exit, 
-                bind = $mainMod, e, exec, kitty -e ranger
+                bind = $mainMod, e, exec, thunar
                 bind = $mainMod, b, exec, foot -e btop
         	bind = $mainMod, t, exec, foot -e tmux
         	bind = $mainMod, g, exec, foot -e firefox
