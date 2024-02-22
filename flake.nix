@@ -63,7 +63,7 @@
               ./.
               ./modules/hardware/nvidia
               ./modules/apps/obs
-              ./modules/toys
+              ./modules/steam
               ./modules/virt
             ];
           }; #principium
