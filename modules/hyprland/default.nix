@@ -54,7 +54,7 @@
   };
 
   services.gvfs.enable = true;
-  
+
   xdg.portal = {
     enable = true;
     config = {

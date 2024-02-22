@@ -11,28 +11,37 @@ So anyways. Here's my dots. I hope you like them.
 There are many paths to the top of the mountain, but the view is always the same.
 ```
 
-[How to use this repo](docs/usage.md)
-
-[Getting Started with NixOS Minimal](docs/minimal-install.md)
+<details>
+<summary> 📚 Docs </summary>
 
 [Why Nix and NixOS](docs/why-nix.md)
 
-Got questions? Send them in the form of an [issue](https://github.com/erictossell/nixflakes/issues/new) or reach me at any of my other points of contact available on my [GitHub Profile](https://github.com/erictossell) - I make no guarantees but I'm happy to do my best.
+[Getting Started with NixOS Minimal](docs/minimal-install.md)
+
+[How to use this repo](docs/usage.md)
+
+[NixOS as a Hypervisor](docs/hypervisor.md)
+
+[Keybindings Implemented by this Configuration](docs/keybinds.md) - 
+
+If you have questions you are welcome to send them in the form of an [issue](https://github.com/erictossell/nixflakes/issues/new) or reach me at any of my other points of contact available on my [GitHub Profile](https://github.com/erictossell) - I make no guarantees but I'm happy to do my best.
+
+</details>
 
 <details>
 <summary>📁 What is in this repo?</summary>
 
-#### 1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) (opinionated) Configuration Structure
+1. A [modular](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) (opinionated) Configuration Structure
 
-#### 2. Flake templates - Quickly grab this configuration and make it your own with:
+2. Flake templates - Quickly grab this configuration and make it your own with:
 
 ```nix
 nix flake new -t github:erictossell/nixflakes ./<your-repo-name-here>
 ```
 
-#### 3. An interactive build script for adding new [`hosts`](https://github.com/erictossell/nixflakes/tree/main/hosts)/[`users`](https://github.com/erictossell/nixflakes/tree/main/users) at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
+3. An interactive build script for adding new [`hosts`](https://github.com/erictossell/nixflakes/tree/main/hosts)/[`users`](https://github.com/erictossell/nixflakes/tree/main/users) at [`sh/build.sh`](https://github.com/erictossell/nixflakes/blob/main/sh/build.sh)
 
-#### 4. [`eriixvim`](https://github.com/erictossell/eriixvim) - a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
+4. [`eriixvim`](https://github.com/erictossell/eriixvim) - a fully reproducible neovim configuration built with [`nixvim`](https://github.com/nix-community/nixvim).
 
 Try it out with:
 
@@ -40,13 +49,13 @@ Try it out with:
 nix run github:erictossell/eriixvim
 ```
 
-#### 5. A simple example of a custom built `rust` package: [`russh`](https://github.com/erictossell/russh). 
+5. A simple example of a custom built `rust` package: [`russh`](https://github.com/erictossell/russh). 
 
 The highlight being how simple it is to package any application with `flakes` and import them into a `configuration` and ***not*** my `rust` code.
 
-#### 6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles9.png) managed by [me](https://github.com/erictossell).
+6. Semi up-to-date diagrams of the [structure](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeStructure9.png) of this flake and the [configurations](https://github.com/erictossell/nixflakes/blob/main/docs/screens/FlakeProfiles9.png) managed by [me](https://github.com/erictossell).
 
-#### 7. `nix flake show github:erictossell/nixflakes` 
+7. `nix flake show github:erictossell/nixflakes` 
 
 ```nix
 github:erictossell/nixflakes/bbca96ce85416b025d652d752c87d3816b2bf8ad
@@ -66,7 +75,7 @@ github:erictossell/nixflakes/bbca96ce85416b025d652d752c87d3816b2bf8ad
     └───default: template: The default template for Eriim's nixflakes.
 ```
 
-#### 8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
+8. [Nix CI/CD with Github Actions](https://github.com/erictossell/nixflakes/blob/main/.github/workflows/flake_check.yml) - Built with: [Cachix - Install Nix](https://github.com/cachix/install-nix-action), [Determiniate Systems - Flake Check](https://github.com/DeterminateSystems/flake-checker-action), [stefanzweifel - Commit Action](https://github.com/stefanzweifel/git-auto-commit-action), [statix](https://github.com/nerdypepper/statix), [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt)
 
 </details>
 
@@ -84,11 +93,11 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&rev=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/61z69falf46fmr6413drpdpk72yhgvgn-source
-Revision:      e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6
-Last modified: 2024-02-21 21:18:32
+Path:          /nix/store/ldcfkfwfmgjz0f1gihjk4zgncfvm03d9-source
+Revision:      d87627eb46f7118b551d329d0f3d6c12b6fa0c76-dirty
+Last modified: 2024-02-22 18:45:38
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/e6bbc01a35626b8db741bcbc0af807379d372218
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
@@ -182,7 +191,7 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?ref=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&rev=e79cc8ae1e1a1abbd76e892e8ad94b3a455f0de6&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
@@ -207,9 +216,9 @@ git+file:///home/runner/work/nixflakes/nixflakes?ref=e79cc8ae1e1a1abbd76e892e8ad
 <details>
 <summary>📊 Diagrams</summary>
 
-![Flake Structure](docs/screens/FlakeStructure9.png)
+![Flake Structure](docs/screens/FlakeStructure10.png)
 
-![Flake Profiles](docs/screens/FlakeProfiles9.png)
+![Flake Profiles](docs/screens/FlakeProfiles10.png)
 
 </details> 
 
