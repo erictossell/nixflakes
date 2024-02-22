@@ -33,6 +33,7 @@
       # Required if applications are having trouble opening links
       xdg-utils
       xfce.thunar
+      xfce.tumbler
     ];
   };
 
@@ -51,6 +52,8 @@
       };
     };
   };
+
+  services.gvfs.enable = true;
 
   xdg.portal = {
     enable = true;

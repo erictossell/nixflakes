@@ -5,9 +5,9 @@
 <details>
 <summary>📊 Diagrams</summary>
 
-![Flake Structure](docs/screens/FlakeStructure9.png)
+![Flake Structure](docs/screens/FlakeStructure10.png)
 
-![Flake Profiles](docs/screens/FlakeProfiles9.png)
+![Flake Profiles](docs/screens/FlakeProfiles10.png)
 
 </details> 
 

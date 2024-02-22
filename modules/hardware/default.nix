@@ -3,6 +3,6 @@
   imports = [
     ./bluetooth
     ./network
-    ./sound
+    ./audio
   ];
 }

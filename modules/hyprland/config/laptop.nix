@@ -2,12 +2,6 @@
 {
   home-manager.users.${username} = _: {
     home.file = {
-      ".config/hypr/hyprpaper.conf".text = ''
-        splash = false
-        preload = ~/.config/backgrounds/232136.png
-        preload = ~/.config/backgrounds/1A1C23.png
-        wallpaper = eDP-1, ~/.config/backgrounds/232136.png
-      '';
 
       ".config/hypr/vol.sh" = {
         source = ../../../sh/vol.sh;
@@ -23,7 +17,7 @@
                 #monitor=edp-1,3840 x 2160,auto,auto
                 monitor=,preferred,auto,auto
 
-                exec-once = hyprpaper & waybar & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+                exec-once = swww init & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                 # some default env vars.
                 env=BROWSER, firefox
@@ -42,7 +36,7 @@
                 bind = $mainMod, a, exec, pavucontrol
         	bind = $mainMod, v, exec, foot -e nvim
                 bind = $mainMod, 0, exit, 
-                bind = $mainMod, e, exec, kitty -e ranger
+                bind = $mainMod, e, exec, thunar
                 bind = $mainMod, b, exec, foot -e btop
         	bind = $mainMod, t, exec, foot -e tmux
         	bind = $mainMod, g, exec, foot -e firefox
