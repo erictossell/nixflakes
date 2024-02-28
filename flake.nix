@@ -15,9 +15,7 @@
       inputs.darwin.follows = "";
     };
 
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-    };
+    hyprland = { url = "github:hyprwm/hyprland"; };
 
     hyprlock = {
       url = "github:hyprwm/hyprlock";
@@ -40,127 +38,107 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs:
+  outputs = { self, nixpkgs, ... }@attrs:
     let
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
-    in
-    {
+    in {
 
       nixosConfigurations = {
 
-        principium =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              username = "eriim";
-              hostName = "principium";
-              hyprlandConfig = "desktop";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./.
-              ./modules/hardware/nvidia
-              ./modules/apps/obs
-              ./modules/steam
-              ./modules/virt
-            ];
-          }; #principium
-
-        sisyphus =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              username = "eriim";
-              hostName = "sisyphus";
-              hyprlandConfig = "laptop";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./.
-            ];
-          }; #sisyphus
-
-        live-image =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
+        principium = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "eriim";
+            hostName = "principium";
+            hyprlandConfig = "desktop";
             inherit system;
-            specialArgs = {
-              username = "nixos";
-              hostName = "live-image";
-              hyprlandConfig = "laptop";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./minimal.nix
-            ];
-          }; #live-image
+          } // attrs;
+          modules = [
+            ./.
+            ./modules/hardware/nvidia
+            ./modules/apps/obs
+            ./modules/steam
+            ./modules/virt
+          ];
+        }; # principium
 
-        winix =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
+        sisyphus = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "eriim";
+            hostName = "sisyphus";
+            hyprlandConfig = "laptop";
             inherit system;
-            specialArgs = {
-              username = "eriim";
-              hostName = "winix";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./wsl.nix
-            ];
-          }; #winix-wsl
+          } // attrs;
+          modules = [ ./. ];
+        }; # sisyphus
 
-        virtualis =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
+        live-image = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            username = "nixos";
+            hostName = "live-image";
+            hyprlandConfig = "laptop";
             inherit system;
-            specialArgs = {
-              username = "eriim";
-              hostName = "virtualis";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./minimal.nix
-            ];
-          }; #virtualis
+          } // attrs;
+          modules = [ ./minimal.nix ];
+        }; # live-image
 
-        ambiens =
-          let system = "x86_64-linux";
-          in nixpkgs.lib.nixosSystem {
+        winix = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            username = "eriim";
+            hostName = "winix";
             inherit system;
-            specialArgs = {
-              username = "eriim";
-              hostName = "ambiens";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./minimal.nix
-              ./modules/hardware/network
-              ./modules/plasma
-            ];
-          }; #ambiens
+          } // attrs;
+          modules = [ ./wsl.nix ];
+        }; # winix-wsl
 
-      }; #configurations
+        virtualis = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            username = "eriim";
+            hostName = "virtualis";
+            inherit system;
+          } // attrs;
+          modules = [ ./minimal.nix ];
+        }; # virtualis
+
+        ambiens = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            username = "eriim";
+            hostName = "ambiens";
+            inherit system;
+          } // attrs;
+          modules = [
+            ./minimal.nix
+            ./modules/hardware/network
+            ./modules/plasma
+            ./modules/apps
+          ];
+        }; # ambiens
+
+      }; # configurations
 
       devShells = forAllSystems (system:
-        let
-          pkgs = nixpkgsFor.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              nixpkgs-fmt
-              statix
-            ];
-          };
+        let pkgs = nixpkgsFor.${system};
+        in {
+          default =
+            pkgs.mkShell { buildInputs = with pkgs; [ nixfmt statix ]; };
         });
 
       templates.default = {
         path = ./.;
         description = "The default template for Eriim's nixflakes.";
-      }; #templates
+      }; # templates
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
     };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   fonts = {
     packages = with pkgs; [
       (callPackage (import ./MplusCodeNerdFont) { })

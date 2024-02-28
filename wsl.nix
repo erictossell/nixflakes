@@ -1,5 +1,4 @@
-{ home-manager, nixpkgs, ... }:
-{
+{ home-manager, nixpkgs, ... }: {
   imports = [
     home-manager.nixosModules.home-manager
     { nix.registry.nixpkgs.flake = nixpkgs; }

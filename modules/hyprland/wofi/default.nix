@@ -1,5 +1,4 @@
-{ pkgs, home-manager, username, ... }:
-{
+{ pkgs, home-manager, username, ... }: {
   environment.systemPackages = with pkgs; [ wofi ];
 
   home-manager.users.${username} = {

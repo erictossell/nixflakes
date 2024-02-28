@@ -1,8 +1,5 @@
-{ pkgs, home-manager, username, ... }:
-{
+{ pkgs, home-manager, username, ... }: {
   imports = [ ./dots ];
-  environment.systemPackages = with pkgs; [
-    kitty
-  ];
+  environment.systemPackages = with pkgs; [ kitty ];
 
 }

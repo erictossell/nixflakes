@@ -1,11 +1,10 @@
-{ pkgs, home-manager, username, ... }:
-{
+{ pkgs, home-manager, username, ... }: {
   # Shell Aliases inspired by:
   # https://github.com/donovanglover/nix-config
   # ---- System Configuration ----
   programs.bash = {
     interactiveShellInit = ''
-      	nitch
+      nitch
     '';
     shellAliases = {
       cp = "cp -ia";
@@ -74,7 +73,8 @@
       nr = "nix run";
       ncg = "sudo nix-collect-garbage -d";
       sw = "sudo nixos-rebuild switch --flake .";
-      vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
+      vm =
+        "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
 
       ci = "cargo init";
       cin = "cargo info";

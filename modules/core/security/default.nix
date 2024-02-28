@@ -1,8 +1,2 @@
-{
-  imports = [
-    ./gnupg
-    ./polkit
-    ./yubico
-  ];
-}
+{ imports = [ ./gnupg ./polkit ./yubico ]; }
 

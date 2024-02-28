@@ -1,6 +1,4 @@
-{ pkgs, home-manager, username, ... }:
-{
-
+{ pkgs, home-manager, username, ... }: {
 
   #
   home-manager.users.${username} = {
@@ -35,7 +33,6 @@
   programs.bash.interactiveShellInit = ''
     source /home/${username}/.config/op/plugins.sh
   '';
-
 
   # Enable 1password and the CLI
   programs = {

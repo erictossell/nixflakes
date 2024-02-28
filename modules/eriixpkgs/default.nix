@@ -1,7 +1,1 @@
-{
-  imports = [
-    ./go-time
-    ./homepage-nix
-    ./russh
-  ];
-}
+{ imports = [ ./go-time ./homepage-nix ./russh ]; }

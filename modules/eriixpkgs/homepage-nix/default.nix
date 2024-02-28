@@ -1,8 +1,5 @@
-{ eriixpkgs, system, username, ... }:
-{
-  imports = [
-    eriixpkgs.nixosModules.${system}.homepage-nix
-  ];
+{ eriixpkgs, system, username, ... }: {
+  imports = [ eriixpkgs.nixosModules.${system}.homepage-nix ];
 
   services.homepage-nix = {
     enable = true;

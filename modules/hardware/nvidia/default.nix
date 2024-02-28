@@ -1,5 +1,4 @@
-{ config, pkgs, username, ... }:
-{
+{ config, pkgs, username, ... }: {
   # Environment variables
   # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----
   # Force wayland when possible
@@ -26,7 +25,5 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  users.users.${username} = {
-    extraGroups = [ "video" "render" ];
-  };
+  users.users.${username} = { extraGroups = [ "video" "render" ]; };
 }

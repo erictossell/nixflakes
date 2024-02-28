@@ -1,8 +1,1 @@
-{ ... }:
-{
-  imports = [
-    ./bluetooth
-    ./network
-    ./audio
-  ];
-}
+{ ... }: { imports = [ ./bluetooth ./network ./audio ]; }

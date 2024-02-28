@@ -1,5 +1,4 @@
-{ pkgs, username, ... }:
-{
+{ pkgs, username, ... }: {
   security = {
     pam = {
       # Auth with FIDO Keys

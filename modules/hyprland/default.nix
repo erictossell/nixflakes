@@ -1,5 +1,4 @@
-{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }:
-{
+{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }: {
   imports = [
     hyprland.nixosModules.default
     ./config
@@ -23,7 +22,6 @@
     sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
-      eww-wayland
       grim
       swww
       hyprpicker.packages.${system}.default
@@ -41,17 +39,9 @@
 
   programs.dconf.enable = true;
 
-  services.gnome = {
-    gnome-keyring.enable = true;
-  };
+  services.gnome = { gnome-keyring.enable = true; };
 
-  security = {
-    pam = {
-      services = {
-        login.enableGnomeKeyring = true;
-      };
-    };
-  };
+  security = { pam = { services = { login.enableGnomeKeyring = true; }; }; };
 
   services.gvfs.enable = true;
 

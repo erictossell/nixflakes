@@ -1,6 +1,4 @@
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
   #----Host specific config ----
 }

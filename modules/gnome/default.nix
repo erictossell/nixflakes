@@ -14,17 +14,15 @@ let
     tailscale-qs
     tailscale-status
   ];
-in
-{
+in {
   # ---- Home Configuration ----
   home-manager.users.${username} = {
 
     home.packages = gnomeExtensionsList;
 
     dconf.settings = {
-      "org/gnome/shell".enabled-extensions = (map (extension: extension.extensionUuid) gnomeExtensionsList)
-        ++
-        [
+      "org/gnome/shell".enabled-extensions =
+        (map (extension: extension.extensionUuid) gnomeExtensionsList) ++ [
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
           "window-list@gnome-shell-extensions.gcampax.github.com"
           "places-menu@gnome-shell-extensions.gcampax.github.com"
@@ -38,7 +36,12 @@ in
 
       "org/gnome/shell".disabled-extensions = [ ];
 
-      "org/gnome/shell".favorite-apps = [ "firefox.desktop" "code.desktop" "discord.desktop" "virt-manager.desktop" ];
+      "org/gnome/shell".favorite-apps = [
+        "firefox.desktop"
+        "code.desktop"
+        "discord.desktop"
+        "virt-manager.desktop"
+      ];
 
       "org/gnome/desktop/interface" = {
         enable-hot-corners = false;
@@ -61,11 +64,12 @@ in
         ];
       };
 
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Super>q";
-        command = "foot  > /dev/null 2>&1 &";
-        name = "open-terminal";
-      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
+        {
+          binding = "<Super>q";
+          command = "foot  > /dev/null 2>&1 &";
+          name = "open-terminal";
+        };
 
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
@@ -73,11 +77,7 @@ in
 
       "org/gnome/desktop/wm/preferences" = {
         # Workspace Indicator panel
-        workspace-names = [
-          "Browser"
-          "Code"
-          "Virt"
-        ];
+        workspace-names = [ "Browser" "Code" "Virt" ];
         button-layout = "appmenu:minimize,maximize,close";
       };
 
@@ -105,9 +105,7 @@ in
         unmaximize = "disabled";
       };
 
-      "org/gnome/shell/extensions/pop-shell" = {
-        tile-by-default = true;
-      };
+      "org/gnome/shell/extensions/pop-shell" = { tile-by-default = true; };
 
       # Configure blur-my-shell
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -130,9 +128,7 @@ in
 
       # Set the default window for primary applications
       "org/gnome/shell/extensions/auto-move-windows" = {
-        application-list = [
-          "firefox.desktop:1"
-        ];
+        application-list = [ "firefox.desktop:1" ];
       };
 
       # The open applications bar
@@ -142,9 +138,7 @@ in
         display-all-workspaces = true;
       };
 
-      "org/gnome/shell/extensions/user-theme" = {
-        name = "nordic";
-      };
+      "org/gnome/shell/extensions/user-theme" = { name = "nordic"; };
     };
   };
 
@@ -162,25 +156,21 @@ in
     gnome-keyring.enable = true;
   };
 
-
   programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [ nordic ];
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-    gedit
-  ]) ++ (with pkgs.gnome; [
-    gnome-music
-    epiphany
-    geary
-    evince
-    gnome-characters
-    totem
-    tali
-    iagno
-    hitori
-    atomix
-  ]);
+  environment.gnome.excludePackages =
+    (with pkgs; [ gnome-photos gnome-tour gedit ]) ++ (with pkgs.gnome; [
+      gnome-music
+      epiphany
+      geary
+      evince
+      gnome-characters
+      totem
+      tali
+      iagno
+      hitori
+      atomix
+    ]);
 }

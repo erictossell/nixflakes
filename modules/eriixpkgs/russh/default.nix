@@ -1,6 +1,3 @@
-{ eriixpkgs, system, ... }:
-{
-  environment.systemPackages = [
-    eriixpkgs.packages.${system}.russh
-  ];
+{ eriixpkgs, system, ... }: {
+  environment.systemPackages = [ eriixpkgs.packages.${system}.russh ];
 }
