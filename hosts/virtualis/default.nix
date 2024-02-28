@@ -1,6 +1,5 @@
 # A simple host configuration for creating live images
-{ nixpkgs, ... }:
-{
+{ nixpkgs, ... }: {
   imports = [
     (nixpkgs + "/nixos/modules/virtualisation/qemu-vm.nix")
     (nixpkgs + "/nixos/modules/virtualisation/qemu-guest-agent.nix")

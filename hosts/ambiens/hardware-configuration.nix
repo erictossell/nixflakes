@@ -4,25 +4,23 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/profiles/qemu-guest.nix")
-    ];
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
   boot = {
     initrd = {
-      availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      availableKernelModules =
+        [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
       kernelModules = [ ];
-      luks.devices."luks-d719ccb3-3478-4b82-a67a-c9e1286a727c".device = "/dev/disk/by-uuid/d719ccb3-3478-4b82-a67a-c9e1286a727c";
+      luks.devices."luks-d719ccb3-3478-4b82-a67a-c9e1286a727c".device =
+        "/dev/disk/by-uuid/d719ccb3-3478-4b82-a67a-c9e1286a727c";
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
   };
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/3f4f21b1-b153-4911-bf8a-ce262b602a01";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/3f4f21b1-b153-4911-bf8a-ce262b602a01";
+    fsType = "ext4";
+  };
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

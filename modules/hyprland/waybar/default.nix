@@ -4,8 +4,7 @@ let
     "laptop" = [ (import ./laptop.nix { inherit home-manager username; }) ];
     "desktop" = [ (import ./desktop.nix { inherit home-manager username; }) ];
   };
-in
-{
+in {
   imports = dotfiles.${hyprlandConfig} or [ ];
   environment.systemPackages = with pkgs; [ waybar ];
 }

@@ -1,5 +1,4 @@
-{ home-manager, pkgs, username, ... }:
-{
+{ home-manager, pkgs, username, ... }: {
   # https://github.com/lovesegfault/nix-config/blob/e412cd01cda084c7e3f5c1fbcf7d99665999949e/core/nixos.nix#L39
   system = {
     extraSystemBuilderCmds = ''
@@ -15,7 +14,7 @@
   };
 
   home-manager.users.${username} = {
-    /* The home.stateVersion option does not have a default and must be set */
+    # The home.stateVersion option does not have a default and must be set
     home.stateVersion = "23.05";
     nixpkgs.config.allowUnfree = true;
   };

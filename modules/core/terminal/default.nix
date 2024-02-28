@@ -1,15 +1,5 @@
-{ pkgs, home-manager, username, ... }:
-{
-  imports = [
-    ./bash
-    ./cava
-    ./fonts
-    ./foot
-    ./kitty
-    ./nvim
-    ./starship
-    ./tmux
-  ];
+{ pkgs, home-manager, username, ... }: {
+  imports = [ ./bash ./cava ./fonts ./foot ./kitty ./nvim ./starship ./tmux ];
 
   # ---- Home Configuration ----
   home-manager.users.${username} = {
@@ -22,7 +12,6 @@
     htop.enable = true;
     mtr.enable = true;
   };
-
 
   environment.systemPackages = with pkgs; [
     alacritty

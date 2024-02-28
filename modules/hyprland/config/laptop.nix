@@ -1,5 +1,4 @@
-{ home-manager, username, ... }:
-{
+{ home-manager, username, ... }: {
   home-manager.users.${username} = _: {
     home.file = {
 
@@ -11,7 +10,6 @@
         source = ../../../sh/toggle_waybar.sh;
         executable = true;
       };
-
 
       ".config/hypr/hyprland.conf".text = ''
                 #monitor=edp-1,3840 x 2160,auto,auto

@@ -1,5 +1,4 @@
-{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }:
-{
+{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }: {
   imports = [
     hyprland.nixosModules.default
     ./config
@@ -41,17 +40,9 @@
 
   programs.dconf.enable = true;
 
-  services.gnome = {
-    gnome-keyring.enable = true;
-  };
+  services.gnome = { gnome-keyring.enable = true; };
 
-  security = {
-    pam = {
-      services = {
-        login.enableGnomeKeyring = true;
-      };
-    };
-  };
+  security = { pam = { services = { login.enableGnomeKeyring = true; }; }; };
 
   services.gvfs.enable = true;
 
