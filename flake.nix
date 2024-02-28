@@ -117,8 +117,12 @@
             hostName = "ambiens";
             inherit system;
           } // attrs;
-          modules =
-            [ ./minimal.nix ./modules/hardware/network ./modules/plasma ];
+          modules = [
+            ./minimal.nix
+            ./modules/hardware/network
+            ./modules/plasma
+            ./modules/apps
+          ];
         }; # ambiens
 
       }; # configurations
