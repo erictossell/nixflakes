@@ -41,9 +41,7 @@
 
   services.gnome = { gnome-keyring.enable = true; };
 
-  security = { pam = { services = { login.enableGnomeKeyring = true; }; }; };
-
-  services.gvfs.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   xdg.portal = {
     enable = true;
