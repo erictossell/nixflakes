@@ -1,5 +1,5 @@
 { pkgs, home-manager, username, ... }: {
-  imports = [ ./bash ./cava ./fonts ./foot ./kitty ./nvim ./starship ./tmux ];
+  imports = [ ./bash ./cava ./fonts ./foot ./nvim ./starship ./tmux ];
 
   # ---- Home Configuration ----
   home-manager.users.${username} = {
@@ -21,13 +21,9 @@
     nitch
     pavucontrol
     playerctl
-    musikcube
-    ranger
     ripgrep
     todoist
-    tty-clock
     unzip
     wget
-    vim
   ];
 }
