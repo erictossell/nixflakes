@@ -98,19 +98,16 @@
           modules = [ ./minimal.nix ];
         }; # virtualis
 
-	terminus =
-       	let system = "x86_64-linux";
-	in nixpkgs.lib.nixosSystem {
+        terminus = let system = "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "eriim";
             hostName = "terminus";
             hyprlandConfig = "laptop";
-	    inherit system;
-          } // attrs;        
-          modules = [
-            ./.
-          ];
-        };#terminus
+            inherit system;
+          } // attrs;
+          modules = [ ./. ];
+        }; # terminus
       }; # configurations
 
       devShells = forAllSystems (system:

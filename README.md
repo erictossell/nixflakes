@@ -93,11 +93,11 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=66862abfce4c2b9c28cf92b4c45e2935365eda82&rev=66862abfce4c2b9c28cf92b4c45e2935365eda82&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/xkaay7bdyycmkwk7189an33iph2r7swy-source
-Revision:      66862abfce4c2b9c28cf92b4c45e2935365eda82
-Last modified: 2024-03-11 21:35:23
+Path:          /nix/store/4gw4lgigbda7hmin1zd811cdnxvv3q70-source
+Revision:      f70e2c2191e475b6059cc8e967b0ba4b41266117-dirty
+Last modified: 2024-03-13 14:05:03
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/3257ad7f173b0314c8a42fec450fa6556495b97c
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
@@ -192,17 +192,16 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?ref=66862abfce4c2b9c28cf92b4c45e2935365eda82&rev=66862abfce4c2b9c28cf92b4c45e2935365eda82&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
 ├───formatter
 │   └───x86_64-linux: package 'nixfmt-0.6.0'
 ├───nixosConfigurations
-│   ├───ambiens: NixOS configuration
 │   ├───live-image: NixOS configuration
 │   ├───principium: NixOS configuration
-│   ├───sisyphus: NixOS configuration
+│   ├───terminus: NixOS configuration
 │   ├───virtualis: NixOS configuration
 │   └───winix: NixOS configuration
 └───templates
