@@ -74,11 +74,11 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=1f6c12ee2541e6af6206b6841ab7e459b55becf3&rev=1f6c12ee2541e6af6206b6841ab7e459b55becf3&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?ref=75e4904ac660e8808bd8aa7c66836d63551f1438&rev=75e4904ac660e8808bd8aa7c66836d63551f1438&shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/6rh5fljz3wybw9x1ff3g1z17xshiqhsw-source
-Revision:      1f6c12ee2541e6af6206b6841ab7e459b55becf3
-Last modified: 2024-03-13 16:34:10
+Path:          /nix/store/xvcsrm730bag78n7jyjj6x96aj9fpbxr-source
+Revision:      75e4904ac660e8808bd8aa7c66836d63551f1438
+Last modified: 2024-03-13 16:56:11
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/e0b9e6c8ff35c7a28cb6baa02d85a9737a2ee4e9
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33
@@ -179,7 +179,7 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?ref=1f6c12ee2541e6af6206b6841ab7e459b55becf3&rev=1f6c12ee2541e6af6206b6841ab7e459b55becf3&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?ref=75e4904ac660e8808bd8aa7c66836d63551f1438&rev=75e4904ac660e8808bd8aa7c66836d63551f1438&shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
