@@ -131,7 +131,7 @@
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "eriim";
-            hostname = "terminus";
+            hostName = "terminus";
             hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
