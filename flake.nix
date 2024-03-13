@@ -64,17 +64,6 @@
           ];
         }; # principium
 
-        sisyphus = let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "eriim";
-            hostName = "sisyphus";
-            hyprlandConfig = "laptop";
-            inherit system;
-          } // attrs;
-          modules = [ ./. ];
-        }; # sisyphus
-
         live-image = let system = "x86_64-linux";
         in nixpkgs.lib.nixosSystem {
           inherit system;
@@ -109,23 +98,6 @@
           modules = [ ./minimal.nix ];
         }; # virtualis
 
-        ambiens = let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            username = "eriim";
-            hostName = "ambiens";
-            inherit system;
-          } // attrs;
-          modules = [
-            ./minimal.nix
-            ./modules/hardware/network
-            ./modules/plasma
-            ./modules/apps
-          ];
-        }; # ambiens
-
-# Appended new system
 	terminus =
        	let system = "x86_64-linux";
 	in nixpkgs.lib.nixosSystem {
