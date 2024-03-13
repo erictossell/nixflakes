@@ -93,7 +93,7 @@ if [ "$nvidia" = true ]; then
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
-            hostname = "$hostname";
+            hostName = "$hostname";
             hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
@@ -112,7 +112,7 @@ else
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
-            hostname = "$hostname";
+            hostName = "$hostname";
             hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
@@ -123,7 +123,7 @@ else
 EOM
 fi
 awk -v n="$NEW_CONFIG" '
-    /}; #configurations/ { print n; print; next }
+    /}; # configurations/ { print n; print; next }
     { print }
 ' flake.nix > temp && mv temp flake.nix
 
