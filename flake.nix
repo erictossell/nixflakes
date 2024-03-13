@@ -125,6 +125,20 @@
           ];
         }; # ambiens
 
+# Appended new system
+	terminus =
+       	let system = "x86_64-linux";
+	in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "eriim";
+            hostname = "terminus";
+            hyprlandConfig = "laptop";
+	    inherit system;
+          } // attrs;        
+          modules = [
+            ./.
+          ];
+        };#terminus
       }; # configurations
 
       devShells = forAllSystems (system:

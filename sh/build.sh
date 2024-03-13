@@ -123,7 +123,7 @@ else
 EOM
 fi
 awk -v n="$NEW_CONFIG" '
-    /}; #configurations/ { print n; print; next }
+    /}; # configurations/ { print n; print; next }
     { print }
 ' flake.nix > temp && mv temp flake.nix
 
