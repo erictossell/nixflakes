@@ -101,7 +101,7 @@ if [ "$nvidia" = true ]; then
             ./.
 	    ./modules/hardware/nvidia
           ];
-        };#$hostname
+        }; # $hostname
 EOM
 else
 	read -r -d '' NEW_CONFIG << EOM
@@ -119,7 +119,7 @@ else
           modules = [
             ./.
           ];
-        };#$hostname
+        }; # $hostname
 EOM
 fi
 awk -v n="$NEW_CONFIG" '
