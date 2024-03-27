@@ -1,4 +1,5 @@
-{ home-manager, username, ... }: {
+{ home-manager, username, ... }:
+{
   home-manager.users.${username} = _: {
     home.file = {
 
@@ -15,7 +16,7 @@
                 #monitor=edp-1,3840 x 2160,auto,auto
                 monitor=,preferred,auto,auto
 
-                exec-once = swww init & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+                exec-once = swww-daemon & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                 # some default env vars.
                 env=BROWSER, firefox
@@ -223,7 +224,6 @@
                 bindm = $mainMod, mouse:272, movewindow
                 bindm = $mainMod, mouse:273, resizewindow
       '';
-
     };
   };
 }

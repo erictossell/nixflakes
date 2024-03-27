@@ -1,5 +1,10 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   imports = [ ./dots ];
   environment.systemPackages = with pkgs; [ cava ];
-
 }

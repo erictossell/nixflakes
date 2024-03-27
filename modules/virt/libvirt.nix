@@ -1,4 +1,5 @@
-{ config, pkgs, home-manager, username, ... }: {
+{ pkgs, username, ... }:
+{
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -19,9 +20,8 @@
     spice-gtk
     spice-protocol
     virt-viewer
-    virtio-win
-    win-spice
-
+    #virtio-win
+    #win-spice
   ];
   programs.virt-manager.enable = true;
 

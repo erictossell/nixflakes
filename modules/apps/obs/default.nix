@@ -1,4 +1,10 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   home-manager.users.${username} = {
     programs = {
       obs-studio = {
@@ -15,4 +21,3 @@
   };
   environment.systemPackages = with pkgs; [ obs-studio ];
 }
-

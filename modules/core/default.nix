@@ -1,1 +1,8 @@
-{ imports = [ ./boot/systemd ./nix ./security ./terminal ]; }
+{
+  imports = [
+    ./boot/systemd
+    ./nix
+    ./security
+    ./terminal
+  ];
+}

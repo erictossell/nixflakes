@@ -1,4 +1,5 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, ... }:
+{
   security = {
     polkit = {
       enable = true;
@@ -13,4 +14,3 @@
   };
   programs.gnupg.agent.enable = true;
 }
-

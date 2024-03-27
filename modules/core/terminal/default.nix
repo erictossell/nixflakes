@@ -1,5 +1,19 @@
-{ pkgs, home-manager, username, ... }: {
-  imports = [ ./bash ./cava ./fonts ./foot ./nvim ./starship ./tmux ];
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
+  imports = [
+    ./bash
+    ./cava
+    ./fonts
+    ./foot
+    ./nvim
+    ./starship
+    ./tmux
+  ];
 
   # ---- Home Configuration ----
   home-manager.users.${username} = {

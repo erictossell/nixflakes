@@ -1,4 +1,5 @@
-{ home-manager, username, ... }: {
+{ home-manager, username, ... }:
+{
   home-manager.users.${username} = _: {
     home.file = {
       ".config/cava/config".text = ''
@@ -364,7 +365,6 @@
             fragCoord  = (vertexPosition_modelspace.xy+vec2(1,1))/2.0;
         }
       '';
-
     };
   };
 }

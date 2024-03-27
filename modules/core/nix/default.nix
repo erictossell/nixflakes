@@ -1,4 +1,10 @@
-{ home-manager, pkgs, username, ... }: {
+{
+  home-manager,
+  pkgs,
+  username,
+  ...
+}:
+{
   # https://github.com/lovesegfault/nix-config/blob/e412cd01cda084c7e3f5c1fbcf7d99665999949e/core/nixos.nix#L39
   system = {
     extraSystemBuilderCmds = ''
@@ -11,7 +17,10 @@
   nix = {
     package = pkgs.nixVersions.nix_2_21;
     nixPath = [ "nixpkgs=/run/current-system/nixpkgs" ];
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   home-manager.users.${username} = {

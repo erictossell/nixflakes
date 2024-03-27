@@ -1,4 +1,10 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   home-manager.users.${username} = {
     # VS Code on Wayland has issues, make sure to set the title bar to custom
     # https://github.com/microsoft/vscode/issues/181533
@@ -19,16 +25,14 @@
       userSettings = {
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Github Dark Colorblind (Beta)";
-        "editor.fontFamily" =
-          "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace";
+        "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace";
         "github.copilot.enable" = {
           "*" = true;
           "plaintext" = false;
           "markdown" = true;
           "scminput" = false;
         };
-        "powershell.powerShellAdditionalExePaths" =
-          "/run/current-system/sw/bin/pwsh";
+        "powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
       };
     };
   };
