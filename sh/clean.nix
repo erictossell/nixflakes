@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 pkgs.stdenv.mkDerivation {
   name = "clean";
@@ -14,4 +16,3 @@ pkgs.stdenv.mkDerivation {
     chmod +x $out/bin/clean
   '';
 }
-

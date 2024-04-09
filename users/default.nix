@@ -1,1 +1,4 @@
-{ username, ... }: { imports = [ ./${username} ]; }
+{ username, ... }:
+{
+  imports = [ ./${username} ];
+}

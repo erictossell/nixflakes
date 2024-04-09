@@ -1,4 +1,9 @@
-{ username, hostName, NixOS-WSL, ... }:
+{
+  username,
+  hostName,
+  NixOS-WSL,
+  ...
+}:
 
 {
   imports = [ NixOS-WSL.nixosModules.wsl ];
@@ -9,5 +14,4 @@
   };
 
   networking.hostName = "${hostName}";
-
 }

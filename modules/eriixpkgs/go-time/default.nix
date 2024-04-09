@@ -1,4 +1,4 @@
-{ pkgs, eriixpkgs, ... }: {
-  environment.systemPackages = with pkgs;
-    [ eriixpkgs.packages.${system}.go-time ];
+{ pkgs, eriixpkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [ eriixpkgs.packages.${system}.go-time ];
 }

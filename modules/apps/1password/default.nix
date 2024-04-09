@@ -1,4 +1,10 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
 
   #
   home-manager.users.${username} = {
@@ -45,6 +51,4 @@
 
   # Enable 1password to open with gnomekeyring
   security.pam.services."1password".enableGnomeKeyring = true;
-
 }
-

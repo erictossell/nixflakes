@@ -1,4 +1,10 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   imports = [
     ./1password
     ./browsing

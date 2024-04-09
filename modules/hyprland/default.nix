@@ -1,4 +1,13 @@
-{ hyprland, hyprpicker, pkgs, username, home-manager, system, ... }: {
+{
+  hyprland,
+  hyprpicker,
+  pkgs,
+  username,
+  home-manager,
+  system,
+  ...
+}:
+{
   imports = [
     hyprland.nixosModules.default
     ./config
@@ -38,7 +47,9 @@
 
   programs.dconf.enable = true;
 
-  services.gnome = { gnome-keyring.enable = true; };
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
 
   security.pam.services.login.enableGnomeKeyring = true;
 
@@ -46,7 +57,10 @@
     enable = true;
     config = {
       common = {
-        default = [ "xdph" "gtk" ];
+        default = [
+          "xdph"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
         "org.freedesktop.portal.FileChooser" = [ "xdg-desktop-portal-gtk" ];
       };
@@ -54,4 +68,3 @@
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 }
-

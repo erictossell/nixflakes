@@ -1,4 +1,9 @@
-{ pkgs, home-manager, username, ... }:
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
 let
   gnomeExtensionsList = with pkgs.gnomeExtensions; [
     user-themes
@@ -14,7 +19,8 @@ let
     tailscale-qs
     tailscale-status
   ];
-in {
+in
+{
   # ---- Home Configuration ----
   home-manager.users.${username} = {
 
@@ -22,7 +28,8 @@ in {
 
     dconf.settings = {
       "org/gnome/shell".enabled-extensions =
-        (map (extension: extension.extensionUuid) gnomeExtensionsList) ++ [
+        (map (extension: extension.extensionUuid) gnomeExtensionsList)
+        ++ [
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
           "window-list@gnome-shell-extensions.gcampax.github.com"
           "places-menu@gnome-shell-extensions.gcampax.github.com"
@@ -64,12 +71,11 @@ in {
         ];
       };
 
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
-        {
-          binding = "<Super>q";
-          command = "foot  > /dev/null 2>&1 &";
-          name = "open-terminal";
-        };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>q";
+        command = "foot  > /dev/null 2>&1 &";
+        name = "open-terminal";
+      };
 
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
@@ -77,7 +83,11 @@ in {
 
       "org/gnome/desktop/wm/preferences" = {
         # Workspace Indicator panel
-        workspace-names = [ "Browser" "Code" "Virt" ];
+        workspace-names = [
+          "Browser"
+          "Code"
+          "Virt"
+        ];
         button-layout = "appmenu:minimize,maximize,close";
       };
 
@@ -105,7 +115,9 @@ in {
         unmaximize = "disabled";
       };
 
-      "org/gnome/shell/extensions/pop-shell" = { tile-by-default = true; };
+      "org/gnome/shell/extensions/pop-shell" = {
+        tile-by-default = true;
+      };
 
       # Configure blur-my-shell
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -138,7 +150,9 @@ in {
         display-all-workspaces = true;
       };
 
-      "org/gnome/shell/extensions/user-theme" = { name = "nordic"; };
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "nordic";
+      };
     };
   };
 
@@ -161,7 +175,12 @@ in {
   environment.systemPackages = with pkgs; [ nordic ];
 
   environment.gnome.excludePackages =
-    (with pkgs; [ gnome-photos gnome-tour gedit ]) ++ (with pkgs.gnome; [
+    (with pkgs; [
+      gnome-photos
+      gnome-tour
+      gedit
+    ])
+    ++ (with pkgs.gnome; [
       gnome-music
       epiphany
       geary

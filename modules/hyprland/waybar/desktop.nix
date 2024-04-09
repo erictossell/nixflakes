@@ -1,4 +1,5 @@
-{ home-manager, username, ... }: {
+{ home-manager, username, ... }:
+{
   home-manager.users.${username} = _: {
     home.file = {
       ".config/waybar/config.jsonc".text = ''
@@ -106,7 +107,7 @@
         	"tooltip-format-enumerate-connected": "{device_alias}   {device_address}"      
         	},
         	"network": {
-        		"interface": "wlp*",
+        		"interface": "enp*",
         		"format": "󰱓 {bandwidthTotalBytes}",
         		"format-disconnected": "{icon} No Internet",
         		"format-linked": "󰅛 {ifname} (No IP)",
@@ -235,7 +236,6 @@
         	color: #00ba69;
         }
       '';
-
     };
   };
 }

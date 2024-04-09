@@ -1,8 +1,16 @@
-{ pkgs, home-manager, username, ... }: {
+{
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
   #----- Home Manager Config -----
   home-manager.users.${username} = {
 
-    home.sessionVariables = { MOZ_ENABLE_WAYLAND = 1; };
+    home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+    };
 
     programs = {
       #chromium = {
