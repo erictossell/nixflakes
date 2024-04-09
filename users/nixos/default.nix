@@ -4,7 +4,7 @@
   users.users.${username} = {
     shell = pkgs.bash;
     isNormalUser = true;
-    #initialPassword = "temp123";
+    initialPassword = "temp123";
     extraGroups = [ "wheel" ];
   };
 }
