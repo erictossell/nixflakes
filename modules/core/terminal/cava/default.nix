@@ -1,7 +1,5 @@
 {
   pkgs,
-  home-manager,
-  username,
   ...
 }:
 {

@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = _: {
     home.file = {

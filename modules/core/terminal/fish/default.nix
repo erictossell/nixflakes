@@ -1,17 +1,17 @@
+{ pkgs, ... }:
 {
   # Shell Aliases inspired by:
   # https://github.com/donovanglover/nix-config
   # ---- System Configuration ----
-  programs.bash = {
+  programs.fish = {
+    enable = true;
     interactiveShellInit = ''
+      set fish_greeting
       nitch
+      ${pkgs.zoxide}/bin/zoxide init fish | source
     '';
     shellAliases = {
-      cp = "cp -ia";
-      ls = "ls -la";
-      mv = "mv -i";
-      z = "zoxide";
-
+    
       b = "btop";
       c = "clear";
       e = "exit";
