@@ -1,20 +1,16 @@
+{ username, ... }:
 {
-  pkgs,
-  home-manager,
-  username,
-  ...
-}:
-{
-
-  #
   home-manager.users.${username} = {
     home.file = {
-
       # Configuration for 1password SSH Agent.
-      ".ssh/config".text = ''
-        Host *
-          IdentityAgent ~/.1password/agent.sock
-      '';
+      #".ssh/config".text = ''
+      #  Host *
+      #    IdentityAgent ~/.1password/agent.sock
+
+      #	Host git.eriim.dev
+      #	  HostName eriim.dev
+      #	  Port 23231
+      #     '';
 
       # Configure 1password to handle SSH commit signing
       ".gitconfig".text = ''

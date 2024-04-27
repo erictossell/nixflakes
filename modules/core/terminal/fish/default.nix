@@ -11,10 +11,13 @@
       ${pkgs.zoxide}/bin/zoxide init fish | source
     '';
     shellAliases = {
-    
+
       b = "btop";
       c = "clear";
       e = "exit";
+      n = "nvim";
+      t = "tmux";
+      r = "ranger";
 
       g = "git";
       ga = "git add";
@@ -60,10 +63,6 @@
 
       gor = "go run .";
       gob = "go build .";
-
-      n = "nvim";
-      t = "tmux";
-      r = "ranger";
 
       nf = "nix flake";
       nfu = "nix flake update";

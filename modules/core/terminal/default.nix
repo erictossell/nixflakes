@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 {
   imports = [
     ./cava
@@ -36,6 +32,7 @@
     ripgrep
     todoist
     unzip
+    wishlist
     zoxide
   ];
 }
