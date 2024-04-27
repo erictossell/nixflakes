@@ -1,10 +1,4 @@
 {
-  pkgs,
-  home-manager,
-  username,
-  ...
-}:
-{
   programs.starship = {
     enable = true;
     settings = {

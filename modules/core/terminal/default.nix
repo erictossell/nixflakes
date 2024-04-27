@@ -1,13 +1,12 @@
 {
   pkgs,
-  home-manager,
   username,
   ...
 }:
 {
   imports = [
-    ./bash
     ./cava
+    ./fish
     ./fonts
     ./foot
     ./nvim
@@ -18,7 +17,6 @@
   # ---- Home Configuration ----
   home-manager.users.${username} = {
     programs.git.enable = true;
-    programs.vim.enable = true;
   };
 
   # ---- System Configuration ----
@@ -38,6 +36,6 @@
     ripgrep
     todoist
     unzip
-    wget
+    zoxide
   ];
 }
