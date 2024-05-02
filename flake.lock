@@ -646,10 +646,10 @@
         "ref": "master",
         "repo": "naersk",
         "type": "github"
+      }
     },
     "naersk_2": {
-       }
-     "inputs": {
+      "inputs": {
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
