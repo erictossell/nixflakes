@@ -82,6 +82,7 @@ Revisions:     1
 Last modified: 2024-05-02 22:45:09
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/acb893461a4bee4e77b1a27b1410d4995b52174c (2024-04-29 01:58:16)
+
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33 (2023-10-04 13:37:54)
 │   ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
 │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
