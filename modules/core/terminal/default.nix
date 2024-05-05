@@ -26,12 +26,14 @@
     brightnessctl
     btop
     gh
+    mods
     nitch
     pavucontrol
     playerctl
     ripgrep
     todoist
     unzip
+    vhs
     wishlist
     zoxide
   ];
