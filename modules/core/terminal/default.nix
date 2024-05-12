@@ -2,12 +2,12 @@
 {
   imports = [
     ./cava
-    ./fish
     ./fonts
     ./foot
     ./nvim
     ./starship
     ./tmux
+    ./zsh
   ];
 
   # ---- Home Configuration ----

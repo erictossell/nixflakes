@@ -1,7 +1,4 @@
-{
-  username,
-  ...
-}:
+{ username, ... }:
 {
   #----- Home Manager Config -----
   home-manager.users.${username} = {
@@ -11,15 +8,15 @@
     };
 
     programs.firefox = {
-        enable = true;
-        profiles = {
-          ${username} = {
-            isDefault = true;
-            settings = {
-              "browser.startup.homepage" = "http://localhost:8080";
-            };
+      enable = true;
+      profiles = {
+        ${username} = {
+          isDefault = true;
+          settings = {
+            "browser.startup.homepage" = "http://localhost:8080";
           };
         };
       };
+    };
   };
-  }
+}

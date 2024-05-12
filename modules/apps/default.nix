@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 {
   imports = [
     ./1password
@@ -10,7 +6,6 @@
     #./libreoffice
     #./obsidian
     #./vscode
-    
   ];
   home-manager.users.${username} = {
     home.packages = with pkgs; [ ticktick ];

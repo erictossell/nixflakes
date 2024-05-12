@@ -65,7 +65,7 @@
             modules = [
               ./.
               ./modules/hardware/nvidia
-	      ./modules/steam
+              ./modules/steam
               ./modules/virt
             ];
           }; # principium

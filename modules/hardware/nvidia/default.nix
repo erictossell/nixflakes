@@ -1,8 +1,4 @@
-{
-  config,
-  username,
-  ...
-}:
+{ config, username, ... }:
 {
   # Environment variables
   # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----

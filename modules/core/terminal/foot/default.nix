@@ -1,9 +1,4 @@
-{
-  pkgs,
-  home-manager,
-  username,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [ ./dots ];
   environment.systemPackages = with pkgs; [ foot ];
