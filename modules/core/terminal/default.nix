@@ -34,7 +34,7 @@
     todoist
     unzip
     vhs
-    wishlist
+    yazi
     zoxide
   ];
 }
