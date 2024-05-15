@@ -203,22 +203,22 @@
                 bind = $mainMod SHIFT, 3, movetoworkspace,name:$wC
 
                 bind = $mainMod SHIFT, 4, movetoworkspace,name:$wD
-        
+
 
                 bind = $mainMod SHIFT, 5, movetoworkspace,name:$wE
-       
+
 
                 bind = $mainMod SHIFT, 6, movetoworkspace,name:$wF
-      
+
 
                 bind = $mainMod SHIFT, 7, movetoworkspace,name:$wG
-     
+
 
                 bind = $mainMod SHIFT, 8, movetoworkspace,name:$wH
-    
+
 
                 bind = $mainMod SHIFT, 9, movetoworkspace, name:$wI
-   
+
 
                 # Scroll through existing workspaces with mainMod + scroll
                 bind = $mainMod, mouse_down, workspace, e+1

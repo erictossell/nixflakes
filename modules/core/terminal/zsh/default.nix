@@ -1,7 +1,7 @@
 { username, ... }:
 {
   programs.zsh.enable = true;
- 
+
   home-manager.users.${username} = _: {
     programs.zoxide = {
       enable = true;
