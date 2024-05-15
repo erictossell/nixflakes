@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = _: {
     home.file = {
@@ -7,13 +7,17 @@
         "layer": "top",
         "height": 45,
         	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
-        	"modules-center": ["hyprland/workspaces"],
+        	"modules-center": ["hyprland/window"],
         	"modules-right": [ "pulseaudio", "network", "clock"],
         	"custom/nix": {
         	"format": " ",
         	"tooltip": false,
         	"on-click": "/run/current-system/sw/bin/wofi --show drun"
         	},
+		"hyprland/window": {
+  		  "max-length": 200,
+    		  "separate-outputs": true
+		},
         	"hyprland/workspaces": {
         	"format": "{name} {icon}",
         	"tooltip": false,
@@ -189,7 +193,7 @@
         	color: #0a60ab;
         }
 
-        #workspaces button {
+        #workspaces button.active {
         	background: transparent;
         	color: #0d74bd;
         }
