@@ -16,7 +16,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
     hyprlock = {
@@ -65,6 +65,7 @@
             modules = [
               ./.
               ./modules/hardware/nvidia
+              ./modules/steam
               ./modules/virt
             ];
           }; # principium

@@ -2,12 +2,12 @@
 {
   imports = [
     ./cava
-    ./fish
     ./fonts
     ./foot
     ./nvim
     ./starship
     ./tmux
+    ./zsh
   ];
 
   # ---- Home Configuration ----
@@ -26,13 +26,15 @@
     brightnessctl
     btop
     gh
+    mods
     nitch
     pavucontrol
     playerctl
     ripgrep
     todoist
     unzip
-    wishlist
+    vhs
+    yazi
     zoxide
   ];
 }

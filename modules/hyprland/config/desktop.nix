@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = _: {
     home.file = {
@@ -65,14 +65,6 @@
                 bind = ,xF86AudioNext, exec, playerctl next
                 bind = ,xF86AudioPrev, exec, playerctl previous
 
-                $w2 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/porthole.jpg"
-                $w4 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/1A1C23.png"
-                $w5 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/storage.jpg"
-                $w6 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/keyboard.png"
-                $w7 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
-                $w8 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
-                $w9 = hyprctl hyprpaper wallpaper "DP-2, ~/.config/backgrounds/232136.png"
-
                 $wA = Alpha
                 $wB = Bravo
                 $wC = Charlie
@@ -101,8 +93,6 @@
                 	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
                 	col.inactive_border = rgba(595959aa)
                 	layout = dwindle
-                	cursor_inactive_timeout = 15
-                	no_cursor_warps = yes
                 }
 
                 decoration {
@@ -181,52 +171,52 @@
                 bind = $mainMod, 1, workspace, name:$wA
 
                 bind = $mainMod, 2, workspace, name:$wB
-                bind = $mainMod, 2, exec,$w2
+                
 
                 bind = $mainMod, 3, workspace, name:$wC
 
                 bind = $mainMod, 4, workspace, name:$wD
-                bind = $mainMod, 4, exec,$w4
+               
 
                 bind = $mainMod, 5, workspace, name:$wE
-                bind = $mainMod, 5, exec,$w5
+              
 
                 bind = $mainMod, 6, workspace, name:$wF
-                bind = $mainMod, 6, exec,$w6
+             
 
                 bind = $mainMod, 7, workspace, name:$wG
-                bind = $mainMod, 7, exec,$w7
+            
 
                 bind = $mainMod, 8, workspace, name:$wH
-                bind = $mainMod, 8, exec,$w8
+           
 
                 bind = $mainMod, 9, workspace, name:$wI
-                bind = $mainMod, 9, exec,$w9
+          
 
                 bind = $mainMod SHIFT, 1, movetoworkspace,name:$wA
 
                 bind = $mainMod SHIFT, 2, movetoworkspace,name:$wB
-                bind = $mainMod SHIFT, 2, exec,$w2
+         
 
                 bind = $mainMod SHIFT, 3, movetoworkspace,name:$wC
 
                 bind = $mainMod SHIFT, 4, movetoworkspace,name:$wD
-                bind = $mainMod SHIFT, 4, exec,$w4
+
 
                 bind = $mainMod SHIFT, 5, movetoworkspace,name:$wE
-                bind = $mainMod SHIFT, 5, exec,$w5
+
 
                 bind = $mainMod SHIFT, 6, movetoworkspace,name:$wF
-                bind = $mainMod SHIFT, 6, exec,$w6
+
 
                 bind = $mainMod SHIFT, 7, movetoworkspace,name:$wG
-                bind = $mainMod SHIFT, 7, exec,$w7
+
 
                 bind = $mainMod SHIFT, 8, movetoworkspace,name:$wH
-                bind = $mainMod SHIFT, 8, exec,$w8
+
 
                 bind = $mainMod SHIFT, 9, movetoworkspace, name:$wI
-                bind = $mainMod SHIFT, 9, exec,$w9
+
 
                 # Scroll through existing workspaces with mainMod + scroll
                 bind = $mainMod, mouse_down, workspace, e+1

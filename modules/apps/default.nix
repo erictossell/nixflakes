@@ -1,16 +1,17 @@
-{
-  pkgs,
-  home-manager,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 {
   imports = [
     ./1password
-    ./browsing
+    ./firefox
     #./libreoffice
     #./obsidian
     #./vscode
-    ./zathura
   ];
+  home-manager.users.${username} = {
+    home.packages = with pkgs; [ ticktick ];
+
+    programs.zathura = {
+      enable = true;
+    };
+  };
 }
