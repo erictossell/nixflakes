@@ -11,11 +11,11 @@
     ];
     fontconfig.defaultFonts = {
       serif = [
-        "Monaspace Radon"
+        "Georgia"
         "Noto Color Emoji"
       ];
       sansSerif = [
-        "Monaspace Xenon"
+      	"Roboto"
         "Noto Color Emoji"
       ];
       monospace = [
