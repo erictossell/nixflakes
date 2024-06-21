@@ -124,7 +124,7 @@
               hyprlandConfig = "laptop";
               inherit system;
             } // attrs;
-            modules = [ ./. ];
+            modules = [ ./. ./modules/virt/podman.nix ];
           }; # terminus
       }; # configurations
 
