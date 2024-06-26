@@ -2,7 +2,7 @@
 {
   fonts = {
     packages = with pkgs; [
-      (callPackage (import ./MplusCodeNerdFont) { })
+      monaspace
       nerdfonts
       noto-fonts
       noto-fonts-cjk
@@ -11,14 +11,18 @@
     ];
     fontconfig.defaultFonts = {
       serif = [
-        "Roboto Serif"
+        "Georgia"
         "Noto Color Emoji"
       ];
       sansSerif = [
-        "Roboto"
+      	"Roboto"
         "Noto Color Emoji"
+      ];
+      monospace = [
+        "Monaspace Neon"
       ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
 }
+

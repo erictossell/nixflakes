@@ -1,7 +1,6 @@
 {
   stdenv,
   lib,
-  pkgs,
 }:
 
 stdenv.mkDerivation rec {
