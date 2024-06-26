@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = _: {
     home.file = {
@@ -130,10 +130,6 @@
                 dwindle {
                 	pseudotile = yes # master switch for pseudotiling. enabling is bound to mainmod + p in the keybinds section below
                 	preserve_split = yes # you probably want this
-                }
-
-                master {
-                	new_is_master = true
                 }
 
                 gestures {
