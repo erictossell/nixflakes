@@ -90,8 +90,6 @@
                 	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
                 	col.inactive_border = rgba(595959aa)
                 	layout = dwindle
-                	cursor_inactive_timeout = 15
-                	no_cursor_warps = yes
                 	resize_on_border = yes
                 	hover_icon_on_border = yes
                 }
