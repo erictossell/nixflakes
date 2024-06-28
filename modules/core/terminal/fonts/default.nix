@@ -15,14 +15,11 @@
         "Noto Color Emoji"
       ];
       sansSerif = [
-      	"Roboto"
+        "Roboto"
         "Noto Color Emoji"
       ];
-      monospace = [
-        "Monaspace Neon"
-      ];
+      monospace = [ "Monaspace Neon" ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
 }
-
