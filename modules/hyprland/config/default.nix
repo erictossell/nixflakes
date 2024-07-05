@@ -1,5 +1,4 @@
 {
-  pkgs,
   hyprlandConfig,
   home-manager,
   username,
