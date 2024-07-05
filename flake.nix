@@ -57,6 +57,7 @@
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
+              DE = "hyprland";
               username = "eriim";
               hostName = "arkhitekton";
               hyprlandConfig = "desktop";
@@ -68,7 +69,25 @@
               ./modules/steam
               ./modules/virt
             ];
-          }; # principium
+          }; # arkhitekton
+
+        terminus =
+          let
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "eriim";
+              hostName = "terminus";
+              hyprlandConfig = "laptop";
+              DE = "hyprland";
+              inherit system;
+            } // attrs;
+            modules = [
+              ./.
+              ./modules/virt/podman.nix
+            ];
+          }; # terminus
 
         live-image =
           let
@@ -97,7 +116,7 @@
               inherit system;
             } // attrs;
             modules = [ ./wsl.nix ];
-          }; # winix-wsl
+          }; # winix
 
         vm-temp =
           let
@@ -113,22 +132,6 @@
             modules = [ ./minimal.nix ];
           }; # virtualis
 
-        terminus =
-          let
-            system = "x86_64-linux";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              username = "eriim";
-              hostName = "terminus";
-              hyprlandConfig = "laptop";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./.
-              ./modules/virt/podman.nix
-            ];
-          }; # terminus
       }; # configurations
 
       devShells = forAllSystems (

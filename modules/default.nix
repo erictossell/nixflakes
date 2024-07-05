@@ -1,3 +1,4 @@
+{ DE, ... }:
 {
   imports = [
     ./agenix
@@ -5,7 +6,7 @@
     ./core
     ./eriixpkgs
     ./hardware
-    ./hyprland
+    ./${DE}
     ./tailscale
   ];
 }

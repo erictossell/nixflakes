@@ -19,7 +19,7 @@
                 monitor=DP-1,preferred,0x0,1,transform,3
                 monitor=,preferred,auto,auto
 
-                exec-once = swww-daemon & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+                exec-once = swww-daemon & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & hypridle & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                 # some default env vars.
                 env=BROWSER,firefox
@@ -53,7 +53,7 @@
                 bind = $mainMod, r, exec, wofi --show drun
                 bind = $mainMod, p, pseudo, # dwindle
                 bind = $mainMod, j, togglesplit, # dwindle
-                bind = $mainMod, l, exec, swaylock
+                bind = $mainMod, l, exec, loginctl lock-session
                 bind = $mainMod, o, exec, bash -i ~/.config/hypr/toggle_waybar.sh
                 bind = $mainMod, s, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y%m%d_%H%M%S').png
 
