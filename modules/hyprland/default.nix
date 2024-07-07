@@ -13,7 +13,7 @@
     ./hypridle
     ./hyprlock
     ./mako
-    #./swaylock
+    ./swaylock
     ./waybar
     ./wofi
   ];
