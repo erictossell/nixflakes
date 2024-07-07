@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 {
   environment.systemPackages = with pkgs; [ swaylock ];
   # Unlock with Swaylock
