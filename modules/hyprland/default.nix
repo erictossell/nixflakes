@@ -11,7 +11,7 @@
     hyprland.nixosModules.default
     ./config
     ./hypridle
-    ./hyprlock
+    #./hyprlock
     ./mako
     ./swaylock
     ./waybar
