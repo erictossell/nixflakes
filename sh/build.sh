@@ -93,6 +93,7 @@ if [ "$nvidia" = true ]; then
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
+	    DE = "hyprland";
             hostName = "$hostname";
             hyprlandConfig = "laptop";
 	    inherit system;
@@ -112,6 +113,7 @@ else
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
             username = "$username";
+	    DE = "hyprland";
             hostName = "$hostname";
             hyprlandConfig = "laptop";
 	    inherit system;
