@@ -56,10 +56,10 @@
                 		"interval": 2
                 	},
                 	"disk": {
-                		"format": " {percentage_used}% ({free})",
+                		"format": "  {percentage_used}% ({free})",
                 		"tooltip": true,
                 		"interval": 2,
-                		"on-click":"kitty sh -c 'ranger'"
+                		"on-click":"foot sh -c 'yazi'"
                 	},
                 	"clock": {
                 		"format": "  {:%d <small>%a</small> %H:%M}",
@@ -158,7 +158,7 @@
 
       ".config/waybar/style.css".text = ''
         * {
-        	font-family: 'M+1Code Nerd Font';
+        	font-family: 'Jetbrains Mono';
         	font-size: 16px;
         	min-height: 30px;
         }

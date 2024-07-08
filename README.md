@@ -74,14 +74,13 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?rev=aa843bc120433d7cf37f0827dfb3dec744fb1705&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/nl4p3mr1avlxxfval6vkl9wn9h9mjxby-source
-Revision:      aa843bc120433d7cf37f0827dfb3dec744fb1705
-Revisions:     1
-Last modified: 2024-07-05 05:36:25
+Path:          /nix/store/zn2aq1dl0h3d7acfrajgaphfgnyyysh2-source
+Revision:      4f9aaffbd51824fc1d6150dcc2ce654cfaf30806-dirty
+Last modified: 2024-07-07 01:40:06
 Inputs:
-├───NixOS-WSL: github:nix-community/NixOS-WSL/269411cfed6aab694e46f719277c972de96177bb (2024-06-24 09:09:31)
+├───NixOS-WSL: github:nix-community/NixOS-WSL/7051b909b9b5e74f19791795bd769de12c5acb3d (2024-07-05 14:07:40)
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33 (2023-10-04 13:37:54)
 │   ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
 │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
@@ -148,9 +147,9 @@ Inputs:
 │       ├───nixpkgs: github:NixOS/nixpkgs/1afc5440469f94e7ed26e8648820971b102afdc3 (2024-07-04 10:07:58)
 │       └───utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
 │           └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-├───home-manager: github:nix-community/home-manager/c514e862cd5705e51edb6fe8d01146fdeec661f2 (2024-07-04 23:19:01)
+├───home-manager: github:nix-community/home-manager/10486e6b311b3c5ae1c3477fee058704cea7cb4a (2024-07-06 18:08:39)
 │   └───nixpkgs follows input 'nixpkgs'
-├───hyprland: git+https://github.com/hyprwm/Hyprland?ref=refs/heads/main&rev=0a6e83005f1910b5c1ec78476fcffc05af47833a&submodules=1 (2024-07-04 11:21:07)
+├───hyprland: git+https://github.com/hyprwm/Hyprland?ref=refs/heads/main&rev=cc98594c3aed0b542e03818371a4636f549f80e1&submodules=1 (2024-07-05 21:05:09)
 │   ├───hyprcursor: github:hyprwm/hyprcursor/66d5b46ff94efbfa6fa3d1d1b66735f1779c34a6 (2024-06-15 11:24:35)
 │   │   ├───hyprlang follows input 'hyprland/hyprlang'
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
@@ -174,7 +173,7 @@ Inputs:
 │       ├───hyprlang follows input 'hyprland/hyprlang'
 │       ├───nixpkgs follows input 'hyprland/nixpkgs'
 │       └───systems follows input 'hyprland/systems'
-├───hyprlock: github:hyprwm/hyprlock/9737bf64849bb490198a959fc98565041e290ac2 (2024-07-04 16:04:45)
+├───hyprlock: github:hyprwm/hyprlock/7fb3c03500761b576257aafe64181bfe29d66a26 (2024-07-06 10:24:29)
 │   ├───hyprlang: github:hyprwm/hyprlang/ec6938c66253429192274d612912649a0cfe4d28 (2024-06-08 21:24:12)
 │   │   ├───hyprutils follows input 'hyprlock/hyprutils'
 │   │   ├───nixpkgs follows input 'hyprlock/nixpkgs'
@@ -193,7 +192,7 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?rev=aa843bc120433d7cf37f0827dfb3dec744fb1705&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'

@@ -2,6 +2,7 @@
 {
   fonts = {
     packages = with pkgs; [
+      jetbrains-mono
       monaspace
       nerdfonts
       noto-fonts
