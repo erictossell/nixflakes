@@ -96,7 +96,7 @@
                 }
 
                 decoration {
-                	rounding = 10
+                	rounding = 0
                 	drop_shadow = yes
                 	shadow_range = 4
                 	shadow_render_power = 3

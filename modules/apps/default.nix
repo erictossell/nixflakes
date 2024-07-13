@@ -3,6 +3,7 @@
   imports = [
     ./1password
     ./firefox
+    #./jetbrains
     #./libreoffice
     #./obsidian
     #./vscode
