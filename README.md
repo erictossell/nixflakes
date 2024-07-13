@@ -74,12 +74,12 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?rev=44dc7fd200efea8a349329c7b34d8f4381e01de4&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?rev=6813212b44cb1b44be0babd35c5275668cb44ac4&shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/68swzriasabnvrf56f1y06k085mk1rrn-source
-Revision:      44dc7fd200efea8a349329c7b34d8f4381e01de4
+Path:          /nix/store/f462g5321v3vfm56y5iy4nja5x65q7ys-source
+Revision:      6813212b44cb1b44be0babd35c5275668cb44ac4
 Revisions:     1
-Last modified: 2024-07-13 20:30:32
+Last modified: 2024-07-13 21:11:09
 Inputs:
 ├───NixOS-WSL: github:nix-community/NixOS-WSL/371b5076d718f7f637d3959d0203061f06af1263 (2024-07-12 12:23:35)
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33 (2023-10-04 13:37:54)
@@ -92,8 +92,8 @@ Inputs:
 │   │   └───nixpkgs follows input 'agenix/nixpkgs'
 │   ├───nixpkgs follows input 'nixpkgs'
 │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-├───eriixpkgs: github:erictossell/eriixpkgs/bed61a55ce339f70f64f18daeab06f5fef98d076 (2024-07-13 20:29:46)
-│   ├───eriixvim: github:erictossell/eriixvim/a94ec39e05c54b978935ba2b3ef1709bb0bd5651 (2024-07-13 20:29:33)
+├───eriixpkgs: github:erictossell/eriixpkgs/b49b742d7b959aafe8f7939f0ee1b982452097a4 (2024-07-13 21:08:13)
+│   ├───eriixvim: github:erictossell/eriixvim/a6129aab457e661043325214759d0cfe7e3168d9 (2024-07-13 21:07:47)
 │   │   ├───flake-parts: github:hercules-ci/flake-parts/9227223f6d922fee3c7b190b2cc238a99527bbb7 (2024-07-03 08:15:18)
 │   │   │   └───nixpkgs-lib: https://github.com/NixOS/nixpkgs/archive/5daf0514482af3f97abaefc78a6606365c9108e2.tar.gz?narHash=sha256-Fm2rDDs86sHy0/1jxTOKB1118Q0O3Uc7EC0iXvXKpbI%3D (2024-07-01 23:35:45)
 │   │   ├───nixpkgs: github:nixos/nixpkgs/7e7c39ea35c5cdd002cd4588b03a3fb9ece6fad9 (2024-07-12 07:14:11)
@@ -193,7 +193,7 @@ Inputs:
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?rev=44dc7fd200efea8a349329c7b34d8f4381e01de4&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?rev=6813212b44cb1b44be0babd35c5275668cb44ac4&shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
