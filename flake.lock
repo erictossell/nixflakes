@@ -82,11 +82,11 @@
         "russh": "russh"
       },
       "locked": {
-        "lastModified": 1720902586,
-        "narHash": "sha256-A2eQD026L5i8GxZxvoeNdR6q0NGq4cA5KeHl6fLeZXY=",
+        "lastModified": 1720904893,
+        "narHash": "sha256-nTv0L4ZJansnJcs2zT9GT6ULvR+h+Wm/hknUpzIlKpk=",
         "owner": "erictossell",
         "repo": "eriixpkgs",
-        "rev": "bed61a55ce339f70f64f18daeab06f5fef98d076",
+        "rev": "b49b742d7b959aafe8f7939f0ee1b982452097a4",
         "type": "github"
       },
       "original": {
@@ -102,11 +102,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1720902573,
-        "narHash": "sha256-Utz++umzrOr+IAcp2Sz96dzekJjMWkjFhXeGoIuUwZM=",
+        "lastModified": 1720904867,
+        "narHash": "sha256-Cw4o/hU7C92y9NPqbXz3O5DQpsaHrrtCOPNFRwMOP/o=",
         "owner": "erictossell",
         "repo": "eriixvim",
-        "rev": "a94ec39e05c54b978935ba2b3ef1709bb0bd5651",
+        "rev": "a6129aab457e661043325214759d0cfe7e3168d9",
         "type": "github"
       },
       "original": {
