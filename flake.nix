@@ -130,8 +130,22 @@
               inherit system;
             } // attrs;
             modules = [ ./minimal.nix ];
-          }; # virtualis
+          }; # vm-temp
 
+# Appended new system
+	virtualis =
+       	let system = "x86_64-linux";
+	in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "eriim";
+	    DE = "xfce";
+            hostName = "virtualis";
+	    inherit system;
+          } // attrs;        
+          modules = [
+            ./.
+          ];
+        }; # virtualis
       }; # configurations
 
       devShells = forAllSystems (
