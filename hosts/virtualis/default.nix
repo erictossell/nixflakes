@@ -1,7 +1,5 @@
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
   #----Host specific config ----
   networking.hostId = "9f81a092";
 

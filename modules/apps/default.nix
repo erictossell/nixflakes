@@ -9,7 +9,10 @@
     #./vscode
   ];
   home-manager.users.${username} = {
-    home.packages = with pkgs; [ ticktick remmina ];
+    home.packages = with pkgs; [
+      ticktick
+      remmina
+    ];
 
     programs.zathura = {
       enable = true;

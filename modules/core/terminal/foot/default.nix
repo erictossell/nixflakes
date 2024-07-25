@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [ foot ];
 
-
   home-manager.users.${username} = _: {
     home.file = {
       ".config/foot/foot.ini".text = ''
@@ -16,4 +15,3 @@
     };
   };
 }
-
