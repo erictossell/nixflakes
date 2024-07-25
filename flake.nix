@@ -144,6 +144,7 @@
           } // attrs;        
           modules = [
             ./.
+	    ./modules/ssh
           ];
         }; # virtualis
       }; # configurations

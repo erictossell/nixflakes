@@ -7,8 +7,10 @@
 
   services.xrdp = {
     enable = true;
-    defaultWindowManager = "startxfce4";
+    #defaultWindowManager = "i3";
     openFirewall = true;
     audio.enable = true;
   };
+  services.spice-vdagentd.enable = true;
+  services.qemuGuest.enable = true;
 }

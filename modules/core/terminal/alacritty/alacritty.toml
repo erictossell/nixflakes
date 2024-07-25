@@ -1,0 +1,61 @@
+# Alacritty configuration file
+
+[window]
+dimensions = { columns = 100, lines = 30 }
+padding = { x = 10, y = 10 }
+decorations = "full"  # Options: "full", "none", "transparent", "buttonless"
+
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+size = 12.0
+
+[colors]
+[colors.primary]
+background = "0x282a36"
+foreground = "0xf8f8f2"
+
+[colors.cursor]
+text = "0x000000"
+cursor = "0xffffff"
+
+[colors.selection]
+text = "0x000000"
+background = "0x44475a"
+
+[colors.normal]
+black = "0x000000"
+red = "0xff5555"
+green = "0x50fa7b"
+yellow = "0xf1fa8c"
+blue = "0xbd93f9"
+magenta = "0xff79c6"
+cyan = "0x8be9fd"
+white = "0xbfbfbf"
+
+[colors.bright]
+black = "0x4d4d4d"
+red = "0xff6e67"
+green = "0x5af78e"
+yellow = "0xf4f99d"
+blue = "0xcaa9fa"
+magenta = "0xff92d0"
+cyan = "0x9aedfe"
+white = "0xe6e6e6"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "Q"
+mods = "Control|Shift"
+action = "Quit"
+

@@ -1,6 +1,7 @@
 {
   services = {
-    displayManager.sddm.wayland.enable = true;
+    #displayManager.sddm.x11.enable = true;
+    displayManager.defaultSession = "plasmax11";
     desktopManager.plasma6.enable = true;
   };
   qt = {

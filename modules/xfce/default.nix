@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.xserver = {
     enable = true;
@@ -12,4 +13,7 @@
     windowManager.i3.enable = true;
   };
   services.displayManager.defaultSession = "xfce+i3";
+  environment.systemPackages = with pkgs; [
+    xorg.xinit
+  ];
 }
