@@ -1,6 +1,7 @@
 { pkgs, username, ... }:
 {
   imports = [
+    ./alacritty
     ./cava
     ./fonts
     ./foot
