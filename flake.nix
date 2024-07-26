@@ -140,7 +140,7 @@
           nixpkgs.lib.nixosSystem {
             specialArgs = {
               username = "eriim";
-              DE = "xfce";
+              DE = "sway";
               hostName = "virtualis";
               inherit system;
             } // attrs;
