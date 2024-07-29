@@ -95,6 +95,10 @@
                 	layout = dwindle
                 }
 
+		cursor {
+                  no_hardware_cursors = true
+		}
+
                 decoration {
                 	rounding = 0
                 	drop_shadow = yes
