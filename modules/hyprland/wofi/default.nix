@@ -1,6 +1,5 @@
 {
   pkgs,
-  home-manager,
   username,
   ...
 }:
@@ -35,7 +34,7 @@
         }
 
         window {
-        	font-family: "M+1Code Nerd Font";
+        	font-family: "IBM Plex Mono";
         	font-size: 13px;
         }
 
@@ -43,9 +42,9 @@
         	margin: 0px;
         	border: 3px solid #006400; /* Dark green */
         	background-color: rgba(21, 48,138,0.7);
-        	background-image: url('/home/${username}/.config/backgrounds/keyboard.png'); /* Add this line */
-        	background-size: cover; /* And this line */
-        	background-repeat: no-repeat; /* And this line */
+        	background-image: url('/home/${username}/.config/backgrounds/aperture-science-wallpaper-white.jpg'); /* Add this line */
+        	background-size: fill;
+        	background-repeat: no-repeat; 
         	border-radius: 16px;
         }
 
@@ -58,7 +57,7 @@
         	color: #fff;
         	font-weight: bold;
         	background-color: transparent; 
-        	background-image: url('/home/${username}/.config/backgrounds/scifi_landscape.jpg'); 
+        	background-image: url('/home/${username}/.config/backgrounds/aperture-science-wallpaper-yellow.jpg'); 
         	background-size: cover; 
         	background-repeat: no-repeat;
         	outline: none;

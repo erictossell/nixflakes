@@ -5,23 +5,23 @@
   ];
   stylix = {
     enable = true;
-    image = ../../assets/backgrounds/porthole.jpg;
+    image = ../../assets/backgrounds/aperture-science-wallpaper-green.jpg;
     polarity = "dark";
 
     fonts = {
     serif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Serif";
+      package = pkgs.ibm-plex;
+      name = "IBM Plex Serif";
     };
 
     sansSerif = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans";
+      package = pkgs.ibm-plex;
+      name = "IBM Plex Sans";
     };
 
     monospace = {
-      package = pkgs.dejavu_fonts;
-      name = "DejaVu Sans Mono";
+      package = pkgs.ibm-plex;
+      name = "IBM Plex Mono";
     };
 
     emoji = {
