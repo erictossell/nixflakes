@@ -2,4 +2,4 @@
   services.redshift = {
     enable = true;
   };
-  }
+}
