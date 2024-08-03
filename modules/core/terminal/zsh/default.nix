@@ -20,6 +20,7 @@
         b = "btop";
         c = "clear";
         e = "exit";
+        y = "yazi";
 
         g = "git";
         ga = "git add";

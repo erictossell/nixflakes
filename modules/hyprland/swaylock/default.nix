@@ -17,7 +17,7 @@
 
   home-manager.users.${username} = {
     home.file = {
-      ".config/swaylock/background.jpg".source = ./nix-wallpaper-dracula.png;
+      ".config/swaylock/background.jpg".source = ../../../assets/backgrounds/aperture-black-blue.jpg;
 
       ".config/swaylock/config".text = ''
         # indicator
@@ -40,13 +40,13 @@
         indicator-radius=250
         indicator-thickness=75
         # line-uses-ring
-        line-color=#3b4252
+        line-color=#83A598
         text-color=#d8dee9
         inside-color=#2e344098
         inside-ver-color=#5e81ac
         line-ver-color=#5e81ac
         ring-ver-color=#5e81ac98
-        ring-color=#4c566a
+        ring-color=#83A598
         key-hl-color=#5e81ac
         separator-color=#4c566a
         layout-text-color=#eceff4

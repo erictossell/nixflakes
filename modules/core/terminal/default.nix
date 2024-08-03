@@ -8,6 +8,7 @@
     ./nvim
     ./starship
     ./tmux
+    ./yazi
     ./zsh
   ];
 
@@ -35,7 +36,6 @@
     todoist
     unzip
     vhs
-    yazi
     zoxide
   ];
 }

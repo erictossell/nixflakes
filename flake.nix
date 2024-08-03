@@ -38,6 +38,11 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -140,7 +145,7 @@
           nixpkgs.lib.nixosSystem {
             specialArgs = {
               username = "eriim";
-              DE = "xfce";
+              DE = "sway";
               hostName = "virtualis";
               inherit system;
             } // attrs;

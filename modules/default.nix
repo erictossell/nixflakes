@@ -7,6 +7,7 @@
     ./eriixpkgs
     ./hardware
     ./${DE}
+    ./stylix
     ./tailscale
   ];
 }

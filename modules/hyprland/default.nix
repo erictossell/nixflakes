@@ -14,6 +14,7 @@
     #./hyprlock
     ./mako
     ./swaylock
+    ./redshift
     ./waybar
     ./wofi
   ];
@@ -23,13 +24,14 @@
       enable = true;
       cursorTheme.name = "Adwaita";
       cursorTheme.package = pkgs.adwaita-icon-theme;
-      theme.name = "adw-gtk3-dark";
-      theme.package = pkgs.adw-gtk3;
+      #theme.name = "adw-gtk3-dark";
+      #theme.package = pkgs.adw-gtk3;
     };
   };
 
   environment = {
-    sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+    # Deprecated 
+    #sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       gammastep
