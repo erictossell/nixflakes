@@ -19,7 +19,7 @@
                         monitor=DP-1,preferred,0x0,1,transform,3
                         monitor=,preferred,auto,auto
 
-                        exec-once = swww-daemon & swww img ~/.config/backgrounds/aperture-science-wallpaper-green.jpg & mako & lxqt-policykit-agent & hypridle & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+                        exec-once = swww-daemon & swww img ~/.config/backgrounds/aperture-orange-blue.jpg & mako & lxqt-policykit-agent & hypridle & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                         # some default env vars.
                         env=BROWSER,firefox
@@ -45,7 +45,7 @@
                         bind = $mainMod, a, exec, pavucontrol
                 	bind = $mainMod, v, exec, foot -e nvim
                         bind = $mainMod, 0, exit, 
-                        bind = $mainMod, e, exec, thunar
+                        bind = $mainMod, e, exec, foot -e yazi
                         bind = $mainMod, b, exec, foot -e btop
                 	bind = $mainMod, t, exec, foot -e tmux
                 	bind = $mainMod, g, exec, foot -e firefox
@@ -90,7 +90,7 @@
                         	gaps_in = 5
                         	gaps_out = 10
                         	border_size = 2
-                        	col.active_border = rgba(CB7820ee) rgba(ffffffee) 45deg
+                        	col.active_border = rgba(CB7820ee) rgba(0888B9ee) 45deg
                         	col.inactive_border = rgba(595959aa)
                         	layout = dwindle
                         }
