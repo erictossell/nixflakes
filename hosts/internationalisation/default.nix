@@ -9,4 +9,8 @@
     xkb.layout = "us";
     xkb.variant = "";
   };
+  location = {
+    latitude = 43.7;
+    longitude = -79.4;
+  };
 }

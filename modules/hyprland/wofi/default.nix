@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 {
   environment.systemPackages = with pkgs; [ wofi ];
 
@@ -42,8 +38,8 @@
         	margin: 0px;
         	border: 3px solid #006400; /* Dark green */
         	background-color: rgba(21, 48,138,0.7);
-        	background-image: url('/home/${username}/.config/backgrounds/aperture-science-wallpaper-white.jpg'); /* Add this line */
-        	background-size: fill;
+        	background-image: url('/home/${username}/.config/backgrounds/keyboard.png');
+        	background-size: cover;
         	background-repeat: no-repeat; 
         	border-radius: 16px;
         }
@@ -57,9 +53,6 @@
         	color: #fff;
         	font-weight: bold;
         	background-color: transparent; 
-        	background-image: url('/home/${username}/.config/backgrounds/aperture-science-wallpaper-yellow.jpg'); 
-        	background-size: cover; 
-        	background-repeat: no-repeat;
         	outline: none;
         	border-radius: 16px;
         	z-index: 1;
@@ -133,7 +126,7 @@
         	margin: 0px;
         	border: 3px solid green;
         	border-radius: 16px;
-        	background-color: transparent; /* Remove the background gradient */
+        	background-color: transparent;
         	z-index: 1;
         }
       '';

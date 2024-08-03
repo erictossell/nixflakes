@@ -5,9 +5,7 @@
     tmux = {
       enable = true;
       newSession = true;
-      plugins = with pkgs.tmuxPlugins; [
-        yank
-      ];
+      plugins = with pkgs.tmuxPlugins; [ yank ];
     };
   };
 }
