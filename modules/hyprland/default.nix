@@ -45,6 +45,7 @@
       xdg-utils
       xfce.thunar
       xfce.tumbler
+      xfce.thunar-volman
     ];
   };
 

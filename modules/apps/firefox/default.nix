@@ -4,7 +4,7 @@
   home-manager.users.${username} = {
 
     home.sessionVariables = {
-      MOZ_ENABLE_WAYLAND = 1;
+      MOZ_ENABLE_WAYLAND = 0;
     };
 
     programs.firefox = {

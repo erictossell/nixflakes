@@ -5,7 +5,7 @@
     ./firefox
     #./jetbrains
     #./libreoffice
-    #./obsidian
+    ./obsidian
     #./vscode
   ];
   home-manager.users.${username} = {
