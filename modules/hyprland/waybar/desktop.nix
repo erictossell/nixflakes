@@ -7,8 +7,8 @@
                 "layer": "top",
                 "height": 45,
                 	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
-                	"modules-center": ["hyprland/window"],
-                	"modules-right": [ "pulseaudio", "network", "clock"],
+                	"modules-center": ["clock"],
+                	"modules-right": [ "pulseaudio", "network", "hyprland/window"],
                 	"custom/nix": {
                 	"format": " ",
                 	"tooltip": false,
@@ -67,10 +67,10 @@
                 		"format-alt": "  {:%A %B %d %Y (%V) | %r}",
                 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
                 		"calendar-weeks-pos": "right",
-                		"today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
-                		"format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
-                		"format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
-                		"format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                		"today-format": "<span color='#0888B9'><b><u>{}</u></b></span>",
+                		"format-calendar": "<span color='#0888B9'><b>{}</b></span>",
+                		"format-calendar-weeks": "<span color='#0888B9'><b>W{:%U}</b></span>",
+                		"format-calendar-weekdays": "<span color='#0888B9'><b>{}</b></span>",
                 		"interval": 60
                 	},    
                 	"backlight": {
@@ -232,12 +232,12 @@
         }
 
         #pulseaudio {
-        	color: #ba23d9;
+        	color: #CB7820;
         	padding-left: 5px;
         }
 
         #clock {
-        	color: #00ba69;
+        	color: #0888B9;
         }
       '';
     };

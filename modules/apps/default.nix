@@ -12,6 +12,8 @@
     home.packages = with pkgs; [
       ticktick
       remmina
+      openvpn
+      vivaldi
     ];
 
     programs.zathura = {
