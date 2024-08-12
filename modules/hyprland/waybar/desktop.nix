@@ -7,8 +7,8 @@
                 "layer": "top",
                 "height": 45,
                 	"modules-left": ["custom/nix", "cpu", "memory", "disk"],
-                	"modules-center": ["clock"],
-                	"modules-right": [ "pulseaudio", "network", "hyprland/window"],
+                	"modules-center": ["clock","hyprland/workspaces"],
+                	"modules-right": [ "pulseaudio", "network"],
                 	"custom/nix": {
                 	"format": " ",
                 	"tooltip": false,
@@ -19,7 +19,7 @@
             		  "separate-outputs": true
         		},
                 	"hyprland/workspaces": {
-                	"format": "{name} {icon}",
+                	"format": "{icon}",
                 	"tooltip": false,
                 	"all-outputs": true,
                 	"format-icons": {
@@ -200,7 +200,7 @@
 
         #cpu, #memory, #temperature, #disk, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power {
         	background-color: transparent;
-        	color: #00ba69;
+        	color: #0888B9;
         	margin-top: 15px;
         	padding-left: 10px;
         	padding-right: 10px;
@@ -208,11 +208,11 @@
         }
 
         #cpu {
-        	color: #FFD700;
+        	color: #CB7820;
         }
 
         #memory {
-        	color: #008000;
+        	color: #0888B9;
         }
 
         #disk {
@@ -227,7 +227,7 @@
         }
 
         #network {
-        	color: #10a140;
+        	color: #0888B9;
         	padding-left: 5px;
         }
 

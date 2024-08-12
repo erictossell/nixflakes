@@ -36,8 +36,8 @@
 
         window {
         	margin: 0px;
-        	border: 3px solid #006400; /* Dark green */
-        	background-color: rgba(21, 48,138,0.7);
+        	border: 3px solid #0888B9;  
+		background-color: rgba(21, 48,138,0.7);
         	background-image: url('/home/${username}/.config/backgrounds/keyboard.png');
         	background-size: cover;
         	background-repeat: no-repeat; 
@@ -49,7 +49,7 @@
         	padding: 4px;
         	margin: 20px;
         	padding-left: 20px;
-        	border: 3px solid #006400;
+        	border: 3px solid #CB7820;
         	color: #fff;
         	font-weight: bold;
         	background-color: transparent; 
@@ -71,7 +71,7 @@
         	margin: 20px;
         	margin-top: 0px;
         	border: none;
-        	color: #006400; /* Dark green */
+        	color: #CB7820; 
         	border-radius: 16px;
         }
 
@@ -124,7 +124,7 @@
         	position: relative;
         	outline: none;
         	margin: 0px;
-        	border: 3px solid green;
+        	border: 3px solid orange;
         	border-radius: 16px;
         	background-color: transparent;
         	z-index: 1;
