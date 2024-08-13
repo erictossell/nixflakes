@@ -55,7 +55,7 @@
       };
       hostname = {
         ssh_only = false;
-        format = " on [$hostname](bold red)\n";
+        format = " on [$hostname](bold #FFA500)\n";
         disabled = false;
       };
       lua = {
@@ -138,8 +138,8 @@
         symbol = "terraform ";
       };
       username = {
-        style_user = "green bold";
-        style_root = "red bold";
+        style_user = "blue bold";
+        style_root = "orange bold";
         format = "[$user]($style)";
         disabled = false;
         show_always = true;

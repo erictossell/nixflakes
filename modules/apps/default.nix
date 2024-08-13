@@ -14,6 +14,7 @@
       remmina
       openvpn
       vivaldi
+      vscode
     ];
 
     programs.zathura = {
