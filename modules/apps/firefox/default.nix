@@ -13,7 +13,7 @@
         ${username} = {
           isDefault = true;
           settings = {
-            "browser.startup.homepage" = "http://localhost:8080";
+            "browser.startup.homepage" = "www.google.com";
           };
         };
       };

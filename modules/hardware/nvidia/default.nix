@@ -1,4 +1,4 @@
-{ config, username, ... }:
+{ pkgs, config, username, ... }:
 {
   # Environment variables
   # ---- I often have these enabled elsewhere but you may still want these if you are having issues ----
@@ -25,10 +25,15 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  environment.systemPackages = with pkgs; [
+    nvtop   # btop for nvidia GPUs
+  ];
+
   users.users.${username} = {
     extraGroups = [
       "video"
       "render"
+      "compute"
     ];
   };
 }

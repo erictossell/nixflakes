@@ -1,8 +1,13 @@
 {
-  description = "Eriim's machine specific configuration flake.";
+  description = "topher's machine specific configuration flake.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    # You can access packages and modules from different nixpkgs revs
+    # at the same time. Here's an working example:
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -43,56 +48,73 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, nixpkgs, ... }@attrs:
+    {
+      self,
+      nixpkgs,
+      ...
+    } @ attrs:
     let
+      inherit (self) outputs;
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
     in
     {
+      # Your custom packages
+      # Accessible through 'nix build', 'nix shell', etc
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+
+      # Your custom packages and modifications, exported as overlays
+      overlays = import ./overlays {inherit attrs;};
 
       nixosConfigurations = {
 
-        arkhitekton =
-          let
-            system = "x86_64-linux";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              DE = "hyprland";
-              username = "eriim";
-              hostName = "arkhitekton";
-              hyprlandConfig = "desktop";
-              inherit system;
-            } // attrs;
-            modules = [
-              ./.
-              ./modules/hardware/nvidia
-              ./modules/steam
-              ./modules/virt
-            ];
-          }; # arkhitekton
+        # topher-pc =
+        #   let
+        #     system = "x86_64-linux";
+        #   in
+        #   nixpkgs.lib.nixosSystem {
+        #     specialArgs = {
+        #       DE = "hyprland";
+        #       username = "topher";
+        #       hostName = "topher-pc";
+        #       hyprlandConfig = "desktop";
+        #       inherit system;
+        #     } // attrs;
+        #     modules = [
+        #       ./.
+        #       ./modules/hardware/nvidia   # Nvidia hardware
+        #       ./modules/apps/vscode       # VSCode flake
+        #       ./modules/virt              # Virtualization tools
+        #     ];
+        #   }; # topher-pc
 
-        terminus =
+        topher-laptop =
           let
             system = "x86_64-linux";
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              username = "eriim";
-              hostName = "terminus";
+              username = "topher";
+              hostName = "topher-laptop";
               hyprlandConfig = "laptop";
-              DE = "hyprland";
-              inherit system;
+              DE = "gnome";
+              inherit system outputs attrs;
             } // attrs;
             modules = [
               ./.
-              ./modules/virt/podman.nix
+              ./modules/hardware/nvidia   # Nvidia hardware
+              ./modules/virt              # Virtualization tools
             ];
-          }; # terminus
+          }; # topher-laptop
 
         live-image =
           let
@@ -104,7 +126,7 @@
               username = "nixos";
               hostName = "live-image";
               hyprlandConfig = "laptop";
-              inherit system;
+              inherit system outputs attrs;
             } // attrs;
             modules = [ ./minimal.nix ];
           }; # live-image
@@ -116,9 +138,9 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              username = "eriim";
+              username = "topher";
               hostName = "winix";
-              inherit system;
+              inherit system outputs attrs;
             } // attrs;
             modules = [ ./wsl.nix ];
           }; # winix
@@ -130,9 +152,9 @@
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              username = "eriim";
+              username = "topher";
               hostName = "vm-temp";
-              inherit system;
+              inherit system outputs attrs;
             } // attrs;
             modules = [ ./minimal.nix ];
           }; # vm-temp
@@ -144,17 +166,17 @@
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              username = "eriim";
+              username = "topher";
               DE = "sway";
               hostName = "virtualis";
-              inherit system;
+              inherit system outputs attrs;
             } // attrs;
             modules = [
               ./.
               ./modules/ssh
             ];
           }; # virtualis
-      }; # configurations
+      };
 
       devShells = forAllSystems (
         system:
@@ -173,7 +195,7 @@
 
       templates.default = {
         path = ./.;
-        description = "The default template for Eriim's nixflakes.";
+        description = "The default template for topher's nixflakes.";
       }; # templates
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;

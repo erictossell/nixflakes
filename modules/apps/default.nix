@@ -1,12 +1,13 @@
 { pkgs, username, ... }:
 {
   imports = [
-    ./1password
+    #./1password
     ./firefox
+    ./gitkraken
     #./jetbrains
     #./libreoffice
     #./obsidian
-    #./vscode
+    ./vscode
   ];
   home-manager.users.${username} = {
     home.packages = with pkgs; [

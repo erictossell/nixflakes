@@ -1,9 +1,9 @@
 #!/run/current-system/sw/bin/bash
 source ~/.bashrc
 
-if pgrep waybar > /dev/null; then
-    pkill waybar
+if pgrep waybar >/dev/null; then
+	pkill waybar
 else
-    waybar & disown
+	waybar &
+	disown
 fi
-

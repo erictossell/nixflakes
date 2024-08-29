@@ -4,12 +4,15 @@
     ./alacritty
     ./cava
     ./fonts
-    ./foot
-    ./nvim
-    ./starship
+    ./fish
+    #./foot
+    #./nvim
+    ./wezterm
+    #./starship
     ./tmux
-    ./yazi
+    #./yazi
     ./zsh
+    ./bash
   ];
 
   # ---- Home Configuration ----
@@ -22,6 +25,12 @@
     htop.enable = true;
     mtr.enable = true;
   };
+
+  # Allow members of the "wheel" group to sudo:
+  security.sudo.enable =  true;
+  security.sudo.configFile = ''
+    %wheel ALL=(ALL) ALL
+  '';
 
   environment.systemPackages = with pkgs; [
     alacritty

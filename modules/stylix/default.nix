@@ -3,7 +3,7 @@
   imports = [ stylix.nixosModules.stylix ];
   stylix = {
     enable = true;
-    image = ../../assets/backgrounds/aperture-orange-blue.jpg;
+    image = ../../assets/backgrounds/moon.jpg;
     polarity = "dark";
 
     fonts = {

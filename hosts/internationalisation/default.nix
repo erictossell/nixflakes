@@ -1,6 +1,6 @@
 {
   # Set your time zone.
-  time.timeZone = "America/Toronto";
+  time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -10,7 +10,7 @@
     xkb.variant = "";
   };
   location = {
-    latitude = 43.7;
-    longitude = -79.4;
+    latitude = 42.1;
+    longitude = -88.6;
   };
 }

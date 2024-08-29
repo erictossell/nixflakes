@@ -18,18 +18,18 @@ if [ -z "$CURRENT_SINK" ]; then
 	exit 1
 fi
 
-case "$1" in 
-	--up)
-		volume_up "$CURRENT_SINK"
-		;;
-	--down)
-		volume_down "$CURRENT_SINK"
-		;;
-	--mute)
-		volume_mute "$CURRENT_SINK"
-		;;
-	*)
-		echo "Usage: $0 --up | --down | --mute"
-		exit 1
-		;;
+case "$1" in
+--up)
+	volume_up "$CURRENT_SINK"
+	;;
+--down)
+	volume_down "$CURRENT_SINK"
+	;;
+--mute)
+	volume_mute "$CURRENT_SINK"
+	;;
+*)
+	echo "Usage: $0 --up | --down | --mute"
+	exit 1
+	;;
 esac

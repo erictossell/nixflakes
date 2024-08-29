@@ -11,13 +11,13 @@
       ${pkgs.zoxide}/bin/zoxide init fish | source
     '';
     shellAliases = {
-
-      b = "btop";
       c = "clear";
       e = "exit";
       n = "nvim";
       t = "tmux";
       r = "ranger";
+      h = "htop";
+      nv = "nvtop";  # Won't work if nvidia is not installed
 
       g = "git";
       ga = "git add";

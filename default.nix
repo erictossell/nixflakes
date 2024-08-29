@@ -1,5 +1,7 @@
-{ home-manager, ... }:
 {
+  home-manager,
+  ...
+}: {
   imports = [
     home-manager.nixosModules.home-manager
     ./assets

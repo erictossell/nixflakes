@@ -2,6 +2,7 @@
   pkgs,
   home-manager,
   username,
+  lib,
   ...
 }:
 {
@@ -14,18 +15,18 @@
       enableExtensionUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         golang.go
-        vscodevim.vim
-        #github.copilot
-        github.github-vscode-theme
-        github.vscode-github-actions
-        #ms-python.python
+        #vscodevim.vim
+        github.copilot
+        #github.github-vscode-theme
+        #github.vscode-github-actions
+        ms-python.python
         ms-vscode.powershell
         bbenoist.nix
       ];
       userSettings = {
         "window.titleBarStyle" = "custom";
-        "workbench.colorTheme" = "Github Dark Colorblind (Beta)";
-        "editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace', monospace";
+        "workbench.colorTheme" = lib.mkForce "Dark+ Modern";
+        #"editor.fontFamily" = "'M+1Code Nerd Font','Droid Sans Mono', 'monospace'";
         "github.copilot.enable" = {
           "*" = true;
           "plaintext" = false;

@@ -9,5 +9,9 @@
     ./${DE}
     ./stylix
     ./tailscale
+    ./trunkio
   ];
+
+  # Used for trunk-io
+  programs.nix-ld.enable = true;
 }

@@ -16,8 +16,9 @@ let
     docker
     unblank
     custom-accent-colors
-    tailscale-qs
-    tailscale-status
+    # tailscale-qs
+    # tailscale-status
+    forge   # Tiling manager
   ];
 in
 {
@@ -53,14 +54,14 @@ in
       "org/gnome/desktop/interface" = {
         enable-hot-corners = false;
 
-        gtk-theme = "Nordic";
+        #gtk-theme = "Nordic";
 
         ## Clock
         clock-show-weekday = true;
         clock-show-date = true;
 
         ## Font stuff
-        monospace-font-name = "RobotoMono Nerd Font 10";
+        #monospace-font-name = "RobotoMono Nerd Font 10";
         font-antialiasing = "rgba";
       };
 
@@ -150,9 +151,9 @@ in
         display-all-workspaces = true;
       };
 
-      "org/gnome/shell/extensions/user-theme" = {
-        name = "nordic";
-      };
+      # "org/gnome/shell/extensions/user-theme" = {
+      #   name = "nordic";
+      # };
     };
   };
 
@@ -182,11 +183,11 @@ in
     ])
     ++ (with pkgs.gnome; [
       gnome-music
-      epiphany
-      geary
-      evince
+      #epiphany
+      #geary
+      #evince
       gnome-characters
-      totem
+      #totem
       tali
       iagno
       hitori
