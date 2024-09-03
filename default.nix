@@ -1,5 +1,6 @@
 {
   home-manager,
+  envfs,
   ...
 }: {
   imports = [
@@ -9,4 +10,7 @@
     ./modules
     ./users
   ];
+
+  # Enable envfs
+  services.envfs.enable = true;
 }

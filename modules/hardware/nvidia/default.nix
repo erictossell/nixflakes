@@ -26,7 +26,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    nvtop   # btop for nvidia GPUs
+    nvtopPackages.nvidia   # btop for nvidia GPUs
   ];
 
   users.users.${username} = {

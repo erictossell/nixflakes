@@ -8,7 +8,7 @@
     #./foot
     #./nvim
     ./wezterm
-    #./starship
+    ./starship
     ./tmux
     #./yazi
     ./zsh
