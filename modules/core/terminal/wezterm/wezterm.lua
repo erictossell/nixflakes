@@ -15,10 +15,10 @@ local fish_path = "/run/current-system/sw/bin/fish"
 
 local config = {}
 
--- Use config builder object if possible
+--- Use config builder object if possible
 if wezterm.config_builder then config = wezterm.config_builder() end
 
--- Settings
+--- Settings
 config.default_prog = { fish_path, "-l" }
 
 config.color_scheme = "Tokyo Night"
@@ -26,10 +26,10 @@ config.font = wezterm.font_with_fallback({
   { family = "Iosevka Nerd Font",       scale = 1.2, weight = "Medium", },
   { family = "FantasqueSansM Nerd Font", scale = 1.3, },
 })
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
-config.scrollback_lines = 3000
+config.scrollback_lines = 4000
 config.default_workspace = "main"
 
 -- Dim inactive panes
@@ -120,7 +120,6 @@ config.key_tables = {
 }
 
 -- Tab bar
--- I don't like the look of "fancy" tab bar
 config.use_fancy_tab_bar = false
 config.status_update_interval = 1000
 config.tab_bar_at_bottom = false
@@ -174,7 +173,7 @@ wezterm.on("update-status", function(window, pane)
     { Text = " |" },
   }))
 
-  -- Right status
+  --- Right status
   window:set_right_status(wezterm.format({
     -- Wezterm has a built-in nerd fonts
     -- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
@@ -196,6 +195,7 @@ config.window_padding = {
   right = '0.5cell',
   top = '0.5cell',
   bottom = '0cell',
+
 
 }
 --]]

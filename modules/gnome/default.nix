@@ -49,6 +49,7 @@ in
         "code.desktop"
         "discord.desktop"
         "virt-manager.desktop"
+        "wezterm.desktop"
       ];
 
       "org/gnome/desktop/interface" = {
