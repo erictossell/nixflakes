@@ -13,20 +13,20 @@ volume_mute() {
 # Get the currently active sink
 CURRENT_SINK=$(pactl list short sinks | grep RUNNING | awk '{print $1}')
 
-if [ -z "$CURRENT_SINK" ]; then
+if [[ -z ${CURRENT_SINK} ]]; then
 	echo "No active sink found."
 	exit 1
 fi
 
 case "$1" in
 --up)
-	volume_up "$CURRENT_SINK"
+	volume_up "${CURRENT_SINK}"
 	;;
 --down)
-	volume_down "$CURRENT_SINK"
+	volume_down "${CURRENT_SINK}"
 	;;
 --mute)
-	volume_mute "$CURRENT_SINK"
+	volume_mute "${CURRENT_SINK}"
 	;;
 *)
 	echo "Usage: $0 --up | --down | --mute"
