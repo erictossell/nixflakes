@@ -31,6 +31,7 @@
       prm = "!gh pr merge -d";
     };
     extraConfig = {
+      credential.helper = "oauth";
       color = {
         ui = "auto";
       };

@@ -50,5 +50,6 @@
     fzf
     eza
     devenv
+    cachix
   ];
 }
