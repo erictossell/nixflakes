@@ -184,6 +184,7 @@
           }; # virtualis
       };
 
+      # All systems/hosts get these packages installed
       devShells = forAllSystems (
         system:
         let

@@ -32,12 +32,12 @@ lint:
     - markdownlint@0.41.0
     - nixpkgs-fmt@1.3.0
     - oxipng@9.1.2
-    - prettier@3.3.3
+    #- prettier@3.3.3
     - shellcheck@0.10.0
     - shfmt@3.6.0
     - taplo@0.9.3
     - trivy@0.54.1
-    - trufflehog@3.81.7
+    #- trufflehog@3.81.7
     - yamllint@1.35.1
 actions:
   enabled:

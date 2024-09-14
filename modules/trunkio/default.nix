@@ -1,8 +1,11 @@
 {
   pkgs,
   inputs,
+  outputs,
   ...
 }: {
+  # Setup nix-ld
+  programs.nix-ld.enable = true;
 
   # Need to use nix-ld because trunk-io is a dynamically linked binary
   programs.nix-ld.libraries = with pkgs; [

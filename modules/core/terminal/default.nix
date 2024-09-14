@@ -6,13 +6,14 @@
     ./fonts
     ./fish
     #./foot
-    #./nvim
+    ./nvim
     ./wezterm
     ./starship
     ./tmux
     #./yazi
     ./zsh
     ./bash
+    ./lazygit
   ];
 
   # ---- Home Configuration ----
@@ -46,5 +47,8 @@
     unzip
     vhs
     zoxide
+    fzf
+    eza
+    devenv
   ];
 }

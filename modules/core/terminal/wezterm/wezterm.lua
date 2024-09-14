@@ -32,16 +32,16 @@ config.window_close_confirmation = "AlwaysPrompt"
 config.scrollback_lines = 4000
 config.default_workspace = "main"
 
--- Dim inactive panes
+--- Dim inactive panes
 config.inactive_pane_hsb = {
   saturation = 0.24,
   brightness = 0.5
 }
 
--- Keys
+--- Keys
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-  -- Send C-a when pressing C-a twice
+  --- Send C-a when pressing C-a twice
   { key = "a",          mods = "LEADER|CTRL", action = act.SendKey { key = "a", mods = "CTRL" } },
   { key = "c",          mods = "LEADER",      action = act.ActivateCopyMode },
   { key = "phys:Space", mods = "LEADER",      action = act.ActivateCommandPalette },

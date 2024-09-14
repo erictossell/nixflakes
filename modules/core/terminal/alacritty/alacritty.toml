@@ -3,7 +3,7 @@
 [window]
 dimensions = { columns = 100, lines = 30 }
 padding = { x = 10, y = 10 }
-decorations = "full"  # Options: "full", "none", "transparent", "buttonless"
+decorations = "full"                       # Options: "full", "none", "transparent", "buttonless"
 
 [font]
 normal = { family = "JetBrains Mono", style = "Regular" }
@@ -58,4 +58,3 @@ action = "Copy"
 key = "Q"
 mods = "Control|Shift"
 action = "Quit"
-

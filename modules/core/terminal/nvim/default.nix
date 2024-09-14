@@ -1,5 +1,16 @@
-{ eriixpkgs, system, ... }:
 {
+  pkgs,
+  home-manager,
+  username,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [ neovim ];
   environment.variables.EDITOR = "nvim";
-  environment.systemPackages = [ eriixpkgs.packages.${system}.eriixvim ];
+
+  home-manager.users.${username} = _: {
+    home.file = {
+      ".config/nvim/init.lua".source = ./init.lua;
+    };
+  };
 }
