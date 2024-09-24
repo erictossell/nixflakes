@@ -13,4 +13,7 @@
 
   # Enable envfs
   services.envfs.enable = true;
+
+  # Setup nix-ld
+  programs.nix-ld.enable = true;
 }

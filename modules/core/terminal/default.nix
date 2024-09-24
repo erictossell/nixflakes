@@ -51,5 +51,6 @@
     eza
     devenv
     cachix
+    wget
   ];
 }

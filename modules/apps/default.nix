@@ -8,7 +8,9 @@
     #./libreoffice
     #./obsidian
     ./vscode
+    ./spotify
   ];
+  
   home-manager.users.${username} = {
     home.packages = with pkgs; [
       ticktick

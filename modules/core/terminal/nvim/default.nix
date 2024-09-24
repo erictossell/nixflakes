@@ -5,7 +5,12 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [ neovim ];
+  environment.systemPackages = with pkgs; [
+    neovim
+    libgcc
+    zig
+    unstable.luarocks-nix
+  ];
   environment.variables.EDITOR = "nvim";
 
   home-manager.users.${username} = _: {
