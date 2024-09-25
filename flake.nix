@@ -39,6 +39,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tophvim = {
+      url = "github:topher097/tophvim";
+    };
+    
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";

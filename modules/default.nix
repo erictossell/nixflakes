@@ -5,6 +5,7 @@
     ./apps
     ./core
     ./eriixpkgs
+    ./tophpkgs
     ./hardware
     ./${DE}
     ./stylix
