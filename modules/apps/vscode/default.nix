@@ -20,7 +20,7 @@
         #github.github-vscode-theme
         #github.vscode-github-actions
         ms-python.python
-        ms-vscode.powershell
+        #ms-vscode.powershell
         bbenoist.nix
       ];
       userSettings = {
@@ -33,7 +33,14 @@
           "markdown" = true;
           "scminput" = false;
         };
-        "powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
+        #"powershell.powerShellAdditionalExePaths" = "/run/current-system/sw/bin/pwsh";
+        "files.exclude" = {
+          "**/.trunk/*actions/" = true;
+          "**/.trunk/*logs/" = true;
+          "**/.trunk/*notifications/" = true;
+          "**/.trunk/*out/" = true;
+          "**/.trunk/*plugins/" = true;
+        };
       };
     };
   };

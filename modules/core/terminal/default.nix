@@ -52,5 +52,6 @@
     devenv
     cachix
     wget
+    service-wrapper
   ];
 }

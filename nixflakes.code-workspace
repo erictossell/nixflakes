@@ -4,59 +4,8 @@
 			"path": "."
 		},
 		{
-			"path": "../nix-config"
+			"path": "../tophvim"
 		}
 	],
-	"settings": {
-		"todo-tree.regex.regex": "((\\s|^)($TAGS):)",
-		"todo-tree.filtering.excludeGlobs": [
-			"**/vendor/**",
-			"**/node_modules/**",
-			"**/dist/**",
-			"**/bower_components/**",
-			"**/build/**",
-			"**/.vscode/**",
-			"**/.github/**",
-			"**/_output/**",
-			"**/*.min.*",
-			"**/*.map"
-		],
-		"todo-tree.highlights.defaultHighlight": {
-			"icon": "alert",
-			"type": "text",
-			"foreground": "#FF0000",
-			"background": "#000000",
-			"opacity": 50,
-			"iconColour": "#1900ff"
-		},
-		"todo-tree.general.tags":[
-			"BUG",
-			"HACK",
-			"FIXME",
-			"TODO",
-			"XXX",
-			"LINK",
-			"[ ]",
-			"[x]"
-		],
-		"todo-tree.highlights.customHighlight": {
-			"TODO": {
-				"icon": "check",
-				"type": "line"
-			},
-			"FIXME": {
-				"foreground": "#000000",
-				"iconColour": "#FFF000",
-				"gutterIcon": true
-			},
-			"LINK": {
-				"icon": "link",
-				"type": "text",
-				"foreground": "#000000",
-				"background": "#00e6e6"
-			}
-		},
-		"terminal.integrated.defaultProfile.linux": "bash (2)"
-
-	}
+	"settings": {}
 }
