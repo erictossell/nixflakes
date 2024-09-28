@@ -41,6 +41,13 @@
           "**/.trunk/*out/" = true;
           "**/.trunk/*plugins/" = true;
         };
+        "files.watcherExclude" = {
+          "**/.trunk/*actions/" = true;
+          "**/.trunk/*logs/" = true;
+          "**/.trunk/*notifications/" = true;
+          "**/.trunk/*out/" = true;
+          "**/.trunk/*plugins/" = true;
+        };
       };
     };
   };
