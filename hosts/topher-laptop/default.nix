@@ -5,12 +5,24 @@
   boot.kernelParams = [
     "i8042.direct"
     "i8042.dumbkbd"
+    "usbcore.autosuspend=-1"
     "i915.force_probe=9a49"
   ];
-  
+
+  boot.initrd.kernelModules = [ ];
+
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usbhid"
+    "usb_storage"
+    "sd_mod"
+  ]; 
+ # usbcore.autosuspend = -1;
+
   # ---- System Configurations ----
   powerManagement.powertop.enable = true;
-  #powerManagement.enable = false;
   services.thermald.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 

@@ -48,6 +48,7 @@
     vhs
     zoxide
     fzf
+    tree
     eza
     devenv
     cachix

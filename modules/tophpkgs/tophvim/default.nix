@@ -1,7 +1,5 @@
 {
-  inputs,
   tophvim,
-  nixpkgs,
   pkgs,
   ...
 }: {
