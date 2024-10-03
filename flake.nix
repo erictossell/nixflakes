@@ -62,6 +62,21 @@
       url = "github:Mic92/envfs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # rycee-nurpkgs = {
+    #   url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    nur = {
+      url = "github:nix-community/NUR";
+    };
+
+    # Firefox style
+    penguin-fox = {
+      url = github:p3nguin-kun/penguinFox;
+      flake = false;
+    };
   };
 
   outputs =
@@ -69,6 +84,7 @@
       self,
       nixpkgs,
       envfs,
+      nur,
       ...
     } @ attrs:
     let
@@ -78,34 +94,39 @@
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
     in
     {
+      # nixpkgs.config.packageOverrides = pkgs: {
+      #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      #     inherit pkgs;
+      #   };
+      # };
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays {inherit attrs;};
+      overlays = import ./overlays { inherit attrs; };
 
       nixosConfigurations = {
 
-        # topher-pc =
-        #   let
-        #     system = "x86_64-linux";
-        #   in
-        #   nixpkgs.lib.nixosSystem {
-        #     specialArgs = {
-        #       DE = "hyprland";
-        #       username = "topher";
-        #       hostName = "topher-pc";
-        #       hyprlandConfig = "desktop";
-        #       inherit system;
-        #     } // attrs;
-        #     modules = [
-        #       ./.
-        #       ./modules/hardware/nvidia   # Nvidia hardware
-        #       ./modules/apps/vscode       # VSCode flake
-        #       ./modules/virt              # Virtualization tools
-        #     ];
-        #   }; # topher-pc
+        pgi-desktop =
+          let
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "topher";
+              hostName = "pgi-desktop";
+              hyprlandConfig = "desktop";
+              DE = "gnome";
+              inherit system outputs attrs;
+            } // attrs;
+            modules = [
+              ./.
+              ./modules/hardware/nvidia   # Nvidia hardware
+              ./modules/virt              # Virtualization tools
+            ];
+          }; # pgi-desktop 
+
 
         topher-laptop =
           let

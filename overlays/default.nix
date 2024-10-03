@@ -1,5 +1,10 @@
 # This file defines overlays
-{attrs, ...}: {
+{
+  attrs,
+}:
+{
+
+
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -20,4 +25,25 @@
       config.allowUnfree = true;
     };
   };
+
+   # xargsOverlay = final: _prev: {
+  #   xargs = 
+  #   let
+  #     system = final.system;
+  #   in
+  #   { hidpi }: {
+  #     inherit hidpi;
+  #     inherit (attrs.inputs) penguin-fox;
+  #     inherit (attrs.inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
+  #     addons = final.nur.repos.rycee.firefox-addons;
+  #   };
+  # };
 }
+# in
+# [
+#   #additions
+#   #modifications
+#   unstable-packages
+#   xargsOverlay
+#   attrs.inputs.nurpkgs.overlay
+# ]

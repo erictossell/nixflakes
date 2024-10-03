@@ -1371,6 +1371,37 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1727925163,
+        "narHash": "sha256-nzepnheR8SEx0a2ojbKaofRMUCMkjpZSPUSEJ62n71k=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "fef6427d3cae11fd5402a4b5ba28042a98bf0ef3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
+    "penguin-fox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726840851,
+        "narHash": "sha256-4IpvjcXRDDKi2WpXGa6tlPx4zi/LratUs/33KG1Ycxg=",
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "rev": "ea3f6667cf89c55016914e7a5720948513f1093d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils_5",
@@ -1429,6 +1460,8 @@
         "hyprpicker": "hyprpicker",
         "nixpkgs": "nixpkgs_10",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "nur": "nur",
+        "penguin-fox": "penguin-fox",
         "stylix": "stylix",
         "tophvim": "tophvim"
       }
