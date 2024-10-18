@@ -41,6 +41,16 @@
 
     tophvim = {
       url = "github:topher097/tophvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim?dir=nix";
+
+    #obsidian-nvim.url = "github:epwalsh/obsidian.nvim";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.obsidian-nvim.follows = "obsidian-nvim";
     };
     
     NixOS-WSL = {
@@ -83,6 +93,8 @@
     {
       self,
       nixpkgs,
+      tophvim,
+      nvf,
       envfs,
       nur,
       ...
@@ -92,13 +104,20 @@
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+
+      
+
+      # pkgs = import nixpkgs {
+      #   config = {
+      #     allowUnfree = true;
+      #   };
+      #   overlays = [
+      #     # We provide our `nvim-pkg` package by giving the overlay here.
+      #     tophvim.overlays.default
+      #   ];
+      # };
     in
     {
-      # nixpkgs.config.packageOverrides = pkgs: {
-      #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      #     inherit pkgs;
-      #   };
-      # };
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
@@ -121,6 +140,7 @@
               inherit system outputs attrs;
             } // attrs;
             modules = [
+              #nvf.nixosModules.default
               ./.
               ./modules/apps/ms-teams     # teams-for-linux
               ./modules/hardware/nvidia   # Nvidia hardware

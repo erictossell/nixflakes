@@ -1,7 +1,7 @@
 {
   imports = [
     #./go-time
-    ./homepage-nix
+    #./homepage-nix
     #./russh
   ];
 }

@@ -26,24 +26,11 @@
     };
   };
 
-   # xargsOverlay = final: _prev: {
-  #   xargs = 
-  #   let
+  # # Add overlay for the tophvim package
+  # tophvimOverlay = final: _prev: {
+  #   toph = import attrs.tophvim {
   #     system = final.system;
-  #   in
-  #   { hidpi }: {
-  #     inherit hidpi;
-  #     inherit (attrs.inputs) penguin-fox;
-  #     inherit (attrs.inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
-  #     addons = final.nur.repos.rycee.firefox-addons;
   #   };
   # };
 }
-# in
-# [
-#   #additions
-#   #modifications
-#   unstable-packages
-#   xargsOverlay
-#   attrs.inputs.nurpkgs.overlay
-# ]
+

@@ -6,7 +6,6 @@
     ./fonts
     ./fish
     #./foot
-    #./nvim
     ./wezterm
     ./starship
     ./tmux

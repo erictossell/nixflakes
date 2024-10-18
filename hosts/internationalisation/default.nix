@@ -10,7 +10,8 @@
     xkb.variant = "";
   };
   location = {
-    latitude = 42.1;
-    longitude = -88.6;
+    provider = "manual";
+    latitude = 47.0283;
+    longitude = -88.5251;
   };
 }
