@@ -53,5 +53,6 @@
     cachix
     wget
     service-wrapper
+    just
   ];
 }

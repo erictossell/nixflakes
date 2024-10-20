@@ -2,7 +2,8 @@
   description = "topher's machine specific configuration flake.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
@@ -10,7 +11,7 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,15 +44,6 @@
       url = "github:topher097/tophvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixCats.url = "github:BirdeeHub/nixCats-nvim?dir=nix";
-
-    #obsidian-nvim.url = "github:epwalsh/obsidian.nvim";
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.obsidian-nvim.follows = "obsidian-nvim";
-    };
     
     NixOS-WSL = {
       url = "github:nix-community/NixOS-WSL";
@@ -63,21 +55,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-ld = {
-    #   url = "github:Mic92/nix-ld";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
+    # Env file system
     envfs = {
       url = "github:Mic92/envfs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # rycee-nurpkgs = {
-    #   url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # Weekly updated nix-index database.
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    # Nix User Repository
     nur = {
       url = "github:nix-community/NUR";
     };
@@ -92,10 +82,10 @@
   outputs =
     {
       self,
-      nixpkgs,
       tophvim,
-      nvf,
+      nixpkgs,
       envfs,
+      home-manager,
       nur,
       ...
     } @ attrs:
@@ -103,7 +93,17 @@
       inherit (self) outputs;
       supportedSystems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; });
+
+      nixpkgsFor = forAllSystems (system: import nixpkgs { 
+        inherit system; 
+        config = {
+          allowUnfree = true;
+        };
+        # overlays = [
+        #   # We provide our `nvim-pkg` package by giving the overlay here.
+        #   tophvim.overlays.${system}.default
+        # ];  
+      });
 
       
 
@@ -143,7 +143,7 @@
               #nvf.nixosModules.default
               ./.
               ./modules/apps/ms-teams     # teams-for-linux
-              ./modules/hardware/nvidia   # Nvidia hardware
+              #./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
             ];
           }; # pgi-desktop 
@@ -197,37 +197,37 @@
             modules = [ ./wsl.nix ];
           }; # winix
 
-        vm-temp =
-          let
-            system = "x86_64-linux";
-          in
-          nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = {
-              username = "topher";
-              hostName = "vm-temp";
-              inherit system outputs attrs;
-            } // attrs;
-            modules = [ ./minimal.nix ];
-          }; # vm-temp
+        # vm-temp =
+        #   let
+        #     system = "x86_64-linux";
+        #   in
+        #   nixpkgs.lib.nixosSystem {
+        #     inherit system;
+        #     specialArgs = {
+        #       username = "topher";
+        #       hostName = "vm-temp";
+        #       inherit system outputs inputs;
+        #     } // inputs;
+        #     modules = [ ./minimal.nix ];
+        #   }; # vm-temp
 
-        # Appended new system
-        virtualis =
-          let
-            system = "x86_64-linux";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              username = "topher";
-              DE = "sway";
-              hostName = "virtualis";
-              inherit system outputs attrs;
-            } // attrs;
-            modules = [
-              ./.
-              ./modules/ssh
-            ];
-          }; # virtualis
+        # # Appended new system
+        # virtualis =
+        #   let
+        #     system = "x86_64-linux";
+        #   in
+        #   nixpkgs.lib.nixosSystem {
+        #     specialArgs = {
+        #       username = "topher";
+        #       DE = "sway";
+        #       hostName = "virtualis";
+        #       inherit system outputs attrs;
+        #     } // attrs;
+        #     modules = [
+        #       ./.
+        #       ./modules/ssh
+        #     ];
+        #   }; # virtualis
       };
 
       # All systems/hosts get these packages installed
@@ -241,6 +241,7 @@
             buildInputs = with pkgs; [
               nixfmt
               statix
+              tophvim.nixosModules.${system}.default
             ];
           };
         }

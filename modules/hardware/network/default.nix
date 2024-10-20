@@ -1,5 +1,7 @@
-{ hostName, username, ... }:
+{ lib, hostName, username, ... }:
 {
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+
   networking = {
     networkmanager = {
       enable = true;

@@ -5,14 +5,14 @@
     ./apps
     ./core
     #./eriixpkgs
-    #./tophvim
+    ./tophvim
     ./hardware
     ./${DE}
     ./stylix
     ./tailscale
     ./trunkio
     ./redshift   
-    ./nixcats
+    #./nixcats
   ];
 
   # Used for trunk-io

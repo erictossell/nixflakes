@@ -1,12 +1,15 @@
 {
   pkgs,
+  inputs,
+  system,
   ...
 }: {
 
-  environment.systemPackages = with pkgs; [
-    sqlite
-    nvim-pkg  # The default package added by the overlay
-    #nvim
-  ];
+  # environment.systemPackages = [
+  #   pkgs.sqlite
+  #   #pkgs.nvim-pkg
+  #   inputs.tophvim.nixosModules.${system}.default
+  #   #nvim
+  # ];
   
 }

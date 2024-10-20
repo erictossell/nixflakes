@@ -26,11 +26,9 @@
     };
   };
 
-  # # Add overlay for the tophvim package
-  # tophvimOverlay = final: _prev: {
-  #   toph = import attrs.tophvim {
-  #     system = final.system;
-  #   };
-  # };
+  # Add the overlaty for the tophvim package
+  tophvim = final: prev: {
+    tophvim = import ../modules/tophvim { inherit final prev; };
+  };
 }
 
