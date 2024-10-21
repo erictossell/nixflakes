@@ -40,8 +40,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tophvim = {
-      url = "github:topher097/tophvim";
+    tophpkgs = {
+      url = "github:topher097/tophpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -51,7 +51,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:danth/stylix/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -82,7 +82,7 @@
   outputs =
     {
       self,
-      tophvim,
+      tophpkgs,
       nixpkgs,
       envfs,
       home-manager,
@@ -98,24 +98,8 @@
         inherit system; 
         config = {
           allowUnfree = true;
-        };
-        # overlays = [
-        #   # We provide our `nvim-pkg` package by giving the overlay here.
-        #   tophvim.overlays.${system}.default
-        # ];  
+        }; 
       });
-
-      
-
-      # pkgs = import nixpkgs {
-      #   config = {
-      #     allowUnfree = true;
-      #   };
-      #   overlays = [
-      #     # We provide our `nvim-pkg` package by giving the overlay here.
-      #     tophvim.overlays.default
-      #   ];
-      # };
     in
     {
       # Your custom packages
@@ -140,7 +124,6 @@
               inherit system outputs attrs;
             } // attrs;
             modules = [
-              #nvf.nixosModules.default
               ./.
               ./modules/apps/ms-teams     # teams-for-linux
               #./modules/hardware/nvidia   # Nvidia hardware

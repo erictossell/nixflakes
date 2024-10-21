@@ -26,9 +26,9 @@
     };
   };
 
-  # Add the overlaty for the tophvim package
-  tophvim = final: prev: {
-    tophvim = import ../modules/tophvim { inherit final prev; };
-  };
+  # # Add the overlaty for the tophvim package
+  # tophvim = final: prev: {
+  #   tophvim = import ../modules/tophvim { inherit final prev; };
+  # };
 }
 

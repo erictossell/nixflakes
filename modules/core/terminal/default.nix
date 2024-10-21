@@ -13,6 +13,7 @@
     ./zsh
     ./bash
     ./lazygit
+    ./nvim
   ];
 
   # ---- Home Configuration ----
