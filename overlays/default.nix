@@ -3,8 +3,6 @@
   attrs,
 }:
 {
-
-
   # This one brings our custom packages from the 'pkgs' directory
   additions = final: _prev: import ../pkgs final.pkgs;
 
@@ -25,10 +23,5 @@
       config.allowUnfree = true;
     };
   };
-
-  # # Add the overlaty for the tophvim package
-  # tophvim = final: prev: {
-  #   tophvim = import ../modules/tophvim { inherit final prev; };
-  # };
 }
 

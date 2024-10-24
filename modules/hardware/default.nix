@@ -4,5 +4,6 @@
     ./bluetooth
     ./network
     ./audio
+    ./webcam
   ];
 }
