@@ -11,7 +11,7 @@
   home-manager.users.${username} = {
     programs.chromium = {
       enable = true;
-      package = pkgs.brave;   
+      package = pkgs.brave;
     };
     home.packages = with pkgs; [
       microsoft-edge

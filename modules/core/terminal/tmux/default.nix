@@ -5,10 +5,10 @@
       tmux = {
         enable = true;
         newSession = true;
-        plugins = with pkgs.tmuxPlugins; [ 
-	  gruvbox
-	  yank 
-	];
+        plugins = with pkgs.tmuxPlugins; [
+          gruvbox
+          yank
+        ];
       };
     };
   };
