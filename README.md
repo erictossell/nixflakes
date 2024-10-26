@@ -74,26 +74,25 @@ This repo has become more opinionated over time and now requires passing down va
 
 ```nix
 Resolved URL:  git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
-Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?rev=d436d9ef8af75c42d0432ac77b44336b9f3955bb&shallow=1
+Locked URL:    git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 Description:   Eriim's machine specific configuration flake.
-Path:          /nix/store/q5wwvvc0jxj4w8bgizphwlx9gb590h8x-source
-Revision:      d436d9ef8af75c42d0432ac77b44336b9f3955bb
-Revisions:     1
-Last modified: 2024-08-03 07:30:32
+Path:          /nix/store/mlparrh1x1n2hn1s02rcw8yjw323b10l-source
+Revision:      f5526b637d4d3b611d90b84e80183cb6be003c63-dirty
+Last modified: 2024-10-26 13:12:42
 Inputs:
-├───NixOS-WSL: github:nix-community/NixOS-WSL/f373ad59ae5866f0f98216bd5c71526b373450d2 (2024-07-29 11:38:12)
+├───NixOS-WSL: github:nix-community/NixOS-WSL/5a965cb108fb1f30b29a26dbc29b473f49e80b41 (2024-10-23 21:07:58)
 │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33 (2023-10-04 13:37:54)
-│   ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
+│   ├───flake-utils: github:numtide/flake-utils/c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a (2024-09-17 08:14:13)
 │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
 │   └───nixpkgs follows input 'nixpkgs'
-├───agenix: github:ryantm/agenix/3f1dae074a12feb7327b4bf43cbac0d124488bb7 (2024-07-30 11:30:03)
+├───agenix: github:ryantm/agenix/f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41 (2024-08-10 12:45:04)
 │   ├───darwin follows input ''
 │   ├───home-manager: github:nix-community/home-manager/3bfaacf46133c037bb356193bd2f1765d9dc82c1 (2023-12-20 23:00:17)
 │   │   └───nixpkgs follows input 'agenix/nixpkgs'
 │   ├───nixpkgs follows input 'nixpkgs'
 │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-├───eriixpkgs: github:erictossell/eriixpkgs/6f95c2f89d5d8f6c435d9986058c3af4a14578ae (2024-08-03 05:33:00)
-│   ├───eriixvim: github:erictossell/eriixvim/e61f2d923bc36461bfd567408b9b58959ebc2592 (2024-08-03 05:13:38)
+├───eriixpkgs: github:erictossell/eriixpkgs/aa872ba08f7149360d2767a2e8505042e774fc3c (2024-10-20 00:26:44)
+│   ├───eriixvim: github:erictossell/eriixvim/9cedbe64f84364d2dda4cb0c5f250d2aa701d3a8 (2024-08-11 03:17:14)
 │   │   ├───flake-parts: github:hercules-ci/flake-parts/9227223f6d922fee3c7b190b2cc238a99527bbb7 (2024-07-03 08:15:18)
 │   │   │   └───nixpkgs-lib: https://github.com/NixOS/nixpkgs/archive/5daf0514482af3f97abaefc78a6606365c9108e2.tar.gz?narHash=sha256-Fm2rDDs86sHy0/1jxTOKB1118Q0O3Uc7EC0iXvXKpbI%3D (2024-07-01 23:35:45)
 │   │   ├───nixpkgs: github:nixos/nixpkgs/7e7c39ea35c5cdd002cd4588b03a3fb9ece6fad9 (2024-07-12 07:14:11)
@@ -118,7 +117,7 @@ Inputs:
 │   │       ├───nixpkgs: github:NixOS/nixpkgs/00d80d13810dbfea8ab4ed1009b09100cca86ba8 (2024-07-01 15:47:52)
 │   │       └───treefmt-nix: github:numtide/treefmt-nix/bdb6355009562d8f9313d9460c0d3860f525bc6c (2024-07-02 02:35:53)
 │   │           └───nixpkgs follows input 'eriixpkgs/eriixvim/nixvim/nixpkgs'
-│   ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
+│   ├───flake-utils: github:numtide/flake-utils/c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a (2024-09-17 08:14:13)
 │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
 │   ├───go-time: github:erictossell/go-time/f6fde276a99e8f19ed1e3d5b0f4946383eb4bc35 (2024-07-14 13:24:29)
 │   │   └───nixpkgs: github:NixOS/nixpkgs/7e7c39ea35c5cdd002cd4588b03a3fb9ece6fad9 (2024-07-12 07:14:11)
@@ -129,18 +128,18 @@ Inputs:
 │   │   └───utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
 │   │       └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
 │   ├───nixpkgs follows input 'nixpkgs'
-│   ├───readme-py: github:erictossell/readme-py/6b0cdeb81868a3923d19ecb5087da4c5011aeff1 (2024-07-28 00:13:54)
-│   │   ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
+│   ├───readme-py: github:erictossell/readme-py/e1b327a06ff6a3b5ac2a8ed5a71f174dad5cbda7 (2024-10-20 00:14:49)
+│   │   ├───flake-utils: github:numtide/flake-utils/c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a (2024-09-17 08:14:13)
 │   │   │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-│   │   ├───nixpkgs: github:NixOS/nixpkgs/b73c2221a46c13557b1b3be9c2070cc42cf01eb3 (2024-07-27 06:49:29)
-│   │   └───poetry2nix: github:nix-community/poetry2nix/d11c01e58587e5f21037ed6477465a7f26a32e27 (2024-07-15 10:37:54)
-│   │       ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
+│   │   ├───nixpkgs: github:NixOS/nixpkgs/4c2fcb090b1f3e5b47eaa7bd33913b574a11e0a0 (2024-10-18 13:02:40)
+│   │   └───poetry2nix: github:nix-community/poetry2nix/e67cc181b5bdf5aa46f1340fa9acd3910f6fb122 (2024-10-17 14:02:51)
+│   │       ├───flake-utils: github:numtide/flake-utils/c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a (2024-09-17 08:14:13)
 │   │       │   └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-│   │       ├───nix-github-actions: github:nix-community/nix-github-actions/5163432afc817cf8bd1f031418d1869e4c9d5547 (2023-12-29 15:30:25)
+│   │       ├───nix-github-actions: github:nix-community/nix-github-actions/622f829f5fe69310a866c8a6cd07e747c44ef820 (2024-07-04 04:12:51)
 │   │       │   └───nixpkgs follows input 'eriixpkgs/readme-py/poetry2nix/nixpkgs'
 │   │       ├───nixpkgs follows input 'eriixpkgs/readme-py/nixpkgs'
 │   │       ├───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-│   │       └───treefmt-nix: github:numtide/treefmt-nix/8df5ff62195d4e67e2264df0b7f5e8c9995fd0bd (2024-06-30 12:03:42)
+│   │       └───treefmt-nix: github:numtide/treefmt-nix/4446c7a6fc0775df028c5a3f6727945ba8400e64 (2024-10-03 19:47:24)
 │   │           └───nixpkgs follows input 'eriixpkgs/readme-py/poetry2nix/nixpkgs'
 │   └───russh: github:erictossell/russh/45da95e1260fe25cd7145a23e4111d84b5b8ef7f (2024-07-05 04:45:21)
 │       ├───naersk: github:nix-community/naersk/941ce6dc38762a7cfb90b5add223d584feed299b (2024-06-18 16:21:15)
@@ -148,80 +147,95 @@ Inputs:
 │       ├───nixpkgs: github:NixOS/nixpkgs/1afc5440469f94e7ed26e8648820971b102afdc3 (2024-07-04 10:07:58)
 │       └───utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
 │           └───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
-├───home-manager: github:nix-community/home-manager/afc892db74d65042031a093adb6010c4c3378422 (2024-08-02 20:21:05)
+├───home-manager: github:nix-community/home-manager/93435d27d250fa986bfec6b2ff263161ff8288cb (2024-10-25 22:16:39)
 │   └───nixpkgs follows input 'nixpkgs'
-├───hyprland: git+https://github.com/hyprwm/Hyprland?ref=refs/heads/main&rev=4141e6755022edc19cd37cd7ad077a93b3bae5bd&submodules=1 (2024-08-02 21:16:20)
-│   ├───aquamarine: github:hyprwm/aquamarine/7c3565f9bedc7cb601cc0baa14792247e4dc1d5a (2024-07-30 13:55:39)
+├───hyprland: git+https://github.com/hyprwm/Hyprland?ref=refs/heads/main&rev=0b29caf9ab86518ff474eed5e7d19c12f96ebbd0&submodules=1 (2024-10-26 01:22:37)
+│   ├───aquamarine: github:hyprwm/aquamarine/8d732fa8aff8b12ef2b1e2f00fc8153e41312b72 (2024-10-21 16:13:19)
 │   │   ├───hyprutils follows input 'hyprland/hyprutils'
 │   │   ├───hyprwayland-scanner follows input 'hyprland/hyprwayland-scanner'
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───hyprcursor: github:hyprwm/hyprcursor/4493a972b48f9c3014befbbf381ed5fff91a65dc (2024-07-18 19:19:31)
+│   ├───hyprcursor: github:hyprwm/hyprcursor/0264e698149fcb857a66a53018157b41f8d97bb0 (2024-10-11 18:02:18)
 │   │   ├───hyprlang follows input 'hyprland/hyprlang'
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───hyprlang: github:hyprwm/hyprlang/adbefbf49664a6c2c8bf36b6487fd31e3eb68086 (2024-07-18 17:39:21)
+│   ├───hyprland-protocols: github:hyprwm/hyprland-protocols/a7c183800e74f337753de186522b9017a07a8cee (2024-10-07 23:50:20)
+│   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
+│   │   └───systems follows input 'hyprland/systems'
+│   ├───hyprlang: github:hyprwm/hyprlang/f054f2e44d6a0b74607a6bc0f52dba337a3db38e (2024-10-05 22:50:12)
 │   │   ├───hyprutils follows input 'hyprland/hyprutils'
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───hyprutils: github:hyprwm/hyprutils/5dcbbc1e3de40b2cecfd2007434d86e924468f1f (2024-07-27 16:47:29)
+│   ├───hyprutils: github:hyprwm/hyprutils/fd4be8b9ca932f7384e454bcd923c5451ef2aa85 (2024-10-14 21:27:36)
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───hyprwayland-scanner: github:hyprwm/hyprwayland-scanner/a048a6cb015340bd82f97c1f40a4b595ca85cc30 (2024-07-18 17:35:19)
+│   ├───hyprwayland-scanner: github:hyprwm/hyprwayland-scanner/500c81a9e1a76760371049a8d99e008ea77aa59e (2024-09-20 23:27:16)
 │   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
 │   │   └───systems follows input 'hyprland/systems'
-│   ├───nixpkgs: github:NixOS/nixpkgs/52ec9ac3b12395ad677e8b62106f0b98c1f8569d (2024-07-28 16:52:11)
+│   ├───nixpkgs: github:NixOS/nixpkgs/1997e4aa514312c1af7e2bda7fad1644e778ff26 (2024-10-20 08:35:21)
+│   ├───pre-commit-hooks: github:cachix/git-hooks.nix/3c3e88f0f544d6bb54329832616af7eb971b6be6 (2024-10-16 18:45:14)
+│   │   ├───flake-compat: github:edolstra/flake-compat/0f9255e01c2351cc7d116c072cb317785dd33b33 (2023-10-04 13:37:54)
+│   │   ├───gitignore: github:hercules-ci/gitignore.nix/637db329424fd7e46cf4185293b9cc8c88c95394 (2024-02-28 02:28:52)
+│   │   │   └───nixpkgs follows input 'hyprland/pre-commit-hooks/nixpkgs'
+│   │   ├───nixpkgs follows input 'hyprland/nixpkgs'
+│   │   └───nixpkgs-stable: github:NixOS/nixpkgs/194846768975b7ad2c4988bdb82572c00222c0d7 (2024-07-07 21:02:49)
 │   ├───systems: github:nix-systems/default-linux/31732fcf5e8fea42e59c2488ad31a0e651500f68 (2023-07-14 15:19:09)
-│   └───xdph: github:hyprwm/xdg-desktop-portal-hyprland/7f2a77ddf60390248e2a3de2261d7102a13e5341 (2024-07-30 18:59:36)
-│       ├───hyprland-protocols: github:hyprwm/hyprland-protocols/5a11232266bf1a1f5952d5b179c3f4b2facaaa84 (2024-07-18 18:15:55)
-│       │   ├───nixpkgs follows input 'hyprland/xdph/nixpkgs'
-│       │   └───systems follows input 'hyprland/xdph/systems'
+│   └───xdph: github:hyprwm/xdg-desktop-portal-hyprland/fb9c8d665af0588bb087f97d0f673ddf0d501787 (2024-10-05 22:23:07)
+│       ├───hyprland-protocols follows input 'hyprland/hyprland-protocols'
 │       ├───hyprlang follows input 'hyprland/hyprlang'
+│       ├───hyprutils follows input 'hyprland/hyprutils'
+│       ├───hyprwayland-scanner follows input 'hyprland/hyprwayland-scanner'
 │       ├───nixpkgs follows input 'hyprland/nixpkgs'
 │       └───systems follows input 'hyprland/systems'
-├───hyprlock: github:hyprwm/hyprlock/c7fa5026c074dc1670a6665cdfece41d920d35b1 (2024-08-02 18:39:54)
-│   ├───hyprlang: github:hyprwm/hyprlang/adbefbf49664a6c2c8bf36b6487fd31e3eb68086 (2024-07-18 17:39:21)
+├───hyprlock: github:hyprwm/hyprlock/ae3bb0fd43d6129520ec4b1f022976e7b929dcde (2024-10-25 21:04:56)
+│   ├───hyprlang: github:hyprwm/hyprlang/f054f2e44d6a0b74607a6bc0f52dba337a3db38e (2024-10-05 22:50:12)
 │   │   ├───hyprutils follows input 'hyprlock/hyprutils'
 │   │   ├───nixpkgs follows input 'hyprlock/nixpkgs'
 │   │   └───systems follows input 'hyprlock/systems'
-│   ├───hyprutils: github:hyprwm/hyprutils/962582a090bc233c4de9d9897f46794280288989 (2024-07-18 17:35:02)
+│   ├───hyprutils: github:hyprwm/hyprutils/3f5293432b6dc6a99f26aca2eba3876d2660665c (2024-09-25 21:44:05)
 │   │   ├───nixpkgs follows input 'hyprlock/nixpkgs'
 │   │   └───systems follows input 'hyprlock/systems'
 │   ├───nixpkgs follows input 'nixpkgs'
 │   └───systems: github:nix-systems/default-linux/31732fcf5e8fea42e59c2488ad31a0e651500f68 (2023-07-14 15:19:09)
-├───hyprpicker: github:hyprwm/hyprpicker/c36676ad0c08312ee07f061e210991f0176d6747 (2024-07-18 18:01:51)
-│   ├───hyprutils: github:hyprwm/hyprutils/962582a090bc233c4de9d9897f46794280288989 (2024-07-18 17:35:02)
+├───hyprpicker: github:hyprwm/hyprpicker/89b9352d26cc0fd13cd6dc0a77ac18c795a44e59 (2024-10-24 22:51:22)
+│   ├───hyprutils: github:hyprwm/hyprutils/3f5293432b6dc6a99f26aca2eba3876d2660665c (2024-09-25 21:44:05)
+│   │   ├───nixpkgs follows input 'hyprpicker/nixpkgs'
+│   │   └───systems follows input 'hyprpicker/systems'
+│   ├───hyprwayland-scanner: github:hyprwm/hyprwayland-scanner/500c81a9e1a76760371049a8d99e008ea77aa59e (2024-09-20 23:27:16)
 │   │   ├───nixpkgs follows input 'hyprpicker/nixpkgs'
 │   │   └───systems follows input 'hyprpicker/systems'
 │   ├───nixpkgs follows input 'nixpkgs'
 │   └───systems: github:nix-systems/default-linux/31732fcf5e8fea42e59c2488ad31a0e651500f68 (2023-07-14 15:19:09)
-├───nixpkgs: github:NixOS/nixpkgs/9f918d616c5321ad374ae6cb5ea89c9e04bf3e58 (2024-07-31 10:19:44)
-└───stylix: github:danth/stylix/feb2973dfa8232c07efbd2b48f11a5cfa2276570 (2024-07-29 23:21:31)
+├───nixpkgs: github:NixOS/nixpkgs/2768c7d042a37de65bb1b5b3268fc987e534c49d (2024-10-23 06:41:50)
+└───stylix: github:danth/stylix/fb9399b7e2c855f42dae76a363bab28d4f24aa8d (2024-10-19 23:33:13)
     ├───base16: github:SenchoPens/base16.nix/665b3c6748534eb766c777298721cece9453fdae (2024-02-25 19:47:46)
     │   └───fromYaml: github:SenchoPens/fromYaml/11fbbbfb32e3289d3c631e0134a23854e7865c84 (2023-07-16 23:25:21)
     ├───base16-fish: github:tomyun/base16-fish/2f6dd973a9075dabccd26f1cded09508180bf5fe (2021-06-01 15:05:57)
-    ├───base16-foot: github:tinted-theming/base16-foot/eedbcfa30de0a4baa03e99f5e3ceb5535c2755ce (2023-10-08 00:45:48)
-    ├───base16-helix: github:tinted-theming/base16-helix/34f41987bec14c0f3f6b2155c19787b1f6489625 (2024-07-12 18:43:34)
-    ├───base16-kitty: github:kdrag0n/base16-kitty/06bb401fa9a0ffb84365905ffbb959ae5bf40805 (2022-10-05 20:22:08)
-    ├───base16-tmux: github:tinted-theming/base16-tmux/c02050bebb60dbb20cb433cd4d8ce668ecc11ba7 (2023-10-08 00:45:02)
+    ├───base16-helix: github:tinted-theming/base16-helix/7f795bf75d38e0eea9fed287264067ca187b88a9 (2024-09-09 05:46:35)
     ├───base16-vim: github:tinted-theming/base16-vim/6e955d704d046b0dc3e5c2d68a2a6eeffd2b5d3d (2024-05-19 20:21:23)
     ├───flake-compat: github:edolstra/flake-compat/35bb57c0c8d8b62bbfd284272c928ceb64ddbde9 (2023-01-17 11:47:33)
+    ├───flake-utils: github:numtide/flake-utils/b1d9ab70662946ef0850d488da1c9019f3a9752a (2024-03-11 08:33:50)
+    │   └───systems follows input 'stylix/systems'
     ├───gnome-shell: github:GNOME/gnome-shell/0d0aadf013f78a7f7f1dc984d0d812971864b934 (2024-04-21 12:24:51)
-    ├───home-manager: github:nix-community/home-manager/e3ad5108f54177e6520535768ddbf1e6af54b59d (2024-05-17 07:24:04)
+    ├───home-manager: github:nix-community/home-manager/c2cd2a52e02f1dfa1c88f95abeb89298d46023be (2024-08-23 17:56:03)
     │   └───nixpkgs follows input 'stylix/nixpkgs'
-    └───nixpkgs follows input 'nixpkgs'
+    ├───nixpkgs follows input 'nixpkgs'
+    ├───systems: github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e (2023-04-09 08:27:08)
+    ├───tinted-foot: github:tinted-theming/tinted-foot/eedbcfa30de0a4baa03e99f5e3ceb5535c2755ce (2023-10-08 00:45:48)
+    ├───tinted-kitty: github:tinted-theming/tinted-kitty/eb39e141db14baef052893285df9f266df041ff8 (2024-05-23 00:13:09)
+    └───tinted-tmux: github:tinted-theming/tinted-tmux/c02050bebb60dbb20cb433cd4d8ce668ecc11ba7 (2023-10-08 00:45:02)
 
 ```
 
 ### Flake Outputs
 
 ```nix
-git+file:///home/runner/work/nixflakes/nixflakes?rev=d436d9ef8af75c42d0432ac77b44336b9f3955bb&shallow=1
+git+file:///home/runner/work/nixflakes/nixflakes?shallow=1
 ├───devShells
 │   └───x86_64-linux
 │       └───default: development environment 'nix-shell'
 ├───formatter
-│   └───x86_64-linux: package 'nixfmt-unstable-2024-07-12'
+│   └───x86_64-linux: package 'nixfmt-unstable-2024-08-16'
 ├───nixosConfigurations
 │   ├───arkhitekton: NixOS configuration
 │   ├───live-image: NixOS configuration

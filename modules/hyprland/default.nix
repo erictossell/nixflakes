@@ -27,6 +27,10 @@
       #theme.name = "adw-gtk3-dark";
       #theme.package = pkgs.adw-gtk3;
     };
+    #programs.eww = {
+    #  enable = true;
+    #  configDir = ./eww;
+    #};
   };
 
   environment = {
@@ -45,6 +49,7 @@
       xdg-utils
       xfce.thunar
       xfce.tumbler
+      xfce.thunar-volman
     ];
   };
 

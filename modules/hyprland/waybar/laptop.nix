@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 {
   home-manager.users.${username} = _: {
     home.file = {
@@ -15,7 +15,7 @@
         	"on-click": "/run/current-system/sw/bin/wofi --show drun"
         },
         	"hyprland/workspaces": {
-        	"format": "{name} {icon}",
+        	"format": "{icon}",
         	"tooltip": false,
         	"all-outputs": true,
         	"format-icons": {
@@ -71,7 +71,7 @@
         	},    
         	"backlight": {
         	"device": "intel_backlight",
-        	"format": "<span color='#2da14c'>{icon}</span> {percent}%",
+        	"format": "<span>{icon}</span> {percent}%",
         	"format-icons": ["", "", "", "", "", "", "", "", ""],
         	"on-scroll-up": "brightnessctl set +2%",
         	"on-scroll-down": "brightnessctl set 2%-",
@@ -154,7 +154,7 @@
 
       ".config/waybar/style.css".text = ''
         * {
-        	font-family: 'M+1Code Nerd Font';
+        	font-family: 'Jetbrains Mono';
         	font-size: 16px;
         	min-height: 30px;
         }
@@ -165,7 +165,7 @@
 
         #workspaces {
         	background-color: transparent;
-        	color: #0d74bd;
+        	color: #0a60ab;
         	margin-top: 15px;
         	margin-right: 15px;
         	padding-top: 1px;
@@ -189,14 +189,14 @@
         	color: #0a60ab;
         }
 
-        #workspaces button {
+        #workspaces button.active {
         	background: transparent;
-        	color: #0d74bd;
+        	color: #CB7820;
         }
 
         #cpu, #memory, #temperature, #disk, #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #custom-power {
         	background-color: transparent;
-        	color: #00ba69;
+        	color: #0888B9;
         	margin-top: 15px;
         	padding-left: 10px;
         	padding-right: 10px;
@@ -204,11 +204,11 @@
         }
 
         #cpu {
-        	color: #FFD700;
+        	color: #CB7820;
         }
 
         #memory {
-        	color: #008000;
+        	color: #0888B9;
         }
 
         #disk {
@@ -223,17 +223,17 @@
         }
 
         #network {
-        	color: #10a140;
+        	color: #0888B9;
         	padding-left: 5px;
         }
 
         #pulseaudio {
-        	color: #ba23d9;
+        	color: #CB7820;
         	padding-left: 5px;
         }
 
         #clock {
-        	color: #00ba69;
+        	color: #0888B9;
         }
       '';
     };

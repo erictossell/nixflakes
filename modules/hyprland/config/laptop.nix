@@ -16,7 +16,7 @@
                 #monitor=edp-1,3840 x 2160,auto,auto
                 monitor=,preferred,auto,auto
 
-                exec-once = swww-daemon & swww img ~/.config/backgrounds/porthole.jpg & mako & lxqt-policykit-agent & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+                exec-once = swww-daemon & swww img ~/.config/backgrounds/aperture-orange-blue.jpg & mako & lxqt-policykit-agent & hypridle & dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
                 # some default env vars.
                 env=BROWSER, firefox
@@ -55,14 +55,6 @@
                 bind = ,xF86AudioNext, exec, playerctl next
                 bind = ,xF86AudioPrev, exec, playerctl previous
 
-                $w1 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-                $w2 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/1A1C23.png"
-                $w3 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-                $w4 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-                $w5 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-                $w6 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-                $w7 = hyprctl hyprpaper wallpaper "eDP-1, ~/.config/backgrounds/232136.png"
-
                 $wA = Alpha
                 $wB = Bravo
                 $wC = Charlie
@@ -87,7 +79,7 @@
                 	gaps_in = 5
                 	gaps_out = 10
                 	border_size = 2
-                	col.active_border = rgba(0D599Fee) rgba(ffffffee) 45deg
+                	col.active_border = rgba(CB7820ee) rgba(0888B9ee) 45deg
                 	col.inactive_border = rgba(595959aa)
                 	layout = dwindle
                 	resize_on_border = yes
