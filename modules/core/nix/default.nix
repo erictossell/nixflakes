@@ -5,6 +5,7 @@
   outputs,
   lib,
   config,
+  customArgs,
   ...
 }: {
   imports = [ ./nh ];
@@ -54,7 +55,18 @@
       home.stateVersion = "24.05";
       nixpkgs.config.allowUnfree = true;
     };
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    extraSpecialArgs = {
+      inherit attrs customArgs;
+    };
   };
+
+  # home = {
+  #   username = "${username}";
+  #   homeDirectory = "/home/${username}";
+  #   stateVersion = "24.05";
+  # };
 
   nixpkgs = {
     # You can add overlays here
@@ -71,6 +83,10 @@
       allowUnfree = true;
     };
   };
+
+  # programs.home-manager = {
+  #   enable = true;
+  # };
 
   programs.direnv = {
     enable = true;

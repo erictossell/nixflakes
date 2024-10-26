@@ -1,5 +1,8 @@
 result/*
 result
+
+
+# Windows and other OS files
 *.qcow2
 *.iso
-.venv
+**/windows*

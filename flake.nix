@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim.url  = "github:konradmalik/neovim-flake";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -126,7 +128,7 @@
             modules = [
               ./.
               ./modules/apps/ms-teams     # teams-for-linux
-              #./modules/hardware/nvidia   # Nvidia hardware
+              ./modules/hardware/nvidia   # Nvidia hardware
               ./modules/virt              # Virtualization tools
             ];
           }; # pgi-desktop 

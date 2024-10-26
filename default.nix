@@ -18,6 +18,23 @@
   # Setup nix-ld
   programs.nix-ld.enable = true;
 
+  # home = {
+  #   packages = with pkgs; [
+  #     # make linux people at home
+  #     coreutils
+  #     # make sure we use gnu versions of common commands
+  #     findutils
+  #     gawk
+  #     gnugrep
+  #     gnused
+  #   ];
+
+  #   sessionVariables = {
+  #     XDG_RUNTIME_DIR = "$TMPDIR";
+  #   };
+  # };
+
+
 
   # packageOverrides = pkgs_: (with pkgs_; {
   #   # stable = import <nixos> { inherit config; };

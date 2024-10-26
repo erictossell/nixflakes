@@ -55,5 +55,6 @@
     wget
     service-wrapper
     just
+    which
   ];
 }
