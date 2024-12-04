@@ -12,7 +12,7 @@
 
   # Enable Flakes and nix-commands, enable removing channels
   nix = {
-    package = pkgs.nixVersions.nix_2_21;
+    #package = pkgs.nixVersions.nix_2_21;
     nixPath = [ "nixpkgs=/run/current-system/nixpkgs" ];
     settings.experimental-features = [
       "nix-command"
