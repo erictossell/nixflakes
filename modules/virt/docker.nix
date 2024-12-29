@@ -6,6 +6,6 @@
   virtualisation.docker = {
     enable = true;
   };
-  # User permissions 
+  # User permissions
   users.users.${username}.extraGroups = [ "docker" ];
 }

@@ -33,7 +33,8 @@
     ];
   };
 
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/23171576-c555-45da-b1c2-ac3ea32912f9";
+  boot.initrd.luks.devices."crypted".device =
+    "/dev/disk/by-uuid/23171576-c555-45da-b1c2-ac3ea32912f9";
 
   fileSystems."/.swapvol" = {
     device = "/dev/disk/by-uuid/0959a069-0972-4c2f-b224-022fc6408357";
