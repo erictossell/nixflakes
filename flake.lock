@@ -180,11 +180,11 @@
         "russh": "russh"
       },
       "locked": {
-        "lastModified": 1735512977,
-        "narHash": "sha256-R2s719LAlry9MRPSErotGU7P2XmvjdXj6Ic0Ax93Gm4=",
+        "lastModified": 1735513756,
+        "narHash": "sha256-newT5zZTAxD04fZ6pNTcX0ywWO2Icy+XcyxskzdnNNM=",
         "owner": "erictossell",
         "repo": "eriixpkgs",
-        "rev": "76393f7d3009976dda1c68c0b002b056685a81c9",
+        "rev": "a34f702c2d5964a39ccca92b661c9d4911a2d67b",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1735512810,
-        "narHash": "sha256-pzxIeea0GsDGezAQG7RadglWcNPkIsCERc122BfzNYQ=",
+        "lastModified": 1735513725,
+        "narHash": "sha256-l0YFePhr0ameQQ7rvgpfeB0EsfkQIq5FCZ2YcQeM6eM=",
         "owner": "erictossell",
         "repo": "eriixvim",
-        "rev": "0c25ce84d832cdd384c5bf9f7a7fcdbea182702e",
+        "rev": "ce90f6ad4c321a17d81dd927f52a8c95c4794e85",
         "type": "github"
       },
       "original": {
@@ -768,11 +768,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1735496480,
-        "narHash": "sha256-RMxrNhrEh6Sn/lF9uDA8V1Z4rPHyde+y4e8mRDa6BTg=",
+        "lastModified": 1735513757,
+        "narHash": "sha256-Vb8OXyDbSjOGFNYSxUYYMZgMgIIwk6BqIeeNO/eUCwE=",
         "ref": "refs/heads/main",
-        "rev": "deb077c34653eab251bfe71970bb5987913e7c6d",
-        "revCount": 5600,
+        "rev": "5b37d53992f3f9bfd7f5483a85f99adf7ac104f3",
+        "revCount": 5601,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
