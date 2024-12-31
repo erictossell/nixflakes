@@ -22,7 +22,8 @@
         "virtio_blk"
       ];
       kernelModules = [ ];
-      luks.devices."luks-d719ccb3-3478-4b82-a67a-c9e1286a727c".device = "/dev/disk/by-uuid/d719ccb3-3478-4b82-a67a-c9e1286a727c";
+      luks.devices."luks-d719ccb3-3478-4b82-a67a-c9e1286a727c".device =
+        "/dev/disk/by-uuid/d719ccb3-3478-4b82-a67a-c9e1286a727c";
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
