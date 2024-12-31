@@ -14,7 +14,7 @@
       };
 
       ".config/hypr/hyprland.conf".text = ''
-                                monitor=DP-2,preferred,1080x400,1
+                                monitor=DP-2,highres,1080x400,1
                                 monitor=HDMI-A-1,preferred,3640x400,1
                                 monitor=DP-1,preferred,0x0,1,transform,3
                                 monitor=,preferred,auto,auto
@@ -35,6 +35,9 @@
 
                                 env=QT_AUTO_SCREEN_SCALE_FACTOR,1
                                 env=QT_QPA_PLATFORM,wayland
+
+				env = GDK_SCALE,2
+				env = XCURSORSIZE,32
 
 
                                 $mainMod = SUPER
@@ -140,6 +143,11 @@
                                 	swallow_regex = ^(foot)$
                                 	background_color = 0x232136
                                 }
+
+				xwayland {
+				  force_zero_scaling = true
+				}
+
                                 windowrulev2 = float,title:^(Yazi)
         			windowrulev2 = size 600 400,title:^(Yazi)(.*)$
 

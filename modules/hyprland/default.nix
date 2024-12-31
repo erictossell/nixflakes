@@ -24,18 +24,10 @@
       enable = true;
       cursorTheme.name = "Adwaita";
       cursorTheme.package = pkgs.adwaita-icon-theme;
-      #theme.name = "adw-gtk3-dark";
-      #theme.package = pkgs.adw-gtk3;
     };
-    #programs.eww = {
-    #  enable = true;
-    #  configDir = ./eww;
-    #};
   };
 
   environment = {
-    # Deprecated
-    #sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
       gammastep
@@ -47,6 +39,7 @@
       wl-clipboard
       # Required if applications are having trouble opening links
       xdg-utils
+
       xfce.thunar
       xfce.tumbler
       xfce.thunar-volman

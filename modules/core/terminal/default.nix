@@ -28,6 +28,7 @@
     brightnessctl
     btop
     gh
+    ghostty
     mods
     nitch
     pavucontrol
