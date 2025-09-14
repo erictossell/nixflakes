@@ -154,6 +154,21 @@
               ./modules/ssh
             ];
           }; # virtualis
+        # Appended new system
+	ostium =
+       	let system = "x86_64-linux";
+	in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "et0";
+	    DE = "hyprland";
+            hostName = "ostium";
+            hyprlandConfig = "laptop";
+	    inherit system;
+          } // attrs;        
+          modules = [
+            ./.
+          ];
+        }; # ostium
       }; # configurations
 
       devShells = forAllSystems (
