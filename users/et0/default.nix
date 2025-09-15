@@ -1,8 +1,7 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 {
-# Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.et0 = {
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
     isNormalUser = true;
     initialPassword = "temp123";
     extraGroups = [ "wheel" "input" ];
