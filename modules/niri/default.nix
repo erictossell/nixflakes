@@ -1,5 +1,8 @@
 { pkgs, ...}:
 {
+  imports = [
+    ./waybar
+  ];
   programs.niri.enable = true;
 
   environment.systemPackages = with pkgs; [

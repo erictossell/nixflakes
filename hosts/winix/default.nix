@@ -10,7 +10,6 @@
   wsl = {
     enable = true;
     defaultUser = "${username}";
-    nativeSystemd = true;
   };
 
   networking.hostName = "${hostName}";
