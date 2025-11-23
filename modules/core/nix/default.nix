@@ -4,7 +4,7 @@
 
   # https://github.com/lovesegfault/nix-config/blob/e412cd01cda084c7e3f5c1fbcf7d99665999949e/core/nixos.nix#L39
   system = {
-    extraSystemBuilderCmds = ''
+    systemBuilderCommands = ''
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
     stateVersion = "23.05";
