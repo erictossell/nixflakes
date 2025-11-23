@@ -3,6 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -153,22 +158,22 @@
               ./.
               ./modules/ssh
             ];
-          }; # virtualis
-        # Appended new system
-	ostium =
+          };
+
+	et007 =
        	let system = "x86_64-linux";
 	in nixpkgs.lib.nixosSystem {
           specialArgs = {
-            username = "et0";
-	    DE = "hyprland";
-            hostName = "ostium";
+            username = "eto";
+	    DE = "niri";
+            hostName = "et007";
             hyprlandConfig = "laptop";
 	    inherit system;
           } // attrs;        
           modules = [
             ./.
           ];
-        }; # ostium
+        }; # et007
       }; # configurations
 
       devShells = forAllSystems (
