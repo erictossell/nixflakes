@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,7 +72,8 @@
               hostName = "arkhitekton";
               hyprlandConfig = "desktop";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [
               ./.
               ./modules/hardware/nvidia
@@ -92,7 +93,8 @@
               hyprlandConfig = "laptop";
               DE = "hyprland";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [
               ./.
               ./modules/virt/podman.nix
@@ -110,7 +112,8 @@
               hostName = "live-image";
               hyprlandConfig = "laptop";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [ ./minimal.nix ];
           }; # live-image
 
@@ -124,7 +127,8 @@
               username = "eriim";
               hostName = "winix";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [ ./wsl.nix ];
           }; # winix
 
@@ -138,7 +142,8 @@
               username = "eriim";
               hostName = "vm-temp";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [ ./minimal.nix ];
           }; # vm-temp
 
@@ -153,27 +158,31 @@
               DE = "sway";
               hostName = "virtualis";
               inherit system;
-            } // attrs;
+            }
+            // attrs;
             modules = [
               ./.
               ./modules/ssh
             ];
           };
 
-	et007 =
-       	let system = "x86_64-linux";
-	in nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            username = "eto";
-	    DE = "niri";
-            hostName = "et007";
-            hyprlandConfig = "laptop";
-	    inherit system;
-          } // attrs;        
-          modules = [
-            ./.
-          ];
-        }; # et007
+        et007 =
+          let
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              username = "eto";
+              DE = "niri";
+              hostName = "et007";
+              hyprlandConfig = "laptop";
+              inherit system;
+            }
+            // attrs;
+            modules = [
+              ./.
+            ];
+          }; # et007
       }; # configurations
 
       devShells = forAllSystems (
