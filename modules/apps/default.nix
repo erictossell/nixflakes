@@ -14,11 +14,14 @@
       package = pkgs.brave;
     };
     home.packages = with pkgs; [
-      microsoft-edge
-      ticktick
+      #microsoft-edge
+      #ticktick
+
+      mullvad-vpn
+      mullvad-browser
       remmina
-      openvpn
-      vivaldi
+      #openvpn
+      #vivaldi
       vscode
     ];
 
